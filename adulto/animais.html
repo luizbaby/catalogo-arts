@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Animais</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    * { box-sizing: border-box; }
+    body { font-family: sans-serif; margin: 0; background: #f4f4f4; }
+    .top-bar { position: sticky; top: 0; background: white; display: flex; justify-content: space-between; align-items: center; padding: 10px 20px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); z-index: 1000; }
+    .top-bar h1 { font-size: 18px; margin: 0; }
+    .btn { background: #01b9b5; color: white; text-decoration: none; padding: 8px 14px; border-radius: 6px; margin-left: 10px; font-size: 14px; cursor: pointer; }
+    .grid { display: grid; grid-template-columns: repeat(1, 1fr); gap: 20px; padding: 20px; }
+    @media (min-width: 768px) { .grid { grid-template-columns: repeat(3, 1fr); } }
+    .card { background: white; padding: 10px; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); text-align: center; position: relative; }
+    .card img { width: 100%; border-radius: 8px; cursor: pointer; }
+    .card span { display: block; margin-top: 8px; font-weight: bold; }
+    .checkbox-select { position: absolute; top: 10px; left: 10px; transform: scale(1.5); }
+    .favorito-btn { position: absolute; top: 10px; right: 10px; background: none; border: none; font-size: 20px; cursor: pointer; }
+    .favorito-btn.favorito { color: red; }
+    .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); z-index: 9999; align-items: center; justify-content: center; flex-direction: column; }
+    .modal img { max-width: 90vw; max-height: 80vh; }
+    .modal button { margin-top: 10px; padding: 8px 20px; font-size: 14px; }
+  </style>
+</head>
+<body>
+<div class="top-bar">
+  <div>
+    <a href="index.html" class="btn">&larr; Voltar</a>
+    <button class="btn" onclick="compartilharSelecionadas()">🔗 Compartilhar selecionadas</button>
+  </div>
+  <h1>Animais</h1>
+  <a href="/favoritos.html" class="btn">⭐ Ver favoritos</a>
+</div>
+<div class="grid">
+<div class="card">
+              <input type="checkbox" class="checkbox-select" value="animais/Arca de Noé (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('animais/Arca de Noé (STILL).jpg', this)">🤍</button>
+              <img src="animais/Arca de Noé (STILL).jpg" alt="Arca de Noé (STILL)" onclick="abrirModal('animais/Arca de Noé (STILL).jpg')">
+              <span>Arca de Noé (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="animais/Arca de Noé.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('animais/Arca de Noé.jpg', this)">🤍</button>
+              <img src="animais/Arca de Noé.jpg" alt="Arca de Noé" onclick="abrirModal('animais/Arca de Noé.jpg')">
+              <span>Arca de Noé</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="animais/Chinoiserie Azul Marinho (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('animais/Chinoiserie Azul Marinho (STILL).jpg', this)">🤍</button>
+              <img src="animais/Chinoiserie Azul Marinho (STILL).jpg" alt="Chinoiserie Azul Marinho (STILL)" onclick="abrirModal('animais/Chinoiserie Azul Marinho (STILL).jpg')">
+              <span>Chinoiserie Azul Marinho (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="animais/Chinoiserie Off White (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('animais/Chinoiserie Off White (STILL).jpg', this)">🤍</button>
+              <img src="animais/Chinoiserie Off White (STILL).jpg" alt="Chinoiserie Off White (STILL)" onclick="abrirModal('animais/Chinoiserie Off White (STILL).jpg')">
+              <span>Chinoiserie Off White (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="animais/Chinoiserie Pêssego (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('animais/Chinoiserie Pêssego (STILL).jpg', this)">🤍</button>
+              <img src="animais/Chinoiserie Pêssego (STILL).jpg" alt="Chinoiserie Pêssego (STILL)" onclick="abrirModal('animais/Chinoiserie Pêssego (STILL).jpg')">
+              <span>Chinoiserie Pêssego (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="animais/Chinoiserie Verde (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('animais/Chinoiserie Verde (STILL).jpg', this)">🤍</button>
+              <img src="animais/Chinoiserie Verde (STILL).jpg" alt="Chinoiserie Verde (STILL)" onclick="abrirModal('animais/Chinoiserie Verde (STILL).jpg')">
+              <span>Chinoiserie Verde (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="animais/Cisnes Areia (2).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('animais/Cisnes Areia (2).jpg', this)">🤍</button>
+              <img src="animais/Cisnes Areia (2).jpg" alt="Cisnes Areia (2)" onclick="abrirModal('animais/Cisnes Areia (2).jpg')">
+              <span>Cisnes Areia (2)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="animais/Cisnes Areia (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('animais/Cisnes Areia (STILL).jpg', this)">🤍</button>
+              <img src="animais/Cisnes Areia (STILL).jpg" alt="Cisnes Areia (STILL)" onclick="abrirModal('animais/Cisnes Areia (STILL).jpg')">
+              <span>Cisnes Areia (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="animais/Cisnes Areia.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('animais/Cisnes Areia.jpg', this)">🤍</button>
+              <img src="animais/Cisnes Areia.jpg" alt="Cisnes Areia" onclick="abrirModal('animais/Cisnes Areia.jpg')">
+              <span>Cisnes Areia</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="animais/Cisnes Azul Marinho (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('animais/Cisnes Azul Marinho (STILL).jpg', this)">🤍</button>
+              <img src="animais/Cisnes Azul Marinho (STILL).jpg" alt="Cisnes Azul Marinho (STILL)" onclick="abrirModal('animais/Cisnes Azul Marinho (STILL).jpg')">
+              <span>Cisnes Azul Marinho (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="animais/Cisnes Azul Marinho.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('animais/Cisnes Azul Marinho.jpg', this)">🤍</button>
+              <img src="animais/Cisnes Azul Marinho.jpg" alt="Cisnes Azul Marinho" onclick="abrirModal('animais/Cisnes Azul Marinho.jpg')">
+              <span>Cisnes Azul Marinho</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="animais/Cisnes Azul.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('animais/Cisnes Azul.jpg', this)">🤍</button>
+              <img src="animais/Cisnes Azul.jpg" alt="Cisnes Azul" onclick="abrirModal('animais/Cisnes Azul.jpg')">
+              <span>Cisnes Azul</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="animais/Cisnes Rosa (2).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('animais/Cisnes Rosa (2).jpg', this)">🤍</button>
+              <img src="animais/Cisnes Rosa (2).jpg" alt="Cisnes Rosa (2)" onclick="abrirModal('animais/Cisnes Rosa (2).jpg')">
+              <span>Cisnes Rosa (2)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="animais/Cisnes Rosa (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('animais/Cisnes Rosa (STILL).jpg', this)">🤍</button>
+              <img src="animais/Cisnes Rosa (STILL).jpg" alt="Cisnes Rosa (STILL)" onclick="abrirModal('animais/Cisnes Rosa (STILL).jpg')">
+              <span>Cisnes Rosa (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="animais/Cisnes Rosa.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('animais/Cisnes Rosa.jpg', this)">🤍</button>
+              <img src="animais/Cisnes Rosa.jpg" alt="Cisnes Rosa" onclick="abrirModal('animais/Cisnes Rosa.jpg')">
+              <span>Cisnes Rosa</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="animais/Cisnes Verde (2).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('animais/Cisnes Verde (2).jpg', this)">🤍</button>
+              <img src="animais/Cisnes Verde (2).jpg" alt="Cisnes Verde (2)" onclick="abrirModal('animais/Cisnes Verde (2).jpg')">
+              <span>Cisnes Verde (2)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="animais/Cisnes Verde (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('animais/Cisnes Verde (STILL).jpg', this)">🤍</button>
+              <img src="animais/Cisnes Verde (STILL).jpg" alt="Cisnes Verde (STILL)" onclick="abrirModal('animais/Cisnes Verde (STILL).jpg')">
+              <span>Cisnes Verde (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="animais/Cisnes Verde Claro (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('animais/Cisnes Verde Claro (STILL).jpg', this)">🤍</button>
+              <img src="animais/Cisnes Verde Claro (STILL).jpg" alt="Cisnes Verde Claro (STILL)" onclick="abrirModal('animais/Cisnes Verde Claro (STILL).jpg')">
+              <span>Cisnes Verde Claro (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="animais/Cisnes Verde.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('animais/Cisnes Verde.jpg', this)">🤍</button>
+              <img src="animais/Cisnes Verde.jpg" alt="Cisnes Verde" onclick="abrirModal('animais/Cisnes Verde.jpg')">
+              <span>Cisnes Verde</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="animais/Clássico Zoo (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('animais/Clássico Zoo (STILL).jpg', this)">🤍</button>
+              <img src="animais/Clássico Zoo (STILL).jpg" alt="Clássico Zoo (STILL)" onclick="abrirModal('animais/Clássico Zoo (STILL).jpg')">
+              <span>Clássico Zoo (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="animais/Clássico Zoo 2.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('animais/Clássico Zoo 2.jpg', this)">🤍</button>
+              <img src="animais/Clássico Zoo 2.jpg" alt="Clássico Zoo" onclick="abrirModal('animais/Clássico Zoo 2.jpg')">
+              <span>Clássico Zoo</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="animais/Clássico Zoo.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('animais/Clássico Zoo.jpg', this)">🤍</button>
+              <img src="animais/Clássico Zoo.jpg" alt="Clássico Zoo" onclick="abrirModal('animais/Clássico Zoo.jpg')">
+              <span>Clássico Zoo</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="animais/Floresta Mágica Clean (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('animais/Floresta Mágica Clean (STILL).jpg', this)">🤍</button>
+              <img src="animais/Floresta Mágica Clean (STILL).jpg" alt="Floresta Mágica Clean (STILL)" onclick="abrirModal('animais/Floresta Mágica Clean (STILL).jpg')">
+              <span>Floresta Mágica Clean (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="animais/Floresta Tropical (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('animais/Floresta Tropical (STILL).jpg', this)">🤍</button>
+              <img src="animais/Floresta Tropical (STILL).jpg" alt="Floresta Tropical (STILL)" onclick="abrirModal('animais/Floresta Tropical (STILL).jpg')">
+              <span>Floresta Tropical (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="animais/Frutos do Mar Azul (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('animais/Frutos do Mar Azul (STILL).jpg', this)">🤍</button>
+              <img src="animais/Frutos do Mar Azul (STILL).jpg" alt="Frutos do Mar Azul (STILL)" onclick="abrirModal('animais/Frutos do Mar Azul (STILL).jpg')">
+              <span>Frutos do Mar Azul (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="animais/Frutos do Mar Vermelho (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('animais/Frutos do Mar Vermelho (STILL).jpg', this)">🤍</button>
+              <img src="animais/Frutos do Mar Vermelho (STILL).jpg" alt="Frutos do Mar Vermelho (STILL)" onclick="abrirModal('animais/Frutos do Mar Vermelho (STILL).jpg')">
+              <span>Frutos do Mar Vermelho (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="animais/Mata Oriental (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('animais/Mata Oriental (STILL).jpg', this)">🤍</button>
+              <img src="animais/Mata Oriental (STILL).jpg" alt="Mata Oriental (STILL)" onclick="abrirModal('animais/Mata Oriental (STILL).jpg')">
+              <span>Mata Oriental (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="animais/Mata Oriental.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('animais/Mata Oriental.jpg', this)">🤍</button>
+              <img src="animais/Mata Oriental.jpg" alt="Mata Oriental" onclick="abrirModal('animais/Mata Oriental.jpg')">
+              <span>Mata Oriental</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="animais/Onça Pintada (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('animais/Onça Pintada (STILL).jpg', this)">🤍</button>
+              <img src="animais/Onça Pintada (STILL).jpg" alt="Onça Pintada (STILL)" onclick="abrirModal('animais/Onça Pintada (STILL).jpg')">
+              <span>Onça Pintada (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="animais/Paisagem Mata Colors (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('animais/Paisagem Mata Colors (STILL).jpg', this)">🤍</button>
+              <img src="animais/Paisagem Mata Colors (STILL).jpg" alt="Paisagem Mata Colors (STILL)" onclick="abrirModal('animais/Paisagem Mata Colors (STILL).jpg')">
+              <span>Paisagem Mata Colors (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="animais/Paisagem Mata Colors 2.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('animais/Paisagem Mata Colors 2.jpg', this)">🤍</button>
+              <img src="animais/Paisagem Mata Colors 2.jpg" alt="Paisagem Mata Colors" onclick="abrirModal('animais/Paisagem Mata Colors 2.jpg')">
+              <span>Paisagem Mata Colors</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="animais/Paisagem Mata Colors.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('animais/Paisagem Mata Colors.jpg', this)">🤍</button>
+              <img src="animais/Paisagem Mata Colors.jpg" alt="Paisagem Mata Colors" onclick="abrirModal('animais/Paisagem Mata Colors.jpg')">
+              <span>Paisagem Mata Colors</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="animais/Pantanal Colors (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('animais/Pantanal Colors (STILL).jpg', this)">🤍</button>
+              <img src="animais/Pantanal Colors (STILL).jpg" alt="Pantanal Colors (STILL)" onclick="abrirModal('animais/Pantanal Colors (STILL).jpg')">
+              <span>Pantanal Colors (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="animais/Patos Classic Areia (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('animais/Patos Classic Areia (STILL).jpg', this)">🤍</button>
+              <img src="animais/Patos Classic Areia (STILL).jpg" alt="Patos Classic Areia (STILL)" onclick="abrirModal('animais/Patos Classic Areia (STILL).jpg')">
+              <span>Patos Classic Areia (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="animais/Patos Classic Rosa (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('animais/Patos Classic Rosa (STILL).jpg', this)">🤍</button>
+              <img src="animais/Patos Classic Rosa (STILL).jpg" alt="Patos Classic Rosa (STILL)" onclick="abrirModal('animais/Patos Classic Rosa (STILL).jpg')">
+              <span>Patos Classic Rosa (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="animais/Patos Classic Verde (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('animais/Patos Classic Verde (STILL).jpg', this)">🤍</button>
+              <img src="animais/Patos Classic Verde (STILL).jpg" alt="Patos Classic Verde (STILL)" onclick="abrirModal('animais/Patos Classic Verde (STILL).jpg')">
+              <span>Patos Classic Verde (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="animais/Pássaros Grou Verde (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('animais/Pássaros Grou Verde (STILL).jpg', this)">🤍</button>
+              <img src="animais/Pássaros Grou Verde (STILL).jpg" alt="Pássaros Grou Verde (STILL)" onclick="abrirModal('animais/Pássaros Grou Verde (STILL).jpg')">
+              <span>Pássaros Grou Verde (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="animais/Real Safari (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('animais/Real Safari (STILL).jpg', this)">🤍</button>
+              <img src="animais/Real Safari (STILL).jpg" alt="Real Safari (STILL)" onclick="abrirModal('animais/Real Safari (STILL).jpg')">
+              <span>Real Safari (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="animais/Safari Animais Aquarela (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('animais/Safari Animais Aquarela (STILL).jpg', this)">🤍</button>
+              <img src="animais/Safari Animais Aquarela (STILL).jpg" alt="Safari Animais Aquarela (STILL)" onclick="abrirModal('animais/Safari Animais Aquarela (STILL).jpg')">
+              <span>Safari Animais Aquarela (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="animais/Safari Floresta Aquarela (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('animais/Safari Floresta Aquarela (STILL).jpg', this)">🤍</button>
+              <img src="animais/Safari Floresta Aquarela (STILL).jpg" alt="Safari Floresta Aquarela (STILL)" onclick="abrirModal('animais/Safari Floresta Aquarela (STILL).jpg')">
+              <span>Safari Floresta Aquarela (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="animais/Safari Monocromático Areia (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('animais/Safari Monocromático Areia (STILL).jpg', this)">🤍</button>
+              <img src="animais/Safari Monocromático Areia (STILL).jpg" alt="Safari Monocromático Areia (STILL)" onclick="abrirModal('animais/Safari Monocromático Areia (STILL).jpg')">
+              <span>Safari Monocromático Areia (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="animais/Safari Monocromático Azul (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('animais/Safari Monocromático Azul (STILL).jpg', this)">🤍</button>
+              <img src="animais/Safari Monocromático Azul (STILL).jpg" alt="Safari Monocromático Azul (STILL)" onclick="abrirModal('animais/Safari Monocromático Azul (STILL).jpg')">
+              <span>Safari Monocromático Azul (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="animais/Safari Monocromático Cinza (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('animais/Safari Monocromático Cinza (STILL).jpg', this)">🤍</button>
+              <img src="animais/Safari Monocromático Cinza (STILL).jpg" alt="Safari Monocromático Cinza (STILL)" onclick="abrirModal('animais/Safari Monocromático Cinza (STILL).jpg')">
+              <span>Safari Monocromático Cinza (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="animais/Safari Monocromático Peach Fuzz (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('animais/Safari Monocromático Peach Fuzz (STILL).jpg', this)">🤍</button>
+              <img src="animais/Safari Monocromático Peach Fuzz (STILL).jpg" alt="Safari Monocromático Peach Fuzz (STILL)" onclick="abrirModal('animais/Safari Monocromático Peach Fuzz (STILL).jpg')">
+              <span>Safari Monocromático Peach Fuzz (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="animais/Safari Monocromático Verde (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('animais/Safari Monocromático Verde (STILL).jpg', this)">🤍</button>
+              <img src="animais/Safari Monocromático Verde (STILL).jpg" alt="Safari Monocromático Verde (STILL)" onclick="abrirModal('animais/Safari Monocromático Verde (STILL).jpg')">
+              <span>Safari Monocromático Verde (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="animais/Safari Paisagem (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('animais/Safari Paisagem (STILL).jpg', this)">🤍</button>
+              <img src="animais/Safari Paisagem (STILL).jpg" alt="Safari Paisagem (STILL)" onclick="abrirModal('animais/Safari Paisagem (STILL).jpg')">
+              <span>Safari Paisagem (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="animais/Savana Allover (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('animais/Savana Allover (STILL).jpg', this)">🤍</button>
+              <img src="animais/Savana Allover (STILL).jpg" alt="Savana Allover (STILL)" onclick="abrirModal('animais/Savana Allover (STILL).jpg')">
+              <span>Savana Allover (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="animais/Savana Allover 02.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('animais/Savana Allover 02.jpg', this)">🤍</button>
+              <img src="animais/Savana Allover 02.jpg" alt="Savana Allover" onclick="abrirModal('animais/Savana Allover 02.jpg')">
+              <span>Savana Allover</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="animais/Savana Allover.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('animais/Savana Allover.jpg', this)">🤍</button>
+              <img src="animais/Savana Allover.jpg" alt="Savana Allover" onclick="abrirModal('animais/Savana Allover.jpg')">
+              <span>Savana Allover</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="animais/Zoo Safari (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('animais/Zoo Safari (STILL).jpg', this)">🤍</button>
+              <img src="animais/Zoo Safari (STILL).jpg" alt="Zoo Safari (STILL)" onclick="abrirModal('animais/Zoo Safari (STILL).jpg')">
+              <span>Zoo Safari (STILL)</span>
+            </div>
+</div>
+<div class="modal" id="modal">
+  <img id="modal-img" src="">
+  <button onclick="fecharModal()">✖ Fechar</button>
+</div>
+<script src="https://unpkg.com/@panzoom/panzoom@9.4.0/dist/panzoom.min.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const modal = document.getElementById('modal');
+    const modalImg = document.getElementById('modal-img');
+    let panzoomInstance;
+
+    window.abrirModal = function(src) {
+      modal.style.display = 'flex';
+      modalImg.src = src;
+      if (panzoomInstance) panzoomInstance.destroy();
+      panzoomInstance = Panzoom(modalImg, { maxScale: 5 });
+    }
+
+    window.fecharModal = function() {
+      modal.style.display = 'none';
+      if (panzoomInstance) panzoomInstance.destroy();
+    }
+
+    window.toggleFavorito = function(src, el) {
+      let favoritos = JSON.parse(localStorage.getItem('favoritos')) || [];
+      const index = favoritos.indexOf(src);
+      const agora = new Date().toISOString();
+      if (index >= 0) {
+        favoritos.splice(index, 1);
+        el.classList.remove('favorito');
+        el.textContent = '🤍';
+      } else {
+        favoritos.push(src);
+        el.classList.add('favorito');
+        el.textContent = '❤️';
+        const log = JSON.parse(localStorage.getItem('favoritos_log')) || [];
+        log.push({ img: src, data: agora });
+        localStorage.setItem('favoritos_log', JSON.stringify(log));
+      }
+      localStorage.setItem('favoritos', JSON.stringify(favoritos));
+    }
+
+    const favoritos = JSON.parse(localStorage.getItem('favoritos')) || [];
+    document.querySelectorAll('.favorito-btn').forEach(btn => {
+      const src = btn.getAttribute('onclick').match(/'(.*?)'/)[1];
+      if (favoritos.includes(src)) {
+        btn.textContent = '❤️';
+        btn.classList.add('favorito');
+      }
+    });
+
+    window.compartilharSelecionadas = function () {
+      const selecionadas = Array.from(document.querySelectorAll('.checkbox-select:checked')).map(cb => cb.value);
+      if (selecionadas.length === 0) return alert("Nenhuma imagem selecionada.");
+      alert("Simulação de envio para WhatsApp:
+" + selecionadas.join('
+'));
+    }
+  });
+</script>
+</body>
+</html>
