@@ -127,6 +127,18 @@
   function abrirModal(src) { modal.style.display = 'flex'; modalImg.src = src; panzoomInstance = Panzoom(modalImg); }
   function fecharModal() { modal.style.display = 'none'; if (panzoomInstance) panzoomInstance.destroy(); }
   function toggleFavorito(src, el) { let f = JSON.parse(localStorage.getItem('favoritos'))||[]; const i = f.indexOf(src); if (i>=0) { f.splice(i,1); el.textContent='🤍'; } else { f.push(src); el.textContent='❤️'; } localStorage.setItem('favoritos', JSON.stringify(f)); }
+  function baixarSelecionadas() {
+    const selecionadas = Array.from(document.querySelectorAll('.checkbox-select:checked')).map(cb => cb.value);
+    if (selecionadas.length === 0) return alert("Nenhuma imagem selecionada.");
+    selecionadas.forEach(src => {
+      const link = document.createElement('a');
+      link.href = src;
+      link.download = decodeURIComponent(src.split('/').pop());
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    });
+  }
 </script>
 </body>
 </html>
