@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Borboletas</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    * { box-sizing: border-box; }
+    body { font-family: sans-serif; margin: 0; background: #f4f4f4; }
+    .top-bar {
+      position: sticky;
+      top: 0;
+      background: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      z-index: 1000;
+    }
+    .top-bar h1 { font-size: 18px; margin: 0; }
+    .btn {
+      background: #01b9b5;
+      color: white;
+      text-decoration: none;
+      padding: 8px 14px;
+      border-radius: 6px;
+      margin-left: 10px;
+      font-size: 14px;
+      cursor: pointer;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      gap: 20px;
+      padding: 20px;
+    }
+    @media (min-width: 768px) {
+      .grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    .card {
+      background: white;
+      padding: 10px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      text-align: center;
+      position: relative;
+    }
+    .card img { width: 100%; border-radius: 8px; cursor: pointer; }
+    .card span { display: block; margin-top: 8px; font-weight: bold; }
+    .checkbox-select {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      transform: scale(1.5);
+    }
+    .favorito-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: none;
+      border: none;
+      font-size: 20px;
+      cursor: pointer;
+    }
+    .favorito-btn.favorito { color: red; }
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.85);
+      z-index: 9999;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+    .modal img { max-width: 90vw; max-height: 80vh; }
+    .modal button {
+      margin-top: 10px;
+      padding: 8px 20px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+<div class="top-bar">
+  <div>
+    <a href="index.html" class="btn">&larr; Voltar</a>
+    <button class="btn" onclick="baixarSelecionadas()">📥 Baixar selecionadas</button>
+  </div>
+  <h1>Borboletas</h1>
+  <a href="https://luizbaby.github.io/catalogo-arts/favoritos.html" class="btn">⭐ Ver favoritos</a>
+</div>
+<div class="grid">
+<div class="card">
+              <input type="checkbox" class="checkbox-select" value="borboletas/Aquarela Jardim com Borboletas (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('borboletas/Aquarela Jardim com Borboletas (STILL).jpg', this)">🤍</button>
+              <img src="borboletas/Aquarela Jardim com Borboletas (STILL).jpg" alt="Aquarela Jardim com Borboletas (STILL)" onclick="abrirModal('borboletas/Aquarela Jardim com Borboletas (STILL).jpg')">
+              <span>Aquarela Jardim com Borboletas (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="borboletas/Borboletas Arabesque (2).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('borboletas/Borboletas Arabesque (2).jpg', this)">🤍</button>
+              <img src="borboletas/Borboletas Arabesque (2).jpg" alt="Borboletas Arabesque (2)" onclick="abrirModal('borboletas/Borboletas Arabesque (2).jpg')">
+              <span>Borboletas Arabesque (2)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="borboletas/Borboletas Arabesque (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('borboletas/Borboletas Arabesque (STILL).jpg', this)">🤍</button>
+              <img src="borboletas/Borboletas Arabesque (STILL).jpg" alt="Borboletas Arabesque (STILL)" onclick="abrirModal('borboletas/Borboletas Arabesque (STILL).jpg')">
+              <span>Borboletas Arabesque (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="borboletas/Borboletas Arabesque.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('borboletas/Borboletas Arabesque.jpg', this)">🤍</button>
+              <img src="borboletas/Borboletas Arabesque.jpg" alt="Borboletas Arabesque" onclick="abrirModal('borboletas/Borboletas Arabesque.jpg')">
+              <span>Borboletas Arabesque</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="borboletas/Borboletas em Jardim Suspenso (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('borboletas/Borboletas em Jardim Suspenso (STILL).jpg', this)">🤍</button>
+              <img src="borboletas/Borboletas em Jardim Suspenso (STILL).jpg" alt="Borboletas em Jardim Suspenso (STILL)" onclick="abrirModal('borboletas/Borboletas em Jardim Suspenso (STILL).jpg')">
+              <span>Borboletas em Jardim Suspenso (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="borboletas/Borboletas em Jardim Suspenso.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('borboletas/Borboletas em Jardim Suspenso.jpg', this)">🤍</button>
+              <img src="borboletas/Borboletas em Jardim Suspenso.jpg" alt="Borboletas em Jardim Suspenso" onclick="abrirModal('borboletas/Borboletas em Jardim Suspenso.jpg')">
+              <span>Borboletas em Jardim Suspenso</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="borboletas/Borboletas Off White (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('borboletas/Borboletas Off White (STILL).jpg', this)">🤍</button>
+              <img src="borboletas/Borboletas Off White (STILL).jpg" alt="Borboletas Off White (STILL)" onclick="abrirModal('borboletas/Borboletas Off White (STILL).jpg')">
+              <span>Borboletas Off White (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="borboletas/Campos de Primavera (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('borboletas/Campos de Primavera (STILL).jpg', this)">🤍</button>
+              <img src="borboletas/Campos de Primavera (STILL).jpg" alt="Campos de Primavera (STILL)" onclick="abrirModal('borboletas/Campos de Primavera (STILL).jpg')">
+              <span>Campos de Primavera (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="borboletas/Cogumelos e Fadinhas (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('borboletas/Cogumelos e Fadinhas (STILL).jpg', this)">🤍</button>
+              <img src="borboletas/Cogumelos e Fadinhas (STILL).jpg" alt="Cogumelos e Fadinhas (STILL)" onclick="abrirModal('borboletas/Cogumelos e Fadinhas (STILL).jpg')">
+              <span>Cogumelos e Fadinhas (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="borboletas/Deitada Sob as Árvores (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('borboletas/Deitada Sob as Árvores (STILL).jpg', this)">🤍</button>
+              <img src="borboletas/Deitada Sob as Árvores (STILL).jpg" alt="Deitada Sob as Árvores (STILL)" onclick="abrirModal('borboletas/Deitada Sob as Árvores (STILL).jpg')">
+              <span>Deitada Sob as Árvores (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="borboletas/Floral Aquarela com Borboletas (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('borboletas/Floral Aquarela com Borboletas (STILL).jpg', this)">🤍</button>
+              <img src="borboletas/Floral Aquarela com Borboletas (STILL).jpg" alt="Floral Aquarela com Borboletas (STILL)" onclick="abrirModal('borboletas/Floral Aquarela com Borboletas (STILL).jpg')">
+              <span>Floral Aquarela com Borboletas (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="borboletas/Flores do Campo Pendente (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('borboletas/Flores do Campo Pendente (STILL).jpg', this)">🤍</button>
+              <img src="borboletas/Flores do Campo Pendente (STILL).jpg" alt="Flores do Campo Pendente (STILL)" onclick="abrirModal('borboletas/Flores do Campo Pendente (STILL).jpg')">
+              <span>Flores do Campo Pendente (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="borboletas/Flores e Borboletas Allover (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('borboletas/Flores e Borboletas Allover (STILL).jpg', this)">🤍</button>
+              <img src="borboletas/Flores e Borboletas Allover (STILL).jpg" alt="Flores e Borboletas Allover (STILL)" onclick="abrirModal('borboletas/Flores e Borboletas Allover (STILL).jpg')">
+              <span>Flores e Borboletas Allover (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="borboletas/Flores e Borboletas Aquarela (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('borboletas/Flores e Borboletas Aquarela (STILL).jpg', this)">🤍</button>
+              <img src="borboletas/Flores e Borboletas Aquarela (STILL).jpg" alt="Flores e Borboletas Aquarela (STILL)" onclick="abrirModal('borboletas/Flores e Borboletas Aquarela (STILL).jpg')">
+              <span>Flores e Borboletas Aquarela (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="borboletas/Flores e Borboletas Aquarela.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('borboletas/Flores e Borboletas Aquarela.jpg', this)">🤍</button>
+              <img src="borboletas/Flores e Borboletas Aquarela.jpg" alt="Flores e Borboletas Aquarela" onclick="abrirModal('borboletas/Flores e Borboletas Aquarela.jpg')">
+              <span>Flores e Borboletas Aquarela</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="borboletas/Folhagem Pendente Elegance.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('borboletas/Folhagem Pendente Elegance.jpg', this)">🤍</button>
+              <img src="borboletas/Folhagem Pendente Elegance.jpg" alt="Folhagem Pendente Elegance" onclick="abrirModal('borboletas/Folhagem Pendente Elegance.jpg')">
+              <span>Folhagem Pendente Elegance</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="borboletas/Folhagens Aquarela Verde e Rosa (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('borboletas/Folhagens Aquarela Verde e Rosa (STILL).jpg', this)">🤍</button>
+              <img src="borboletas/Folhagens Aquarela Verde e Rosa (STILL).jpg" alt="Folhagens Aquarela Verde e Rosa (STILL)" onclick="abrirModal('borboletas/Folhagens Aquarela Verde e Rosa (STILL).jpg')">
+              <span>Folhagens Aquarela Verde e Rosa (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="borboletas/Infantil Arco Íris e Cerejeira (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('borboletas/Infantil Arco Íris e Cerejeira (STILL).jpg', this)">🤍</button>
+              <img src="borboletas/Infantil Arco Íris e Cerejeira (STILL).jpg" alt="Infantil Arco Íris e Cerejeira (STILL)" onclick="abrirModal('borboletas/Infantil Arco Íris e Cerejeira (STILL).jpg')">
+              <span>Infantil Arco Íris e Cerejeira (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="borboletas/Infantil Primavera (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('borboletas/Infantil Primavera (STILL).jpg', this)">🤍</button>
+              <img src="borboletas/Infantil Primavera (STILL).jpg" alt="Infantil Primavera (STILL)" onclick="abrirModal('borboletas/Infantil Primavera (STILL).jpg')">
+              <span>Infantil Primavera (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="borboletas/Jardim das Borboletas (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('borboletas/Jardim das Borboletas (STILL).jpg', this)">🤍</button>
+              <img src="borboletas/Jardim das Borboletas (STILL).jpg" alt="Jardim das Borboletas (STILL)" onclick="abrirModal('borboletas/Jardim das Borboletas (STILL).jpg')">
+              <span>Jardim das Borboletas (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="borboletas/Jardim das Borboletas.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('borboletas/Jardim das Borboletas.jpg', this)">🤍</button>
+              <img src="borboletas/Jardim das Borboletas.jpg" alt="Jardim das Borboletas" onclick="abrirModal('borboletas/Jardim das Borboletas.jpg')">
+              <span>Jardim das Borboletas</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="borboletas/Jardim de Flores Delicadas (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('borboletas/Jardim de Flores Delicadas (STILL).jpg', this)">🤍</button>
+              <img src="borboletas/Jardim de Flores Delicadas (STILL).jpg" alt="Jardim de Flores Delicadas (STILL)" onclick="abrirModal('borboletas/Jardim de Flores Delicadas (STILL).jpg')">
+              <span>Jardim de Flores Delicadas (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="borboletas/Jardim Degradê (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('borboletas/Jardim Degradê (STILL).jpg', this)">🤍</button>
+              <img src="borboletas/Jardim Degradê (STILL).jpg" alt="Jardim Degradê (STILL)" onclick="abrirModal('borboletas/Jardim Degradê (STILL).jpg')">
+              <span>Jardim Degradê (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="borboletas/Jardim Suave Falls (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('borboletas/Jardim Suave Falls (STILL).jpg', this)">🤍</button>
+              <img src="borboletas/Jardim Suave Falls (STILL).jpg" alt="Jardim Suave Falls (STILL)" onclick="abrirModal('borboletas/Jardim Suave Falls (STILL).jpg')">
+              <span>Jardim Suave Falls (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="borboletas/Jardim Suspenso Clean (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('borboletas/Jardim Suspenso Clean (STILL).jpg', this)">🤍</button>
+              <img src="borboletas/Jardim Suspenso Clean (STILL).jpg" alt="Jardim Suspenso Clean (STILL)" onclick="abrirModal('borboletas/Jardim Suspenso Clean (STILL).jpg')">
+              <span>Jardim Suspenso Clean (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="borboletas/Jardim Suspenso Soft (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('borboletas/Jardim Suspenso Soft (STILL).jpg', this)">🤍</button>
+              <img src="borboletas/Jardim Suspenso Soft (STILL).jpg" alt="Jardim Suspenso Soft (STILL)" onclick="abrirModal('borboletas/Jardim Suspenso Soft (STILL).jpg')">
+              <span>Jardim Suspenso Soft (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="borboletas/Jardim Vertical Colorido.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('borboletas/Jardim Vertical Colorido.jpg', this)">🤍</button>
+              <img src="borboletas/Jardim Vertical Colorido.jpg" alt="Jardim Vertical Colorido" onclick="abrirModal('borboletas/Jardim Vertical Colorido.jpg')">
+              <span>Jardim Vertical Colorido</span>
+            </div>
+</div>
+<div class="modal" id="modal">
+  <img id="modal-img" src="">
+  <button onclick="fecharModal()">✖ Fechar</button>
+</div>
+<script src="https://unpkg.com/@panzoom/panzoom@9.4.0/dist/panzoom.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const modal = document.getElementById('modal');
+  const modalImg = document.getElementById('modal-img');
+  let panzoomInstance;
+
+  window.abrirModal = function (src) {
+    modal.style.display = 'flex';
+    modalImg.src = src;
+    if (panzoomInstance) panzoomInstance.destroy();
+    panzoomInstance = Panzoom(modalImg, { maxScale: 5 });
+  }
+
+  window.fecharModal = function () {
+    modal.style.display = 'none';
+    if (panzoomInstance) panzoomInstance.destroy();
+  }
+
+  window.toggleFavorito = function (src, el) {
+    let favoritos = JSON.parse(localStorage.getItem('favoritos')) || [];
+    const index = favoritos.indexOf(src);
+    const agora = new Date().toISOString();
+    if (index >= 0) {
+      favoritos.splice(index, 1);
+      el.classList.remove('favorito');
+      el.textContent = '🤍';
+    } else {
+      favoritos.push(src);
+      el.classList.add('favorito');
+      el.textContent = '❤️';
+      const log = JSON.parse(localStorage.getItem('favoritos_log')) || [];
+      log.push({ img: src, data: agora });
+      localStorage.setItem('favoritos_log', JSON.stringify(log));
+    }
+    localStorage.setItem('favoritos', JSON.stringify(favoritos));
+  }
+
+  const favoritos = JSON.parse(localStorage.getItem('favoritos')) || [];
+  document.querySelectorAll('.favorito-btn').forEach(btn => {
+    const src = btn.getAttribute('onclick').match(/'(.*?)'/)[1];
+    if (favoritos.includes(src)) {
+      btn.textContent = '❤️';
+      btn.classList.add('favorito');
+    }
+  });
+
+  window.baixarSelecionadas = function () {
+    const selecionadas = Array.from(document.querySelectorAll('.checkbox-select:checked')).map(cb => cb.value);
+    if (selecionadas.length === 0) return alert("Nenhuma imagem selecionada.");
+    selecionadas.forEach(src => {
+      const link = document.createElement('a');
+      link.href = src;
+      link.download = src.split('/').pop();
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    });
+  }
+});
+</script>
+</body>
+</html>

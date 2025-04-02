@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Granilite</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    * { box-sizing: border-box; }
+    body { font-family: sans-serif; margin: 0; background: #f4f4f4; }
+    .top-bar {
+      position: sticky;
+      top: 0;
+      background: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      z-index: 1000;
+    }
+    .top-bar h1 { font-size: 18px; margin: 0; }
+    .btn {
+      background: #01b9b5;
+      color: white;
+      text-decoration: none;
+      padding: 8px 14px;
+      border-radius: 6px;
+      margin-left: 10px;
+      font-size: 14px;
+      cursor: pointer;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      gap: 20px;
+      padding: 20px;
+    }
+    @media (min-width: 768px) {
+      .grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    .card {
+      background: white;
+      padding: 10px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      text-align: center;
+      position: relative;
+    }
+    .card img { width: 100%; border-radius: 8px; cursor: pointer; }
+    .card span { display: block; margin-top: 8px; font-weight: bold; }
+    .checkbox-select {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      transform: scale(1.5);
+    }
+    .favorito-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: none;
+      border: none;
+      font-size: 20px;
+      cursor: pointer;
+    }
+    .favorito-btn.favorito { color: red; }
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.85);
+      z-index: 9999;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+    .modal img { max-width: 90vw; max-height: 80vh; }
+    .modal button {
+      margin-top: 10px;
+      padding: 8px 20px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+<div class="top-bar">
+  <div>
+    <a href="index.html" class="btn">&larr; Voltar</a>
+    <button class="btn" onclick="baixarSelecionadas()">📥 Baixar selecionadas</button>
+  </div>
+  <h1>Granilite</h1>
+  <a href="https://luizbaby.github.io/catalogo-arts/favoritos.html" class="btn">⭐ Ver favoritos</a>
+</div>
+<div class="grid">
+<div class="card">
+              <input type="checkbox" class="checkbox-select" value="granilite/Confetti Gold Rose (2).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('granilite/Confetti Gold Rose (2).jpg', this)">🤍</button>
+              <img src="granilite/Confetti Gold Rose (2).jpg" alt="Confetti Gold Rose (2)" onclick="abrirModal('granilite/Confetti Gold Rose (2).jpg')">
+              <span>Confetti Gold Rose (2)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="granilite/Confetti Gold Rose (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('granilite/Confetti Gold Rose (STILL).jpg', this)">🤍</button>
+              <img src="granilite/Confetti Gold Rose (STILL).jpg" alt="Confetti Gold Rose (STILL)" onclick="abrirModal('granilite/Confetti Gold Rose (STILL).jpg')">
+              <span>Confetti Gold Rose (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="granilite/Confetti Gold Rose.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('granilite/Confetti Gold Rose.jpg', this)">🤍</button>
+              <img src="granilite/Confetti Gold Rose.jpg" alt="Confetti Gold Rose" onclick="abrirModal('granilite/Confetti Gold Rose.jpg')">
+              <span>Confetti Gold Rose</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="granilite/Granilite Azul e Tiffany (2).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('granilite/Granilite Azul e Tiffany (2).jpg', this)">🤍</button>
+              <img src="granilite/Granilite Azul e Tiffany (2).jpg" alt="Granilite Azul e Tiffany (2)" onclick="abrirModal('granilite/Granilite Azul e Tiffany (2).jpg')">
+              <span>Granilite Azul e Tiffany (2)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="granilite/Granilite Azul e Tiffany (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('granilite/Granilite Azul e Tiffany (STILL).jpg', this)">🤍</button>
+              <img src="granilite/Granilite Azul e Tiffany (STILL).jpg" alt="Granilite Azul e Tiffany (STILL)" onclick="abrirModal('granilite/Granilite Azul e Tiffany (STILL).jpg')">
+              <span>Granilite Azul e Tiffany (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="granilite/Granilite Azul e Tiffany 02.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('granilite/Granilite Azul e Tiffany 02.jpg', this)">🤍</button>
+              <img src="granilite/Granilite Azul e Tiffany 02.jpg" alt="Granilite Azul e Tiffany 02" onclick="abrirModal('granilite/Granilite Azul e Tiffany 02.jpg')">
+              <span>Granilite Azul e Tiffany 02</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="granilite/Granilite Azul e Tiffany.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('granilite/Granilite Azul e Tiffany.jpg', this)">🤍</button>
+              <img src="granilite/Granilite Azul e Tiffany.jpg" alt="Granilite Azul e Tiffany" onclick="abrirModal('granilite/Granilite Azul e Tiffany.jpg')">
+              <span>Granilite Azul e Tiffany</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="granilite/Granilite Azul Tiffany.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('granilite/Granilite Azul Tiffany.jpg', this)">🤍</button>
+              <img src="granilite/Granilite Azul Tiffany.jpg" alt="Granilite Azul Tiffany" onclick="abrirModal('granilite/Granilite Azul Tiffany.jpg')">
+              <span>Granilite Azul Tiffany</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="granilite/Granilite Rose e Azul Marinho (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('granilite/Granilite Rose e Azul Marinho (STILL).jpg', this)">🤍</button>
+              <img src="granilite/Granilite Rose e Azul Marinho (STILL).jpg" alt="Granilite Rose e Azul Marinho (STILL)" onclick="abrirModal('granilite/Granilite Rose e Azul Marinho (STILL).jpg')">
+              <span>Granilite Rose e Azul Marinho (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="granilite/Granilite Rose e Azul Marinho 02.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('granilite/Granilite Rose e Azul Marinho 02.jpg', this)">🤍</button>
+              <img src="granilite/Granilite Rose e Azul Marinho 02.jpg" alt="Granilite Rose e Azul Marinho 02" onclick="abrirModal('granilite/Granilite Rose e Azul Marinho 02.jpg')">
+              <span>Granilite Rose e Azul Marinho 02</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="granilite/Granilite Rose e Azul Marinho.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('granilite/Granilite Rose e Azul Marinho.jpg', this)">🤍</button>
+              <img src="granilite/Granilite Rose e Azul Marinho.jpg" alt="Granilite Rose e Azul Marinho" onclick="abrirModal('granilite/Granilite Rose e Azul Marinho.jpg')">
+              <span>Granilite Rose e Azul Marinho</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="granilite/Granilite Rose e Roxo (2).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('granilite/Granilite Rose e Roxo (2).jpg', this)">🤍</button>
+              <img src="granilite/Granilite Rose e Roxo (2).jpg" alt="Granilite Rose e Roxo (2)" onclick="abrirModal('granilite/Granilite Rose e Roxo (2).jpg')">
+              <span>Granilite Rose e Roxo (2)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="granilite/Granilite Rose e Roxo (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('granilite/Granilite Rose e Roxo (STILL).jpg', this)">🤍</button>
+              <img src="granilite/Granilite Rose e Roxo (STILL).jpg" alt="Granilite Rose e Roxo (STILL)" onclick="abrirModal('granilite/Granilite Rose e Roxo (STILL).jpg')">
+              <span>Granilite Rose e Roxo (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="granilite/Granilite Rose e Roxo 02.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('granilite/Granilite Rose e Roxo 02.jpg', this)">🤍</button>
+              <img src="granilite/Granilite Rose e Roxo 02.jpg" alt="Granilite Rose e Roxo 02" onclick="abrirModal('granilite/Granilite Rose e Roxo 02.jpg')">
+              <span>Granilite Rose e Roxo 02</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="granilite/Granilite Rose e Roxo.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('granilite/Granilite Rose e Roxo.jpg', this)">🤍</button>
+              <img src="granilite/Granilite Rose e Roxo.jpg" alt="Granilite Rose e Roxo" onclick="abrirModal('granilite/Granilite Rose e Roxo.jpg')">
+              <span>Granilite Rose e Roxo</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="granilite/Granilite Rose e Tiffany (2).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('granilite/Granilite Rose e Tiffany (2).jpg', this)">🤍</button>
+              <img src="granilite/Granilite Rose e Tiffany (2).jpg" alt="Granilite Rose e Tiffany (2)" onclick="abrirModal('granilite/Granilite Rose e Tiffany (2).jpg')">
+              <span>Granilite Rose e Tiffany (2)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="granilite/Granilite Rose e Tiffany (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('granilite/Granilite Rose e Tiffany (STILL).jpg', this)">🤍</button>
+              <img src="granilite/Granilite Rose e Tiffany (STILL).jpg" alt="Granilite Rose e Tiffany (STILL)" onclick="abrirModal('granilite/Granilite Rose e Tiffany (STILL).jpg')">
+              <span>Granilite Rose e Tiffany (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="granilite/Granilite Rose e Tiffany 02.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('granilite/Granilite Rose e Tiffany 02.jpg', this)">🤍</button>
+              <img src="granilite/Granilite Rose e Tiffany 02.jpg" alt="Granilite Rose e Tiffany 02" onclick="abrirModal('granilite/Granilite Rose e Tiffany 02.jpg')">
+              <span>Granilite Rose e Tiffany 02</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="granilite/Granilite Rose e Tiffany.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('granilite/Granilite Rose e Tiffany.jpg', this)">🤍</button>
+              <img src="granilite/Granilite Rose e Tiffany.jpg" alt="Granilite Rose e Tiffany" onclick="abrirModal('granilite/Granilite Rose e Tiffany.jpg')">
+              <span>Granilite Rose e Tiffany</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="granilite/Granilite Rose Gold (2).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('granilite/Granilite Rose Gold (2).jpg', this)">🤍</button>
+              <img src="granilite/Granilite Rose Gold (2).jpg" alt="Granilite Rose Gold (2)" onclick="abrirModal('granilite/Granilite Rose Gold (2).jpg')">
+              <span>Granilite Rose Gold (2)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="granilite/Granilite Rose Gold (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('granilite/Granilite Rose Gold (STILL).jpg', this)">🤍</button>
+              <img src="granilite/Granilite Rose Gold (STILL).jpg" alt="Granilite Rose Gold (STILL)" onclick="abrirModal('granilite/Granilite Rose Gold (STILL).jpg')">
+              <span>Granilite Rose Gold (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="granilite/Granilite Rose Gold 02.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('granilite/Granilite Rose Gold 02.jpg', this)">🤍</button>
+              <img src="granilite/Granilite Rose Gold 02.jpg" alt="Granilite Rose Gold 02" onclick="abrirModal('granilite/Granilite Rose Gold 02.jpg')">
+              <span>Granilite Rose Gold 02</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="granilite/Granilite Rose Gold.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('granilite/Granilite Rose Gold.jpg', this)">🤍</button>
+              <img src="granilite/Granilite Rose Gold.jpg" alt="Granilite Rose Gold" onclick="abrirModal('granilite/Granilite Rose Gold.jpg')">
+              <span>Granilite Rose Gold</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="granilite/Granilite Tiffany Gold e Rose (2).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('granilite/Granilite Tiffany Gold e Rose (2).jpg', this)">🤍</button>
+              <img src="granilite/Granilite Tiffany Gold e Rose (2).jpg" alt="Granilite Tiffany Gold e Rose (2)" onclick="abrirModal('granilite/Granilite Tiffany Gold e Rose (2).jpg')">
+              <span>Granilite Tiffany Gold e Rose (2)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="granilite/Granilite Tiffany Gold e Rose (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('granilite/Granilite Tiffany Gold e Rose (STILL).jpg', this)">🤍</button>
+              <img src="granilite/Granilite Tiffany Gold e Rose (STILL).jpg" alt="Granilite Tiffany Gold e Rose (STILL)" onclick="abrirModal('granilite/Granilite Tiffany Gold e Rose (STILL).jpg')">
+              <span>Granilite Tiffany Gold e Rose (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="granilite/Granilite Tiffany Gold e Rose 02.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('granilite/Granilite Tiffany Gold e Rose 02.jpg', this)">🤍</button>
+              <img src="granilite/Granilite Tiffany Gold e Rose 02.jpg" alt="Granilite Tiffany Gold e Rose 02" onclick="abrirModal('granilite/Granilite Tiffany Gold e Rose 02.jpg')">
+              <span>Granilite Tiffany Gold e Rose 02</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="granilite/Granilite Tiffany Gold e Rose.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('granilite/Granilite Tiffany Gold e Rose.jpg', this)">🤍</button>
+              <img src="granilite/Granilite Tiffany Gold e Rose.jpg" alt="Granilite Tiffany Gold e Rose" onclick="abrirModal('granilite/Granilite Tiffany Gold e Rose.jpg')">
+              <span>Granilite Tiffany Gold e Rose</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="granilite/Granilite Verde (2).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('granilite/Granilite Verde (2).jpg', this)">🤍</button>
+              <img src="granilite/Granilite Verde (2).jpg" alt="Granilite Verde (2)" onclick="abrirModal('granilite/Granilite Verde (2).jpg')">
+              <span>Granilite Verde (2)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="granilite/Granilite Verde (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('granilite/Granilite Verde (STILL).jpg', this)">🤍</button>
+              <img src="granilite/Granilite Verde (STILL).jpg" alt="Granilite Verde (STILL)" onclick="abrirModal('granilite/Granilite Verde (STILL).jpg')">
+              <span>Granilite Verde (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="granilite/Granilite Verde.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('granilite/Granilite Verde.jpg', this)">🤍</button>
+              <img src="granilite/Granilite Verde.jpg" alt="Granilite Verde" onclick="abrirModal('granilite/Granilite Verde.jpg')">
+              <span>Granilite Verde</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="granilite/Terrazzo Amarelo (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('granilite/Terrazzo Amarelo (STILL).jpg', this)">🤍</button>
+              <img src="granilite/Terrazzo Amarelo (STILL).jpg" alt="Terrazzo Amarelo (STILL)" onclick="abrirModal('granilite/Terrazzo Amarelo (STILL).jpg')">
+              <span>Terrazzo Amarelo (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="granilite/Terrazzo Amarelo.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('granilite/Terrazzo Amarelo.jpg', this)">🤍</button>
+              <img src="granilite/Terrazzo Amarelo.jpg" alt="Terrazzo Amarelo" onclick="abrirModal('granilite/Terrazzo Amarelo.jpg')">
+              <span>Terrazzo Amarelo</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="granilite/Terrazzo Azul (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('granilite/Terrazzo Azul (STILL).jpg', this)">🤍</button>
+              <img src="granilite/Terrazzo Azul (STILL).jpg" alt="Terrazzo Azul (STILL)" onclick="abrirModal('granilite/Terrazzo Azul (STILL).jpg')">
+              <span>Terrazzo Azul (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="granilite/Terrazzo Azul 2.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('granilite/Terrazzo Azul 2.jpg', this)">🤍</button>
+              <img src="granilite/Terrazzo Azul 2.jpg" alt="Terrazzo Azul 2" onclick="abrirModal('granilite/Terrazzo Azul 2.jpg')">
+              <span>Terrazzo Azul 2</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="granilite/Terrazzo Azul.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('granilite/Terrazzo Azul.jpg', this)">🤍</button>
+              <img src="granilite/Terrazzo Azul.jpg" alt="Terrazzo Azul" onclick="abrirModal('granilite/Terrazzo Azul.jpg')">
+              <span>Terrazzo Azul</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="granilite/Terrazzo Clean Amarelo (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('granilite/Terrazzo Clean Amarelo (STILL).jpg', this)">🤍</button>
+              <img src="granilite/Terrazzo Clean Amarelo (STILL).jpg" alt="Terrazzo Clean Amarelo (STILL)" onclick="abrirModal('granilite/Terrazzo Clean Amarelo (STILL).jpg')">
+              <span>Terrazzo Clean Amarelo (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="granilite/Terrazzo Clean Amarelo e Azul (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('granilite/Terrazzo Clean Amarelo e Azul (STILL).jpg', this)">🤍</button>
+              <img src="granilite/Terrazzo Clean Amarelo e Azul (STILL).jpg" alt="Terrazzo Clean Amarelo e Azul (STILL)" onclick="abrirModal('granilite/Terrazzo Clean Amarelo e Azul (STILL).jpg')">
+              <span>Terrazzo Clean Amarelo e Azul (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="granilite/Terrazzo Clean Amarelo e Azul.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('granilite/Terrazzo Clean Amarelo e Azul.jpg', this)">🤍</button>
+              <img src="granilite/Terrazzo Clean Amarelo e Azul.jpg" alt="Terrazzo Clean Amarelo e Azul" onclick="abrirModal('granilite/Terrazzo Clean Amarelo e Azul.jpg')">
+              <span>Terrazzo Clean Amarelo e Azul</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="granilite/Terrazzo Clean Amarelo e Tiffany (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('granilite/Terrazzo Clean Amarelo e Tiffany (STILL).jpg', this)">🤍</button>
+              <img src="granilite/Terrazzo Clean Amarelo e Tiffany (STILL).jpg" alt="Terrazzo Clean Amarelo e Tiffany (STILL)" onclick="abrirModal('granilite/Terrazzo Clean Amarelo e Tiffany (STILL).jpg')">
+              <span>Terrazzo Clean Amarelo e Tiffany (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="granilite/Terrazzo Clean Amarelo e Tiffany.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('granilite/Terrazzo Clean Amarelo e Tiffany.jpg', this)">🤍</button>
+              <img src="granilite/Terrazzo Clean Amarelo e Tiffany.jpg" alt="Terrazzo Clean Amarelo e Tiffany" onclick="abrirModal('granilite/Terrazzo Clean Amarelo e Tiffany.jpg')">
+              <span>Terrazzo Clean Amarelo e Tiffany</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="granilite/Terrazzo Clean Amarelo.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('granilite/Terrazzo Clean Amarelo.jpg', this)">🤍</button>
+              <img src="granilite/Terrazzo Clean Amarelo.jpg" alt="Terrazzo Clean Amarelo" onclick="abrirModal('granilite/Terrazzo Clean Amarelo.jpg')">
+              <span>Terrazzo Clean Amarelo</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="granilite/Terrazzo Clean Azul (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('granilite/Terrazzo Clean Azul (STILL).jpg', this)">🤍</button>
+              <img src="granilite/Terrazzo Clean Azul (STILL).jpg" alt="Terrazzo Clean Azul (STILL)" onclick="abrirModal('granilite/Terrazzo Clean Azul (STILL).jpg')">
+              <span>Terrazzo Clean Azul (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="granilite/Terrazzo Clean Azul Claro (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('granilite/Terrazzo Clean Azul Claro (STILL).jpg', this)">🤍</button>
+              <img src="granilite/Terrazzo Clean Azul Claro (STILL).jpg" alt="Terrazzo Clean Azul Claro (STILL)" onclick="abrirModal('granilite/Terrazzo Clean Azul Claro (STILL).jpg')">
+              <span>Terrazzo Clean Azul Claro (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="granilite/Terrazzo Clean Azul Clarojpg.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('granilite/Terrazzo Clean Azul Clarojpg.jpg', this)">🤍</button>
+              <img src="granilite/Terrazzo Clean Azul Clarojpg.jpg" alt="Terrazzo Clean Azul Clarojpg" onclick="abrirModal('granilite/Terrazzo Clean Azul Clarojpg.jpg')">
+              <span>Terrazzo Clean Azul Clarojpg</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="granilite/Terrazzo Clean Azul e Tiffany (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('granilite/Terrazzo Clean Azul e Tiffany (STILL).jpg', this)">🤍</button>
+              <img src="granilite/Terrazzo Clean Azul e Tiffany (STILL).jpg" alt="Terrazzo Clean Azul e Tiffany (STILL)" onclick="abrirModal('granilite/Terrazzo Clean Azul e Tiffany (STILL).jpg')">
+              <span>Terrazzo Clean Azul e Tiffany (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="granilite/Terrazzo Clean Azul e Tiffany.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('granilite/Terrazzo Clean Azul e Tiffany.jpg', this)">🤍</button>
+              <img src="granilite/Terrazzo Clean Azul e Tiffany.jpg" alt="Terrazzo Clean Azul e Tiffany" onclick="abrirModal('granilite/Terrazzo Clean Azul e Tiffany.jpg')">
+              <span>Terrazzo Clean Azul e Tiffany</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="granilite/Terrazzo Clean Azul.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('granilite/Terrazzo Clean Azul.jpg', this)">🤍</button>
+              <img src="granilite/Terrazzo Clean Azul.jpg" alt="Terrazzo Clean Azul" onclick="abrirModal('granilite/Terrazzo Clean Azul.jpg')">
+              <span>Terrazzo Clean Azul</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="granilite/Terrazzo Clean Rosa (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('granilite/Terrazzo Clean Rosa (STILL).jpg', this)">🤍</button>
+              <img src="granilite/Terrazzo Clean Rosa (STILL).jpg" alt="Terrazzo Clean Rosa (STILL)" onclick="abrirModal('granilite/Terrazzo Clean Rosa (STILL).jpg')">
+              <span>Terrazzo Clean Rosa (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="granilite/Terrazzo Clean Rosa e Tiffany (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('granilite/Terrazzo Clean Rosa e Tiffany (STILL).jpg', this)">🤍</button>
+              <img src="granilite/Terrazzo Clean Rosa e Tiffany (STILL).jpg" alt="Terrazzo Clean Rosa e Tiffany (STILL)" onclick="abrirModal('granilite/Terrazzo Clean Rosa e Tiffany (STILL).jpg')">
+              <span>Terrazzo Clean Rosa e Tiffany (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="granilite/Terrazzo Clean Rosa e Tiffany.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('granilite/Terrazzo Clean Rosa e Tiffany.jpg', this)">🤍</button>
+              <img src="granilite/Terrazzo Clean Rosa e Tiffany.jpg" alt="Terrazzo Clean Rosa e Tiffany" onclick="abrirModal('granilite/Terrazzo Clean Rosa e Tiffany.jpg')">
+              <span>Terrazzo Clean Rosa e Tiffany</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="granilite/Terrazzo Clean Rosa.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('granilite/Terrazzo Clean Rosa.jpg', this)">🤍</button>
+              <img src="granilite/Terrazzo Clean Rosa.jpg" alt="Terrazzo Clean Rosa" onclick="abrirModal('granilite/Terrazzo Clean Rosa.jpg')">
+              <span>Terrazzo Clean Rosa</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="granilite/Terrazzo Clean Rose (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('granilite/Terrazzo Clean Rose (STILL).jpg', this)">🤍</button>
+              <img src="granilite/Terrazzo Clean Rose (STILL).jpg" alt="Terrazzo Clean Rose (STILL)" onclick="abrirModal('granilite/Terrazzo Clean Rose (STILL).jpg')">
+              <span>Terrazzo Clean Rose (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="granilite/Terrazzo Clean Rose.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('granilite/Terrazzo Clean Rose.jpg', this)">🤍</button>
+              <img src="granilite/Terrazzo Clean Rose.jpg" alt="Terrazzo Clean Rose" onclick="abrirModal('granilite/Terrazzo Clean Rose.jpg')">
+              <span>Terrazzo Clean Rose</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="granilite/Terrazzo Clean Roxo (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('granilite/Terrazzo Clean Roxo (STILL).jpg', this)">🤍</button>
+              <img src="granilite/Terrazzo Clean Roxo (STILL).jpg" alt="Terrazzo Clean Roxo (STILL)" onclick="abrirModal('granilite/Terrazzo Clean Roxo (STILL).jpg')">
+              <span>Terrazzo Clean Roxo (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="granilite/Terrazzo Clean Roxo.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('granilite/Terrazzo Clean Roxo.jpg', this)">🤍</button>
+              <img src="granilite/Terrazzo Clean Roxo.jpg" alt="Terrazzo Clean Roxo" onclick="abrirModal('granilite/Terrazzo Clean Roxo.jpg')">
+              <span>Terrazzo Clean Roxo</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="granilite/Terrazzo Clean Verde (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('granilite/Terrazzo Clean Verde (STILL).jpg', this)">🤍</button>
+              <img src="granilite/Terrazzo Clean Verde (STILL).jpg" alt="Terrazzo Clean Verde (STILL)" onclick="abrirModal('granilite/Terrazzo Clean Verde (STILL).jpg')">
+              <span>Terrazzo Clean Verde (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="granilite/Terrazzo Clean Verde.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('granilite/Terrazzo Clean Verde.jpg', this)">🤍</button>
+              <img src="granilite/Terrazzo Clean Verde.jpg" alt="Terrazzo Clean Verde" onclick="abrirModal('granilite/Terrazzo Clean Verde.jpg')">
+              <span>Terrazzo Clean Verde</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="granilite/Terrazzo Rosa (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('granilite/Terrazzo Rosa (STILL).jpg', this)">🤍</button>
+              <img src="granilite/Terrazzo Rosa (STILL).jpg" alt="Terrazzo Rosa (STILL)" onclick="abrirModal('granilite/Terrazzo Rosa (STILL).jpg')">
+              <span>Terrazzo Rosa (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="granilite/Terrazzo Rosa.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('granilite/Terrazzo Rosa.jpg', this)">🤍</button>
+              <img src="granilite/Terrazzo Rosa.jpg" alt="Terrazzo Rosa" onclick="abrirModal('granilite/Terrazzo Rosa.jpg')">
+              <span>Terrazzo Rosa</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="granilite/Terrazzo Verde (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('granilite/Terrazzo Verde (STILL).jpg', this)">🤍</button>
+              <img src="granilite/Terrazzo Verde (STILL).jpg" alt="Terrazzo Verde (STILL)" onclick="abrirModal('granilite/Terrazzo Verde (STILL).jpg')">
+              <span>Terrazzo Verde (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="granilite/Terrazzo Verde.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('granilite/Terrazzo Verde.jpg', this)">🤍</button>
+              <img src="granilite/Terrazzo Verde.jpg" alt="Terrazzo Verde" onclick="abrirModal('granilite/Terrazzo Verde.jpg')">
+              <span>Terrazzo Verde</span>
+            </div>
+</div>
+<div class="modal" id="modal">
+  <img id="modal-img" src="">
+  <button onclick="fecharModal()">✖ Fechar</button>
+</div>
+<script src="https://unpkg.com/@panzoom/panzoom@9.4.0/dist/panzoom.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const modal = document.getElementById('modal');
+  const modalImg = document.getElementById('modal-img');
+  let panzoomInstance;
+
+  window.abrirModal = function (src) {
+    modal.style.display = 'flex';
+    modalImg.src = src;
+    if (panzoomInstance) panzoomInstance.destroy();
+    panzoomInstance = Panzoom(modalImg, { maxScale: 5 });
+  }
+
+  window.fecharModal = function () {
+    modal.style.display = 'none';
+    if (panzoomInstance) panzoomInstance.destroy();
+  }
+
+  window.toggleFavorito = function (src, el) {
+    let favoritos = JSON.parse(localStorage.getItem('favoritos')) || [];
+    const index = favoritos.indexOf(src);
+    const agora = new Date().toISOString();
+    if (index >= 0) {
+      favoritos.splice(index, 1);
+      el.classList.remove('favorito');
+      el.textContent = '🤍';
+    } else {
+      favoritos.push(src);
+      el.classList.add('favorito');
+      el.textContent = '❤️';
+      const log = JSON.parse(localStorage.getItem('favoritos_log')) || [];
+      log.push({ img: src, data: agora });
+      localStorage.setItem('favoritos_log', JSON.stringify(log));
+    }
+    localStorage.setItem('favoritos', JSON.stringify(favoritos));
+  }
+
+  const favoritos = JSON.parse(localStorage.getItem('favoritos')) || [];
+  document.querySelectorAll('.favorito-btn').forEach(btn => {
+    const src = btn.getAttribute('onclick').match(/'(.*?)'/)[1];
+    if (favoritos.includes(src)) {
+      btn.textContent = '❤️';
+      btn.classList.add('favorito');
+    }
+  });
+
+  window.baixarSelecionadas = function () {
+    const selecionadas = Array.from(document.querySelectorAll('.checkbox-select:checked')).map(cb => cb.value);
+    if (selecionadas.length === 0) return alert("Nenhuma imagem selecionada.");
+    selecionadas.forEach(src => {
+      const link = document.createElement('a');
+      link.href = src;
+      link.download = src.split('/').pop();
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    });
+  }
+});
+</script>
+</body>
+</html>

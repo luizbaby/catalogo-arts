@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Galáxia</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    * { box-sizing: border-box; }
+    body { font-family: sans-serif; margin: 0; background: #f4f4f4; }
+    .top-bar {
+      position: sticky;
+      top: 0;
+      background: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      z-index: 1000;
+    }
+    .top-bar h1 { font-size: 18px; margin: 0; }
+    .btn {
+      background: #01b9b5;
+      color: white;
+      text-decoration: none;
+      padding: 8px 14px;
+      border-radius: 6px;
+      margin-left: 10px;
+      font-size: 14px;
+      cursor: pointer;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      gap: 20px;
+      padding: 20px;
+    }
+    @media (min-width: 768px) {
+      .grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    .card {
+      background: white;
+      padding: 10px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      text-align: center;
+      position: relative;
+    }
+    .card img { width: 100%; border-radius: 8px; cursor: pointer; }
+    .card span { display: block; margin-top: 8px; font-weight: bold; }
+    .checkbox-select {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      transform: scale(1.5);
+    }
+    .favorito-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: none;
+      border: none;
+      font-size: 20px;
+      cursor: pointer;
+    }
+    .favorito-btn.favorito { color: red; }
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.85);
+      z-index: 9999;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+    .modal img { max-width: 90vw; max-height: 80vh; }
+    .modal button {
+      margin-top: 10px;
+      padding: 8px 20px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+<div class="top-bar">
+  <div>
+    <a href="index.html" class="btn">&larr; Voltar</a>
+    <button class="btn" onclick="baixarSelecionadas()">📥 Baixar selecionadas</button>
+  </div>
+  <h1>Galáxia</h1>
+  <a href="https://luizbaby.github.io/catalogo-arts/favoritos.html" class="btn">⭐ Ver favoritos</a>
+</div>
+<div class="grid">
+<div class="card">
+              <input type="checkbox" class="checkbox-select" value="galáxia/Astronauta Azul (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('galáxia/Astronauta Azul (STILL).jpg', this)">🤍</button>
+              <img src="galáxia/Astronauta Azul (STILL).jpg" alt="Astronauta Azul (STILL)" onclick="abrirModal('galáxia/Astronauta Azul (STILL).jpg')">
+              <span>Astronauta Azul (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="galáxia/Astronauta Azul 2.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('galáxia/Astronauta Azul 2.jpg', this)">🤍</button>
+              <img src="galáxia/Astronauta Azul 2.jpg" alt="Astronauta Azul 2" onclick="abrirModal('galáxia/Astronauta Azul 2.jpg')">
+              <span>Astronauta Azul 2</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="galáxia/Astronauta Azul.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('galáxia/Astronauta Azul.jpg', this)">🤍</button>
+              <img src="galáxia/Astronauta Azul.jpg" alt="Astronauta Azul" onclick="abrirModal('galáxia/Astronauta Azul.jpg')">
+              <span>Astronauta Azul</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="galáxia/Astronauta na Lua (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('galáxia/Astronauta na Lua (STILL).jpg', this)">🤍</button>
+              <img src="galáxia/Astronauta na Lua (STILL).jpg" alt="Astronauta na Lua (STILL)" onclick="abrirModal('galáxia/Astronauta na Lua (STILL).jpg')">
+              <span>Astronauta na Lua (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="galáxia/Astronauta Rosa (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('galáxia/Astronauta Rosa (STILL).jpg', this)">🤍</button>
+              <img src="galáxia/Astronauta Rosa (STILL).jpg" alt="Astronauta Rosa (STILL)" onclick="abrirModal('galáxia/Astronauta Rosa (STILL).jpg')">
+              <span>Astronauta Rosa (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="galáxia/Astronauta Rosa 2.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('galáxia/Astronauta Rosa 2.jpg', this)">🤍</button>
+              <img src="galáxia/Astronauta Rosa 2.jpg" alt="Astronauta Rosa 2" onclick="abrirModal('galáxia/Astronauta Rosa 2.jpg')">
+              <span>Astronauta Rosa 2</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="galáxia/Astronauta Rosa.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('galáxia/Astronauta Rosa.jpg', this)">🤍</button>
+              <img src="galáxia/Astronauta Rosa.jpg" alt="Astronauta Rosa" onclick="abrirModal('galáxia/Astronauta Rosa.jpg')">
+              <span>Astronauta Rosa</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="galáxia/Constelações Azul (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('galáxia/Constelações Azul (STILL).jpg', this)">🤍</button>
+              <img src="galáxia/Constelações Azul (STILL).jpg" alt="Constelações Azul (STILL)" onclick="abrirModal('galáxia/Constelações Azul (STILL).jpg')">
+              <span>Constelações Azul (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="galáxia/Constelações Branco (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('galáxia/Constelações Branco (STILL).jpg', this)">🤍</button>
+              <img src="galáxia/Constelações Branco (STILL).jpg" alt="Constelações Branco (STILL)" onclick="abrirModal('galáxia/Constelações Branco (STILL).jpg')">
+              <span>Constelações Branco (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="galáxia/Constelações Cinza (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('galáxia/Constelações Cinza (STILL).jpg', this)">🤍</button>
+              <img src="galáxia/Constelações Cinza (STILL).jpg" alt="Constelações Cinza (STILL)" onclick="abrirModal('galáxia/Constelações Cinza (STILL).jpg')">
+              <span>Constelações Cinza (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="galáxia/Constelações Grafite (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('galáxia/Constelações Grafite (STILL).jpg', this)">🤍</button>
+              <img src="galáxia/Constelações Grafite (STILL).jpg" alt="Constelações Grafite (STILL)" onclick="abrirModal('galáxia/Constelações Grafite (STILL).jpg')">
+              <span>Constelações Grafite (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="galáxia/Constelações Rosa (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('galáxia/Constelações Rosa (STILL).jpg', this)">🤍</button>
+              <img src="galáxia/Constelações Rosa (STILL).jpg" alt="Constelações Rosa (STILL)" onclick="abrirModal('galáxia/Constelações Rosa (STILL).jpg')">
+              <span>Constelações Rosa (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="galáxia/Desbravando o Espaço Aquarela (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('galáxia/Desbravando o Espaço Aquarela (STILL).jpg', this)">🤍</button>
+              <img src="galáxia/Desbravando o Espaço Aquarela (STILL).jpg" alt="Desbravando o Espaço Aquarela (STILL)" onclick="abrirModal('galáxia/Desbravando o Espaço Aquarela (STILL).jpg')">
+              <span>Desbravando o Espaço Aquarela (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="galáxia/Desenhos Espaço Areia (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('galáxia/Desenhos Espaço Areia (STILL).jpg', this)">🤍</button>
+              <img src="galáxia/Desenhos Espaço Areia (STILL).jpg" alt="Desenhos Espaço Areia (STILL)" onclick="abrirModal('galáxia/Desenhos Espaço Areia (STILL).jpg')">
+              <span>Desenhos Espaço Areia (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="galáxia/Desenhos Espaço Azul (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('galáxia/Desenhos Espaço Azul (STILL).jpg', this)">🤍</button>
+              <img src="galáxia/Desenhos Espaço Azul (STILL).jpg" alt="Desenhos Espaço Azul (STILL)" onclick="abrirModal('galáxia/Desenhos Espaço Azul (STILL).jpg')">
+              <span>Desenhos Espaço Azul (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="galáxia/Desenhos Espaço Cinza (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('galáxia/Desenhos Espaço Cinza (STILL).jpg', this)">🤍</button>
+              <img src="galáxia/Desenhos Espaço Cinza (STILL).jpg" alt="Desenhos Espaço Cinza (STILL)" onclick="abrirModal('galáxia/Desenhos Espaço Cinza (STILL).jpg')">
+              <span>Desenhos Espaço Cinza (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="galáxia/Desenhos Espaço Grafite (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('galáxia/Desenhos Espaço Grafite (STILL).jpg', this)">🤍</button>
+              <img src="galáxia/Desenhos Espaço Grafite (STILL).jpg" alt="Desenhos Espaço Grafite (STILL)" onclick="abrirModal('galáxia/Desenhos Espaço Grafite (STILL).jpg')">
+              <span>Desenhos Espaço Grafite (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="galáxia/Espaço Infantil (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('galáxia/Espaço Infantil (STILL).jpg', this)">🤍</button>
+              <img src="galáxia/Espaço Infantil (STILL).jpg" alt="Espaço Infantil (STILL)" onclick="abrirModal('galáxia/Espaço Infantil (STILL).jpg')">
+              <span>Espaço Infantil (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="galáxia/Espaço Infantil.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('galáxia/Espaço Infantil.jpg', this)">🤍</button>
+              <img src="galáxia/Espaço Infantil.jpg" alt="Espaço Infantil" onclick="abrirModal('galáxia/Espaço Infantil.jpg')">
+              <span>Espaço Infantil</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="galáxia/Estrelas Azul.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('galáxia/Estrelas Azul.jpg', this)">🤍</button>
+              <img src="galáxia/Estrelas Azul.jpg" alt="Estrelas Azul" onclick="abrirModal('galáxia/Estrelas Azul.jpg')">
+              <span>Estrelas Azul</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="galáxia/Estrelas Rosa.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('galáxia/Estrelas Rosa.jpg', this)">🤍</button>
+              <img src="galáxia/Estrelas Rosa.jpg" alt="Estrelas Rosa" onclick="abrirModal('galáxia/Estrelas Rosa.jpg')">
+              <span>Estrelas Rosa</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="galáxia/Galaxia Clean (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('galáxia/Galaxia Clean (STILL).jpg', this)">🤍</button>
+              <img src="galáxia/Galaxia Clean (STILL).jpg" alt="Galaxia Clean (STILL)" onclick="abrirModal('galáxia/Galaxia Clean (STILL).jpg')">
+              <span>Galaxia Clean (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="galáxia/Galaxia Clean.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('galáxia/Galaxia Clean.jpg', this)">🤍</button>
+              <img src="galáxia/Galaxia Clean.jpg" alt="Galaxia Clean" onclick="abrirModal('galáxia/Galaxia Clean.jpg')">
+              <span>Galaxia Clean</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="galáxia/Galáxia (2).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('galáxia/Galáxia (2).jpg', this)">🤍</button>
+              <img src="galáxia/Galáxia (2).jpg" alt="Galáxia (2)" onclick="abrirModal('galáxia/Galáxia (2).jpg')">
+              <span>Galáxia (2)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="galáxia/Galáxia (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('galáxia/Galáxia (STILL).jpg', this)">🤍</button>
+              <img src="galáxia/Galáxia (STILL).jpg" alt="Galáxia (STILL)" onclick="abrirModal('galáxia/Galáxia (STILL).jpg')">
+              <span>Galáxia (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="galáxia/Galáxia 2.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('galáxia/Galáxia 2.jpg', this)">🤍</button>
+              <img src="galáxia/Galáxia 2.jpg" alt="Galáxia 2" onclick="abrirModal('galáxia/Galáxia 2.jpg')">
+              <span>Galáxia 2</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="galáxia/Galáxia Clean 02.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('galáxia/Galáxia Clean 02.jpg', this)">🤍</button>
+              <img src="galáxia/Galáxia Clean 02.jpg" alt="Galáxia Clean 02" onclick="abrirModal('galáxia/Galáxia Clean 02.jpg')">
+              <span>Galáxia Clean 02</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="galáxia/Galáxia Clean.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('galáxia/Galáxia Clean.jpg', this)">🤍</button>
+              <img src="galáxia/Galáxia Clean.jpg" alt="Galáxia Clean" onclick="abrirModal('galáxia/Galáxia Clean.jpg')">
+              <span>Galáxia Clean</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="galáxia/Galáxia.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('galáxia/Galáxia.jpg', this)">🤍</button>
+              <img src="galáxia/Galáxia.jpg" alt="Galáxia" onclick="abrirModal('galáxia/Galáxia.jpg')">
+              <span>Galáxia</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="galáxia/Nave Espacial (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('galáxia/Nave Espacial (STILL).jpg', this)">🤍</button>
+              <img src="galáxia/Nave Espacial (STILL).jpg" alt="Nave Espacial (STILL)" onclick="abrirModal('galáxia/Nave Espacial (STILL).jpg')">
+              <span>Nave Espacial (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="galáxia/Planetas e Constalações Rosa (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('galáxia/Planetas e Constalações Rosa (STILL).jpg', this)">🤍</button>
+              <img src="galáxia/Planetas e Constalações Rosa (STILL).jpg" alt="Planetas e Constalações Rosa (STILL)" onclick="abrirModal('galáxia/Planetas e Constalações Rosa (STILL).jpg')">
+              <span>Planetas e Constalações Rosa (STILL)</span>
+            </div>
+</div>
+<div class="modal" id="modal">
+  <img id="modal-img" src="">
+  <button onclick="fecharModal()">✖ Fechar</button>
+</div>
+<script src="https://unpkg.com/@panzoom/panzoom@9.4.0/dist/panzoom.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const modal = document.getElementById('modal');
+  const modalImg = document.getElementById('modal-img');
+  let panzoomInstance;
+
+  window.abrirModal = function (src) {
+    modal.style.display = 'flex';
+    modalImg.src = src;
+    if (panzoomInstance) panzoomInstance.destroy();
+    panzoomInstance = Panzoom(modalImg, { maxScale: 5 });
+  }
+
+  window.fecharModal = function () {
+    modal.style.display = 'none';
+    if (panzoomInstance) panzoomInstance.destroy();
+  }
+
+  window.toggleFavorito = function (src, el) {
+    let favoritos = JSON.parse(localStorage.getItem('favoritos')) || [];
+    const index = favoritos.indexOf(src);
+    const agora = new Date().toISOString();
+    if (index >= 0) {
+      favoritos.splice(index, 1);
+      el.classList.remove('favorito');
+      el.textContent = '🤍';
+    } else {
+      favoritos.push(src);
+      el.classList.add('favorito');
+      el.textContent = '❤️';
+      const log = JSON.parse(localStorage.getItem('favoritos_log')) || [];
+      log.push({ img: src, data: agora });
+      localStorage.setItem('favoritos_log', JSON.stringify(log));
+    }
+    localStorage.setItem('favoritos', JSON.stringify(favoritos));
+  }
+
+  const favoritos = JSON.parse(localStorage.getItem('favoritos')) || [];
+  document.querySelectorAll('.favorito-btn').forEach(btn => {
+    const src = btn.getAttribute('onclick').match(/'(.*?)'/)[1];
+    if (favoritos.includes(src)) {
+      btn.textContent = '❤️';
+      btn.classList.add('favorito');
+    }
+  });
+
+  window.baixarSelecionadas = function () {
+    const selecionadas = Array.from(document.querySelectorAll('.checkbox-select:checked')).map(cb => cb.value);
+    if (selecionadas.length === 0) return alert("Nenhuma imagem selecionada.");
+    selecionadas.forEach(src => {
+      const link = document.createElement('a');
+      link.href = src;
+      link.download = src.split('/').pop();
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    });
+  }
+});
+</script>
+</body>
+</html>

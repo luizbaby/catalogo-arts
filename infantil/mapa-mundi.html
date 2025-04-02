@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Mapa Mundi</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    * { box-sizing: border-box; }
+    body { font-family: sans-serif; margin: 0; background: #f4f4f4; }
+    .top-bar {
+      position: sticky;
+      top: 0;
+      background: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      z-index: 1000;
+    }
+    .top-bar h1 { font-size: 18px; margin: 0; }
+    .btn {
+      background: #01b9b5;
+      color: white;
+      text-decoration: none;
+      padding: 8px 14px;
+      border-radius: 6px;
+      margin-left: 10px;
+      font-size: 14px;
+      cursor: pointer;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      gap: 20px;
+      padding: 20px;
+    }
+    @media (min-width: 768px) {
+      .grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    .card {
+      background: white;
+      padding: 10px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      text-align: center;
+      position: relative;
+    }
+    .card img { width: 100%; border-radius: 8px; cursor: pointer; }
+    .card span { display: block; margin-top: 8px; font-weight: bold; }
+    .checkbox-select {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      transform: scale(1.5);
+    }
+    .favorito-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: none;
+      border: none;
+      font-size: 20px;
+      cursor: pointer;
+    }
+    .favorito-btn.favorito { color: red; }
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.85);
+      z-index: 9999;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+    .modal img { max-width: 90vw; max-height: 80vh; }
+    .modal button {
+      margin-top: 10px;
+      padding: 8px 20px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+<div class="top-bar">
+  <div>
+    <a href="index.html" class="btn">&larr; Voltar</a>
+    <button class="btn" onclick="baixarSelecionadas()">📥 Baixar selecionadas</button>
+  </div>
+  <h1>Mapa Mundi</h1>
+  <a href="https://luizbaby.github.io/catalogo-arts/favoritos.html" class="btn">⭐ Ver favoritos</a>
+</div>
+<div class="grid">
+<div class="card">
+              <input type="checkbox" class="checkbox-select" value="mapa-mundi/Conexão Mundo Preto (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('mapa-mundi/Conexão Mundo Preto (STILL).jpg', this)">🤍</button>
+              <img src="mapa-mundi/Conexão Mundo Preto (STILL).jpg" alt="Conexão Mundo Preto (STILL)" onclick="abrirModal('mapa-mundi/Conexão Mundo Preto (STILL).jpg')">
+              <span>Conexão Mundo Preto (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="mapa-mundi/Conexão Mundo Preto 2.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('mapa-mundi/Conexão Mundo Preto 2.jpg', this)">🤍</button>
+              <img src="mapa-mundi/Conexão Mundo Preto 2.jpg" alt="Conexão Mundo Preto 2" onclick="abrirModal('mapa-mundi/Conexão Mundo Preto 2.jpg')">
+              <span>Conexão Mundo Preto 2</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="mapa-mundi/Conexão Mundo Preto.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('mapa-mundi/Conexão Mundo Preto.jpg', this)">🤍</button>
+              <img src="mapa-mundi/Conexão Mundo Preto.jpg" alt="Conexão Mundo Preto" onclick="abrirModal('mapa-mundi/Conexão Mundo Preto.jpg')">
+              <span>Conexão Mundo Preto</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="mapa-mundi/Desenho Mapa Mundi Infantil (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('mapa-mundi/Desenho Mapa Mundi Infantil (STILL).jpg', this)">🤍</button>
+              <img src="mapa-mundi/Desenho Mapa Mundi Infantil (STILL).jpg" alt="Desenho Mapa Mundi Infantil (STILL)" onclick="abrirModal('mapa-mundi/Desenho Mapa Mundi Infantil (STILL).jpg')">
+              <span>Desenho Mapa Mundi Infantil (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="mapa-mundi/Infantil Mapa Mundi Cute (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('mapa-mundi/Infantil Mapa Mundi Cute (STILL).jpg', this)">🤍</button>
+              <img src="mapa-mundi/Infantil Mapa Mundi Cute (STILL).jpg" alt="Infantil Mapa Mundi Cute (STILL)" onclick="abrirModal('mapa-mundi/Infantil Mapa Mundi Cute (STILL).jpg')">
+              <span>Infantil Mapa Mundi Cute (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="mapa-mundi/Mapa Mundi Animais Areia (2).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('mapa-mundi/Mapa Mundi Animais Areia (2).jpg', this)">🤍</button>
+              <img src="mapa-mundi/Mapa Mundi Animais Areia (2).jpg" alt="Mapa Mundi Animais Areia (2)" onclick="abrirModal('mapa-mundi/Mapa Mundi Animais Areia (2).jpg')">
+              <span>Mapa Mundi Animais Areia (2)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="mapa-mundi/Mapa Mundi Animais Areia (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('mapa-mundi/Mapa Mundi Animais Areia (STILL).jpg', this)">🤍</button>
+              <img src="mapa-mundi/Mapa Mundi Animais Areia (STILL).jpg" alt="Mapa Mundi Animais Areia (STILL)" onclick="abrirModal('mapa-mundi/Mapa Mundi Animais Areia (STILL).jpg')">
+              <span>Mapa Mundi Animais Areia (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="mapa-mundi/Mapa Mundi Animais Areia.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('mapa-mundi/Mapa Mundi Animais Areia.jpg', this)">🤍</button>
+              <img src="mapa-mundi/Mapa Mundi Animais Areia.jpg" alt="Mapa Mundi Animais Areia" onclick="abrirModal('mapa-mundi/Mapa Mundi Animais Areia.jpg')">
+              <span>Mapa Mundi Animais Areia</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="mapa-mundi/Mapa Mundi Animais Azul (2).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('mapa-mundi/Mapa Mundi Animais Azul (2).jpg', this)">🤍</button>
+              <img src="mapa-mundi/Mapa Mundi Animais Azul (2).jpg" alt="Mapa Mundi Animais Azul (2)" onclick="abrirModal('mapa-mundi/Mapa Mundi Animais Azul (2).jpg')">
+              <span>Mapa Mundi Animais Azul (2)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="mapa-mundi/Mapa Mundi Animais Azul (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('mapa-mundi/Mapa Mundi Animais Azul (STILL).jpg', this)">🤍</button>
+              <img src="mapa-mundi/Mapa Mundi Animais Azul (STILL).jpg" alt="Mapa Mundi Animais Azul (STILL)" onclick="abrirModal('mapa-mundi/Mapa Mundi Animais Azul (STILL).jpg')">
+              <span>Mapa Mundi Animais Azul (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="mapa-mundi/Mapa Mundi Animais Azul.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('mapa-mundi/Mapa Mundi Animais Azul.jpg', this)">🤍</button>
+              <img src="mapa-mundi/Mapa Mundi Animais Azul.jpg" alt="Mapa Mundi Animais Azul" onclick="abrirModal('mapa-mundi/Mapa Mundi Animais Azul.jpg')">
+              <span>Mapa Mundi Animais Azul</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="mapa-mundi/Mapa Mundi Animais Rosa (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('mapa-mundi/Mapa Mundi Animais Rosa (STILL).jpg', this)">🤍</button>
+              <img src="mapa-mundi/Mapa Mundi Animais Rosa (STILL).jpg" alt="Mapa Mundi Animais Rosa (STILL)" onclick="abrirModal('mapa-mundi/Mapa Mundi Animais Rosa (STILL).jpg')">
+              <span>Mapa Mundi Animais Rosa (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="mapa-mundi/Mapa Mundi Animais Rosa.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('mapa-mundi/Mapa Mundi Animais Rosa.jpg', this)">🤍</button>
+              <img src="mapa-mundi/Mapa Mundi Animais Rosa.jpg" alt="Mapa Mundi Animais Rosa" onclick="abrirModal('mapa-mundi/Mapa Mundi Animais Rosa.jpg')">
+              <span>Mapa Mundi Animais Rosa</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="mapa-mundi/Mapa Mundi Cimento Queimado (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('mapa-mundi/Mapa Mundi Cimento Queimado (STILL).jpg', this)">🤍</button>
+              <img src="mapa-mundi/Mapa Mundi Cimento Queimado (STILL).jpg" alt="Mapa Mundi Cimento Queimado (STILL)" onclick="abrirModal('mapa-mundi/Mapa Mundi Cimento Queimado (STILL).jpg')">
+              <span>Mapa Mundi Cimento Queimado (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="mapa-mundi/Mapa Mundi Cimento Queimado Azul (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('mapa-mundi/Mapa Mundi Cimento Queimado Azul (STILL).jpg', this)">🤍</button>
+              <img src="mapa-mundi/Mapa Mundi Cimento Queimado Azul (STILL).jpg" alt="Mapa Mundi Cimento Queimado Azul (STILL)" onclick="abrirModal('mapa-mundi/Mapa Mundi Cimento Queimado Azul (STILL).jpg')">
+              <span>Mapa Mundi Cimento Queimado Azul (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="mapa-mundi/Mapa Mundi Cimento Queimado Azul.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('mapa-mundi/Mapa Mundi Cimento Queimado Azul.jpg', this)">🤍</button>
+              <img src="mapa-mundi/Mapa Mundi Cimento Queimado Azul.jpg" alt="Mapa Mundi Cimento Queimado Azul" onclick="abrirModal('mapa-mundi/Mapa Mundi Cimento Queimado Azul.jpg')">
+              <span>Mapa Mundi Cimento Queimado Azul</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="mapa-mundi/Mapa Mundi Cimento Queimado Rosa (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('mapa-mundi/Mapa Mundi Cimento Queimado Rosa (STILL).jpg', this)">🤍</button>
+              <img src="mapa-mundi/Mapa Mundi Cimento Queimado Rosa (STILL).jpg" alt="Mapa Mundi Cimento Queimado Rosa (STILL)" onclick="abrirModal('mapa-mundi/Mapa Mundi Cimento Queimado Rosa (STILL).jpg')">
+              <span>Mapa Mundi Cimento Queimado Rosa (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="mapa-mundi/Mapa Mundi Cimento Queimado Rosa.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('mapa-mundi/Mapa Mundi Cimento Queimado Rosa.jpg', this)">🤍</button>
+              <img src="mapa-mundi/Mapa Mundi Cimento Queimado Rosa.jpg" alt="Mapa Mundi Cimento Queimado Rosa" onclick="abrirModal('mapa-mundi/Mapa Mundi Cimento Queimado Rosa.jpg')">
+              <span>Mapa Mundi Cimento Queimado Rosa</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="mapa-mundi/Mapa Mundi Cimento Queimado.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('mapa-mundi/Mapa Mundi Cimento Queimado.jpg', this)">🤍</button>
+              <img src="mapa-mundi/Mapa Mundi Cimento Queimado.jpg" alt="Mapa Mundi Cimento Queimado" onclick="abrirModal('mapa-mundi/Mapa Mundi Cimento Queimado.jpg')">
+              <span>Mapa Mundi Cimento Queimado</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="mapa-mundi/Mapa Mundi Infantil Aquarela  Azul (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('mapa-mundi/Mapa Mundi Infantil Aquarela  Azul (STILL).jpg', this)">🤍</button>
+              <img src="mapa-mundi/Mapa Mundi Infantil Aquarela  Azul (STILL).jpg" alt="Mapa Mundi Infantil Aquarela  Azul (STILL)" onclick="abrirModal('mapa-mundi/Mapa Mundi Infantil Aquarela  Azul (STILL).jpg')">
+              <span>Mapa Mundi Infantil Aquarela  Azul (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="mapa-mundi/Mapa Mundi Infantil Aquarela  Cinza (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('mapa-mundi/Mapa Mundi Infantil Aquarela  Cinza (STILL).jpg', this)">🤍</button>
+              <img src="mapa-mundi/Mapa Mundi Infantil Aquarela  Cinza (STILL).jpg" alt="Mapa Mundi Infantil Aquarela  Cinza (STILL)" onclick="abrirModal('mapa-mundi/Mapa Mundi Infantil Aquarela  Cinza (STILL).jpg')">
+              <span>Mapa Mundi Infantil Aquarela  Cinza (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="mapa-mundi/Mapa Mundi Infantil Aquarela Areia (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('mapa-mundi/Mapa Mundi Infantil Aquarela Areia (STILL).jpg', this)">🤍</button>
+              <img src="mapa-mundi/Mapa Mundi Infantil Aquarela Areia (STILL).jpg" alt="Mapa Mundi Infantil Aquarela Areia (STILL)" onclick="abrirModal('mapa-mundi/Mapa Mundi Infantil Aquarela Areia (STILL).jpg')">
+              <span>Mapa Mundi Infantil Aquarela Areia (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="mapa-mundi/Mapa Mundi Infantil Aquarela Rosa (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('mapa-mundi/Mapa Mundi Infantil Aquarela Rosa (STILL).jpg', this)">🤍</button>
+              <img src="mapa-mundi/Mapa Mundi Infantil Aquarela Rosa (STILL).jpg" alt="Mapa Mundi Infantil Aquarela Rosa (STILL)" onclick="abrirModal('mapa-mundi/Mapa Mundi Infantil Aquarela Rosa (STILL).jpg')">
+              <span>Mapa Mundi Infantil Aquarela Rosa (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="mapa-mundi/Mapa Mundi Preto (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('mapa-mundi/Mapa Mundi Preto (STILL).jpg', this)">🤍</button>
+              <img src="mapa-mundi/Mapa Mundi Preto (STILL).jpg" alt="Mapa Mundi Preto (STILL)" onclick="abrirModal('mapa-mundi/Mapa Mundi Preto (STILL).jpg')">
+              <span>Mapa Mundi Preto (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="mapa-mundi/Mapa Mundi Preto.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('mapa-mundi/Mapa Mundi Preto.jpg', this)">🤍</button>
+              <img src="mapa-mundi/Mapa Mundi Preto.jpg" alt="Mapa Mundi Preto" onclick="abrirModal('mapa-mundi/Mapa Mundi Preto.jpg')">
+              <span>Mapa Mundi Preto</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="mapa-mundi/Mapa Mundi Seleções (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('mapa-mundi/Mapa Mundi Seleções (STILL).jpg', this)">🤍</button>
+              <img src="mapa-mundi/Mapa Mundi Seleções (STILL).jpg" alt="Mapa Mundi Seleções (STILL)" onclick="abrirModal('mapa-mundi/Mapa Mundi Seleções (STILL).jpg')">
+              <span>Mapa Mundi Seleções (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="mapa-mundi/Mapa Mundo Aquarela Areia (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('mapa-mundi/Mapa Mundo Aquarela Areia (STILL).jpg', this)">🤍</button>
+              <img src="mapa-mundi/Mapa Mundo Aquarela Areia (STILL).jpg" alt="Mapa Mundo Aquarela Areia (STILL)" onclick="abrirModal('mapa-mundi/Mapa Mundo Aquarela Areia (STILL).jpg')">
+              <span>Mapa Mundo Aquarela Areia (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="mapa-mundi/Mapa Mundo Aquarela Azul (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('mapa-mundi/Mapa Mundo Aquarela Azul (STILL).jpg', this)">🤍</button>
+              <img src="mapa-mundi/Mapa Mundo Aquarela Azul (STILL).jpg" alt="Mapa Mundo Aquarela Azul (STILL)" onclick="abrirModal('mapa-mundi/Mapa Mundo Aquarela Azul (STILL).jpg')">
+              <span>Mapa Mundo Aquarela Azul (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="mapa-mundi/Mapa Mundo Aquarela Cinza (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('mapa-mundi/Mapa Mundo Aquarela Cinza (STILL).jpg', this)">🤍</button>
+              <img src="mapa-mundi/Mapa Mundo Aquarela Cinza (STILL).jpg" alt="Mapa Mundo Aquarela Cinza (STILL)" onclick="abrirModal('mapa-mundi/Mapa Mundo Aquarela Cinza (STILL).jpg')">
+              <span>Mapa Mundo Aquarela Cinza (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="mapa-mundi/Mapa Mundo Aquarela Rosa (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('mapa-mundi/Mapa Mundo Aquarela Rosa (STILL).jpg', this)">🤍</button>
+              <img src="mapa-mundi/Mapa Mundo Aquarela Rosa (STILL).jpg" alt="Mapa Mundo Aquarela Rosa (STILL)" onclick="abrirModal('mapa-mundi/Mapa Mundo Aquarela Rosa (STILL).jpg')">
+              <span>Mapa Mundo Aquarela Rosa (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="mapa-mundi/Mapa Mundo Aquarela Verde (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('mapa-mundi/Mapa Mundo Aquarela Verde (STILL).jpg', this)">🤍</button>
+              <img src="mapa-mundi/Mapa Mundo Aquarela Verde (STILL).jpg" alt="Mapa Mundo Aquarela Verde (STILL)" onclick="abrirModal('mapa-mundi/Mapa Mundo Aquarela Verde (STILL).jpg')">
+              <span>Mapa Mundo Aquarela Verde (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="mapa-mundi/Mundo Infantil Verde (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('mapa-mundi/Mundo Infantil Verde (STILL).jpg', this)">🤍</button>
+              <img src="mapa-mundi/Mundo Infantil Verde (STILL).jpg" alt="Mundo Infantil Verde (STILL)" onclick="abrirModal('mapa-mundi/Mundo Infantil Verde (STILL).jpg')">
+              <span>Mundo Infantil Verde (STILL)</span>
+            </div>
+</div>
+<div class="modal" id="modal">
+  <img id="modal-img" src="">
+  <button onclick="fecharModal()">✖ Fechar</button>
+</div>
+<script src="https://unpkg.com/@panzoom/panzoom@9.4.0/dist/panzoom.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const modal = document.getElementById('modal');
+  const modalImg = document.getElementById('modal-img');
+  let panzoomInstance;
+
+  window.abrirModal = function (src) {
+    modal.style.display = 'flex';
+    modalImg.src = src;
+    if (panzoomInstance) panzoomInstance.destroy();
+    panzoomInstance = Panzoom(modalImg, { maxScale: 5 });
+  }
+
+  window.fecharModal = function () {
+    modal.style.display = 'none';
+    if (panzoomInstance) panzoomInstance.destroy();
+  }
+
+  window.toggleFavorito = function (src, el) {
+    let favoritos = JSON.parse(localStorage.getItem('favoritos')) || [];
+    const index = favoritos.indexOf(src);
+    const agora = new Date().toISOString();
+    if (index >= 0) {
+      favoritos.splice(index, 1);
+      el.classList.remove('favorito');
+      el.textContent = '🤍';
+    } else {
+      favoritos.push(src);
+      el.classList.add('favorito');
+      el.textContent = '❤️';
+      const log = JSON.parse(localStorage.getItem('favoritos_log')) || [];
+      log.push({ img: src, data: agora });
+      localStorage.setItem('favoritos_log', JSON.stringify(log));
+    }
+    localStorage.setItem('favoritos', JSON.stringify(favoritos));
+  }
+
+  const favoritos = JSON.parse(localStorage.getItem('favoritos')) || [];
+  document.querySelectorAll('.favorito-btn').forEach(btn => {
+    const src = btn.getAttribute('onclick').match(/'(.*?)'/)[1];
+    if (favoritos.includes(src)) {
+      btn.textContent = '❤️';
+      btn.classList.add('favorito');
+    }
+  });
+
+  window.baixarSelecionadas = function () {
+    const selecionadas = Array.from(document.querySelectorAll('.checkbox-select:checked')).map(cb => cb.value);
+    if (selecionadas.length === 0) return alert("Nenhuma imagem selecionada.");
+    selecionadas.forEach(src => {
+      const link = document.createElement('a');
+      link.href = src;
+      link.download = src.split('/').pop();
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    });
+  }
+});
+</script>
+</body>
+</html>

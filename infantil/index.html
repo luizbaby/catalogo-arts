@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Infantil</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    * { box-sizing: border-box; }
+    body { font-family: sans-serif; margin: 0; background: #f4f4f4; }
+    .top-bar {
+      position: sticky;
+      top: 0;
+      background: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      z-index: 1000;
+    }
+    .top-bar h1 { font-size: 18px; margin: 0; }
+    .btn {
+      background: #01b9b5;
+      color: white;
+      text-decoration: none;
+      padding: 8px 14px;
+      border-radius: 6px;
+      margin-left: 10px;
+      font-size: 14px;
+      cursor: pointer;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      gap: 20px;
+      padding: 20px;
+    }
+    @media (min-width: 768px) {
+      .grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    .card {
+      background: white;
+      padding: 10px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      text-align: center;
+      position: relative;
+    }
+    .card img { width: 100%; border-radius: 8px; cursor: pointer; }
+    .card span { display: block; margin-top: 8px; font-weight: bold; }
+    .checkbox-select {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      transform: scale(1.5);
+    }
+    .favorito-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: none;
+      border: none;
+      font-size: 20px;
+      cursor: pointer;
+    }
+    .favorito-btn.favorito { color: red; }
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.85);
+      z-index: 9999;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+    .modal img { max-width: 90vw; max-height: 80vh; }
+    .modal button {
+      margin-top: 10px;
+      padding: 8px 20px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+<div class="top-bar">
+  <div>
+    <a href="../index.html" class="btn">&larr; Voltar</a>
+    <button class="btn" onclick="baixarSelecionadas()">📥 Baixar selecionadas</button>
+  </div>
+  <h1>Infantil</h1>
+  <a href="https://luizbaby.github.io/catalogo-arts/favoritos.html" class="btn">⭐ Ver favoritos</a>
+</div>
+<div class="grid">
+<a href="abstrato.html" class="card">
+        <img src="abstrato/Abstrato Folhagem (STILL).jpg" alt="Abstrato">
+        <span>Abstrato</span>
+        </a><a href="adolescente.html" class="card">
+        <img src="adolescente/3D Geométrico Gamer Azul (STILL).jpg" alt="Adolescente">
+        <span>Adolescente</span>
+        </a><a href="arco-íris.html" class="card">
+        <img src="arco-íris/Arco Íris e Bolinhas Aquarela (STILL).jpg" alt="Arco Íris">
+        <span>Arco Íris</span>
+        </a><a href="bailarina.html" class="card">
+        <img src="bailarina/Bailarina Rosa Floral (STILL).jpg" alt="Bailarina">
+        <span>Bailarina</span>
+        </a><a href="balões.html" class="card">
+        <img src="balões/Balões Azul (2).jpg" alt="Balões">
+        <span>Balões</span>
+        </a><a href="bichinhos.html" class="card">
+        <img src="bichinhos/Arca de Noé (STILL).jpg" alt="Bichinhos">
+        <span>Bichinhos</span>
+        </a><a href="boiserie.html" class="card">
+        <img src="boiserie/Boiserie Off White (STILL).jpg" alt="Boiserie">
+        <span>Boiserie</span>
+        </a><a href="borboletas.html" class="card">
+        <img src="borboletas/Aquarela Jardim com Borboletas (STILL).jpg" alt="Borboletas">
+        <span>Borboletas</span>
+        </a><a href="carrinhos.html" class="card">
+        <img src="carrinhos/Carrinhos Quadriculado (STILL).jpg" alt="Carrinhos">
+        <span>Carrinhos</span>
+        </a><a href="céu.html" class="card">
+        <img src="céu/Céu Azul (2).jpg" alt="Céu">
+        <span>Céu</span>
+        </a><a href="dinossauros.html" class="card">
+        <img src="dinossauros/Cute Dinos Azul (2).jpg" alt="Dinossauros">
+        <span>Dinossauros</span>
+        </a><a href="esportes.html" class="card">
+        <img src="esportes/Bolas de Esportes Azul (2).jpg" alt="Esportes">
+        <span>Esportes</span>
+        </a><a href="fazendinha.html" class="card">
+        <img src="fazendinha/Arca de Noé (STILL).jpg" alt="Fazendinha">
+        <span>Fazendinha</span>
+        </a><a href="floral.html" class="card">
+        <img src="floral/Aquarela Floral (STILL).jpg" alt="Floral">
+        <span>Floral</span>
+        </a><a href="folhagem.html" class="card">
+        <img src="folhagem/Aquarela Pendente (STILL).jpg" alt="Folhagem">
+        <span>Folhagem</span>
+        </a><a href="fundo-do-mar.html" class="card">
+        <img src="fundo-do-mar/Animais Marinhos (STILL).jpg" alt="Fundo do Mar">
+        <span>Fundo do Mar</span>
+        </a><a href="galáxia.html" class="card">
+        <img src="galáxia/Astronauta Azul (STILL).jpg" alt="Galáxia">
+        <span>Galáxia</span>
+        </a><a href="gamer.html" class="card">
+        <img src="gamer/3D Geométrico Gamer Azul (STILL).jpg" alt="Gamer">
+        <span>Gamer</span>
+        </a><a href="geométrico.html" class="card">
+        <img src="geométrico/3D Geométrico Gamer Azul (STILL).jpg" alt="Geométrico">
+        <span>Geométrico</span>
+        </a><a href="granilite.html" class="card">
+        <img src="granilite/Confetti Gold Rose (2).jpg" alt="Granilite">
+        <span>Granilite</span>
+        </a><a href="listrado.html" class="card">
+        <img src="listrado/Linho Listrado Rosa (STILL).jpg" alt="Listrado">
+        <span>Listrado</span>
+        </a><a href="mapa-mundi.html" class="card">
+        <img src="mapa-mundi/Conexão Mundo Preto (STILL).jpg" alt="Mapa Mundi">
+        <span>Mapa Mundi</span>
+        </a><a href="marvel.html" class="card">
+        <img src="marvel/Homem Aranha Cimento Queimado (STILL).jpg" alt="Marvel">
+        <span>Marvel</span>
+        </a><a href="painel.html" class="card">
+        <img src="painel/Abstrato Folhagem (STILL).jpg" alt="Painel">
+        <span>Painel</span>
+        </a><a href="poa.html" class="card">
+        <img src="poa/Bolinhas de Tinta Azul (2).jpg" alt="Poa">
+        <span>Poa</span>
+        </a><a href="quadriculado.html" class="card">
+        <img src="quadriculado/Quadriculado Formigas (2).jpg" alt="Quadriculado">
+        <span>Quadriculado</span>
+        </a><a href="safari.html" class="card">
+        <img src="safari/Bebê Safari Aquarela (STILL).jpg" alt="Safari">
+        <span>Safari</span>
+        </a><a href="unicórnios.html" class="card">
+        <img src="unicórnios/Cute Unicórnio (STILL).jpg" alt="Unicórnios">
+        <span>Unicórnios</span>
+        </a><a href="xadrez.html" class="card">
+        <img src="xadrez/Xadrez Amarelo (1).jpg" alt="Xadrez">
+        <span>Xadrez</span>
+        </a>
+</div>
+<div class="modal" id="modal">
+  <img id="modal-img" src="">
+  <button onclick="fecharModal()">✖ Fechar</button>
+</div>
+<script src="https://unpkg.com/@panzoom/panzoom@9.4.0/dist/panzoom.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const modal = document.getElementById('modal');
+  const modalImg = document.getElementById('modal-img');
+  let panzoomInstance;
+
+  window.abrirModal = function (src) {
+    modal.style.display = 'flex';
+    modalImg.src = src;
+    if (panzoomInstance) panzoomInstance.destroy();
+    panzoomInstance = Panzoom(modalImg, { maxScale: 5 });
+  }
+
+  window.fecharModal = function () {
+    modal.style.display = 'none';
+    if (panzoomInstance) panzoomInstance.destroy();
+  }
+
+  window.toggleFavorito = function (src, el) {
+    let favoritos = JSON.parse(localStorage.getItem('favoritos')) || [];
+    const index = favoritos.indexOf(src);
+    const agora = new Date().toISOString();
+    if (index >= 0) {
+      favoritos.splice(index, 1);
+      el.classList.remove('favorito');
+      el.textContent = '🤍';
+    } else {
+      favoritos.push(src);
+      el.classList.add('favorito');
+      el.textContent = '❤️';
+      const log = JSON.parse(localStorage.getItem('favoritos_log')) || [];
+      log.push({ img: src, data: agora });
+      localStorage.setItem('favoritos_log', JSON.stringify(log));
+    }
+    localStorage.setItem('favoritos', JSON.stringify(favoritos));
+  }
+
+  const favoritos = JSON.parse(localStorage.getItem('favoritos')) || [];
+  document.querySelectorAll('.favorito-btn').forEach(btn => {
+    const src = btn.getAttribute('onclick').match(/'(.*?)'/)[1];
+    if (favoritos.includes(src)) {
+      btn.textContent = '❤️';
+      btn.classList.add('favorito');
+    }
+  });
+
+  window.baixarSelecionadas = function () {
+    const selecionadas = Array.from(document.querySelectorAll('.checkbox-select:checked')).map(cb => cb.value);
+    if (selecionadas.length === 0) return alert("Nenhuma imagem selecionada.");
+    selecionadas.forEach(src => {
+      const link = document.createElement('a');
+      link.href = src;
+      link.download = src.split('/').pop();
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    });
+  }
+});
+</script>
+</body>
+</html>
