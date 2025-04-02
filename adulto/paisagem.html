@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Paisagem</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    * { box-sizing: border-box; }
+    body { font-family: sans-serif; margin: 0; background: #f4f4f4; }
+    .top-bar {
+      position: sticky;
+      top: 0;
+      background: white;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      gap: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      z-index: 1000;
+    }
+    .btn {
+      background: #01b9b5;
+      color: white;
+      text-decoration: none;
+      padding: 8px 14px;
+      border-radius: 6px;
+      font-size: 14px;
+      cursor: pointer;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      gap: 20px;
+      padding: 20px;
+    }
+    @media (min-width: 768px) {
+      .grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    .card {
+      background: white;
+      padding: 10px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      text-align: center;
+      position: relative;
+    }
+    .card img { width: 100%; border-radius: 8px; cursor: pointer; }
+    .card span { display: block; margin-top: 8px; font-weight: bold; }
+    .checkbox-select {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      transform: scale(1.5);
+    }
+    .favorito-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: none;
+      border: none;
+      font-size: 20px;
+      cursor: pointer;
+    }
+    .favorito-btn.favorito { color: red; }
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.85);
+      z-index: 9999;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+    .modal img { max-width: 90vw; max-height: 80vh; }
+    .modal button {
+      margin-top: 10px;
+      padding: 8px 20px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+<div class="top-bar">
+  <div>
+    <a href="https://catalogo.artspapeisdeparede.com.br/index.html" class="btn">&larr; Voltar</a>
+    <button class="btn" onclick="baixarSelecionadas()">📥 Baixar selecionadas</button>
+  </div>
+  <h1>Paisagem</h1>
+  <a href="https://catalogo.artspapeisdeparede.com.br/favoritos.html" class="btn">⭐ Ver favoritos</a>
+</div>
+<div class="grid">
+<div class="card">
+              <input type="checkbox" class="checkbox-select" value="paisagem/Caminho da Floresta (2).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('paisagem/Caminho da Floresta (2).jpg', this)">🤍</button>
+              <img src="paisagem/Caminho da Floresta (2).jpg" alt="Caminho da Floresta" onclick="abrirModal('paisagem/Caminho da Floresta (2).jpg')">
+              <span>Caminho da Floresta</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="paisagem/Caminho da Floresta (3).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('paisagem/Caminho da Floresta (3).jpg', this)">🤍</button>
+              <img src="paisagem/Caminho da Floresta (3).jpg" alt="Caminho da Floresta" onclick="abrirModal('paisagem/Caminho da Floresta (3).jpg')">
+              <span>Caminho da Floresta</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="paisagem/Caminho da Floresta (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('paisagem/Caminho da Floresta (STILL).jpg', this)">🤍</button>
+              <img src="paisagem/Caminho da Floresta (STILL).jpg" alt="Caminho da Floresta (STILL)" onclick="abrirModal('paisagem/Caminho da Floresta (STILL).jpg')">
+              <span>Caminho da Floresta (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="paisagem/Caminho da Floresta.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('paisagem/Caminho da Floresta.jpg', this)">🤍</button>
+              <img src="paisagem/Caminho da Floresta.jpg" alt="Caminho da Floresta" onclick="abrirModal('paisagem/Caminho da Floresta.jpg')">
+              <span>Caminho da Floresta</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="paisagem/Capim dos Pampas (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('paisagem/Capim dos Pampas (STILL).jpg', this)">🤍</button>
+              <img src="paisagem/Capim dos Pampas (STILL).jpg" alt="Capim dos Pampas (STILL)" onclick="abrirModal('paisagem/Capim dos Pampas (STILL).jpg')">
+              <span>Capim dos Pampas (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="paisagem/Capim dos Pampas.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('paisagem/Capim dos Pampas.jpg', this)">🤍</button>
+              <img src="paisagem/Capim dos Pampas.jpg" alt="Capim dos Pampas" onclick="abrirModal('paisagem/Capim dos Pampas.jpg')">
+              <span>Capim dos Pampas</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="paisagem/Cisnes Areia (2).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('paisagem/Cisnes Areia (2).jpg', this)">🤍</button>
+              <img src="paisagem/Cisnes Areia (2).jpg" alt="Cisnes Areia" onclick="abrirModal('paisagem/Cisnes Areia (2).jpg')">
+              <span>Cisnes Areia</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="paisagem/Cisnes Areia (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('paisagem/Cisnes Areia (STILL).jpg', this)">🤍</button>
+              <img src="paisagem/Cisnes Areia (STILL).jpg" alt="Cisnes Areia (STILL)" onclick="abrirModal('paisagem/Cisnes Areia (STILL).jpg')">
+              <span>Cisnes Areia (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="paisagem/Cisnes Areia.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('paisagem/Cisnes Areia.jpg', this)">🤍</button>
+              <img src="paisagem/Cisnes Areia.jpg" alt="Cisnes Areia" onclick="abrirModal('paisagem/Cisnes Areia.jpg')">
+              <span>Cisnes Areia</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="paisagem/Cisnes Azul Marinho (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('paisagem/Cisnes Azul Marinho (STILL).jpg', this)">🤍</button>
+              <img src="paisagem/Cisnes Azul Marinho (STILL).jpg" alt="Cisnes Azul Marinho (STILL)" onclick="abrirModal('paisagem/Cisnes Azul Marinho (STILL).jpg')">
+              <span>Cisnes Azul Marinho (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="paisagem/Cisnes Azul Marinho.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('paisagem/Cisnes Azul Marinho.jpg', this)">🤍</button>
+              <img src="paisagem/Cisnes Azul Marinho.jpg" alt="Cisnes Azul Marinho" onclick="abrirModal('paisagem/Cisnes Azul Marinho.jpg')">
+              <span>Cisnes Azul Marinho</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="paisagem/Cisnes Azul.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('paisagem/Cisnes Azul.jpg', this)">🤍</button>
+              <img src="paisagem/Cisnes Azul.jpg" alt="Cisnes Azul" onclick="abrirModal('paisagem/Cisnes Azul.jpg')">
+              <span>Cisnes Azul</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="paisagem/Cisnes Rosa (2).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('paisagem/Cisnes Rosa (2).jpg', this)">🤍</button>
+              <img src="paisagem/Cisnes Rosa (2).jpg" alt="Cisnes Rosa" onclick="abrirModal('paisagem/Cisnes Rosa (2).jpg')">
+              <span>Cisnes Rosa</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="paisagem/Cisnes Rosa (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('paisagem/Cisnes Rosa (STILL).jpg', this)">🤍</button>
+              <img src="paisagem/Cisnes Rosa (STILL).jpg" alt="Cisnes Rosa (STILL)" onclick="abrirModal('paisagem/Cisnes Rosa (STILL).jpg')">
+              <span>Cisnes Rosa (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="paisagem/Cisnes Rosa.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('paisagem/Cisnes Rosa.jpg', this)">🤍</button>
+              <img src="paisagem/Cisnes Rosa.jpg" alt="Cisnes Rosa" onclick="abrirModal('paisagem/Cisnes Rosa.jpg')">
+              <span>Cisnes Rosa</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="paisagem/Cisnes Verde (2).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('paisagem/Cisnes Verde (2).jpg', this)">🤍</button>
+              <img src="paisagem/Cisnes Verde (2).jpg" alt="Cisnes Verde" onclick="abrirModal('paisagem/Cisnes Verde (2).jpg')">
+              <span>Cisnes Verde</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="paisagem/Cisnes Verde (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('paisagem/Cisnes Verde (STILL).jpg', this)">🤍</button>
+              <img src="paisagem/Cisnes Verde (STILL).jpg" alt="Cisnes Verde (STILL)" onclick="abrirModal('paisagem/Cisnes Verde (STILL).jpg')">
+              <span>Cisnes Verde (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="paisagem/Cisnes Verde Claro (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('paisagem/Cisnes Verde Claro (STILL).jpg', this)">🤍</button>
+              <img src="paisagem/Cisnes Verde Claro (STILL).jpg" alt="Cisnes Verde Claro (STILL)" onclick="abrirModal('paisagem/Cisnes Verde Claro (STILL).jpg')">
+              <span>Cisnes Verde Claro (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="paisagem/Cisnes Verde.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('paisagem/Cisnes Verde.jpg', this)">🤍</button>
+              <img src="paisagem/Cisnes Verde.jpg" alt="Cisnes Verde" onclick="abrirModal('paisagem/Cisnes Verde.jpg')">
+              <span>Cisnes Verde</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="paisagem/Fim de Tarde na Praia (2).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('paisagem/Fim de Tarde na Praia (2).jpg', this)">🤍</button>
+              <img src="paisagem/Fim de Tarde na Praia (2).jpg" alt="Fim de Tarde na Praia" onclick="abrirModal('paisagem/Fim de Tarde na Praia (2).jpg')">
+              <span>Fim de Tarde na Praia</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="paisagem/Fim de Tarde na Praia (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('paisagem/Fim de Tarde na Praia (STILL).jpg', this)">🤍</button>
+              <img src="paisagem/Fim de Tarde na Praia (STILL).jpg" alt="Fim de Tarde na Praia (STILL)" onclick="abrirModal('paisagem/Fim de Tarde na Praia (STILL).jpg')">
+              <span>Fim de Tarde na Praia (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="paisagem/Fim de Tarde na Praia.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('paisagem/Fim de Tarde na Praia.jpg', this)">🤍</button>
+              <img src="paisagem/Fim de Tarde na Praia.jpg" alt="Fim de Tarde na Praia" onclick="abrirModal('paisagem/Fim de Tarde na Praia.jpg')">
+              <span>Fim de Tarde na Praia</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="paisagem/Floresta (2).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('paisagem/Floresta (2).jpg', this)">🤍</button>
+              <img src="paisagem/Floresta (2).jpg" alt="Floresta" onclick="abrirModal('paisagem/Floresta (2).jpg')">
+              <span>Floresta</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="paisagem/Floresta (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('paisagem/Floresta (STILL).jpg', this)">🤍</button>
+              <img src="paisagem/Floresta (STILL).jpg" alt="Floresta (STILL)" onclick="abrirModal('paisagem/Floresta (STILL).jpg')">
+              <span>Floresta (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="paisagem/Floresta Encanto (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('paisagem/Floresta Encanto (STILL).jpg', this)">🤍</button>
+              <img src="paisagem/Floresta Encanto (STILL).jpg" alt="Floresta Encanto (STILL)" onclick="abrirModal('paisagem/Floresta Encanto (STILL).jpg')">
+              <span>Floresta Encanto (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="paisagem/Floresta Laranja (2).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('paisagem/Floresta Laranja (2).jpg', this)">🤍</button>
+              <img src="paisagem/Floresta Laranja (2).jpg" alt="Floresta Laranja" onclick="abrirModal('paisagem/Floresta Laranja (2).jpg')">
+              <span>Floresta Laranja</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="paisagem/Floresta Laranja (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('paisagem/Floresta Laranja (STILL).jpg', this)">🤍</button>
+              <img src="paisagem/Floresta Laranja (STILL).jpg" alt="Floresta Laranja (STILL)" onclick="abrirModal('paisagem/Floresta Laranja (STILL).jpg')">
+              <span>Floresta Laranja (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="paisagem/Floresta Laranja.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('paisagem/Floresta Laranja.jpg', this)">🤍</button>
+              <img src="paisagem/Floresta Laranja.jpg" alt="Floresta Laranja" onclick="abrirModal('paisagem/Floresta Laranja.jpg')">
+              <span>Floresta Laranja</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="paisagem/Floresta nas Montanhas (2).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('paisagem/Floresta nas Montanhas (2).jpg', this)">🤍</button>
+              <img src="paisagem/Floresta nas Montanhas (2).jpg" alt="Floresta nas Montanhas" onclick="abrirModal('paisagem/Floresta nas Montanhas (2).jpg')">
+              <span>Floresta nas Montanhas</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="paisagem/Floresta nas Montanhas (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('paisagem/Floresta nas Montanhas (STILL).jpg', this)">🤍</button>
+              <img src="paisagem/Floresta nas Montanhas (STILL).jpg" alt="Floresta nas Montanhas (STILL)" onclick="abrirModal('paisagem/Floresta nas Montanhas (STILL).jpg')">
+              <span>Floresta nas Montanhas (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="paisagem/Floresta nas Montanhas.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('paisagem/Floresta nas Montanhas.jpg', this)">🤍</button>
+              <img src="paisagem/Floresta nas Montanhas.jpg" alt="Floresta nas Montanhas" onclick="abrirModal('paisagem/Floresta nas Montanhas.jpg')">
+              <span>Floresta nas Montanhas</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="paisagem/Floresta Nebulosa Azul (2).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('paisagem/Floresta Nebulosa Azul (2).jpg', this)">🤍</button>
+              <img src="paisagem/Floresta Nebulosa Azul (2).jpg" alt="Floresta Nebulosa Azul" onclick="abrirModal('paisagem/Floresta Nebulosa Azul (2).jpg')">
+              <span>Floresta Nebulosa Azul</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="paisagem/Floresta Nebulosa Azul (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('paisagem/Floresta Nebulosa Azul (STILL).jpg', this)">🤍</button>
+              <img src="paisagem/Floresta Nebulosa Azul (STILL).jpg" alt="Floresta Nebulosa Azul (STILL)" onclick="abrirModal('paisagem/Floresta Nebulosa Azul (STILL).jpg')">
+              <span>Floresta Nebulosa Azul (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="paisagem/Floresta Nebulosa Azul.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('paisagem/Floresta Nebulosa Azul.jpg', this)">🤍</button>
+              <img src="paisagem/Floresta Nebulosa Azul.jpg" alt="Floresta Nebulosa Azul" onclick="abrirModal('paisagem/Floresta Nebulosa Azul.jpg')">
+              <span>Floresta Nebulosa Azul</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="paisagem/Floresta Tropical (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('paisagem/Floresta Tropical (STILL).jpg', this)">🤍</button>
+              <img src="paisagem/Floresta Tropical (STILL).jpg" alt="Floresta Tropical (STILL)" onclick="abrirModal('paisagem/Floresta Tropical (STILL).jpg')">
+              <span>Floresta Tropical (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="paisagem/Floresta.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('paisagem/Floresta.jpg', this)">🤍</button>
+              <img src="paisagem/Floresta.jpg" alt="Floresta" onclick="abrirModal('paisagem/Floresta.jpg')">
+              <span>Floresta</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="paisagem/Folhagem Bananeira (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('paisagem/Folhagem Bananeira (STILL).jpg', this)">🤍</button>
+              <img src="paisagem/Folhagem Bananeira (STILL).jpg" alt="Folhagem Bananeira (STILL)" onclick="abrirModal('paisagem/Folhagem Bananeira (STILL).jpg')">
+              <span>Folhagem Bananeira (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="paisagem/Folhagem Verde (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('paisagem/Folhagem Verde (STILL).jpg', this)">🤍</button>
+              <img src="paisagem/Folhagem Verde (STILL).jpg" alt="Folhagem Verde (STILL)" onclick="abrirModal('paisagem/Folhagem Verde (STILL).jpg')">
+              <span>Folhagem Verde (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="paisagem/Galáxia (2).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('paisagem/Galáxia (2).jpg', this)">🤍</button>
+              <img src="paisagem/Galáxia (2).jpg" alt="Galáxia" onclick="abrirModal('paisagem/Galáxia (2).jpg')">
+              <span>Galáxia</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="paisagem/Galáxia (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('paisagem/Galáxia (STILL).jpg', this)">🤍</button>
+              <img src="paisagem/Galáxia (STILL).jpg" alt="Galáxia (STILL)" onclick="abrirModal('paisagem/Galáxia (STILL).jpg')">
+              <span>Galáxia (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="paisagem/Galáxia 2.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('paisagem/Galáxia 2.jpg', this)">🤍</button>
+              <img src="paisagem/Galáxia 2.jpg" alt="Galáxia" onclick="abrirModal('paisagem/Galáxia 2.jpg')">
+              <span>Galáxia</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="paisagem/Galáxia.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('paisagem/Galáxia.jpg', this)">🤍</button>
+              <img src="paisagem/Galáxia.jpg" alt="Galáxia" onclick="abrirModal('paisagem/Galáxia.jpg')">
+              <span>Galáxia</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="paisagem/Janela para Marina de Dubai (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('paisagem/Janela para Marina de Dubai (STILL).jpg', this)">🤍</button>
+              <img src="paisagem/Janela para Marina de Dubai (STILL).jpg" alt="Janela para Marina de Dubai (STILL)" onclick="abrirModal('paisagem/Janela para Marina de Dubai (STILL).jpg')">
+              <span>Janela para Marina de Dubai (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="paisagem/Janela para Marina de Dubai.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('paisagem/Janela para Marina de Dubai.jpg', this)">🤍</button>
+              <img src="paisagem/Janela para Marina de Dubai.jpg" alt="Janela para Marina de Dubai" onclick="abrirModal('paisagem/Janela para Marina de Dubai.jpg')">
+              <span>Janela para Marina de Dubai</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="paisagem/Jardim Oriental (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('paisagem/Jardim Oriental (STILL).jpg', this)">🤍</button>
+              <img src="paisagem/Jardim Oriental (STILL).jpg" alt="Jardim Oriental (STILL)" onclick="abrirModal('paisagem/Jardim Oriental (STILL).jpg')">
+              <span>Jardim Oriental (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="paisagem/Laranjeiras (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('paisagem/Laranjeiras (STILL).jpg', this)">🤍</button>
+              <img src="paisagem/Laranjeiras (STILL).jpg" alt="Laranjeiras (STILL)" onclick="abrirModal('paisagem/Laranjeiras (STILL).jpg')">
+              <span>Laranjeiras (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="paisagem/Mata Monocromática (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('paisagem/Mata Monocromática (STILL).jpg', this)">🤍</button>
+              <img src="paisagem/Mata Monocromática (STILL).jpg" alt="Mata Monocromática (STILL)" onclick="abrirModal('paisagem/Mata Monocromática (STILL).jpg')">
+              <span>Mata Monocromática (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="paisagem/Mata Monocromática.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('paisagem/Mata Monocromática.jpg', this)">🤍</button>
+              <img src="paisagem/Mata Monocromática.jpg" alt="Mata Monocromática" onclick="abrirModal('paisagem/Mata Monocromática.jpg')">
+              <span>Mata Monocromática</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="paisagem/Mata Natural (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('paisagem/Mata Natural (STILL).jpg', this)">🤍</button>
+              <img src="paisagem/Mata Natural (STILL).jpg" alt="Mata Natural (STILL)" onclick="abrirModal('paisagem/Mata Natural (STILL).jpg')">
+              <span>Mata Natural (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="paisagem/Mata Natural 2.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('paisagem/Mata Natural 2.jpg', this)">🤍</button>
+              <img src="paisagem/Mata Natural 2.jpg" alt="Mata Natural" onclick="abrirModal('paisagem/Mata Natural 2.jpg')">
+              <span>Mata Natural</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="paisagem/Mata Natural.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('paisagem/Mata Natural.jpg', this)">🤍</button>
+              <img src="paisagem/Mata Natural.jpg" alt="Mata Natural" onclick="abrirModal('paisagem/Mata Natural.jpg')">
+              <span>Mata Natural</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="paisagem/Mata Oriental (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('paisagem/Mata Oriental (STILL).jpg', this)">🤍</button>
+              <img src="paisagem/Mata Oriental (STILL).jpg" alt="Mata Oriental (STILL)" onclick="abrirModal('paisagem/Mata Oriental (STILL).jpg')">
+              <span>Mata Oriental (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="paisagem/Mata Oriental.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('paisagem/Mata Oriental.jpg', this)">🤍</button>
+              <img src="paisagem/Mata Oriental.jpg" alt="Mata Oriental" onclick="abrirModal('paisagem/Mata Oriental.jpg')">
+              <span>Mata Oriental</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="paisagem/Paisagem Mata Colors (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('paisagem/Paisagem Mata Colors (STILL).jpg', this)">🤍</button>
+              <img src="paisagem/Paisagem Mata Colors (STILL).jpg" alt="Paisagem Mata Colors (STILL)" onclick="abrirModal('paisagem/Paisagem Mata Colors (STILL).jpg')">
+              <span>Paisagem Mata Colors (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="paisagem/Paisagem Mata Colors 2.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('paisagem/Paisagem Mata Colors 2.jpg', this)">🤍</button>
+              <img src="paisagem/Paisagem Mata Colors 2.jpg" alt="Paisagem Mata Colors" onclick="abrirModal('paisagem/Paisagem Mata Colors 2.jpg')">
+              <span>Paisagem Mata Colors</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="paisagem/Paisagem Mata Colors.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('paisagem/Paisagem Mata Colors.jpg', this)">🤍</button>
+              <img src="paisagem/Paisagem Mata Colors.jpg" alt="Paisagem Mata Colors" onclick="abrirModal('paisagem/Paisagem Mata Colors.jpg')">
+              <span>Paisagem Mata Colors</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="paisagem/Paisagem Tropical (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('paisagem/Paisagem Tropical (STILL).jpg', this)">🤍</button>
+              <img src="paisagem/Paisagem Tropical (STILL).jpg" alt="Paisagem Tropical (STILL)" onclick="abrirModal('paisagem/Paisagem Tropical (STILL).jpg')">
+              <span>Paisagem Tropical (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="paisagem/Pantanal Colors (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('paisagem/Pantanal Colors (STILL).jpg', this)">🤍</button>
+              <img src="paisagem/Pantanal Colors (STILL).jpg" alt="Pantanal Colors (STILL)" onclick="abrirModal('paisagem/Pantanal Colors (STILL).jpg')">
+              <span>Pantanal Colors (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="paisagem/Por do Sol na Praia (2).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('paisagem/Por do Sol na Praia (2).jpg', this)">🤍</button>
+              <img src="paisagem/Por do Sol na Praia (2).jpg" alt="Por do Sol na Praia" onclick="abrirModal('paisagem/Por do Sol na Praia (2).jpg')">
+              <span>Por do Sol na Praia</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="paisagem/Por do Sol na Praia (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('paisagem/Por do Sol na Praia (STILL).jpg', this)">🤍</button>
+              <img src="paisagem/Por do Sol na Praia (STILL).jpg" alt="Por do Sol na Praia (STILL)" onclick="abrirModal('paisagem/Por do Sol na Praia (STILL).jpg')">
+              <span>Por do Sol na Praia (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="paisagem/Por do Sol na Praia.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('paisagem/Por do Sol na Praia.jpg', this)">🤍</button>
+              <img src="paisagem/Por do Sol na Praia.jpg" alt="Por do Sol na Praia" onclick="abrirModal('paisagem/Por do Sol na Praia.jpg')">
+              <span>Por do Sol na Praia</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="paisagem/Praia (2).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('paisagem/Praia (2).jpg', this)">🤍</button>
+              <img src="paisagem/Praia (2).jpg" alt="Praia" onclick="abrirModal('paisagem/Praia (2).jpg')">
+              <span>Praia</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="paisagem/Praia (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('paisagem/Praia (STILL).jpg', this)">🤍</button>
+              <img src="paisagem/Praia (STILL).jpg" alt="Praia (STILL)" onclick="abrirModal('paisagem/Praia (STILL).jpg')">
+              <span>Praia (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="paisagem/Praia.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('paisagem/Praia.jpg', this)">🤍</button>
+              <img src="paisagem/Praia.jpg" alt="Praia" onclick="abrirModal('paisagem/Praia.jpg')">
+              <span>Praia</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="paisagem/Pássaros Grou Verde (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('paisagem/Pássaros Grou Verde (STILL).jpg', this)">🤍</button>
+              <img src="paisagem/Pássaros Grou Verde (STILL).jpg" alt="Pássaros Grou Verde (STILL)" onclick="abrirModal('paisagem/Pássaros Grou Verde (STILL).jpg')">
+              <span>Pássaros Grou Verde (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="paisagem/Ramos de Salgueiro (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('paisagem/Ramos de Salgueiro (STILL).jpg', this)">🤍</button>
+              <img src="paisagem/Ramos de Salgueiro (STILL).jpg" alt="Ramos de Salgueiro (STILL)" onclick="abrirModal('paisagem/Ramos de Salgueiro (STILL).jpg')">
+              <span>Ramos de Salgueiro (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="paisagem/Real Safari (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('paisagem/Real Safari (STILL).jpg', this)">🤍</button>
+              <img src="paisagem/Real Safari (STILL).jpg" alt="Real Safari (STILL)" onclick="abrirModal('paisagem/Real Safari (STILL).jpg')">
+              <span>Real Safari (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="paisagem/Safari Animais Aquarela (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('paisagem/Safari Animais Aquarela (STILL).jpg', this)">🤍</button>
+              <img src="paisagem/Safari Animais Aquarela (STILL).jpg" alt="Safari Animais Aquarela (STILL)" onclick="abrirModal('paisagem/Safari Animais Aquarela (STILL).jpg')">
+              <span>Safari Animais Aquarela (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="paisagem/Safari Paisagem (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('paisagem/Safari Paisagem (STILL).jpg', this)">🤍</button>
+              <img src="paisagem/Safari Paisagem (STILL).jpg" alt="Safari Paisagem (STILL)" onclick="abrirModal('paisagem/Safari Paisagem (STILL).jpg')">
+              <span>Safari Paisagem (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="paisagem/Serra de Araucárias (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('paisagem/Serra de Araucárias (STILL).jpg', this)">🤍</button>
+              <img src="paisagem/Serra de Araucárias (STILL).jpg" alt="Serra de Araucárias (STILL)" onclick="abrirModal('paisagem/Serra de Araucárias (STILL).jpg')">
+              <span>Serra de Araucárias (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="paisagem/Serra de Araucárias 2.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('paisagem/Serra de Araucárias 2.jpg', this)">🤍</button>
+              <img src="paisagem/Serra de Araucárias 2.jpg" alt="Serra de Araucárias" onclick="abrirModal('paisagem/Serra de Araucárias 2.jpg')">
+              <span>Serra de Araucárias</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="paisagem/Serra de Araucárias.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('paisagem/Serra de Araucárias.jpg', this)">🤍</button>
+              <img src="paisagem/Serra de Araucárias.jpg" alt="Serra de Araucárias" onclick="abrirModal('paisagem/Serra de Araucárias.jpg')">
+              <span>Serra de Araucárias</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="paisagem/Surf Girls (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('paisagem/Surf Girls (STILL).jpg', this)">🤍</button>
+              <img src="paisagem/Surf Girls (STILL).jpg" alt="Surf Girls (STILL)" onclick="abrirModal('paisagem/Surf Girls (STILL).jpg')">
+              <span>Surf Girls (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="paisagem/Zoo Safari (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('paisagem/Zoo Safari (STILL).jpg', this)">🤍</button>
+              <img src="paisagem/Zoo Safari (STILL).jpg" alt="Zoo Safari (STILL)" onclick="abrirModal('paisagem/Zoo Safari (STILL).jpg')">
+              <span>Zoo Safari (STILL)</span>
+            </div>
+</div>
+<div class="modal" id="modal">
+  <img id="modal-img" src="">
+  <button onclick="fecharModal()">✖ Fechar</button>
+</div>
+<script src="https://unpkg.com/@panzoom/panzoom@9.4.0/dist/panzoom.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const modal = document.getElementById('modal');
+  const modalImg = document.getElementById('modal-img');
+  let panzoomInstance;
+
+  window.abrirModal = function (src) {
+    modal.style.display = 'flex';
+    modalImg.src = src;
+    if (panzoomInstance) panzoomInstance.destroy();
+    panzoomInstance = Panzoom(modalImg, { maxScale: 5 });
+  }
+
+  window.fecharModal = function () {
+    modal.style.display = 'none';
+    if (panzoomInstance) panzoomInstance.destroy();
+  }
+
+  window.toggleFavorito = function (src, el) {
+    let favoritos = JSON.parse(localStorage.getItem('favoritos')) || [];
+    const index = favoritos.indexOf(src);
+    const agora = new Date().toISOString();
+    if (index >= 0) {
+      favoritos.splice(index, 1);
+      el.classList.remove('favorito');
+      el.textContent = '🤍';
+    } else {
+      favoritos.push(src);
+      el.classList.add('favorito');
+      el.textContent = '❤️';
+      const log = JSON.parse(localStorage.getItem('favoritos_log')) || [];
+      log.push({ img: src, data: agora });
+      localStorage.setItem('favoritos_log', JSON.stringify(log));
+    }
+    localStorage.setItem('favoritos', JSON.stringify(favoritos));
+  }
+
+  const favoritos = JSON.parse(localStorage.getItem('favoritos')) || [];
+  document.querySelectorAll('.favorito-btn').forEach(btn => {
+    const src = btn.getAttribute('onclick').match(/'(.*?)'/)[1];
+    if (favoritos.includes(src)) {
+      btn.textContent = '❤️';
+      btn.classList.add('favorito');
+    }
+  });
+
+  window.baixarSelecionadas = function () {
+    const selecionadas = Array.from(document.querySelectorAll('.checkbox-select:checked')).map(cb => cb.value);
+    if (selecionadas.length === 0) return alert("Nenhuma imagem selecionada.");
+    selecionadas.forEach(src => {
+      const link = document.createElement('a');
+      link.href = src;
+      link.download = src.split('/').pop();
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    });
+  }
+});
+</script>
+</body>
+</html>

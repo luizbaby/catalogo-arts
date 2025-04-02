@@ -1,0 +1,1011 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Folhagem</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    * { box-sizing: border-box; }
+    body { font-family: sans-serif; margin: 0; background: #f4f4f4; }
+    .top-bar {
+      position: sticky;
+      top: 0;
+      background: white;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      gap: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      z-index: 1000;
+    }
+    .btn {
+      background: #01b9b5;
+      color: white;
+      text-decoration: none;
+      padding: 8px 14px;
+      border-radius: 6px;
+      font-size: 14px;
+      cursor: pointer;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      gap: 20px;
+      padding: 20px;
+    }
+    @media (min-width: 768px) {
+      .grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    .card {
+      background: white;
+      padding: 10px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      text-align: center;
+      position: relative;
+    }
+    .card img { width: 100%; border-radius: 8px; cursor: pointer; }
+    .card span { display: block; margin-top: 8px; font-weight: bold; }
+    .checkbox-select {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      transform: scale(1.5);
+    }
+    .favorito-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: none;
+      border: none;
+      font-size: 20px;
+      cursor: pointer;
+    }
+    .favorito-btn.favorito { color: red; }
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.85);
+      z-index: 9999;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+    .modal img { max-width: 90vw; max-height: 80vh; }
+    .modal button {
+      margin-top: 10px;
+      padding: 8px 20px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+<div class="top-bar">
+  <div>
+    <a href="https://catalogo.artspapeisdeparede.com.br/index.html" class="btn">&larr; Voltar</a>
+    <button class="btn" onclick="baixarSelecionadas()">📥 Baixar selecionadas</button>
+  </div>
+  <h1>Folhagem</h1>
+  <a href="https://catalogo.artspapeisdeparede.com.br/favoritos.html" class="btn">⭐ Ver favoritos</a>
+</div>
+<div class="grid">
+<div class="card">
+              <input type="checkbox" class="checkbox-select" value="folhagem/Aquarela Pendente (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('folhagem/Aquarela Pendente (STILL).jpg', this)">🤍</button>
+              <img src="folhagem/Aquarela Pendente (STILL).jpg" alt="Aquarela Pendente (STILL)" onclick="abrirModal('folhagem/Aquarela Pendente (STILL).jpg')">
+              <span>Aquarela Pendente (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="folhagem/Aquarela Pendente 2.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('folhagem/Aquarela Pendente 2.jpg', this)">🤍</button>
+              <img src="folhagem/Aquarela Pendente 2.jpg" alt="Aquarela Pendente" onclick="abrirModal('folhagem/Aquarela Pendente 2.jpg')">
+              <span>Aquarela Pendente</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="folhagem/Aquarela Pendente.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('folhagem/Aquarela Pendente.jpg', this)">🤍</button>
+              <img src="folhagem/Aquarela Pendente.jpg" alt="Aquarela Pendente" onclick="abrirModal('folhagem/Aquarela Pendente.jpg')">
+              <span>Aquarela Pendente</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="folhagem/Borboletas em Jardim Suspenso (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('folhagem/Borboletas em Jardim Suspenso (STILL).jpg', this)">🤍</button>
+              <img src="folhagem/Borboletas em Jardim Suspenso (STILL).jpg" alt="Borboletas em Jardim Suspenso (STILL)" onclick="abrirModal('folhagem/Borboletas em Jardim Suspenso (STILL).jpg')">
+              <span>Borboletas em Jardim Suspenso (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="folhagem/Borboletas em Jardim Suspenso.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('folhagem/Borboletas em Jardim Suspenso.jpg', this)">🤍</button>
+              <img src="folhagem/Borboletas em Jardim Suspenso.jpg" alt="Borboletas em Jardim Suspenso" onclick="abrirModal('folhagem/Borboletas em Jardim Suspenso.jpg')">
+              <span>Borboletas em Jardim Suspenso</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="folhagem/Calopsita Botanical (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('folhagem/Calopsita Botanical (STILL).jpg', this)">🤍</button>
+              <img src="folhagem/Calopsita Botanical (STILL).jpg" alt="Calopsita Botanical (STILL)" onclick="abrirModal('folhagem/Calopsita Botanical (STILL).jpg')">
+              <span>Calopsita Botanical (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="folhagem/Capim dos Pampas (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('folhagem/Capim dos Pampas (STILL).jpg', this)">🤍</button>
+              <img src="folhagem/Capim dos Pampas (STILL).jpg" alt="Capim dos Pampas (STILL)" onclick="abrirModal('folhagem/Capim dos Pampas (STILL).jpg')">
+              <span>Capim dos Pampas (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="folhagem/Capim dos Pampas 2.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('folhagem/Capim dos Pampas 2.jpg', this)">🤍</button>
+              <img src="folhagem/Capim dos Pampas 2.jpg" alt="Capim dos Pampas" onclick="abrirModal('folhagem/Capim dos Pampas 2.jpg')">
+              <span>Capim dos Pampas</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="folhagem/Capim dos Pampas.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('folhagem/Capim dos Pampas.jpg', this)">🤍</button>
+              <img src="folhagem/Capim dos Pampas.jpg" alt="Capim dos Pampas" onclick="abrirModal('folhagem/Capim dos Pampas.jpg')">
+              <span>Capim dos Pampas</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="folhagem/Clássico Zoo (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('folhagem/Clássico Zoo (STILL).jpg', this)">🤍</button>
+              <img src="folhagem/Clássico Zoo (STILL).jpg" alt="Clássico Zoo (STILL)" onclick="abrirModal('folhagem/Clássico Zoo (STILL).jpg')">
+              <span>Clássico Zoo (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="folhagem/Clássico Zoo 2.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('folhagem/Clássico Zoo 2.jpg', this)">🤍</button>
+              <img src="folhagem/Clássico Zoo 2.jpg" alt="Clássico Zoo" onclick="abrirModal('folhagem/Clássico Zoo 2.jpg')">
+              <span>Clássico Zoo</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="folhagem/Clássico Zoo.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('folhagem/Clássico Zoo.jpg', this)">🤍</button>
+              <img src="folhagem/Clássico Zoo.jpg" alt="Clássico Zoo" onclick="abrirModal('folhagem/Clássico Zoo.jpg')">
+              <span>Clássico Zoo</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="folhagem/Costela de Adao Rose (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('folhagem/Costela de Adao Rose (STILL).jpg', this)">🤍</button>
+              <img src="folhagem/Costela de Adao Rose (STILL).jpg" alt="Costela de Adao Rose (STILL)" onclick="abrirModal('folhagem/Costela de Adao Rose (STILL).jpg')">
+              <span>Costela de Adao Rose (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="folhagem/Costela de Adão Rose (2).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('folhagem/Costela de Adão Rose (2).jpg', this)">🤍</button>
+              <img src="folhagem/Costela de Adão Rose (2).jpg" alt="Costela de Adão Rose" onclick="abrirModal('folhagem/Costela de Adão Rose (2).jpg')">
+              <span>Costela de Adão Rose</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="folhagem/Costela de Adão Rose.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('folhagem/Costela de Adão Rose.jpg', this)">🤍</button>
+              <img src="folhagem/Costela de Adão Rose.jpg" alt="Costela de Adão Rose" onclick="abrirModal('folhagem/Costela de Adão Rose.jpg')">
+              <span>Costela de Adão Rose</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="folhagem/Floral Pendente Verde (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('folhagem/Floral Pendente Verde (STILL).jpg', this)">🤍</button>
+              <img src="folhagem/Floral Pendente Verde (STILL).jpg" alt="Floral Pendente Verde (STILL)" onclick="abrirModal('folhagem/Floral Pendente Verde (STILL).jpg')">
+              <span>Floral Pendente Verde (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="folhagem/Floral Pendente Verde 2.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('folhagem/Floral Pendente Verde 2.jpg', this)">🤍</button>
+              <img src="folhagem/Floral Pendente Verde 2.jpg" alt="Floral Pendente Verde" onclick="abrirModal('folhagem/Floral Pendente Verde 2.jpg')">
+              <span>Floral Pendente Verde</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="folhagem/Floral Pendente Verde.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('folhagem/Floral Pendente Verde.jpg', this)">🤍</button>
+              <img src="folhagem/Floral Pendente Verde.jpg" alt="Floral Pendente Verde" onclick="abrirModal('folhagem/Floral Pendente Verde.jpg')">
+              <span>Floral Pendente Verde</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="folhagem/Floresta Encanto (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('folhagem/Floresta Encanto (STILL).jpg', this)">🤍</button>
+              <img src="folhagem/Floresta Encanto (STILL).jpg" alt="Floresta Encanto (STILL)" onclick="abrirModal('folhagem/Floresta Encanto (STILL).jpg')">
+              <span>Floresta Encanto (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="folhagem/Floresta Tropical (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('folhagem/Floresta Tropical (STILL).jpg', this)">🤍</button>
+              <img src="folhagem/Floresta Tropical (STILL).jpg" alt="Floresta Tropical (STILL)" onclick="abrirModal('folhagem/Floresta Tropical (STILL).jpg')">
+              <span>Floresta Tropical (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="folhagem/Folhagem Aquarela Clean (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('folhagem/Folhagem Aquarela Clean (STILL).jpg', this)">🤍</button>
+              <img src="folhagem/Folhagem Aquarela Clean (STILL).jpg" alt="Folhagem Aquarela Clean (STILL)" onclick="abrirModal('folhagem/Folhagem Aquarela Clean (STILL).jpg')">
+              <span>Folhagem Aquarela Clean (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="folhagem/Folhagem Aquarela Clean 2.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('folhagem/Folhagem Aquarela Clean 2.jpg', this)">🤍</button>
+              <img src="folhagem/Folhagem Aquarela Clean 2.jpg" alt="Folhagem Aquarela Clean" onclick="abrirModal('folhagem/Folhagem Aquarela Clean 2.jpg')">
+              <span>Folhagem Aquarela Clean</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="folhagem/Folhagem Aquarela Clean Gold (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('folhagem/Folhagem Aquarela Clean Gold (STILL).jpg', this)">🤍</button>
+              <img src="folhagem/Folhagem Aquarela Clean Gold (STILL).jpg" alt="Folhagem Aquarela Clean Gold (STILL)" onclick="abrirModal('folhagem/Folhagem Aquarela Clean Gold (STILL).jpg')">
+              <span>Folhagem Aquarela Clean Gold (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="folhagem/Folhagem Aquarela Clean.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('folhagem/Folhagem Aquarela Clean.jpg', this)">🤍</button>
+              <img src="folhagem/Folhagem Aquarela Clean.jpg" alt="Folhagem Aquarela Clean" onclick="abrirModal('folhagem/Folhagem Aquarela Clean.jpg')">
+              <span>Folhagem Aquarela Clean</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="folhagem/Folhagem Areia (2).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('folhagem/Folhagem Areia (2).jpg', this)">🤍</button>
+              <img src="folhagem/Folhagem Areia (2).jpg" alt="Folhagem Areia" onclick="abrirModal('folhagem/Folhagem Areia (2).jpg')">
+              <span>Folhagem Areia</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="folhagem/Folhagem Areia (STILL) (2).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('folhagem/Folhagem Areia (STILL) (2).jpg', this)">🤍</button>
+              <img src="folhagem/Folhagem Areia (STILL) (2).jpg" alt="Folhagem Areia (STILL)" onclick="abrirModal('folhagem/Folhagem Areia (STILL) (2).jpg')">
+              <span>Folhagem Areia (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="folhagem/Folhagem Areia (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('folhagem/Folhagem Areia (STILL).jpg', this)">🤍</button>
+              <img src="folhagem/Folhagem Areia (STILL).jpg" alt="Folhagem Areia (STILL)" onclick="abrirModal('folhagem/Folhagem Areia (STILL).jpg')">
+              <span>Folhagem Areia (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="folhagem/Folhagem Areia.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('folhagem/Folhagem Areia.jpg', this)">🤍</button>
+              <img src="folhagem/Folhagem Areia.jpg" alt="Folhagem Areia" onclick="abrirModal('folhagem/Folhagem Areia.jpg')">
+              <span>Folhagem Areia</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="folhagem/Folhagem Azul (2).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('folhagem/Folhagem Azul (2).jpg', this)">🤍</button>
+              <img src="folhagem/Folhagem Azul (2).jpg" alt="Folhagem Azul" onclick="abrirModal('folhagem/Folhagem Azul (2).jpg')">
+              <span>Folhagem Azul</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="folhagem/Folhagem Azul (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('folhagem/Folhagem Azul (STILL).jpg', this)">🤍</button>
+              <img src="folhagem/Folhagem Azul (STILL).jpg" alt="Folhagem Azul (STILL)" onclick="abrirModal('folhagem/Folhagem Azul (STILL).jpg')">
+              <span>Folhagem Azul (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="folhagem/Folhagem Azul 2.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('folhagem/Folhagem Azul 2.jpg', this)">🤍</button>
+              <img src="folhagem/Folhagem Azul 2.jpg" alt="Folhagem Azul" onclick="abrirModal('folhagem/Folhagem Azul 2.jpg')">
+              <span>Folhagem Azul</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="folhagem/Folhagem Azul 3.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('folhagem/Folhagem Azul 3.jpg', this)">🤍</button>
+              <img src="folhagem/Folhagem Azul 3.jpg" alt="Folhagem Azul" onclick="abrirModal('folhagem/Folhagem Azul 3.jpg')">
+              <span>Folhagem Azul</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="folhagem/Folhagem Azul 4.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('folhagem/Folhagem Azul 4.jpg', this)">🤍</button>
+              <img src="folhagem/Folhagem Azul 4.jpg" alt="Folhagem Azul" onclick="abrirModal('folhagem/Folhagem Azul 4.jpg')">
+              <span>Folhagem Azul</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="folhagem/Folhagem Azul.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('folhagem/Folhagem Azul.jpg', this)">🤍</button>
+              <img src="folhagem/Folhagem Azul.jpg" alt="Folhagem Azul" onclick="abrirModal('folhagem/Folhagem Azul.jpg')">
+              <span>Folhagem Azul</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="folhagem/Folhagem Bananeira (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('folhagem/Folhagem Bananeira (STILL).jpg', this)">🤍</button>
+              <img src="folhagem/Folhagem Bananeira (STILL).jpg" alt="Folhagem Bananeira (STILL)" onclick="abrirModal('folhagem/Folhagem Bananeira (STILL).jpg')">
+              <span>Folhagem Bananeira (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="folhagem/Folhagem Champagne (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('folhagem/Folhagem Champagne (STILL).jpg', this)">🤍</button>
+              <img src="folhagem/Folhagem Champagne (STILL).jpg" alt="Folhagem Champagne (STILL)" onclick="abrirModal('folhagem/Folhagem Champagne (STILL).jpg')">
+              <span>Folhagem Champagne (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="folhagem/Folhagem Champagne 2.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('folhagem/Folhagem Champagne 2.jpg', this)">🤍</button>
+              <img src="folhagem/Folhagem Champagne 2.jpg" alt="Folhagem Champagne" onclick="abrirModal('folhagem/Folhagem Champagne 2.jpg')">
+              <span>Folhagem Champagne</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="folhagem/Folhagem Champagne.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('folhagem/Folhagem Champagne.jpg', this)">🤍</button>
+              <img src="folhagem/Folhagem Champagne.jpg" alt="Folhagem Champagne" onclick="abrirModal('folhagem/Folhagem Champagne.jpg')">
+              <span>Folhagem Champagne</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="folhagem/Folhagem Costela de Adao (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('folhagem/Folhagem Costela de Adao (STILL).jpg', this)">🤍</button>
+              <img src="folhagem/Folhagem Costela de Adao (STILL).jpg" alt="Folhagem Costela de Adao (STILL)" onclick="abrirModal('folhagem/Folhagem Costela de Adao (STILL).jpg')">
+              <span>Folhagem Costela de Adao (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="folhagem/Folhagem Costela de Adao.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('folhagem/Folhagem Costela de Adao.jpg', this)">🤍</button>
+              <img src="folhagem/Folhagem Costela de Adao.jpg" alt="Folhagem Costela de Adao" onclick="abrirModal('folhagem/Folhagem Costela de Adao.jpg')">
+              <span>Folhagem Costela de Adao</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="folhagem/Folhagem Costela de Adão (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('folhagem/Folhagem Costela de Adão (STILL).jpg', this)">🤍</button>
+              <img src="folhagem/Folhagem Costela de Adão (STILL).jpg" alt="Folhagem Costela de Adão (STILL)" onclick="abrirModal('folhagem/Folhagem Costela de Adão (STILL).jpg')">
+              <span>Folhagem Costela de Adão (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="folhagem/Folhagem Costela de Adão 2.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('folhagem/Folhagem Costela de Adão 2.jpg', this)">🤍</button>
+              <img src="folhagem/Folhagem Costela de Adão 2.jpg" alt="Folhagem Costela de Adão" onclick="abrirModal('folhagem/Folhagem Costela de Adão 2.jpg')">
+              <span>Folhagem Costela de Adão</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="folhagem/Folhagem Costela de Adão.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('folhagem/Folhagem Costela de Adão.jpg', this)">🤍</button>
+              <img src="folhagem/Folhagem Costela de Adão.jpg" alt="Folhagem Costela de Adão" onclick="abrirModal('folhagem/Folhagem Costela de Adão.jpg')">
+              <span>Folhagem Costela de Adão</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="folhagem/Folhagem em Muro Rústico Areia (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('folhagem/Folhagem em Muro Rústico Areia (STILL).jpg', this)">🤍</button>
+              <img src="folhagem/Folhagem em Muro Rústico Areia (STILL).jpg" alt="Folhagem em Muro Rústico Areia (STILL)" onclick="abrirModal('folhagem/Folhagem em Muro Rústico Areia (STILL).jpg')">
+              <span>Folhagem em Muro Rústico Areia (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="folhagem/Folhagem em Muro Rústico Areia 2.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('folhagem/Folhagem em Muro Rústico Areia 2.jpg', this)">🤍</button>
+              <img src="folhagem/Folhagem em Muro Rústico Areia 2.jpg" alt="Folhagem em Muro Rústico Areia" onclick="abrirModal('folhagem/Folhagem em Muro Rústico Areia 2.jpg')">
+              <span>Folhagem em Muro Rústico Areia</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="folhagem/Folhagem em Muro Rústico Areia.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('folhagem/Folhagem em Muro Rústico Areia.jpg', this)">🤍</button>
+              <img src="folhagem/Folhagem em Muro Rústico Areia.jpg" alt="Folhagem em Muro Rústico Areia" onclick="abrirModal('folhagem/Folhagem em Muro Rústico Areia.jpg')">
+              <span>Folhagem em Muro Rústico Areia</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="folhagem/Folhagem em Muro Rústico Cinza (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('folhagem/Folhagem em Muro Rústico Cinza (STILL).jpg', this)">🤍</button>
+              <img src="folhagem/Folhagem em Muro Rústico Cinza (STILL).jpg" alt="Folhagem em Muro Rústico Cinza (STILL)" onclick="abrirModal('folhagem/Folhagem em Muro Rústico Cinza (STILL).jpg')">
+              <span>Folhagem em Muro Rústico Cinza (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="folhagem/Folhagem em Muro Rústico Cinza 2.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('folhagem/Folhagem em Muro Rústico Cinza 2.jpg', this)">🤍</button>
+              <img src="folhagem/Folhagem em Muro Rústico Cinza 2.jpg" alt="Folhagem em Muro Rústico Cinza" onclick="abrirModal('folhagem/Folhagem em Muro Rústico Cinza 2.jpg')">
+              <span>Folhagem em Muro Rústico Cinza</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="folhagem/Folhagem em Muro Rústico Cinza.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('folhagem/Folhagem em Muro Rústico Cinza.jpg', this)">🤍</button>
+              <img src="folhagem/Folhagem em Muro Rústico Cinza.jpg" alt="Folhagem em Muro Rústico Cinza" onclick="abrirModal('folhagem/Folhagem em Muro Rústico Cinza.jpg')">
+              <span>Folhagem em Muro Rústico Cinza</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="folhagem/Folhagem em Muro Rústico Terracota (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('folhagem/Folhagem em Muro Rústico Terracota (STILL).jpg', this)">🤍</button>
+              <img src="folhagem/Folhagem em Muro Rústico Terracota (STILL).jpg" alt="Folhagem em Muro Rústico Terracota (STILL)" onclick="abrirModal('folhagem/Folhagem em Muro Rústico Terracota (STILL).jpg')">
+              <span>Folhagem em Muro Rústico Terracota (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="folhagem/Folhagem em Muro Rústico Terracota 2.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('folhagem/Folhagem em Muro Rústico Terracota 2.jpg', this)">🤍</button>
+              <img src="folhagem/Folhagem em Muro Rústico Terracota 2.jpg" alt="Folhagem em Muro Rústico Terracota" onclick="abrirModal('folhagem/Folhagem em Muro Rústico Terracota 2.jpg')">
+              <span>Folhagem em Muro Rústico Terracota</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="folhagem/Folhagem em Muro Rústico Terracota.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('folhagem/Folhagem em Muro Rústico Terracota.jpg', this)">🤍</button>
+              <img src="folhagem/Folhagem em Muro Rústico Terracota.jpg" alt="Folhagem em Muro Rústico Terracota" onclick="abrirModal('folhagem/Folhagem em Muro Rústico Terracota.jpg')">
+              <span>Folhagem em Muro Rústico Terracota</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="folhagem/Folhagem em Muro Rústico Verde (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('folhagem/Folhagem em Muro Rústico Verde (STILL).jpg', this)">🤍</button>
+              <img src="folhagem/Folhagem em Muro Rústico Verde (STILL).jpg" alt="Folhagem em Muro Rústico Verde (STILL)" onclick="abrirModal('folhagem/Folhagem em Muro Rústico Verde (STILL).jpg')">
+              <span>Folhagem em Muro Rústico Verde (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="folhagem/Folhagem em Muro Rústico Verde 2.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('folhagem/Folhagem em Muro Rústico Verde 2.jpg', this)">🤍</button>
+              <img src="folhagem/Folhagem em Muro Rústico Verde 2.jpg" alt="Folhagem em Muro Rústico Verde" onclick="abrirModal('folhagem/Folhagem em Muro Rústico Verde 2.jpg')">
+              <span>Folhagem em Muro Rústico Verde</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="folhagem/Folhagem em Muro Rústico Verde.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('folhagem/Folhagem em Muro Rústico Verde.jpg', this)">🤍</button>
+              <img src="folhagem/Folhagem em Muro Rústico Verde.jpg" alt="Folhagem em Muro Rústico Verde" onclick="abrirModal('folhagem/Folhagem em Muro Rústico Verde.jpg')">
+              <span>Folhagem em Muro Rústico Verde</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="folhagem/Folhagem Exotics (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('folhagem/Folhagem Exotics (STILL).jpg', this)">🤍</button>
+              <img src="folhagem/Folhagem Exotics (STILL).jpg" alt="Folhagem Exotics (STILL)" onclick="abrirModal('folhagem/Folhagem Exotics (STILL).jpg')">
+              <span>Folhagem Exotics (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="folhagem/Folhagem Exotics 1.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('folhagem/Folhagem Exotics 1.jpg', this)">🤍</button>
+              <img src="folhagem/Folhagem Exotics 1.jpg" alt="Folhagem Exotics" onclick="abrirModal('folhagem/Folhagem Exotics 1.jpg')">
+              <span>Folhagem Exotics</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="folhagem/Folhagem Exotics.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('folhagem/Folhagem Exotics.jpg', this)">🤍</button>
+              <img src="folhagem/Folhagem Exotics.jpg" alt="Folhagem Exotics" onclick="abrirModal('folhagem/Folhagem Exotics.jpg')">
+              <span>Folhagem Exotics</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="folhagem/Folhagem Jardim Suspenso (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('folhagem/Folhagem Jardim Suspenso (STILL).jpg', this)">🤍</button>
+              <img src="folhagem/Folhagem Jardim Suspenso (STILL).jpg" alt="Folhagem Jardim Suspenso (STILL)" onclick="abrirModal('folhagem/Folhagem Jardim Suspenso (STILL).jpg')">
+              <span>Folhagem Jardim Suspenso (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="folhagem/Folhagem Jardim Suspenso.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('folhagem/Folhagem Jardim Suspenso.jpg', this)">🤍</button>
+              <img src="folhagem/Folhagem Jardim Suspenso.jpg" alt="Folhagem Jardim Suspenso" onclick="abrirModal('folhagem/Folhagem Jardim Suspenso.jpg')">
+              <span>Folhagem Jardim Suspenso</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="folhagem/Folhagem Rose (2).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('folhagem/Folhagem Rose (2).jpg', this)">🤍</button>
+              <img src="folhagem/Folhagem Rose (2).jpg" alt="Folhagem Rose" onclick="abrirModal('folhagem/Folhagem Rose (2).jpg')">
+              <span>Folhagem Rose</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="folhagem/Folhagem Rose (3).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('folhagem/Folhagem Rose (3).jpg', this)">🤍</button>
+              <img src="folhagem/Folhagem Rose (3).jpg" alt="Folhagem Rose" onclick="abrirModal('folhagem/Folhagem Rose (3).jpg')">
+              <span>Folhagem Rose</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="folhagem/Folhagem Rose (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('folhagem/Folhagem Rose (STILL).jpg', this)">🤍</button>
+              <img src="folhagem/Folhagem Rose (STILL).jpg" alt="Folhagem Rose (STILL)" onclick="abrirModal('folhagem/Folhagem Rose (STILL).jpg')">
+              <span>Folhagem Rose (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="folhagem/Folhagem Rose 2 (2).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('folhagem/Folhagem Rose 2 (2).jpg', this)">🤍</button>
+              <img src="folhagem/Folhagem Rose 2 (2).jpg" alt="Folhagem Rose 2" onclick="abrirModal('folhagem/Folhagem Rose 2 (2).jpg')">
+              <span>Folhagem Rose 2</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="folhagem/Folhagem Rose 2.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('folhagem/Folhagem Rose 2.jpg', this)">🤍</button>
+              <img src="folhagem/Folhagem Rose 2.jpg" alt="Folhagem Rose" onclick="abrirModal('folhagem/Folhagem Rose 2.jpg')">
+              <span>Folhagem Rose</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="folhagem/Folhagem Rose.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('folhagem/Folhagem Rose.jpg', this)">🤍</button>
+              <img src="folhagem/Folhagem Rose.jpg" alt="Folhagem Rose" onclick="abrirModal('folhagem/Folhagem Rose.jpg')">
+              <span>Folhagem Rose</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="folhagem/Folhagem Textura Linen Azul (2).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('folhagem/Folhagem Textura Linen Azul (2).jpg', this)">🤍</button>
+              <img src="folhagem/Folhagem Textura Linen Azul (2).jpg" alt="Folhagem Textura Linen Azul" onclick="abrirModal('folhagem/Folhagem Textura Linen Azul (2).jpg')">
+              <span>Folhagem Textura Linen Azul</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="folhagem/Folhagem Textura Linen Azul (3).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('folhagem/Folhagem Textura Linen Azul (3).jpg', this)">🤍</button>
+              <img src="folhagem/Folhagem Textura Linen Azul (3).jpg" alt="Folhagem Textura Linen Azul" onclick="abrirModal('folhagem/Folhagem Textura Linen Azul (3).jpg')">
+              <span>Folhagem Textura Linen Azul</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="folhagem/Folhagem Textura Linen Azul (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('folhagem/Folhagem Textura Linen Azul (STILL).jpg', this)">🤍</button>
+              <img src="folhagem/Folhagem Textura Linen Azul (STILL).jpg" alt="Folhagem Textura Linen Azul (STILL)" onclick="abrirModal('folhagem/Folhagem Textura Linen Azul (STILL).jpg')">
+              <span>Folhagem Textura Linen Azul (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="folhagem/Folhagem Textura Linen Azul.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('folhagem/Folhagem Textura Linen Azul.jpg', this)">🤍</button>
+              <img src="folhagem/Folhagem Textura Linen Azul.jpg" alt="Folhagem Textura Linen Azul" onclick="abrirModal('folhagem/Folhagem Textura Linen Azul.jpg')">
+              <span>Folhagem Textura Linen Azul</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="folhagem/Folhagem Textura Linen Camurça (2).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('folhagem/Folhagem Textura Linen Camurça (2).jpg', this)">🤍</button>
+              <img src="folhagem/Folhagem Textura Linen Camurça (2).jpg" alt="Folhagem Textura Linen Camurça" onclick="abrirModal('folhagem/Folhagem Textura Linen Camurça (2).jpg')">
+              <span>Folhagem Textura Linen Camurça</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="folhagem/Folhagem Textura Linen Camurça (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('folhagem/Folhagem Textura Linen Camurça (STILL).jpg', this)">🤍</button>
+              <img src="folhagem/Folhagem Textura Linen Camurça (STILL).jpg" alt="Folhagem Textura Linen Camurça (STILL)" onclick="abrirModal('folhagem/Folhagem Textura Linen Camurça (STILL).jpg')">
+              <span>Folhagem Textura Linen Camurça (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="folhagem/Folhagem Textura Linen Camurça 2.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('folhagem/Folhagem Textura Linen Camurça 2.jpg', this)">🤍</button>
+              <img src="folhagem/Folhagem Textura Linen Camurça 2.jpg" alt="Folhagem Textura Linen Camurça" onclick="abrirModal('folhagem/Folhagem Textura Linen Camurça 2.jpg')">
+              <span>Folhagem Textura Linen Camurça</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="folhagem/Folhagem Textura Linen Camurça.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('folhagem/Folhagem Textura Linen Camurça.jpg', this)">🤍</button>
+              <img src="folhagem/Folhagem Textura Linen Camurça.jpg" alt="Folhagem Textura Linen Camurça" onclick="abrirModal('folhagem/Folhagem Textura Linen Camurça.jpg')">
+              <span>Folhagem Textura Linen Camurça</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="folhagem/Folhagem Verde (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('folhagem/Folhagem Verde (STILL).jpg', this)">🤍</button>
+              <img src="folhagem/Folhagem Verde (STILL).jpg" alt="Folhagem Verde (STILL)" onclick="abrirModal('folhagem/Folhagem Verde (STILL).jpg')">
+              <span>Folhagem Verde (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="folhagem/Folhagens Aquarela Verde e Rosa (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('folhagem/Folhagens Aquarela Verde e Rosa (STILL).jpg', this)">🤍</button>
+              <img src="folhagem/Folhagens Aquarela Verde e Rosa (STILL).jpg" alt="Folhagens Aquarela Verde e Rosa (STILL)" onclick="abrirModal('folhagem/Folhagens Aquarela Verde e Rosa (STILL).jpg')">
+              <span>Folhagens Aquarela Verde e Rosa (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="folhagem/Folhagens e Colors (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('folhagem/Folhagens e Colors (STILL).jpg', this)">🤍</button>
+              <img src="folhagem/Folhagens e Colors (STILL).jpg" alt="Folhagens e Colors (STILL)" onclick="abrirModal('folhagem/Folhagens e Colors (STILL).jpg')">
+              <span>Folhagens e Colors (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="folhagem/Folhagens e Colors 2.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('folhagem/Folhagens e Colors 2.jpg', this)">🤍</button>
+              <img src="folhagem/Folhagens e Colors 2.jpg" alt="Folhagens e Colors" onclick="abrirModal('folhagem/Folhagens e Colors 2.jpg')">
+              <span>Folhagens e Colors</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="folhagem/Folhagens e Colors.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('folhagem/Folhagens e Colors.jpg', this)">🤍</button>
+              <img src="folhagem/Folhagens e Colors.jpg" alt="Folhagens e Colors" onclick="abrirModal('folhagem/Folhagens e Colors.jpg')">
+              <span>Folhagens e Colors</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="folhagem/Folhas Cinza (2).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('folhagem/Folhas Cinza (2).jpg', this)">🤍</button>
+              <img src="folhagem/Folhas Cinza (2).jpg" alt="Folhas Cinza" onclick="abrirModal('folhagem/Folhas Cinza (2).jpg')">
+              <span>Folhas Cinza</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="folhagem/Folhas Cinza (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('folhagem/Folhas Cinza (STILL).jpg', this)">🤍</button>
+              <img src="folhagem/Folhas Cinza (STILL).jpg" alt="Folhas Cinza (STILL)" onclick="abrirModal('folhagem/Folhas Cinza (STILL).jpg')">
+              <span>Folhas Cinza (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="folhagem/Folhas Cinza.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('folhagem/Folhas Cinza.jpg', this)">🤍</button>
+              <img src="folhagem/Folhas Cinza.jpg" alt="Folhas Cinza" onclick="abrirModal('folhagem/Folhas Cinza.jpg')">
+              <span>Folhas Cinza</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="folhagem/Folhas de Bananeira Azul (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('folhagem/Folhas de Bananeira Azul (STILL).jpg', this)">🤍</button>
+              <img src="folhagem/Folhas de Bananeira Azul (STILL).jpg" alt="Folhas de Bananeira Azul (STILL)" onclick="abrirModal('folhagem/Folhas de Bananeira Azul (STILL).jpg')">
+              <span>Folhas de Bananeira Azul (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="folhagem/Folhas de Bananeira Azul 2.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('folhagem/Folhas de Bananeira Azul 2.jpg', this)">🤍</button>
+              <img src="folhagem/Folhas de Bananeira Azul 2.jpg" alt="Folhas de Bananeira Azul" onclick="abrirModal('folhagem/Folhas de Bananeira Azul 2.jpg')">
+              <span>Folhas de Bananeira Azul</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="folhagem/Folhas de Bananeira Azul.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('folhagem/Folhas de Bananeira Azul.jpg', this)">🤍</button>
+              <img src="folhagem/Folhas de Bananeira Azul.jpg" alt="Folhas de Bananeira Azul" onclick="abrirModal('folhagem/Folhas de Bananeira Azul.jpg')">
+              <span>Folhas de Bananeira Azul</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="folhagem/Folhas de Bananeira Colors (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('folhagem/Folhas de Bananeira Colors (STILL).jpg', this)">🤍</button>
+              <img src="folhagem/Folhas de Bananeira Colors (STILL).jpg" alt="Folhas de Bananeira Colors (STILL)" onclick="abrirModal('folhagem/Folhas de Bananeira Colors (STILL).jpg')">
+              <span>Folhas de Bananeira Colors (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="folhagem/Folhas de Bananeira Colors.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('folhagem/Folhas de Bananeira Colors.jpg', this)">🤍</button>
+              <img src="folhagem/Folhas de Bananeira Colors.jpg" alt="Folhas de Bananeira Colors" onclick="abrirModal('folhagem/Folhas de Bananeira Colors.jpg')">
+              <span>Folhas de Bananeira Colors</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="folhagem/Folhas de Bananeira Gold (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('folhagem/Folhas de Bananeira Gold (STILL).jpg', this)">🤍</button>
+              <img src="folhagem/Folhas de Bananeira Gold (STILL).jpg" alt="Folhas de Bananeira Gold (STILL)" onclick="abrirModal('folhagem/Folhas de Bananeira Gold (STILL).jpg')">
+              <span>Folhas de Bananeira Gold (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="folhagem/Folhas de Bananeira Gold 2.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('folhagem/Folhas de Bananeira Gold 2.jpg', this)">🤍</button>
+              <img src="folhagem/Folhas de Bananeira Gold 2.jpg" alt="Folhas de Bananeira Gold" onclick="abrirModal('folhagem/Folhas de Bananeira Gold 2.jpg')">
+              <span>Folhas de Bananeira Gold</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="folhagem/Folhas de Bananeira Gold.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('folhagem/Folhas de Bananeira Gold.jpg', this)">🤍</button>
+              <img src="folhagem/Folhas de Bananeira Gold.jpg" alt="Folhas de Bananeira Gold" onclick="abrirModal('folhagem/Folhas de Bananeira Gold.jpg')">
+              <span>Folhas de Bananeira Gold</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="folhagem/Folhas de Bananeira Rose Gold (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('folhagem/Folhas de Bananeira Rose Gold (STILL).jpg', this)">🤍</button>
+              <img src="folhagem/Folhas de Bananeira Rose Gold (STILL).jpg" alt="Folhas de Bananeira Rose Gold (STILL)" onclick="abrirModal('folhagem/Folhas de Bananeira Rose Gold (STILL).jpg')">
+              <span>Folhas de Bananeira Rose Gold (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="folhagem/Folhas de Bananeira Rose Gold 2.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('folhagem/Folhas de Bananeira Rose Gold 2.jpg', this)">🤍</button>
+              <img src="folhagem/Folhas de Bananeira Rose Gold 2.jpg" alt="Folhas de Bananeira Rose Gold" onclick="abrirModal('folhagem/Folhas de Bananeira Rose Gold 2.jpg')">
+              <span>Folhas de Bananeira Rose Gold</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="folhagem/Folhas de Bananeira Rose Gold.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('folhagem/Folhas de Bananeira Rose Gold.jpg', this)">🤍</button>
+              <img src="folhagem/Folhas de Bananeira Rose Gold.jpg" alt="Folhas de Bananeira Rose Gold" onclick="abrirModal('folhagem/Folhas de Bananeira Rose Gold.jpg')">
+              <span>Folhas de Bananeira Rose Gold</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="folhagem/Folhas de Bananeira Tiffany Gold (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('folhagem/Folhas de Bananeira Tiffany Gold (STILL).jpg', this)">🤍</button>
+              <img src="folhagem/Folhas de Bananeira Tiffany Gold (STILL).jpg" alt="Folhas de Bananeira Tiffany Gold (STILL)" onclick="abrirModal('folhagem/Folhas de Bananeira Tiffany Gold (STILL).jpg')">
+              <span>Folhas de Bananeira Tiffany Gold (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="folhagem/Folhas de Bananeira Tiffany Gold 2.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('folhagem/Folhas de Bananeira Tiffany Gold 2.jpg', this)">🤍</button>
+              <img src="folhagem/Folhas de Bananeira Tiffany Gold 2.jpg" alt="Folhas de Bananeira Tiffany Gold" onclick="abrirModal('folhagem/Folhas de Bananeira Tiffany Gold 2.jpg')">
+              <span>Folhas de Bananeira Tiffany Gold</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="folhagem/Folhas de Bananeira Tiffany Gold.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('folhagem/Folhas de Bananeira Tiffany Gold.jpg', this)">🤍</button>
+              <img src="folhagem/Folhas de Bananeira Tiffany Gold.jpg" alt="Folhas de Bananeira Tiffany Gold" onclick="abrirModal('folhagem/Folhas de Bananeira Tiffany Gold.jpg')">
+              <span>Folhas de Bananeira Tiffany Gold</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="folhagem/Folhas de Outono (2).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('folhagem/Folhas de Outono (2).jpg', this)">🤍</button>
+              <img src="folhagem/Folhas de Outono (2).jpg" alt="Folhas de Outono" onclick="abrirModal('folhagem/Folhas de Outono (2).jpg')">
+              <span>Folhas de Outono</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="folhagem/Folhas de Outono (3).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('folhagem/Folhas de Outono (3).jpg', this)">🤍</button>
+              <img src="folhagem/Folhas de Outono (3).jpg" alt="Folhas de Outono" onclick="abrirModal('folhagem/Folhas de Outono (3).jpg')">
+              <span>Folhas de Outono</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="folhagem/Folhas de Outono (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('folhagem/Folhas de Outono (STILL).jpg', this)">🤍</button>
+              <img src="folhagem/Folhas de Outono (STILL).jpg" alt="Folhas de Outono (STILL)" onclick="abrirModal('folhagem/Folhas de Outono (STILL).jpg')">
+              <span>Folhas de Outono (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="folhagem/Folhas de Outono.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('folhagem/Folhas de Outono.jpg', this)">🤍</button>
+              <img src="folhagem/Folhas de Outono.jpg" alt="Folhas de Outono" onclick="abrirModal('folhagem/Folhas de Outono.jpg')">
+              <span>Folhas de Outono</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="folhagem/Folhas Suspensas Neutras (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('folhagem/Folhas Suspensas Neutras (STILL).jpg', this)">🤍</button>
+              <img src="folhagem/Folhas Suspensas Neutras (STILL).jpg" alt="Folhas Suspensas Neutras (STILL)" onclick="abrirModal('folhagem/Folhas Suspensas Neutras (STILL).jpg')">
+              <span>Folhas Suspensas Neutras (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="folhagem/Folhas Suspensas Neutras com Verde (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('folhagem/Folhas Suspensas Neutras com Verde (STILL).jpg', this)">🤍</button>
+              <img src="folhagem/Folhas Suspensas Neutras com Verde (STILL).jpg" alt="Folhas Suspensas Neutras com Verde (STILL)" onclick="abrirModal('folhagem/Folhas Suspensas Neutras com Verde (STILL).jpg')">
+              <span>Folhas Suspensas Neutras com Verde (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="folhagem/Folhinhas Verde (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('folhagem/Folhinhas Verde (STILL).jpg', this)">🤍</button>
+              <img src="folhagem/Folhinhas Verde (STILL).jpg" alt="Folhinhas Verde (STILL)" onclick="abrirModal('folhagem/Folhinhas Verde (STILL).jpg')">
+              <span>Folhinhas Verde (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="folhagem/Ginkgo Azul e Amarelo (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('folhagem/Ginkgo Azul e Amarelo (STILL).jpg', this)">🤍</button>
+              <img src="folhagem/Ginkgo Azul e Amarelo (STILL).jpg" alt="Ginkgo Azul e Amarelo (STILL)" onclick="abrirModal('folhagem/Ginkgo Azul e Amarelo (STILL).jpg')">
+              <span>Ginkgo Azul e Amarelo (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="folhagem/Ginkgo Azul e Amarelo.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('folhagem/Ginkgo Azul e Amarelo.jpg', this)">🤍</button>
+              <img src="folhagem/Ginkgo Azul e Amarelo.jpg" alt="Ginkgo Azul e Amarelo" onclick="abrirModal('folhagem/Ginkgo Azul e Amarelo.jpg')">
+              <span>Ginkgo Azul e Amarelo</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="folhagem/Ginkgo Rose e Verde (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('folhagem/Ginkgo Rose e Verde (STILL).jpg', this)">🤍</button>
+              <img src="folhagem/Ginkgo Rose e Verde (STILL).jpg" alt="Ginkgo Rose e Verde (STILL)" onclick="abrirModal('folhagem/Ginkgo Rose e Verde (STILL).jpg')">
+              <span>Ginkgo Rose e Verde (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="folhagem/Ginkgo Rose e Verde.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('folhagem/Ginkgo Rose e Verde.jpg', this)">🤍</button>
+              <img src="folhagem/Ginkgo Rose e Verde.jpg" alt="Ginkgo Rose e Verde" onclick="abrirModal('folhagem/Ginkgo Rose e Verde.jpg')">
+              <span>Ginkgo Rose e Verde</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="folhagem/Harmony Cinza (2).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('folhagem/Harmony Cinza (2).jpg', this)">🤍</button>
+              <img src="folhagem/Harmony Cinza (2).jpg" alt="Harmony Cinza" onclick="abrirModal('folhagem/Harmony Cinza (2).jpg')">
+              <span>Harmony Cinza</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="folhagem/Harmony Cinza (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('folhagem/Harmony Cinza (STILL).jpg', this)">🤍</button>
+              <img src="folhagem/Harmony Cinza (STILL).jpg" alt="Harmony Cinza (STILL)" onclick="abrirModal('folhagem/Harmony Cinza (STILL).jpg')">
+              <span>Harmony Cinza (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="folhagem/Harmony Cinza.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('folhagem/Harmony Cinza.jpg', this)">🤍</button>
+              <img src="folhagem/Harmony Cinza.jpg" alt="Harmony Cinza" onclick="abrirModal('folhagem/Harmony Cinza.jpg')">
+              <span>Harmony Cinza</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="folhagem/Harmony Rose (1).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('folhagem/Harmony Rose (1).jpg', this)">🤍</button>
+              <img src="folhagem/Harmony Rose (1).jpg" alt="Harmony Rose" onclick="abrirModal('folhagem/Harmony Rose (1).jpg')">
+              <span>Harmony Rose</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="folhagem/Harmony Rose (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('folhagem/Harmony Rose (STILL).jpg', this)">🤍</button>
+              <img src="folhagem/Harmony Rose (STILL).jpg" alt="Harmony Rose (STILL)" onclick="abrirModal('folhagem/Harmony Rose (STILL).jpg')">
+              <span>Harmony Rose (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="folhagem/Harmony Rose 2.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('folhagem/Harmony Rose 2.jpg', this)">🤍</button>
+              <img src="folhagem/Harmony Rose 2.jpg" alt="Harmony Rose" onclick="abrirModal('folhagem/Harmony Rose 2.jpg')">
+              <span>Harmony Rose</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="folhagem/Harmony Rose.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('folhagem/Harmony Rose.jpg', this)">🤍</button>
+              <img src="folhagem/Harmony Rose.jpg" alt="Harmony Rose" onclick="abrirModal('folhagem/Harmony Rose.jpg')">
+              <span>Harmony Rose</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="folhagem/Jardim Aquarela (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('folhagem/Jardim Aquarela (STILL).jpg', this)">🤍</button>
+              <img src="folhagem/Jardim Aquarela (STILL).jpg" alt="Jardim Aquarela (STILL)" onclick="abrirModal('folhagem/Jardim Aquarela (STILL).jpg')">
+              <span>Jardim Aquarela (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="folhagem/Jardim Aquarela 2.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('folhagem/Jardim Aquarela 2.jpg', this)">🤍</button>
+              <img src="folhagem/Jardim Aquarela 2.jpg" alt="Jardim Aquarela" onclick="abrirModal('folhagem/Jardim Aquarela 2.jpg')">
+              <span>Jardim Aquarela</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="folhagem/Jardim Aquarela.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('folhagem/Jardim Aquarela.jpg', this)">🤍</button>
+              <img src="folhagem/Jardim Aquarela.jpg" alt="Jardim Aquarela" onclick="abrirModal('folhagem/Jardim Aquarela.jpg')">
+              <span>Jardim Aquarela</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="folhagem/Jardim Oriental (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('folhagem/Jardim Oriental (STILL).jpg', this)">🤍</button>
+              <img src="folhagem/Jardim Oriental (STILL).jpg" alt="Jardim Oriental (STILL)" onclick="abrirModal('folhagem/Jardim Oriental (STILL).jpg')">
+              <span>Jardim Oriental (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="folhagem/Jardim Pendente Oriental (2).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('folhagem/Jardim Pendente Oriental (2).jpg', this)">🤍</button>
+              <img src="folhagem/Jardim Pendente Oriental (2).jpg" alt="Jardim Pendente Oriental" onclick="abrirModal('folhagem/Jardim Pendente Oriental (2).jpg')">
+              <span>Jardim Pendente Oriental</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="folhagem/Jardim Pendente Oriental (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('folhagem/Jardim Pendente Oriental (STILL).jpg', this)">🤍</button>
+              <img src="folhagem/Jardim Pendente Oriental (STILL).jpg" alt="Jardim Pendente Oriental (STILL)" onclick="abrirModal('folhagem/Jardim Pendente Oriental (STILL).jpg')">
+              <span>Jardim Pendente Oriental (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="folhagem/Jardim Pendente Oriental.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('folhagem/Jardim Pendente Oriental.jpg', this)">🤍</button>
+              <img src="folhagem/Jardim Pendente Oriental.jpg" alt="Jardim Pendente Oriental" onclick="abrirModal('folhagem/Jardim Pendente Oriental.jpg')">
+              <span>Jardim Pendente Oriental</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="folhagem/Jardim Suave Falls (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('folhagem/Jardim Suave Falls (STILL).jpg', this)">🤍</button>
+              <img src="folhagem/Jardim Suave Falls (STILL).jpg" alt="Jardim Suave Falls (STILL)" onclick="abrirModal('folhagem/Jardim Suave Falls (STILL).jpg')">
+              <span>Jardim Suave Falls (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="folhagem/Jardim Suspenso Aquarela Fancy (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('folhagem/Jardim Suspenso Aquarela Fancy (STILL).jpg', this)">🤍</button>
+              <img src="folhagem/Jardim Suspenso Aquarela Fancy (STILL).jpg" alt="Jardim Suspenso Aquarela Fancy (STILL)" onclick="abrirModal('folhagem/Jardim Suspenso Aquarela Fancy (STILL).jpg')">
+              <span>Jardim Suspenso Aquarela Fancy (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="folhagem/Jardim Suspenso Aquarela Fancy.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('folhagem/Jardim Suspenso Aquarela Fancy.jpg', this)">🤍</button>
+              <img src="folhagem/Jardim Suspenso Aquarela Fancy.jpg" alt="Jardim Suspenso Aquarela Fancy" onclick="abrirModal('folhagem/Jardim Suspenso Aquarela Fancy.jpg')">
+              <span>Jardim Suspenso Aquarela Fancy</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="folhagem/Jardim Suspenso Clean (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('folhagem/Jardim Suspenso Clean (STILL).jpg', this)">🤍</button>
+              <img src="folhagem/Jardim Suspenso Clean (STILL).jpg" alt="Jardim Suspenso Clean (STILL)" onclick="abrirModal('folhagem/Jardim Suspenso Clean (STILL).jpg')">
+              <span>Jardim Suspenso Clean (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="folhagem/Laranjeiras (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('folhagem/Laranjeiras (STILL).jpg', this)">🤍</button>
+              <img src="folhagem/Laranjeiras (STILL).jpg" alt="Laranjeiras (STILL)" onclick="abrirModal('folhagem/Laranjeiras (STILL).jpg')">
+              <span>Laranjeiras (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="folhagem/Liberty Cinza (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('folhagem/Liberty Cinza (STILL).jpg', this)">🤍</button>
+              <img src="folhagem/Liberty Cinza (STILL).jpg" alt="Liberty Cinza (STILL)" onclick="abrirModal('folhagem/Liberty Cinza (STILL).jpg')">
+              <span>Liberty Cinza (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="folhagem/Liberty Cinza.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('folhagem/Liberty Cinza.jpg', this)">🤍</button>
+              <img src="folhagem/Liberty Cinza.jpg" alt="Liberty Cinza" onclick="abrirModal('folhagem/Liberty Cinza.jpg')">
+              <span>Liberty Cinza</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="folhagem/Liberty Marrom (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('folhagem/Liberty Marrom (STILL).jpg', this)">🤍</button>
+              <img src="folhagem/Liberty Marrom (STILL).jpg" alt="Liberty Marrom (STILL)" onclick="abrirModal('folhagem/Liberty Marrom (STILL).jpg')">
+              <span>Liberty Marrom (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="folhagem/Liberty Marrom 2.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('folhagem/Liberty Marrom 2.jpg', this)">🤍</button>
+              <img src="folhagem/Liberty Marrom 2.jpg" alt="Liberty Marrom" onclick="abrirModal('folhagem/Liberty Marrom 2.jpg')">
+              <span>Liberty Marrom</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="folhagem/Liberty Marrom.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('folhagem/Liberty Marrom.jpg', this)">🤍</button>
+              <img src="folhagem/Liberty Marrom.jpg" alt="Liberty Marrom" onclick="abrirModal('folhagem/Liberty Marrom.jpg')">
+              <span>Liberty Marrom</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="folhagem/Mata Monocromática (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('folhagem/Mata Monocromática (STILL).jpg', this)">🤍</button>
+              <img src="folhagem/Mata Monocromática (STILL).jpg" alt="Mata Monocromática (STILL)" onclick="abrirModal('folhagem/Mata Monocromática (STILL).jpg')">
+              <span>Mata Monocromática (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="folhagem/Mata Monocromática.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('folhagem/Mata Monocromática.jpg', this)">🤍</button>
+              <img src="folhagem/Mata Monocromática.jpg" alt="Mata Monocromática" onclick="abrirModal('folhagem/Mata Monocromática.jpg')">
+              <span>Mata Monocromática</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="folhagem/Mata Natural (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('folhagem/Mata Natural (STILL).jpg', this)">🤍</button>
+              <img src="folhagem/Mata Natural (STILL).jpg" alt="Mata Natural (STILL)" onclick="abrirModal('folhagem/Mata Natural (STILL).jpg')">
+              <span>Mata Natural (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="folhagem/Mata Natural 2.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('folhagem/Mata Natural 2.jpg', this)">🤍</button>
+              <img src="folhagem/Mata Natural 2.jpg" alt="Mata Natural" onclick="abrirModal('folhagem/Mata Natural 2.jpg')">
+              <span>Mata Natural</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="folhagem/Mata Natural.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('folhagem/Mata Natural.jpg', this)">🤍</button>
+              <img src="folhagem/Mata Natural.jpg" alt="Mata Natural" onclick="abrirModal('folhagem/Mata Natural.jpg')">
+              <span>Mata Natural</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="folhagem/Mata Oriental (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('folhagem/Mata Oriental (STILL).jpg', this)">🤍</button>
+              <img src="folhagem/Mata Oriental (STILL).jpg" alt="Mata Oriental (STILL)" onclick="abrirModal('folhagem/Mata Oriental (STILL).jpg')">
+              <span>Mata Oriental (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="folhagem/Mata Oriental.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('folhagem/Mata Oriental.jpg', this)">🤍</button>
+              <img src="folhagem/Mata Oriental.jpg" alt="Mata Oriental" onclick="abrirModal('folhagem/Mata Oriental.jpg')">
+              <span>Mata Oriental</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="folhagem/Mata Tropical (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('folhagem/Mata Tropical (STILL).jpg', this)">🤍</button>
+              <img src="folhagem/Mata Tropical (STILL).jpg" alt="Mata Tropical (STILL)" onclick="abrirModal('folhagem/Mata Tropical (STILL).jpg')">
+              <span>Mata Tropical (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="folhagem/Mata Tropical.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('folhagem/Mata Tropical.jpg', this)">🤍</button>
+              <img src="folhagem/Mata Tropical.jpg" alt="Mata Tropical" onclick="abrirModal('folhagem/Mata Tropical.jpg')">
+              <span>Mata Tropical</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="folhagem/Muro Verde (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('folhagem/Muro Verde (STILL).jpg', this)">🤍</button>
+              <img src="folhagem/Muro Verde (STILL).jpg" alt="Muro Verde (STILL)" onclick="abrirModal('folhagem/Muro Verde (STILL).jpg')">
+              <span>Muro Verde (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="folhagem/Muro Verde.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('folhagem/Muro Verde.jpg', this)">🤍</button>
+              <img src="folhagem/Muro Verde.jpg" alt="Muro Verde" onclick="abrirModal('folhagem/Muro Verde.jpg')">
+              <span>Muro Verde</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="folhagem/Muro Verde2.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('folhagem/Muro Verde2.jpg', this)">🤍</button>
+              <img src="folhagem/Muro Verde2.jpg" alt="Muro Verde" onclick="abrirModal('folhagem/Muro Verde2.jpg')">
+              <span>Muro Verde</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="folhagem/Nature Folhagens (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('folhagem/Nature Folhagens (STILL).jpg', this)">🤍</button>
+              <img src="folhagem/Nature Folhagens (STILL).jpg" alt="Nature Folhagens (STILL)" onclick="abrirModal('folhagem/Nature Folhagens (STILL).jpg')">
+              <span>Nature Folhagens (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="folhagem/Paisagem Mata Colors (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('folhagem/Paisagem Mata Colors (STILL).jpg', this)">🤍</button>
+              <img src="folhagem/Paisagem Mata Colors (STILL).jpg" alt="Paisagem Mata Colors (STILL)" onclick="abrirModal('folhagem/Paisagem Mata Colors (STILL).jpg')">
+              <span>Paisagem Mata Colors (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="folhagem/Paisagem Mata Colors 2.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('folhagem/Paisagem Mata Colors 2.jpg', this)">🤍</button>
+              <img src="folhagem/Paisagem Mata Colors 2.jpg" alt="Paisagem Mata Colors" onclick="abrirModal('folhagem/Paisagem Mata Colors 2.jpg')">
+              <span>Paisagem Mata Colors</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="folhagem/Paisagem Mata Colors.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('folhagem/Paisagem Mata Colors.jpg', this)">🤍</button>
+              <img src="folhagem/Paisagem Mata Colors.jpg" alt="Paisagem Mata Colors" onclick="abrirModal('folhagem/Paisagem Mata Colors.jpg')">
+              <span>Paisagem Mata Colors</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="folhagem/Paisagem Tropical (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('folhagem/Paisagem Tropical (STILL).jpg', this)">🤍</button>
+              <img src="folhagem/Paisagem Tropical (STILL).jpg" alt="Paisagem Tropical (STILL)" onclick="abrirModal('folhagem/Paisagem Tropical (STILL).jpg')">
+              <span>Paisagem Tropical (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="folhagem/Parede Verde (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('folhagem/Parede Verde (STILL).jpg', this)">🤍</button>
+              <img src="folhagem/Parede Verde (STILL).jpg" alt="Parede Verde (STILL)" onclick="abrirModal('folhagem/Parede Verde (STILL).jpg')">
+              <span>Parede Verde (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="folhagem/Parede Verde Gradeada (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('folhagem/Parede Verde Gradeada (STILL).jpg', this)">🤍</button>
+              <img src="folhagem/Parede Verde Gradeada (STILL).jpg" alt="Parede Verde Gradeada (STILL)" onclick="abrirModal('folhagem/Parede Verde Gradeada (STILL).jpg')">
+              <span>Parede Verde Gradeada (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="folhagem/Parede Verde Gradeada.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('folhagem/Parede Verde Gradeada.jpg', this)">🤍</button>
+              <img src="folhagem/Parede Verde Gradeada.jpg" alt="Parede Verde Gradeada" onclick="abrirModal('folhagem/Parede Verde Gradeada.jpg')">
+              <span>Parede Verde Gradeada</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="folhagem/Parede Verde.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('folhagem/Parede Verde.jpg', this)">🤍</button>
+              <img src="folhagem/Parede Verde.jpg" alt="Parede Verde" onclick="abrirModal('folhagem/Parede Verde.jpg')">
+              <span>Parede Verde</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="folhagem/Plantas Clean (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('folhagem/Plantas Clean (STILL).jpg', this)">🤍</button>
+              <img src="folhagem/Plantas Clean (STILL).jpg" alt="Plantas Clean (STILL)" onclick="abrirModal('folhagem/Plantas Clean (STILL).jpg')">
+              <span>Plantas Clean (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="folhagem/Plantas Clean 2.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('folhagem/Plantas Clean 2.jpg', this)">🤍</button>
+              <img src="folhagem/Plantas Clean 2.jpg" alt="Plantas Clean" onclick="abrirModal('folhagem/Plantas Clean 2.jpg')">
+              <span>Plantas Clean</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="folhagem/Plantas Clean.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('folhagem/Plantas Clean.jpg', this)">🤍</button>
+              <img src="folhagem/Plantas Clean.jpg" alt="Plantas Clean" onclick="abrirModal('folhagem/Plantas Clean.jpg')">
+              <span>Plantas Clean</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="folhagem/Pássaros Grou Verde (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('folhagem/Pássaros Grou Verde (STILL).jpg', this)">🤍</button>
+              <img src="folhagem/Pássaros Grou Verde (STILL).jpg" alt="Pássaros Grou Verde (STILL)" onclick="abrirModal('folhagem/Pássaros Grou Verde (STILL).jpg')">
+              <span>Pássaros Grou Verde (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="folhagem/Raminhos Aquarela (2).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('folhagem/Raminhos Aquarela (2).jpg', this)">🤍</button>
+              <img src="folhagem/Raminhos Aquarela (2).jpg" alt="Raminhos Aquarela" onclick="abrirModal('folhagem/Raminhos Aquarela (2).jpg')">
+              <span>Raminhos Aquarela</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="folhagem/Raminhos Aquarela (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('folhagem/Raminhos Aquarela (STILL).jpg', this)">🤍</button>
+              <img src="folhagem/Raminhos Aquarela (STILL).jpg" alt="Raminhos Aquarela (STILL)" onclick="abrirModal('folhagem/Raminhos Aquarela (STILL).jpg')">
+              <span>Raminhos Aquarela (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="folhagem/Raminhos Aquarela 2.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('folhagem/Raminhos Aquarela 2.jpg', this)">🤍</button>
+              <img src="folhagem/Raminhos Aquarela 2.jpg" alt="Raminhos Aquarela" onclick="abrirModal('folhagem/Raminhos Aquarela 2.jpg')">
+              <span>Raminhos Aquarela</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="folhagem/Raminhos Aquarela.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('folhagem/Raminhos Aquarela.jpg', this)">🤍</button>
+              <img src="folhagem/Raminhos Aquarela.jpg" alt="Raminhos Aquarela" onclick="abrirModal('folhagem/Raminhos Aquarela.jpg')">
+              <span>Raminhos Aquarela</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="folhagem/Raminhos Marrom (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('folhagem/Raminhos Marrom (STILL).jpg', this)">🤍</button>
+              <img src="folhagem/Raminhos Marrom (STILL).jpg" alt="Raminhos Marrom (STILL)" onclick="abrirModal('folhagem/Raminhos Marrom (STILL).jpg')">
+              <span>Raminhos Marrom (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="folhagem/Raminhos Marrom.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('folhagem/Raminhos Marrom.jpg', this)">🤍</button>
+              <img src="folhagem/Raminhos Marrom.jpg" alt="Raminhos Marrom" onclick="abrirModal('folhagem/Raminhos Marrom.jpg')">
+              <span>Raminhos Marrom</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="folhagem/Ramos de Salgueiro (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('folhagem/Ramos de Salgueiro (STILL).jpg', this)">🤍</button>
+              <img src="folhagem/Ramos de Salgueiro (STILL).jpg" alt="Ramos de Salgueiro (STILL)" onclick="abrirModal('folhagem/Ramos de Salgueiro (STILL).jpg')">
+              <span>Ramos de Salgueiro (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="folhagem/Real Safari (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('folhagem/Real Safari (STILL).jpg', this)">🤍</button>
+              <img src="folhagem/Real Safari (STILL).jpg" alt="Real Safari (STILL)" onclick="abrirModal('folhagem/Real Safari (STILL).jpg')">
+              <span>Real Safari (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="folhagem/Safari Animais Aquarela (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('folhagem/Safari Animais Aquarela (STILL).jpg', this)">🤍</button>
+              <img src="folhagem/Safari Animais Aquarela (STILL).jpg" alt="Safari Animais Aquarela (STILL)" onclick="abrirModal('folhagem/Safari Animais Aquarela (STILL).jpg')">
+              <span>Safari Animais Aquarela (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="folhagem/Serra de Araucárias (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('folhagem/Serra de Araucárias (STILL).jpg', this)">🤍</button>
+              <img src="folhagem/Serra de Araucárias (STILL).jpg" alt="Serra de Araucárias (STILL)" onclick="abrirModal('folhagem/Serra de Araucárias (STILL).jpg')">
+              <span>Serra de Araucárias (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="folhagem/Serra de Araucárias 2.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('folhagem/Serra de Araucárias 2.jpg', this)">🤍</button>
+              <img src="folhagem/Serra de Araucárias 2.jpg" alt="Serra de Araucárias" onclick="abrirModal('folhagem/Serra de Araucárias 2.jpg')">
+              <span>Serra de Araucárias</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="folhagem/Serra de Araucárias.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('folhagem/Serra de Araucárias.jpg', this)">🤍</button>
+              <img src="folhagem/Serra de Araucárias.jpg" alt="Serra de Araucárias" onclick="abrirModal('folhagem/Serra de Araucárias.jpg')">
+              <span>Serra de Araucárias</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="folhagem/Zoo Safari (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('folhagem/Zoo Safari (STILL).jpg', this)">🤍</button>
+              <img src="folhagem/Zoo Safari (STILL).jpg" alt="Zoo Safari (STILL)" onclick="abrirModal('folhagem/Zoo Safari (STILL).jpg')">
+              <span>Zoo Safari (STILL)</span>
+            </div>
+</div>
+<div class="modal" id="modal">
+  <img id="modal-img" src="">
+  <button onclick="fecharModal()">✖ Fechar</button>
+</div>
+<script src="https://unpkg.com/@panzoom/panzoom@9.4.0/dist/panzoom.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const modal = document.getElementById('modal');
+  const modalImg = document.getElementById('modal-img');
+  let panzoomInstance;
+
+  window.abrirModal = function (src) {
+    modal.style.display = 'flex';
+    modalImg.src = src;
+    if (panzoomInstance) panzoomInstance.destroy();
+    panzoomInstance = Panzoom(modalImg, { maxScale: 5 });
+  }
+
+  window.fecharModal = function () {
+    modal.style.display = 'none';
+    if (panzoomInstance) panzoomInstance.destroy();
+  }
+
+  window.toggleFavorito = function (src, el) {
+    let favoritos = JSON.parse(localStorage.getItem('favoritos')) || [];
+    const index = favoritos.indexOf(src);
+    const agora = new Date().toISOString();
+    if (index >= 0) {
+      favoritos.splice(index, 1);
+      el.classList.remove('favorito');
+      el.textContent = '🤍';
+    } else {
+      favoritos.push(src);
+      el.classList.add('favorito');
+      el.textContent = '❤️';
+      const log = JSON.parse(localStorage.getItem('favoritos_log')) || [];
+      log.push({ img: src, data: agora });
+      localStorage.setItem('favoritos_log', JSON.stringify(log));
+    }
+    localStorage.setItem('favoritos', JSON.stringify(favoritos));
+  }
+
+  const favoritos = JSON.parse(localStorage.getItem('favoritos')) || [];
+  document.querySelectorAll('.favorito-btn').forEach(btn => {
+    const src = btn.getAttribute('onclick').match(/'(.*?)'/)[1];
+    if (favoritos.includes(src)) {
+      btn.textContent = '❤️';
+      btn.classList.add('favorito');
+    }
+  });
+
+  window.baixarSelecionadas = function () {
+    const selecionadas = Array.from(document.querySelectorAll('.checkbox-select:checked')).map(cb => cb.value);
+    if (selecionadas.length === 0) return alert("Nenhuma imagem selecionada.");
+    selecionadas.forEach(src => {
+      const link = document.createElement('a');
+      link.href = src;
+      link.download = src.split('/').pop();
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    });
+  }
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Ripado</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    * { box-sizing: border-box; }
+    body { font-family: sans-serif; margin: 0; background: #f4f4f4; }
+    .top-bar {
+      position: sticky;
+      top: 0;
+      background: white;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      gap: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      z-index: 1000;
+    }
+    .btn {
+      background: #01b9b5;
+      color: white;
+      text-decoration: none;
+      padding: 8px 14px;
+      border-radius: 6px;
+      font-size: 14px;
+      cursor: pointer;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      gap: 20px;
+      padding: 20px;
+    }
+    @media (min-width: 768px) {
+      .grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    .card {
+      background: white;
+      padding: 10px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      text-align: center;
+      position: relative;
+    }
+    .card img { width: 100%; border-radius: 8px; cursor: pointer; }
+    .card span { display: block; margin-top: 8px; font-weight: bold; }
+    .checkbox-select {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      transform: scale(1.5);
+    }
+    .favorito-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: none;
+      border: none;
+      font-size: 20px;
+      cursor: pointer;
+    }
+    .favorito-btn.favorito { color: red; }
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.85);
+      z-index: 9999;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+    .modal img { max-width: 90vw; max-height: 80vh; }
+    .modal button {
+      margin-top: 10px;
+      padding: 8px 20px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+<div class="top-bar">
+  <div>
+    <a href="https://catalogo.artspapeisdeparede.com.br/index.html" class="btn">&larr; Voltar</a>
+    <button class="btn" onclick="baixarSelecionadas()">📥 Baixar selecionadas</button>
+  </div>
+  <h1>Ripado</h1>
+  <a href="https://catalogo.artspapeisdeparede.com.br/favoritos.html" class="btn">⭐ Ver favoritos</a>
+</div>
+<div class="grid">
+<div class="card">
+              <input type="checkbox" class="checkbox-select" value="ripado/Ripado 3x1 Branco (2).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('ripado/Ripado 3x1 Branco (2).jpg', this)">🤍</button>
+              <img src="ripado/Ripado 3x1 Branco (2).jpg" alt="Ripado 3x1 Branco" onclick="abrirModal('ripado/Ripado 3x1 Branco (2).jpg')">
+              <span>Ripado 3x1 Branco</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="ripado/Ripado 3x1 Branco (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('ripado/Ripado 3x1 Branco (STILL).jpg', this)">🤍</button>
+              <img src="ripado/Ripado 3x1 Branco (STILL).jpg" alt="Ripado 3x1 Branco (STILL)" onclick="abrirModal('ripado/Ripado 3x1 Branco (STILL).jpg')">
+              <span>Ripado 3x1 Branco (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="ripado/Ripado 3x1 Branco 2.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('ripado/Ripado 3x1 Branco 2.jpg', this)">🤍</button>
+              <img src="ripado/Ripado 3x1 Branco 2.jpg" alt="Ripado 3x1 Branco" onclick="abrirModal('ripado/Ripado 3x1 Branco 2.jpg')">
+              <span>Ripado 3x1 Branco</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="ripado/Ripado 3x1 Branco.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('ripado/Ripado 3x1 Branco.jpg', this)">🤍</button>
+              <img src="ripado/Ripado 3x1 Branco.jpg" alt="Ripado 3x1 Branco" onclick="abrirModal('ripado/Ripado 3x1 Branco.jpg')">
+              <span>Ripado 3x1 Branco</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="ripado/Ripado 3x1 Claro (2).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('ripado/Ripado 3x1 Claro (2).jpg', this)">🤍</button>
+              <img src="ripado/Ripado 3x1 Claro (2).jpg" alt="Ripado 3x1 Claro" onclick="abrirModal('ripado/Ripado 3x1 Claro (2).jpg')">
+              <span>Ripado 3x1 Claro</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="ripado/Ripado 3x1 Claro (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('ripado/Ripado 3x1 Claro (STILL).jpg', this)">🤍</button>
+              <img src="ripado/Ripado 3x1 Claro (STILL).jpg" alt="Ripado 3x1 Claro (STILL)" onclick="abrirModal('ripado/Ripado 3x1 Claro (STILL).jpg')">
+              <span>Ripado 3x1 Claro (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="ripado/Ripado 3x1 Claro 2.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('ripado/Ripado 3x1 Claro 2.jpg', this)">🤍</button>
+              <img src="ripado/Ripado 3x1 Claro 2.jpg" alt="Ripado 3x1 Claro" onclick="abrirModal('ripado/Ripado 3x1 Claro 2.jpg')">
+              <span>Ripado 3x1 Claro</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="ripado/Ripado 3x1 Claro.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('ripado/Ripado 3x1 Claro.jpg', this)">🤍</button>
+              <img src="ripado/Ripado 3x1 Claro.jpg" alt="Ripado 3x1 Claro" onclick="abrirModal('ripado/Ripado 3x1 Claro.jpg')">
+              <span>Ripado 3x1 Claro</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="ripado/Ripado 3x1 Claro2.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('ripado/Ripado 3x1 Claro2.jpg', this)">🤍</button>
+              <img src="ripado/Ripado 3x1 Claro2.jpg" alt="Ripado 3x1 Claro" onclick="abrirModal('ripado/Ripado 3x1 Claro2.jpg')">
+              <span>Ripado 3x1 Claro</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="ripado/Ripado 3x1 Freijó (2).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('ripado/Ripado 3x1 Freijó (2).jpg', this)">🤍</button>
+              <img src="ripado/Ripado 3x1 Freijó (2).jpg" alt="Ripado 3x1 Freijó" onclick="abrirModal('ripado/Ripado 3x1 Freijó (2).jpg')">
+              <span>Ripado 3x1 Freijó</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="ripado/Ripado 3x1 Freijó (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('ripado/Ripado 3x1 Freijó (STILL).jpg', this)">🤍</button>
+              <img src="ripado/Ripado 3x1 Freijó (STILL).jpg" alt="Ripado 3x1 Freijó (STILL)" onclick="abrirModal('ripado/Ripado 3x1 Freijó (STILL).jpg')">
+              <span>Ripado 3x1 Freijó (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="ripado/Ripado 3x1 Freijó 2.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('ripado/Ripado 3x1 Freijó 2.jpg', this)">🤍</button>
+              <img src="ripado/Ripado 3x1 Freijó 2.jpg" alt="Ripado 3x1 Freijó" onclick="abrirModal('ripado/Ripado 3x1 Freijó 2.jpg')">
+              <span>Ripado 3x1 Freijó</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="ripado/Ripado 3x1 Freijó.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('ripado/Ripado 3x1 Freijó.jpg', this)">🤍</button>
+              <img src="ripado/Ripado 3x1 Freijó.jpg" alt="Ripado 3x1 Freijó" onclick="abrirModal('ripado/Ripado 3x1 Freijó.jpg')">
+              <span>Ripado 3x1 Freijó</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="ripado/Ripado 3x1 Freijó2.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('ripado/Ripado 3x1 Freijó2.jpg', this)">🤍</button>
+              <img src="ripado/Ripado 3x1 Freijó2.jpg" alt="Ripado 3x1 Freijó" onclick="abrirModal('ripado/Ripado 3x1 Freijó2.jpg')">
+              <span>Ripado 3x1 Freijó</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="ripado/Ripado Branco (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('ripado/Ripado Branco (STILL).jpg', this)">🤍</button>
+              <img src="ripado/Ripado Branco (STILL).jpg" alt="Ripado Branco (STILL)" onclick="abrirModal('ripado/Ripado Branco (STILL).jpg')">
+              <span>Ripado Branco (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="ripado/Ripado Carvalho (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('ripado/Ripado Carvalho (STILL).jpg', this)">🤍</button>
+              <img src="ripado/Ripado Carvalho (STILL).jpg" alt="Ripado Carvalho (STILL)" onclick="abrirModal('ripado/Ripado Carvalho (STILL).jpg')">
+              <span>Ripado Carvalho (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="ripado/Ripado Castanho (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('ripado/Ripado Castanho (STILL).jpg', this)">🤍</button>
+              <img src="ripado/Ripado Castanho (STILL).jpg" alt="Ripado Castanho (STILL)" onclick="abrirModal('ripado/Ripado Castanho (STILL).jpg')">
+              <span>Ripado Castanho (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="ripado/Ripado Cedro (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('ripado/Ripado Cedro (STILL).jpg', this)">🤍</button>
+              <img src="ripado/Ripado Cedro (STILL).jpg" alt="Ripado Cedro (STILL)" onclick="abrirModal('ripado/Ripado Cedro (STILL).jpg')">
+              <span>Ripado Cedro (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="ripado/Ripado Cerejeira (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('ripado/Ripado Cerejeira (STILL).jpg', this)">🤍</button>
+              <img src="ripado/Ripado Cerejeira (STILL).jpg" alt="Ripado Cerejeira (STILL)" onclick="abrirModal('ripado/Ripado Cerejeira (STILL).jpg')">
+              <span>Ripado Cerejeira (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="ripado/Ripado Cinza Claro (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('ripado/Ripado Cinza Claro (STILL).jpg', this)">🤍</button>
+              <img src="ripado/Ripado Cinza Claro (STILL).jpg" alt="Ripado Cinza Claro (STILL)" onclick="abrirModal('ripado/Ripado Cinza Claro (STILL).jpg')">
+              <span>Ripado Cinza Claro (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="ripado/Ripado Eucalipto (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('ripado/Ripado Eucalipto (STILL).jpg', this)">🤍</button>
+              <img src="ripado/Ripado Eucalipto (STILL).jpg" alt="Ripado Eucalipto (STILL)" onclick="abrirModal('ripado/Ripado Eucalipto (STILL).jpg')">
+              <span>Ripado Eucalipto (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="ripado/Ripado Grafite (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('ripado/Ripado Grafite (STILL).jpg', this)">🤍</button>
+              <img src="ripado/Ripado Grafite (STILL).jpg" alt="Ripado Grafite (STILL)" onclick="abrirModal('ripado/Ripado Grafite (STILL).jpg')">
+              <span>Ripado Grafite (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="ripado/Ripado Hanover (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('ripado/Ripado Hanover (STILL).jpg', this)">🤍</button>
+              <img src="ripado/Ripado Hanover (STILL).jpg" alt="Ripado Hanover (STILL)" onclick="abrirModal('ripado/Ripado Hanover (STILL).jpg')">
+              <span>Ripado Hanover (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="ripado/Ripado Imbuia (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('ripado/Ripado Imbuia (STILL).jpg', this)">🤍</button>
+              <img src="ripado/Ripado Imbuia (STILL).jpg" alt="Ripado Imbuia (STILL)" onclick="abrirModal('ripado/Ripado Imbuia (STILL).jpg')">
+              <span>Ripado Imbuia (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="ripado/Ripado Intercaladado Marfim (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('ripado/Ripado Intercaladado Marfim (STILL).jpg', this)">🤍</button>
+              <img src="ripado/Ripado Intercaladado Marfim (STILL).jpg" alt="Ripado Intercaladado Marfim (STILL)" onclick="abrirModal('ripado/Ripado Intercaladado Marfim (STILL).jpg')">
+              <span>Ripado Intercaladado Marfim (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="ripado/Ripado Intercalado Branco (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('ripado/Ripado Intercalado Branco (STILL).jpg', this)">🤍</button>
+              <img src="ripado/Ripado Intercalado Branco (STILL).jpg" alt="Ripado Intercalado Branco (STILL)" onclick="abrirModal('ripado/Ripado Intercalado Branco (STILL).jpg')">
+              <span>Ripado Intercalado Branco (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="ripado/Ripado Intercalado Carvalho (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('ripado/Ripado Intercalado Carvalho (STILL).jpg', this)">🤍</button>
+              <img src="ripado/Ripado Intercalado Carvalho (STILL).jpg" alt="Ripado Intercalado Carvalho (STILL)" onclick="abrirModal('ripado/Ripado Intercalado Carvalho (STILL).jpg')">
+              <span>Ripado Intercalado Carvalho (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="ripado/Ripado Intercalado Castanho (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('ripado/Ripado Intercalado Castanho (STILL).jpg', this)">🤍</button>
+              <img src="ripado/Ripado Intercalado Castanho (STILL).jpg" alt="Ripado Intercalado Castanho (STILL)" onclick="abrirModal('ripado/Ripado Intercalado Castanho (STILL).jpg')">
+              <span>Ripado Intercalado Castanho (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="ripado/Ripado Intercalado Cedro (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('ripado/Ripado Intercalado Cedro (STILL).jpg', this)">🤍</button>
+              <img src="ripado/Ripado Intercalado Cedro (STILL).jpg" alt="Ripado Intercalado Cedro (STILL)" onclick="abrirModal('ripado/Ripado Intercalado Cedro (STILL).jpg')">
+              <span>Ripado Intercalado Cedro (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="ripado/Ripado Intercalado Cerejeira (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('ripado/Ripado Intercalado Cerejeira (STILL).jpg', this)">🤍</button>
+              <img src="ripado/Ripado Intercalado Cerejeira (STILL).jpg" alt="Ripado Intercalado Cerejeira (STILL)" onclick="abrirModal('ripado/Ripado Intercalado Cerejeira (STILL).jpg')">
+              <span>Ripado Intercalado Cerejeira (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="ripado/Ripado Intercalado Cinza Claro (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('ripado/Ripado Intercalado Cinza Claro (STILL).jpg', this)">🤍</button>
+              <img src="ripado/Ripado Intercalado Cinza Claro (STILL).jpg" alt="Ripado Intercalado Cinza Claro (STILL)" onclick="abrirModal('ripado/Ripado Intercalado Cinza Claro (STILL).jpg')">
+              <span>Ripado Intercalado Cinza Claro (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="ripado/Ripado Intercalado Eucalipto (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('ripado/Ripado Intercalado Eucalipto (STILL).jpg', this)">🤍</button>
+              <img src="ripado/Ripado Intercalado Eucalipto (STILL).jpg" alt="Ripado Intercalado Eucalipto (STILL)" onclick="abrirModal('ripado/Ripado Intercalado Eucalipto (STILL).jpg')">
+              <span>Ripado Intercalado Eucalipto (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="ripado/Ripado Intercalado Grafite (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('ripado/Ripado Intercalado Grafite (STILL).jpg', this)">🤍</button>
+              <img src="ripado/Ripado Intercalado Grafite (STILL).jpg" alt="Ripado Intercalado Grafite (STILL)" onclick="abrirModal('ripado/Ripado Intercalado Grafite (STILL).jpg')">
+              <span>Ripado Intercalado Grafite (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="ripado/Ripado Intercalado Hanover (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('ripado/Ripado Intercalado Hanover (STILL).jpg', this)">🤍</button>
+              <img src="ripado/Ripado Intercalado Hanover (STILL).jpg" alt="Ripado Intercalado Hanover (STILL)" onclick="abrirModal('ripado/Ripado Intercalado Hanover (STILL).jpg')">
+              <span>Ripado Intercalado Hanover (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="ripado/Ripado Intercalado Imbuia (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('ripado/Ripado Intercalado Imbuia (STILL).jpg', this)">🤍</button>
+              <img src="ripado/Ripado Intercalado Imbuia (STILL).jpg" alt="Ripado Intercalado Imbuia (STILL)" onclick="abrirModal('ripado/Ripado Intercalado Imbuia (STILL).jpg')">
+              <span>Ripado Intercalado Imbuia (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="ripado/Ripado Intercalado Ipê (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('ripado/Ripado Intercalado Ipê (STILL).jpg', this)">🤍</button>
+              <img src="ripado/Ripado Intercalado Ipê (STILL).jpg" alt="Ripado Intercalado Ipê (STILL)" onclick="abrirModal('ripado/Ripado Intercalado Ipê (STILL).jpg')">
+              <span>Ripado Intercalado Ipê (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="ripado/Ripado Intercalado Itapuã (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('ripado/Ripado Intercalado Itapuã (STILL).jpg', this)">🤍</button>
+              <img src="ripado/Ripado Intercalado Itapuã (STILL).jpg" alt="Ripado Intercalado Itapuã (STILL)" onclick="abrirModal('ripado/Ripado Intercalado Itapuã (STILL).jpg')">
+              <span>Ripado Intercalado Itapuã (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="ripado/Ripado Intercalado Jatoba (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('ripado/Ripado Intercalado Jatoba (STILL).jpg', this)">🤍</button>
+              <img src="ripado/Ripado Intercalado Jatoba (STILL).jpg" alt="Ripado Intercalado Jatoba (STILL)" onclick="abrirModal('ripado/Ripado Intercalado Jatoba (STILL).jpg')">
+              <span>Ripado Intercalado Jatoba (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="ripado/Ripado Intercalado Liso Branco (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('ripado/Ripado Intercalado Liso Branco (STILL).jpg', this)">🤍</button>
+              <img src="ripado/Ripado Intercalado Liso Branco (STILL).jpg" alt="Ripado Intercalado Liso Branco (STILL)" onclick="abrirModal('ripado/Ripado Intercalado Liso Branco (STILL).jpg')">
+              <span>Ripado Intercalado Liso Branco (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="ripado/Ripado Intercalado Liso Camurça (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('ripado/Ripado Intercalado Liso Camurça (STILL).jpg', this)">🤍</button>
+              <img src="ripado/Ripado Intercalado Liso Camurça (STILL).jpg" alt="Ripado Intercalado Liso Camurça (STILL)" onclick="abrirModal('ripado/Ripado Intercalado Liso Camurça (STILL).jpg')">
+              <span>Ripado Intercalado Liso Camurça (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="ripado/Ripado Intercalado Liso Cinza Claro (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('ripado/Ripado Intercalado Liso Cinza Claro (STILL).jpg', this)">🤍</button>
+              <img src="ripado/Ripado Intercalado Liso Cinza Claro (STILL).jpg" alt="Ripado Intercalado Liso Cinza Claro (STILL)" onclick="abrirModal('ripado/Ripado Intercalado Liso Cinza Claro (STILL).jpg')">
+              <span>Ripado Intercalado Liso Cinza Claro (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="ripado/Ripado Intercalado Liso Fendi (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('ripado/Ripado Intercalado Liso Fendi (STILL).jpg', this)">🤍</button>
+              <img src="ripado/Ripado Intercalado Liso Fendi (STILL).jpg" alt="Ripado Intercalado Liso Fendi (STILL)" onclick="abrirModal('ripado/Ripado Intercalado Liso Fendi (STILL).jpg')">
+              <span>Ripado Intercalado Liso Fendi (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="ripado/Ripado Intercalado Liso Grafite (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('ripado/Ripado Intercalado Liso Grafite (STILL).jpg', this)">🤍</button>
+              <img src="ripado/Ripado Intercalado Liso Grafite (STILL).jpg" alt="Ripado Intercalado Liso Grafite (STILL)" onclick="abrirModal('ripado/Ripado Intercalado Liso Grafite (STILL).jpg')">
+              <span>Ripado Intercalado Liso Grafite (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="ripado/Ripado Intercalado Liso Taupe (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('ripado/Ripado Intercalado Liso Taupe (STILL).jpg', this)">🤍</button>
+              <img src="ripado/Ripado Intercalado Liso Taupe (STILL).jpg" alt="Ripado Intercalado Liso Taupe (STILL)" onclick="abrirModal('ripado/Ripado Intercalado Liso Taupe (STILL).jpg')">
+              <span>Ripado Intercalado Liso Taupe (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="ripado/Ripado intercalado Liso Verde (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('ripado/Ripado intercalado Liso Verde (STILL).jpg', this)">🤍</button>
+              <img src="ripado/Ripado intercalado Liso Verde (STILL).jpg" alt="Ripado intercalado Liso Verde (STILL)" onclick="abrirModal('ripado/Ripado intercalado Liso Verde (STILL).jpg')">
+              <span>Ripado intercalado Liso Verde (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="ripado/Ripado Intercalado Marantá (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('ripado/Ripado Intercalado Marantá (STILL).jpg', this)">🤍</button>
+              <img src="ripado/Ripado Intercalado Marantá (STILL).jpg" alt="Ripado Intercalado Marantá (STILL)" onclick="abrirModal('ripado/Ripado Intercalado Marantá (STILL).jpg')">
+              <span>Ripado Intercalado Marantá (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="ripado/Ripado Intercalado Natural (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('ripado/Ripado Intercalado Natural (STILL).jpg', this)">🤍</button>
+              <img src="ripado/Ripado Intercalado Natural (STILL).jpg" alt="Ripado Intercalado Natural (STILL)" onclick="abrirModal('ripado/Ripado Intercalado Natural (STILL).jpg')">
+              <span>Ripado Intercalado Natural (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="ripado/Ripado Intercalado Nogal (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('ripado/Ripado Intercalado Nogal (STILL).jpg', this)">🤍</button>
+              <img src="ripado/Ripado Intercalado Nogal (STILL).jpg" alt="Ripado Intercalado Nogal (STILL)" onclick="abrirModal('ripado/Ripado Intercalado Nogal (STILL).jpg')">
+              <span>Ripado Intercalado Nogal (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="ripado/Ripado Intercalado Nogueira (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('ripado/Ripado Intercalado Nogueira (STILL).jpg', this)">🤍</button>
+              <img src="ripado/Ripado Intercalado Nogueira (STILL).jpg" alt="Ripado Intercalado Nogueira (STILL)" onclick="abrirModal('ripado/Ripado Intercalado Nogueira (STILL).jpg')">
+              <span>Ripado Intercalado Nogueira (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="ripado/Ripado Intercalado Pau Ferro (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('ripado/Ripado Intercalado Pau Ferro (STILL).jpg', this)">🤍</button>
+              <img src="ripado/Ripado Intercalado Pau Ferro (STILL).jpg" alt="Ripado Intercalado Pau Ferro (STILL)" onclick="abrirModal('ripado/Ripado Intercalado Pau Ferro (STILL).jpg')">
+              <span>Ripado Intercalado Pau Ferro (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="ripado/Ripado Intercalado Pinus (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('ripado/Ripado Intercalado Pinus (STILL).jpg', this)">🤍</button>
+              <img src="ripado/Ripado Intercalado Pinus (STILL).jpg" alt="Ripado Intercalado Pinus (STILL)" onclick="abrirModal('ripado/Ripado Intercalado Pinus (STILL).jpg')">
+              <span>Ripado Intercalado Pinus (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="ripado/Ripado Intercalado Rosa Claro (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('ripado/Ripado Intercalado Rosa Claro (STILL).jpg', this)">🤍</button>
+              <img src="ripado/Ripado Intercalado Rosa Claro (STILL).jpg" alt="Ripado Intercalado Rosa Claro (STILL)" onclick="abrirModal('ripado/Ripado Intercalado Rosa Claro (STILL).jpg')">
+              <span>Ripado Intercalado Rosa Claro (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="ripado/Ripado Ipê (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('ripado/Ripado Ipê (STILL).jpg', this)">🤍</button>
+              <img src="ripado/Ripado Ipê (STILL).jpg" alt="Ripado Ipê (STILL)" onclick="abrirModal('ripado/Ripado Ipê (STILL).jpg')">
+              <span>Ripado Ipê (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="ripado/Ripado Itapuã (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('ripado/Ripado Itapuã (STILL).jpg', this)">🤍</button>
+              <img src="ripado/Ripado Itapuã (STILL).jpg" alt="Ripado Itapuã (STILL)" onclick="abrirModal('ripado/Ripado Itapuã (STILL).jpg')">
+              <span>Ripado Itapuã (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="ripado/Ripado Jatoba (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('ripado/Ripado Jatoba (STILL).jpg', this)">🤍</button>
+              <img src="ripado/Ripado Jatoba (STILL).jpg" alt="Ripado Jatoba (STILL)" onclick="abrirModal('ripado/Ripado Jatoba (STILL).jpg')">
+              <span>Ripado Jatoba (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="ripado/Ripado Lardo Cedro (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('ripado/Ripado Lardo Cedro (STILL).jpg', this)">🤍</button>
+              <img src="ripado/Ripado Lardo Cedro (STILL).jpg" alt="Ripado Lardo Cedro (STILL)" onclick="abrirModal('ripado/Ripado Lardo Cedro (STILL).jpg')">
+              <span>Ripado Lardo Cedro (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="ripado/Ripado Largo Branco (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('ripado/Ripado Largo Branco (STILL).jpg', this)">🤍</button>
+              <img src="ripado/Ripado Largo Branco (STILL).jpg" alt="Ripado Largo Branco (STILL)" onclick="abrirModal('ripado/Ripado Largo Branco (STILL).jpg')">
+              <span>Ripado Largo Branco (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="ripado/Ripado Largo Carvalho (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('ripado/Ripado Largo Carvalho (STILL).jpg', this)">🤍</button>
+              <img src="ripado/Ripado Largo Carvalho (STILL).jpg" alt="Ripado Largo Carvalho (STILL)" onclick="abrirModal('ripado/Ripado Largo Carvalho (STILL).jpg')">
+              <span>Ripado Largo Carvalho (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="ripado/Ripado Largo Castanho (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('ripado/Ripado Largo Castanho (STILL).jpg', this)">🤍</button>
+              <img src="ripado/Ripado Largo Castanho (STILL).jpg" alt="Ripado Largo Castanho (STILL)" onclick="abrirModal('ripado/Ripado Largo Castanho (STILL).jpg')">
+              <span>Ripado Largo Castanho (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="ripado/Ripado Largo Cerejeira (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('ripado/Ripado Largo Cerejeira (STILL).jpg', this)">🤍</button>
+              <img src="ripado/Ripado Largo Cerejeira (STILL).jpg" alt="Ripado Largo Cerejeira (STILL)" onclick="abrirModal('ripado/Ripado Largo Cerejeira (STILL).jpg')">
+              <span>Ripado Largo Cerejeira (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="ripado/Ripado Largo Cinza Claro (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('ripado/Ripado Largo Cinza Claro (STILL).jpg', this)">🤍</button>
+              <img src="ripado/Ripado Largo Cinza Claro (STILL).jpg" alt="Ripado Largo Cinza Claro (STILL)" onclick="abrirModal('ripado/Ripado Largo Cinza Claro (STILL).jpg')">
+              <span>Ripado Largo Cinza Claro (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="ripado/Ripado Largo Eucalipto (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('ripado/Ripado Largo Eucalipto (STILL).jpg', this)">🤍</button>
+              <img src="ripado/Ripado Largo Eucalipto (STILL).jpg" alt="Ripado Largo Eucalipto (STILL)" onclick="abrirModal('ripado/Ripado Largo Eucalipto (STILL).jpg')">
+              <span>Ripado Largo Eucalipto (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="ripado/Ripado Largo Grafite (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('ripado/Ripado Largo Grafite (STILL).jpg', this)">🤍</button>
+              <img src="ripado/Ripado Largo Grafite (STILL).jpg" alt="Ripado Largo Grafite (STILL)" onclick="abrirModal('ripado/Ripado Largo Grafite (STILL).jpg')">
+              <span>Ripado Largo Grafite (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="ripado/Ripado Largo Hanover (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('ripado/Ripado Largo Hanover (STILL).jpg', this)">🤍</button>
+              <img src="ripado/Ripado Largo Hanover (STILL).jpg" alt="Ripado Largo Hanover (STILL)" onclick="abrirModal('ripado/Ripado Largo Hanover (STILL).jpg')">
+              <span>Ripado Largo Hanover (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="ripado/Ripado Largo Imbuia (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('ripado/Ripado Largo Imbuia (STILL).jpg', this)">🤍</button>
+              <img src="ripado/Ripado Largo Imbuia (STILL).jpg" alt="Ripado Largo Imbuia (STILL)" onclick="abrirModal('ripado/Ripado Largo Imbuia (STILL).jpg')">
+              <span>Ripado Largo Imbuia (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="ripado/Ripado Largo Ipê (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('ripado/Ripado Largo Ipê (STILL).jpg', this)">🤍</button>
+              <img src="ripado/Ripado Largo Ipê (STILL).jpg" alt="Ripado Largo Ipê (STILL)" onclick="abrirModal('ripado/Ripado Largo Ipê (STILL).jpg')">
+              <span>Ripado Largo Ipê (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="ripado/Ripado Largo Itapuã (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('ripado/Ripado Largo Itapuã (STILL).jpg', this)">🤍</button>
+              <img src="ripado/Ripado Largo Itapuã (STILL).jpg" alt="Ripado Largo Itapuã (STILL)" onclick="abrirModal('ripado/Ripado Largo Itapuã (STILL).jpg')">
+              <span>Ripado Largo Itapuã (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="ripado/Ripado Largo Jatoba (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('ripado/Ripado Largo Jatoba (STILL).jpg', this)">🤍</button>
+              <img src="ripado/Ripado Largo Jatoba (STILL).jpg" alt="Ripado Largo Jatoba (STILL)" onclick="abrirModal('ripado/Ripado Largo Jatoba (STILL).jpg')">
+              <span>Ripado Largo Jatoba (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="ripado/Ripado Largo Liso Branco (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('ripado/Ripado Largo Liso Branco (STILL).jpg', this)">🤍</button>
+              <img src="ripado/Ripado Largo Liso Branco (STILL).jpg" alt="Ripado Largo Liso Branco (STILL)" onclick="abrirModal('ripado/Ripado Largo Liso Branco (STILL).jpg')">
+              <span>Ripado Largo Liso Branco (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="ripado/Ripado Largo Liso Camurça (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('ripado/Ripado Largo Liso Camurça (STILL).jpg', this)">🤍</button>
+              <img src="ripado/Ripado Largo Liso Camurça (STILL).jpg" alt="Ripado Largo Liso Camurça (STILL)" onclick="abrirModal('ripado/Ripado Largo Liso Camurça (STILL).jpg')">
+              <span>Ripado Largo Liso Camurça (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="ripado/Ripado largo Liso Cinza Claro (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('ripado/Ripado largo Liso Cinza Claro (STILL).jpg', this)">🤍</button>
+              <img src="ripado/Ripado largo Liso Cinza Claro (STILL).jpg" alt="Ripado largo Liso Cinza Claro (STILL)" onclick="abrirModal('ripado/Ripado largo Liso Cinza Claro (STILL).jpg')">
+              <span>Ripado largo Liso Cinza Claro (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="ripado/Ripado Largo Liso Fendi (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('ripado/Ripado Largo Liso Fendi (STILL).jpg', this)">🤍</button>
+              <img src="ripado/Ripado Largo Liso Fendi (STILL).jpg" alt="Ripado Largo Liso Fendi (STILL)" onclick="abrirModal('ripado/Ripado Largo Liso Fendi (STILL).jpg')">
+              <span>Ripado Largo Liso Fendi (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="ripado/Ripado Largo Liso Grafite (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('ripado/Ripado Largo Liso Grafite (STILL).jpg', this)">🤍</button>
+              <img src="ripado/Ripado Largo Liso Grafite (STILL).jpg" alt="Ripado Largo Liso Grafite (STILL)" onclick="abrirModal('ripado/Ripado Largo Liso Grafite (STILL).jpg')">
+              <span>Ripado Largo Liso Grafite (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="ripado/Ripado Largo Liso Taupe (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('ripado/Ripado Largo Liso Taupe (STILL).jpg', this)">🤍</button>
+              <img src="ripado/Ripado Largo Liso Taupe (STILL).jpg" alt="Ripado Largo Liso Taupe (STILL)" onclick="abrirModal('ripado/Ripado Largo Liso Taupe (STILL).jpg')">
+              <span>Ripado Largo Liso Taupe (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="ripado/Ripado Largo Liso Verde (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('ripado/Ripado Largo Liso Verde (STILL).jpg', this)">🤍</button>
+              <img src="ripado/Ripado Largo Liso Verde (STILL).jpg" alt="Ripado Largo Liso Verde (STILL)" onclick="abrirModal('ripado/Ripado Largo Liso Verde (STILL).jpg')">
+              <span>Ripado Largo Liso Verde (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="ripado/Ripado Largo Marantá (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('ripado/Ripado Largo Marantá (STILL).jpg', this)">🤍</button>
+              <img src="ripado/Ripado Largo Marantá (STILL).jpg" alt="Ripado Largo Marantá (STILL)" onclick="abrirModal('ripado/Ripado Largo Marantá (STILL).jpg')">
+              <span>Ripado Largo Marantá (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="ripado/Ripado Largo Marfim (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('ripado/Ripado Largo Marfim (STILL).jpg', this)">🤍</button>
+              <img src="ripado/Ripado Largo Marfim (STILL).jpg" alt="Ripado Largo Marfim (STILL)" onclick="abrirModal('ripado/Ripado Largo Marfim (STILL).jpg')">
+              <span>Ripado Largo Marfim (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="ripado/Ripado Largo Natural (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('ripado/Ripado Largo Natural (STILL).jpg', this)">🤍</button>
+              <img src="ripado/Ripado Largo Natural (STILL).jpg" alt="Ripado Largo Natural (STILL)" onclick="abrirModal('ripado/Ripado Largo Natural (STILL).jpg')">
+              <span>Ripado Largo Natural (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="ripado/Ripado Largo Nogal (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('ripado/Ripado Largo Nogal (STILL).jpg', this)">🤍</button>
+              <img src="ripado/Ripado Largo Nogal (STILL).jpg" alt="Ripado Largo Nogal (STILL)" onclick="abrirModal('ripado/Ripado Largo Nogal (STILL).jpg')">
+              <span>Ripado Largo Nogal (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="ripado/Ripado Largo Nogueira (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('ripado/Ripado Largo Nogueira (STILL).jpg', this)">🤍</button>
+              <img src="ripado/Ripado Largo Nogueira (STILL).jpg" alt="Ripado Largo Nogueira (STILL)" onclick="abrirModal('ripado/Ripado Largo Nogueira (STILL).jpg')">
+              <span>Ripado Largo Nogueira (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="ripado/Ripado Largo Pau Ferro (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('ripado/Ripado Largo Pau Ferro (STILL).jpg', this)">🤍</button>
+              <img src="ripado/Ripado Largo Pau Ferro (STILL).jpg" alt="Ripado Largo Pau Ferro (STILL)" onclick="abrirModal('ripado/Ripado Largo Pau Ferro (STILL).jpg')">
+              <span>Ripado Largo Pau Ferro (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="ripado/Ripado Largo Pinus (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('ripado/Ripado Largo Pinus (STILL).jpg', this)">🤍</button>
+              <img src="ripado/Ripado Largo Pinus (STILL).jpg" alt="Ripado Largo Pinus (STILL)" onclick="abrirModal('ripado/Ripado Largo Pinus (STILL).jpg')">
+              <span>Ripado Largo Pinus (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="ripado/Ripado Largo Rosa Claro (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('ripado/Ripado Largo Rosa Claro (STILL).jpg', this)">🤍</button>
+              <img src="ripado/Ripado Largo Rosa Claro (STILL).jpg" alt="Ripado Largo Rosa Claro (STILL)" onclick="abrirModal('ripado/Ripado Largo Rosa Claro (STILL).jpg')">
+              <span>Ripado Largo Rosa Claro (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="ripado/Ripado Liso Branco (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('ripado/Ripado Liso Branco (STILL).jpg', this)">🤍</button>
+              <img src="ripado/Ripado Liso Branco (STILL).jpg" alt="Ripado Liso Branco (STILL)" onclick="abrirModal('ripado/Ripado Liso Branco (STILL).jpg')">
+              <span>Ripado Liso Branco (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="ripado/Ripado Liso Camurça (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('ripado/Ripado Liso Camurça (STILL).jpg', this)">🤍</button>
+              <img src="ripado/Ripado Liso Camurça (STILL).jpg" alt="Ripado Liso Camurça (STILL)" onclick="abrirModal('ripado/Ripado Liso Camurça (STILL).jpg')">
+              <span>Ripado Liso Camurça (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="ripado/Ripado Liso Cinza Claro (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('ripado/Ripado Liso Cinza Claro (STILL).jpg', this)">🤍</button>
+              <img src="ripado/Ripado Liso Cinza Claro (STILL).jpg" alt="Ripado Liso Cinza Claro (STILL)" onclick="abrirModal('ripado/Ripado Liso Cinza Claro (STILL).jpg')">
+              <span>Ripado Liso Cinza Claro (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="ripado/Ripado Liso Fendi (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('ripado/Ripado Liso Fendi (STILL).jpg', this)">🤍</button>
+              <img src="ripado/Ripado Liso Fendi (STILL).jpg" alt="Ripado Liso Fendi (STILL)" onclick="abrirModal('ripado/Ripado Liso Fendi (STILL).jpg')">
+              <span>Ripado Liso Fendi (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="ripado/Ripado Liso Grafite (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('ripado/Ripado Liso Grafite (STILL).jpg', this)">🤍</button>
+              <img src="ripado/Ripado Liso Grafite (STILL).jpg" alt="Ripado Liso Grafite (STILL)" onclick="abrirModal('ripado/Ripado Liso Grafite (STILL).jpg')">
+              <span>Ripado Liso Grafite (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="ripado/Ripado Liso Taupe (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('ripado/Ripado Liso Taupe (STILL).jpg', this)">🤍</button>
+              <img src="ripado/Ripado Liso Taupe (STILL).jpg" alt="Ripado Liso Taupe (STILL)" onclick="abrirModal('ripado/Ripado Liso Taupe (STILL).jpg')">
+              <span>Ripado Liso Taupe (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="ripado/Ripado Liso Verde (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('ripado/Ripado Liso Verde (STILL).jpg', this)">🤍</button>
+              <img src="ripado/Ripado Liso Verde (STILL).jpg" alt="Ripado Liso Verde (STILL)" onclick="abrirModal('ripado/Ripado Liso Verde (STILL).jpg')">
+              <span>Ripado Liso Verde (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="ripado/Ripado Marantá (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('ripado/Ripado Marantá (STILL).jpg', this)">🤍</button>
+              <img src="ripado/Ripado Marantá (STILL).jpg" alt="Ripado Marantá (STILL)" onclick="abrirModal('ripado/Ripado Marantá (STILL).jpg')">
+              <span>Ripado Marantá (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="ripado/Ripado Marfim (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('ripado/Ripado Marfim (STILL).jpg', this)">🤍</button>
+              <img src="ripado/Ripado Marfim (STILL).jpg" alt="Ripado Marfim (STILL)" onclick="abrirModal('ripado/Ripado Marfim (STILL).jpg')">
+              <span>Ripado Marfim (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="ripado/Ripado Natural (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('ripado/Ripado Natural (STILL).jpg', this)">🤍</button>
+              <img src="ripado/Ripado Natural (STILL).jpg" alt="Ripado Natural (STILL)" onclick="abrirModal('ripado/Ripado Natural (STILL).jpg')">
+              <span>Ripado Natural (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="ripado/Ripado Nogal (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('ripado/Ripado Nogal (STILL).jpg', this)">🤍</button>
+              <img src="ripado/Ripado Nogal (STILL).jpg" alt="Ripado Nogal (STILL)" onclick="abrirModal('ripado/Ripado Nogal (STILL).jpg')">
+              <span>Ripado Nogal (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="ripado/Ripado Nogueira (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('ripado/Ripado Nogueira (STILL).jpg', this)">🤍</button>
+              <img src="ripado/Ripado Nogueira (STILL).jpg" alt="Ripado Nogueira (STILL)" onclick="abrirModal('ripado/Ripado Nogueira (STILL).jpg')">
+              <span>Ripado Nogueira (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="ripado/Ripado Pau Ferro (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('ripado/Ripado Pau Ferro (STILL).jpg', this)">🤍</button>
+              <img src="ripado/Ripado Pau Ferro (STILL).jpg" alt="Ripado Pau Ferro (STILL)" onclick="abrirModal('ripado/Ripado Pau Ferro (STILL).jpg')">
+              <span>Ripado Pau Ferro (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="ripado/Ripado Pinus (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('ripado/Ripado Pinus (STILL).jpg', this)">🤍</button>
+              <img src="ripado/Ripado Pinus (STILL).jpg" alt="Ripado Pinus (STILL)" onclick="abrirModal('ripado/Ripado Pinus (STILL).jpg')">
+              <span>Ripado Pinus (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="ripado/Ripado Rosa (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('ripado/Ripado Rosa (STILL).jpg', this)">🤍</button>
+              <img src="ripado/Ripado Rosa (STILL).jpg" alt="Ripado Rosa (STILL)" onclick="abrirModal('ripado/Ripado Rosa (STILL).jpg')">
+              <span>Ripado Rosa (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="ripado/Ripado Rosa 2.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('ripado/Ripado Rosa 2.jpg', this)">🤍</button>
+              <img src="ripado/Ripado Rosa 2.jpg" alt="Ripado Rosa" onclick="abrirModal('ripado/Ripado Rosa 2.jpg')">
+              <span>Ripado Rosa</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="ripado/Ripado Rosa Claro (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('ripado/Ripado Rosa Claro (STILL).jpg', this)">🤍</button>
+              <img src="ripado/Ripado Rosa Claro (STILL).jpg" alt="Ripado Rosa Claro (STILL)" onclick="abrirModal('ripado/Ripado Rosa Claro (STILL).jpg')">
+              <span>Ripado Rosa Claro (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="ripado/Ripado Rosa.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('ripado/Ripado Rosa.jpg', this)">🤍</button>
+              <img src="ripado/Ripado Rosa.jpg" alt="Ripado Rosa" onclick="abrirModal('ripado/Ripado Rosa.jpg')">
+              <span>Ripado Rosa</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="ripado/Ripato Cinza Metrópole (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('ripado/Ripato Cinza Metrópole (STILL).jpg', this)">🤍</button>
+              <img src="ripado/Ripato Cinza Metrópole (STILL).jpg" alt="Ripato Cinza Metrópole (STILL)" onclick="abrirModal('ripado/Ripato Cinza Metrópole (STILL).jpg')">
+              <span>Ripato Cinza Metrópole (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="ripado/Ripato Intercalado Cinza Metrópole (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('ripado/Ripato Intercalado Cinza Metrópole (STILL).jpg', this)">🤍</button>
+              <img src="ripado/Ripato Intercalado Cinza Metrópole (STILL).jpg" alt="Ripato Intercalado Cinza Metrópole (STILL)" onclick="abrirModal('ripado/Ripato Intercalado Cinza Metrópole (STILL).jpg')">
+              <span>Ripato Intercalado Cinza Metrópole (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="ripado/Ripato Largo Cinza Metrópole (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('ripado/Ripato Largo Cinza Metrópole (STILL).jpg', this)">🤍</button>
+              <img src="ripado/Ripato Largo Cinza Metrópole (STILL).jpg" alt="Ripato Largo Cinza Metrópole (STILL)" onclick="abrirModal('ripado/Ripato Largo Cinza Metrópole (STILL).jpg')">
+              <span>Ripato Largo Cinza Metrópole (STILL)</span>
+            </div>
+</div>
+<div class="modal" id="modal">
+  <img id="modal-img" src="">
+  <button onclick="fecharModal()">✖ Fechar</button>
+</div>
+<script src="https://unpkg.com/@panzoom/panzoom@9.4.0/dist/panzoom.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const modal = document.getElementById('modal');
+  const modalImg = document.getElementById('modal-img');
+  let panzoomInstance;
+
+  window.abrirModal = function (src) {
+    modal.style.display = 'flex';
+    modalImg.src = src;
+    if (panzoomInstance) panzoomInstance.destroy();
+    panzoomInstance = Panzoom(modalImg, { maxScale: 5 });
+  }
+
+  window.fecharModal = function () {
+    modal.style.display = 'none';
+    if (panzoomInstance) panzoomInstance.destroy();
+  }
+
+  window.toggleFavorito = function (src, el) {
+    let favoritos = JSON.parse(localStorage.getItem('favoritos')) || [];
+    const index = favoritos.indexOf(src);
+    const agora = new Date().toISOString();
+    if (index >= 0) {
+      favoritos.splice(index, 1);
+      el.classList.remove('favorito');
+      el.textContent = '🤍';
+    } else {
+      favoritos.push(src);
+      el.classList.add('favorito');
+      el.textContent = '❤️';
+      const log = JSON.parse(localStorage.getItem('favoritos_log')) || [];
+      log.push({ img: src, data: agora });
+      localStorage.setItem('favoritos_log', JSON.stringify(log));
+    }
+    localStorage.setItem('favoritos', JSON.stringify(favoritos));
+  }
+
+  const favoritos = JSON.parse(localStorage.getItem('favoritos')) || [];
+  document.querySelectorAll('.favorito-btn').forEach(btn => {
+    const src = btn.getAttribute('onclick').match(/'(.*?)'/)[1];
+    if (favoritos.includes(src)) {
+      btn.textContent = '❤️';
+      btn.classList.add('favorito');
+    }
+  });
+
+  window.baixarSelecionadas = function () {
+    const selecionadas = Array.from(document.querySelectorAll('.checkbox-select:checked')).map(cb => cb.value);
+    if (selecionadas.length === 0) return alert("Nenhuma imagem selecionada.");
+    selecionadas.forEach(src => {
+      const link = document.createElement('a');
+      link.href = src;
+      link.download = src.split('/').pop();
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    });
+  }
+});
+</script>
+</body>
+</html>

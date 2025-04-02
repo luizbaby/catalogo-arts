@@ -12,20 +12,20 @@
       top: 0;
       background: white;
       display: flex;
+      flex-wrap: wrap;
       justify-content: space-between;
       align-items: center;
       padding: 10px 20px;
+      gap: 10px;
       box-shadow: 0 2px 5px rgba(0,0,0,0.1);
       z-index: 1000;
     }
-    .top-bar h1 { font-size: 18px; margin: 0; }
     .btn {
       background: #01b9b5;
       color: white;
       text-decoration: none;
       padding: 8px 14px;
       border-radius: 6px;
-      margin-left: 10px;
       font-size: 14px;
       cursor: pointer;
     }
@@ -88,11 +88,11 @@
 <body>
 <div class="top-bar">
   <div>
-    <a href="index.html" class="btn">&larr; Voltar</a>
+    <a href="https://catalogo.artspapeisdeparede.com.br/index.html" class="btn">&larr; Voltar</a>
     <button class="btn" onclick="baixarSelecionadas()">📥 Baixar selecionadas</button>
   </div>
   <h1>Galáxia</h1>
-  <a href="https://luizbaby.github.io/catalogo-arts/favoritos.html" class="btn">⭐ Ver favoritos</a>
+  <a href="https://catalogo.artspapeisdeparede.com.br/favoritos.html" class="btn">⭐ Ver favoritos</a>
 </div>
 <div class="grid">
 <div class="card">
@@ -103,8 +103,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="galáxia/Astronauta Azul 2.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('galáxia/Astronauta Azul 2.jpg', this)">🤍</button>
-              <img src="galáxia/Astronauta Azul 2.jpg" alt="Astronauta Azul 2" onclick="abrirModal('galáxia/Astronauta Azul 2.jpg')">
-              <span>Astronauta Azul 2</span>
+              <img src="galáxia/Astronauta Azul 2.jpg" alt="Astronauta Azul" onclick="abrirModal('galáxia/Astronauta Azul 2.jpg')">
+              <span>Astronauta Azul</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="galáxia/Astronauta Azul.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('galáxia/Astronauta Azul.jpg', this)">🤍</button>
@@ -123,8 +123,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="galáxia/Astronauta Rosa 2.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('galáxia/Astronauta Rosa 2.jpg', this)">🤍</button>
-              <img src="galáxia/Astronauta Rosa 2.jpg" alt="Astronauta Rosa 2" onclick="abrirModal('galáxia/Astronauta Rosa 2.jpg')">
-              <span>Astronauta Rosa 2</span>
+              <img src="galáxia/Astronauta Rosa 2.jpg" alt="Astronauta Rosa" onclick="abrirModal('galáxia/Astronauta Rosa 2.jpg')">
+              <span>Astronauta Rosa</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="galáxia/Astronauta Rosa.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('galáxia/Astronauta Rosa.jpg', this)">🤍</button>
@@ -213,8 +213,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="galáxia/Galáxia (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('galáxia/Galáxia (2).jpg', this)">🤍</button>
-              <img src="galáxia/Galáxia (2).jpg" alt="Galáxia (2)" onclick="abrirModal('galáxia/Galáxia (2).jpg')">
-              <span>Galáxia (2)</span>
+              <img src="galáxia/Galáxia (2).jpg" alt="Galáxia" onclick="abrirModal('galáxia/Galáxia (2).jpg')">
+              <span>Galáxia</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="galáxia/Galáxia (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('galáxia/Galáxia (STILL).jpg', this)">🤍</button>
@@ -223,13 +223,13 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="galáxia/Galáxia 2.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('galáxia/Galáxia 2.jpg', this)">🤍</button>
-              <img src="galáxia/Galáxia 2.jpg" alt="Galáxia 2" onclick="abrirModal('galáxia/Galáxia 2.jpg')">
-              <span>Galáxia 2</span>
+              <img src="galáxia/Galáxia 2.jpg" alt="Galáxia" onclick="abrirModal('galáxia/Galáxia 2.jpg')">
+              <span>Galáxia</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="galáxia/Galáxia Clean 02.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('galáxia/Galáxia Clean 02.jpg', this)">🤍</button>
-              <img src="galáxia/Galáxia Clean 02.jpg" alt="Galáxia Clean 02" onclick="abrirModal('galáxia/Galáxia Clean 02.jpg')">
-              <span>Galáxia Clean 02</span>
+              <img src="galáxia/Galáxia Clean 02.jpg" alt="Galáxia Clean" onclick="abrirModal('galáxia/Galáxia Clean 02.jpg')">
+              <span>Galáxia Clean</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="galáxia/Galáxia Clean.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('galáxia/Galáxia Clean.jpg', this)">🤍</button>

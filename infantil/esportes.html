@@ -12,20 +12,20 @@
       top: 0;
       background: white;
       display: flex;
+      flex-wrap: wrap;
       justify-content: space-between;
       align-items: center;
       padding: 10px 20px;
+      gap: 10px;
       box-shadow: 0 2px 5px rgba(0,0,0,0.1);
       z-index: 1000;
     }
-    .top-bar h1 { font-size: 18px; margin: 0; }
     .btn {
       background: #01b9b5;
       color: white;
       text-decoration: none;
       padding: 8px 14px;
       border-radius: 6px;
-      margin-left: 10px;
       font-size: 14px;
       cursor: pointer;
     }
@@ -88,18 +88,18 @@
 <body>
 <div class="top-bar">
   <div>
-    <a href="index.html" class="btn">&larr; Voltar</a>
+    <a href="https://catalogo.artspapeisdeparede.com.br/index.html" class="btn">&larr; Voltar</a>
     <button class="btn" onclick="baixarSelecionadas()">📥 Baixar selecionadas</button>
   </div>
   <h1>Esportes</h1>
-  <a href="https://luizbaby.github.io/catalogo-arts/favoritos.html" class="btn">⭐ Ver favoritos</a>
+  <a href="https://catalogo.artspapeisdeparede.com.br/favoritos.html" class="btn">⭐ Ver favoritos</a>
 </div>
 <div class="grid">
 <div class="card">
               <input type="checkbox" class="checkbox-select" value="esportes/Bolas de Esportes Azul (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('esportes/Bolas de Esportes Azul (2).jpg', this)">🤍</button>
-              <img src="esportes/Bolas de Esportes Azul (2).jpg" alt="Bolas de Esportes Azul (2)" onclick="abrirModal('esportes/Bolas de Esportes Azul (2).jpg')">
-              <span>Bolas de Esportes Azul (2)</span>
+              <img src="esportes/Bolas de Esportes Azul (2).jpg" alt="Bolas de Esportes Azul" onclick="abrirModal('esportes/Bolas de Esportes Azul (2).jpg')">
+              <span>Bolas de Esportes Azul</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="esportes/Bolas de Esportes Azul (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('esportes/Bolas de Esportes Azul (STILL).jpg', this)">🤍</button>
@@ -113,8 +113,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="esportes/Bolas de Esportes Cinza (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('esportes/Bolas de Esportes Cinza (2).jpg', this)">🤍</button>
-              <img src="esportes/Bolas de Esportes Cinza (2).jpg" alt="Bolas de Esportes Cinza (2)" onclick="abrirModal('esportes/Bolas de Esportes Cinza (2).jpg')">
-              <span>Bolas de Esportes Cinza (2)</span>
+              <img src="esportes/Bolas de Esportes Cinza (2).jpg" alt="Bolas de Esportes Cinza" onclick="abrirModal('esportes/Bolas de Esportes Cinza (2).jpg')">
+              <span>Bolas de Esportes Cinza</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="esportes/Bolas de Esportes Cinza (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('esportes/Bolas de Esportes Cinza (STILL).jpg', this)">🤍</button>
@@ -128,8 +128,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="esportes/Bolas de Esportes Rose (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('esportes/Bolas de Esportes Rose (2).jpg', this)">🤍</button>
-              <img src="esportes/Bolas de Esportes Rose (2).jpg" alt="Bolas de Esportes Rose (2)" onclick="abrirModal('esportes/Bolas de Esportes Rose (2).jpg')">
-              <span>Bolas de Esportes Rose (2)</span>
+              <img src="esportes/Bolas de Esportes Rose (2).jpg" alt="Bolas de Esportes Rose" onclick="abrirModal('esportes/Bolas de Esportes Rose (2).jpg')">
+              <span>Bolas de Esportes Rose</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="esportes/Bolas de Esportes Rose (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('esportes/Bolas de Esportes Rose (STILL).jpg', this)">🤍</button>
@@ -143,8 +143,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="esportes/Esportes Cimento Queimado (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('esportes/Esportes Cimento Queimado (2).jpg', this)">🤍</button>
-              <img src="esportes/Esportes Cimento Queimado (2).jpg" alt="Esportes Cimento Queimado (2)" onclick="abrirModal('esportes/Esportes Cimento Queimado (2).jpg')">
-              <span>Esportes Cimento Queimado (2)</span>
+              <img src="esportes/Esportes Cimento Queimado (2).jpg" alt="Esportes Cimento Queimado" onclick="abrirModal('esportes/Esportes Cimento Queimado (2).jpg')">
+              <span>Esportes Cimento Queimado</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="esportes/Esportes Cimento Queimado (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('esportes/Esportes Cimento Queimado (STILL).jpg', this)">🤍</button>

@@ -12,20 +12,20 @@
       top: 0;
       background: white;
       display: flex;
+      flex-wrap: wrap;
       justify-content: space-between;
       align-items: center;
       padding: 10px 20px;
+      gap: 10px;
       box-shadow: 0 2px 5px rgba(0,0,0,0.1);
       z-index: 1000;
     }
-    .top-bar h1 { font-size: 18px; margin: 0; }
     .btn {
       background: #01b9b5;
       color: white;
       text-decoration: none;
       padding: 8px 14px;
       border-radius: 6px;
-      margin-left: 10px;
       font-size: 14px;
       cursor: pointer;
     }
@@ -88,18 +88,18 @@
 <body>
 <div class="top-bar">
   <div>
-    <a href="index.html" class="btn">&larr; Voltar</a>
+    <a href="https://catalogo.artspapeisdeparede.com.br/index.html" class="btn">&larr; Voltar</a>
     <button class="btn" onclick="baixarSelecionadas()">📥 Baixar selecionadas</button>
   </div>
   <h1>Quadriculado</h1>
-  <a href="https://luizbaby.github.io/catalogo-arts/favoritos.html" class="btn">⭐ Ver favoritos</a>
+  <a href="https://catalogo.artspapeisdeparede.com.br/favoritos.html" class="btn">⭐ Ver favoritos</a>
 </div>
 <div class="grid">
 <div class="card">
               <input type="checkbox" class="checkbox-select" value="quadriculado/Quadriculado Formigas (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('quadriculado/Quadriculado Formigas (2).jpg', this)">🤍</button>
-              <img src="quadriculado/Quadriculado Formigas (2).jpg" alt="Quadriculado Formigas (2)" onclick="abrirModal('quadriculado/Quadriculado Formigas (2).jpg')">
-              <span>Quadriculado Formigas (2)</span>
+              <img src="quadriculado/Quadriculado Formigas (2).jpg" alt="Quadriculado Formigas" onclick="abrirModal('quadriculado/Quadriculado Formigas (2).jpg')">
+              <span>Quadriculado Formigas</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="quadriculado/Quadriculado Formigas (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('quadriculado/Quadriculado Formigas (STILL).jpg', this)">🤍</button>
@@ -108,8 +108,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="quadriculado/Quadriculado Formigas Azul (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('quadriculado/Quadriculado Formigas Azul (2).jpg', this)">🤍</button>
-              <img src="quadriculado/Quadriculado Formigas Azul (2).jpg" alt="Quadriculado Formigas Azul (2)" onclick="abrirModal('quadriculado/Quadriculado Formigas Azul (2).jpg')">
-              <span>Quadriculado Formigas Azul (2)</span>
+              <img src="quadriculado/Quadriculado Formigas Azul (2).jpg" alt="Quadriculado Formigas Azul" onclick="abrirModal('quadriculado/Quadriculado Formigas Azul (2).jpg')">
+              <span>Quadriculado Formigas Azul</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="quadriculado/Quadriculado Formigas Azul (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('quadriculado/Quadriculado Formigas Azul (STILL).jpg', this)">🤍</button>
@@ -123,8 +123,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="quadriculado/Quadriculado Formigas Rosa (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('quadriculado/Quadriculado Formigas Rosa (2).jpg', this)">🤍</button>
-              <img src="quadriculado/Quadriculado Formigas Rosa (2).jpg" alt="Quadriculado Formigas Rosa (2)" onclick="abrirModal('quadriculado/Quadriculado Formigas Rosa (2).jpg')">
-              <span>Quadriculado Formigas Rosa (2)</span>
+              <img src="quadriculado/Quadriculado Formigas Rosa (2).jpg" alt="Quadriculado Formigas Rosa" onclick="abrirModal('quadriculado/Quadriculado Formigas Rosa (2).jpg')">
+              <span>Quadriculado Formigas Rosa</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="quadriculado/Quadriculado Formigas Rosa (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('quadriculado/Quadriculado Formigas Rosa (STILL).jpg', this)">🤍</button>
@@ -138,8 +138,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="quadriculado/Quadriculado Formigas Verde (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('quadriculado/Quadriculado Formigas Verde (2).jpg', this)">🤍</button>
-              <img src="quadriculado/Quadriculado Formigas Verde (2).jpg" alt="Quadriculado Formigas Verde (2)" onclick="abrirModal('quadriculado/Quadriculado Formigas Verde (2).jpg')">
-              <span>Quadriculado Formigas Verde (2)</span>
+              <img src="quadriculado/Quadriculado Formigas Verde (2).jpg" alt="Quadriculado Formigas Verde" onclick="abrirModal('quadriculado/Quadriculado Formigas Verde (2).jpg')">
+              <span>Quadriculado Formigas Verde</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="quadriculado/Quadriculado Formigas Verde (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('quadriculado/Quadriculado Formigas Verde (STILL).jpg', this)">🤍</button>
@@ -163,8 +163,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="quadriculado/Quadriculado Linhas Cinza 2.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('quadriculado/Quadriculado Linhas Cinza 2.jpg', this)">🤍</button>
-              <img src="quadriculado/Quadriculado Linhas Cinza 2.jpg" alt="Quadriculado Linhas Cinza 2" onclick="abrirModal('quadriculado/Quadriculado Linhas Cinza 2.jpg')">
-              <span>Quadriculado Linhas Cinza 2</span>
+              <img src="quadriculado/Quadriculado Linhas Cinza 2.jpg" alt="Quadriculado Linhas Cinza" onclick="abrirModal('quadriculado/Quadriculado Linhas Cinza 2.jpg')">
+              <span>Quadriculado Linhas Cinza</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="quadriculado/Quadriculado Linhas Cinza.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('quadriculado/Quadriculado Linhas Cinza.jpg', this)">🤍</button>
@@ -208,8 +208,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="quadriculado/Quadriculado Linhas Preta 2.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('quadriculado/Quadriculado Linhas Preta 2.jpg', this)">🤍</button>
-              <img src="quadriculado/Quadriculado Linhas Preta 2.jpg" alt="Quadriculado Linhas Preta 2" onclick="abrirModal('quadriculado/Quadriculado Linhas Preta 2.jpg')">
-              <span>Quadriculado Linhas Preta 2</span>
+              <img src="quadriculado/Quadriculado Linhas Preta 2.jpg" alt="Quadriculado Linhas Preta" onclick="abrirModal('quadriculado/Quadriculado Linhas Preta 2.jpg')">
+              <span>Quadriculado Linhas Preta</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="quadriculado/Quadriculado Linhas Preta.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('quadriculado/Quadriculado Linhas Preta.jpg', this)">🤍</button>
@@ -218,8 +218,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="quadriculado/Quadriculado Riscado Azul (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('quadriculado/Quadriculado Riscado Azul (2).jpg', this)">🤍</button>
-              <img src="quadriculado/Quadriculado Riscado Azul (2).jpg" alt="Quadriculado Riscado Azul (2)" onclick="abrirModal('quadriculado/Quadriculado Riscado Azul (2).jpg')">
-              <span>Quadriculado Riscado Azul (2)</span>
+              <img src="quadriculado/Quadriculado Riscado Azul (2).jpg" alt="Quadriculado Riscado Azul" onclick="abrirModal('quadriculado/Quadriculado Riscado Azul (2).jpg')">
+              <span>Quadriculado Riscado Azul</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="quadriculado/Quadriculado Riscado Azul (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('quadriculado/Quadriculado Riscado Azul (STILL).jpg', this)">🤍</button>
@@ -228,13 +228,13 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="quadriculado/Quadriculado Riscado Azul 2.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('quadriculado/Quadriculado Riscado Azul 2.jpg', this)">🤍</button>
-              <img src="quadriculado/Quadriculado Riscado Azul 2.jpg" alt="Quadriculado Riscado Azul 2" onclick="abrirModal('quadriculado/Quadriculado Riscado Azul 2.jpg')">
-              <span>Quadriculado Riscado Azul 2</span>
+              <img src="quadriculado/Quadriculado Riscado Azul 2.jpg" alt="Quadriculado Riscado Azul" onclick="abrirModal('quadriculado/Quadriculado Riscado Azul 2.jpg')">
+              <span>Quadriculado Riscado Azul</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="quadriculado/Quadriculado Riscado Azul Marinho (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('quadriculado/Quadriculado Riscado Azul Marinho (2).jpg', this)">🤍</button>
-              <img src="quadriculado/Quadriculado Riscado Azul Marinho (2).jpg" alt="Quadriculado Riscado Azul Marinho (2)" onclick="abrirModal('quadriculado/Quadriculado Riscado Azul Marinho (2).jpg')">
-              <span>Quadriculado Riscado Azul Marinho (2)</span>
+              <img src="quadriculado/Quadriculado Riscado Azul Marinho (2).jpg" alt="Quadriculado Riscado Azul Marinho" onclick="abrirModal('quadriculado/Quadriculado Riscado Azul Marinho (2).jpg')">
+              <span>Quadriculado Riscado Azul Marinho</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="quadriculado/Quadriculado Riscado Azul Marinho (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('quadriculado/Quadriculado Riscado Azul Marinho (STILL).jpg', this)">🤍</button>
@@ -253,8 +253,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="quadriculado/Quadriculado Riscado Branco (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('quadriculado/Quadriculado Riscado Branco (2).jpg', this)">🤍</button>
-              <img src="quadriculado/Quadriculado Riscado Branco (2).jpg" alt="Quadriculado Riscado Branco (2)" onclick="abrirModal('quadriculado/Quadriculado Riscado Branco (2).jpg')">
-              <span>Quadriculado Riscado Branco (2)</span>
+              <img src="quadriculado/Quadriculado Riscado Branco (2).jpg" alt="Quadriculado Riscado Branco" onclick="abrirModal('quadriculado/Quadriculado Riscado Branco (2).jpg')">
+              <span>Quadriculado Riscado Branco</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="quadriculado/Quadriculado Riscado Branco (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('quadriculado/Quadriculado Riscado Branco (STILL).jpg', this)">🤍</button>
@@ -263,8 +263,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="quadriculado/Quadriculado Riscado Branco (WIDE) 2.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('quadriculado/Quadriculado Riscado Branco (WIDE) 2.jpg', this)">🤍</button>
-              <img src="quadriculado/Quadriculado Riscado Branco (WIDE) 2.jpg" alt="Quadriculado Riscado Branco (WIDE) 2" onclick="abrirModal('quadriculado/Quadriculado Riscado Branco (WIDE) 2.jpg')">
-              <span>Quadriculado Riscado Branco (WIDE) 2</span>
+              <img src="quadriculado/Quadriculado Riscado Branco (WIDE) 2.jpg" alt="Quadriculado Riscado Branco (WIDE)" onclick="abrirModal('quadriculado/Quadriculado Riscado Branco (WIDE) 2.jpg')">
+              <span>Quadriculado Riscado Branco (WIDE)</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="quadriculado/Quadriculado Riscado Branco (WIDE).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('quadriculado/Quadriculado Riscado Branco (WIDE).jpg', this)">🤍</button>
@@ -273,13 +273,13 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="quadriculado/Quadriculado Riscado Branco 2 (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('quadriculado/Quadriculado Riscado Branco 2 (2).jpg', this)">🤍</button>
-              <img src="quadriculado/Quadriculado Riscado Branco 2 (2).jpg" alt="Quadriculado Riscado Branco 2 (2)" onclick="abrirModal('quadriculado/Quadriculado Riscado Branco 2 (2).jpg')">
-              <span>Quadriculado Riscado Branco 2 (2)</span>
+              <img src="quadriculado/Quadriculado Riscado Branco 2 (2).jpg" alt="Quadriculado Riscado Branco 2" onclick="abrirModal('quadriculado/Quadriculado Riscado Branco 2 (2).jpg')">
+              <span>Quadriculado Riscado Branco 2</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="quadriculado/Quadriculado Riscado Branco 2.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('quadriculado/Quadriculado Riscado Branco 2.jpg', this)">🤍</button>
-              <img src="quadriculado/Quadriculado Riscado Branco 2.jpg" alt="Quadriculado Riscado Branco 2" onclick="abrirModal('quadriculado/Quadriculado Riscado Branco 2.jpg')">
-              <span>Quadriculado Riscado Branco 2</span>
+              <img src="quadriculado/Quadriculado Riscado Branco 2.jpg" alt="Quadriculado Riscado Branco" onclick="abrirModal('quadriculado/Quadriculado Riscado Branco 2.jpg')">
+              <span>Quadriculado Riscado Branco</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="quadriculado/Quadriculado Riscado Branco.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('quadriculado/Quadriculado Riscado Branco.jpg', this)">🤍</button>
@@ -298,8 +298,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="quadriculado/Quadriculado Riscado Camurça 2.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('quadriculado/Quadriculado Riscado Camurça 2.jpg', this)">🤍</button>
-              <img src="quadriculado/Quadriculado Riscado Camurça 2.jpg" alt="Quadriculado Riscado Camurça 2" onclick="abrirModal('quadriculado/Quadriculado Riscado Camurça 2.jpg')">
-              <span>Quadriculado Riscado Camurça 2</span>
+              <img src="quadriculado/Quadriculado Riscado Camurça 2.jpg" alt="Quadriculado Riscado Camurça" onclick="abrirModal('quadriculado/Quadriculado Riscado Camurça 2.jpg')">
+              <span>Quadriculado Riscado Camurça</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="quadriculado/Quadriculado Riscado Camurça.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('quadriculado/Quadriculado Riscado Camurça.jpg', this)">🤍</button>
@@ -308,8 +308,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="quadriculado/Quadriculado Riscado Cinza (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('quadriculado/Quadriculado Riscado Cinza (2).jpg', this)">🤍</button>
-              <img src="quadriculado/Quadriculado Riscado Cinza (2).jpg" alt="Quadriculado Riscado Cinza (2)" onclick="abrirModal('quadriculado/Quadriculado Riscado Cinza (2).jpg')">
-              <span>Quadriculado Riscado Cinza (2)</span>
+              <img src="quadriculado/Quadriculado Riscado Cinza (2).jpg" alt="Quadriculado Riscado Cinza" onclick="abrirModal('quadriculado/Quadriculado Riscado Cinza (2).jpg')">
+              <span>Quadriculado Riscado Cinza</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="quadriculado/Quadriculado Riscado Cinza (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('quadriculado/Quadriculado Riscado Cinza (STILL).jpg', this)">🤍</button>
@@ -323,8 +323,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="quadriculado/Quadriculado Riscado Off White (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('quadriculado/Quadriculado Riscado Off White (2).jpg', this)">🤍</button>
-              <img src="quadriculado/Quadriculado Riscado Off White (2).jpg" alt="Quadriculado Riscado Off White (2)" onclick="abrirModal('quadriculado/Quadriculado Riscado Off White (2).jpg')">
-              <span>Quadriculado Riscado Off White (2)</span>
+              <img src="quadriculado/Quadriculado Riscado Off White (2).jpg" alt="Quadriculado Riscado Off White" onclick="abrirModal('quadriculado/Quadriculado Riscado Off White (2).jpg')">
+              <span>Quadriculado Riscado Off White</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="quadriculado/Quadriculado Riscado Off White (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('quadriculado/Quadriculado Riscado Off White (STILL).jpg', this)">🤍</button>
@@ -338,8 +338,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="quadriculado/Quadriculado Riscado Off White 2.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('quadriculado/Quadriculado Riscado Off White 2.jpg', this)">🤍</button>
-              <img src="quadriculado/Quadriculado Riscado Off White 2.jpg" alt="Quadriculado Riscado Off White 2" onclick="abrirModal('quadriculado/Quadriculado Riscado Off White 2.jpg')">
-              <span>Quadriculado Riscado Off White 2</span>
+              <img src="quadriculado/Quadriculado Riscado Off White 2.jpg" alt="Quadriculado Riscado Off White" onclick="abrirModal('quadriculado/Quadriculado Riscado Off White 2.jpg')">
+              <span>Quadriculado Riscado Off White</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="quadriculado/Quadriculado Riscado Off White.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('quadriculado/Quadriculado Riscado Off White.jpg', this)">🤍</button>
@@ -348,8 +348,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="quadriculado/Quadriculado Riscado Preto (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('quadriculado/Quadriculado Riscado Preto (2).jpg', this)">🤍</button>
-              <img src="quadriculado/Quadriculado Riscado Preto (2).jpg" alt="Quadriculado Riscado Preto (2)" onclick="abrirModal('quadriculado/Quadriculado Riscado Preto (2).jpg')">
-              <span>Quadriculado Riscado Preto (2)</span>
+              <img src="quadriculado/Quadriculado Riscado Preto (2).jpg" alt="Quadriculado Riscado Preto" onclick="abrirModal('quadriculado/Quadriculado Riscado Preto (2).jpg')">
+              <span>Quadriculado Riscado Preto</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="quadriculado/Quadriculado Riscado Preto (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('quadriculado/Quadriculado Riscado Preto (STILL).jpg', this)">🤍</button>
@@ -363,8 +363,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="quadriculado/Quadriculado Riscado Rose (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('quadriculado/Quadriculado Riscado Rose (2).jpg', this)">🤍</button>
-              <img src="quadriculado/Quadriculado Riscado Rose (2).jpg" alt="Quadriculado Riscado Rose (2)" onclick="abrirModal('quadriculado/Quadriculado Riscado Rose (2).jpg')">
-              <span>Quadriculado Riscado Rose (2)</span>
+              <img src="quadriculado/Quadriculado Riscado Rose (2).jpg" alt="Quadriculado Riscado Rose" onclick="abrirModal('quadriculado/Quadriculado Riscado Rose (2).jpg')">
+              <span>Quadriculado Riscado Rose</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="quadriculado/Quadriculado Riscado Rose (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('quadriculado/Quadriculado Riscado Rose (STILL).jpg', this)">🤍</button>
@@ -373,8 +373,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="quadriculado/Quadriculado Riscado Rose 2.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('quadriculado/Quadriculado Riscado Rose 2.jpg', this)">🤍</button>
-              <img src="quadriculado/Quadriculado Riscado Rose 2.jpg" alt="Quadriculado Riscado Rose 2" onclick="abrirModal('quadriculado/Quadriculado Riscado Rose 2.jpg')">
-              <span>Quadriculado Riscado Rose 2</span>
+              <img src="quadriculado/Quadriculado Riscado Rose 2.jpg" alt="Quadriculado Riscado Rose" onclick="abrirModal('quadriculado/Quadriculado Riscado Rose 2.jpg')">
+              <span>Quadriculado Riscado Rose</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="quadriculado/Quadriculado Riscado Rose.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('quadriculado/Quadriculado Riscado Rose.jpg', this)">🤍</button>

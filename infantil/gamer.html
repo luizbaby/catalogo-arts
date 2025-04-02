@@ -12,20 +12,20 @@
       top: 0;
       background: white;
       display: flex;
+      flex-wrap: wrap;
       justify-content: space-between;
       align-items: center;
       padding: 10px 20px;
+      gap: 10px;
       box-shadow: 0 2px 5px rgba(0,0,0,0.1);
       z-index: 1000;
     }
-    .top-bar h1 { font-size: 18px; margin: 0; }
     .btn {
       background: #01b9b5;
       color: white;
       text-decoration: none;
       padding: 8px 14px;
       border-radius: 6px;
-      margin-left: 10px;
       font-size: 14px;
       cursor: pointer;
     }
@@ -88,11 +88,11 @@
 <body>
 <div class="top-bar">
   <div>
-    <a href="index.html" class="btn">&larr; Voltar</a>
+    <a href="https://catalogo.artspapeisdeparede.com.br/index.html" class="btn">&larr; Voltar</a>
     <button class="btn" onclick="baixarSelecionadas()">📥 Baixar selecionadas</button>
   </div>
   <h1>Gamer</h1>
-  <a href="https://luizbaby.github.io/catalogo-arts/favoritos.html" class="btn">⭐ Ver favoritos</a>
+  <a href="https://catalogo.artspapeisdeparede.com.br/favoritos.html" class="btn">⭐ Ver favoritos</a>
 </div>
 <div class="grid">
 <div class="card">
@@ -158,8 +158,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="gamer/Gaming Grafite (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('gamer/Gaming Grafite (2).jpg', this)">🤍</button>
-              <img src="gamer/Gaming Grafite (2).jpg" alt="Gaming Grafite (2)" onclick="abrirModal('gamer/Gaming Grafite (2).jpg')">
-              <span>Gaming Grafite (2)</span>
+              <img src="gamer/Gaming Grafite (2).jpg" alt="Gaming Grafite" onclick="abrirModal('gamer/Gaming Grafite (2).jpg')">
+              <span>Gaming Grafite</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="gamer/Gaming Grafite (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('gamer/Gaming Grafite (STILL).jpg', this)">🤍</button>
@@ -173,13 +173,13 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="gamer/Gaming Grafite2.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('gamer/Gaming Grafite2.jpg', this)">🤍</button>
-              <img src="gamer/Gaming Grafite2.jpg" alt="Gaming Grafite2" onclick="abrirModal('gamer/Gaming Grafite2.jpg')">
-              <span>Gaming Grafite2</span>
+              <img src="gamer/Gaming Grafite2.jpg" alt="Gaming Grafite" onclick="abrirModal('gamer/Gaming Grafite2.jpg')">
+              <span>Gaming Grafite</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="gamer/Gaming Roxo (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('gamer/Gaming Roxo (2).jpg', this)">🤍</button>
-              <img src="gamer/Gaming Roxo (2).jpg" alt="Gaming Roxo (2)" onclick="abrirModal('gamer/Gaming Roxo (2).jpg')">
-              <span>Gaming Roxo (2)</span>
+              <img src="gamer/Gaming Roxo (2).jpg" alt="Gaming Roxo" onclick="abrirModal('gamer/Gaming Roxo (2).jpg')">
+              <span>Gaming Roxo</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="gamer/Gaming Roxo (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('gamer/Gaming Roxo (STILL).jpg', this)">🤍</button>
@@ -188,8 +188,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="gamer/Gaming Roxo 02.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('gamer/Gaming Roxo 02.jpg', this)">🤍</button>
-              <img src="gamer/Gaming Roxo 02.jpg" alt="Gaming Roxo 02" onclick="abrirModal('gamer/Gaming Roxo 02.jpg')">
-              <span>Gaming Roxo 02</span>
+              <img src="gamer/Gaming Roxo 02.jpg" alt="Gaming Roxo" onclick="abrirModal('gamer/Gaming Roxo 02.jpg')">
+              <span>Gaming Roxo</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="gamer/Gaming Roxo.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('gamer/Gaming Roxo.jpg', this)">🤍</button>
@@ -198,8 +198,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="gamer/Gaming Roxo2.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('gamer/Gaming Roxo2.jpg', this)">🤍</button>
-              <img src="gamer/Gaming Roxo2.jpg" alt="Gaming Roxo2" onclick="abrirModal('gamer/Gaming Roxo2.jpg')">
-              <span>Gaming Roxo2</span>
+              <img src="gamer/Gaming Roxo2.jpg" alt="Gaming Roxo" onclick="abrirModal('gamer/Gaming Roxo2.jpg')">
+              <span>Gaming Roxo</span>
             </div>
 </div>
 <div class="modal" id="modal">

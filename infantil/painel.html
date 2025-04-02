@@ -12,20 +12,20 @@
       top: 0;
       background: white;
       display: flex;
+      flex-wrap: wrap;
       justify-content: space-between;
       align-items: center;
       padding: 10px 20px;
+      gap: 10px;
       box-shadow: 0 2px 5px rgba(0,0,0,0.1);
       z-index: 1000;
     }
-    .top-bar h1 { font-size: 18px; margin: 0; }
     .btn {
       background: #01b9b5;
       color: white;
       text-decoration: none;
       padding: 8px 14px;
       border-radius: 6px;
-      margin-left: 10px;
       font-size: 14px;
       cursor: pointer;
     }
@@ -88,11 +88,11 @@
 <body>
 <div class="top-bar">
   <div>
-    <a href="index.html" class="btn">&larr; Voltar</a>
+    <a href="https://catalogo.artspapeisdeparede.com.br/index.html" class="btn">&larr; Voltar</a>
     <button class="btn" onclick="baixarSelecionadas()">📥 Baixar selecionadas</button>
   </div>
   <h1>Painel</h1>
-  <a href="https://luizbaby.github.io/catalogo-arts/favoritos.html" class="btn">⭐ Ver favoritos</a>
+  <a href="https://catalogo.artspapeisdeparede.com.br/favoritos.html" class="btn">⭐ Ver favoritos</a>
 </div>
 <div class="grid">
 <div class="card">
@@ -118,8 +118,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="painel/Aquarela Floral 2.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('painel/Aquarela Floral 2.jpg', this)">🤍</button>
-              <img src="painel/Aquarela Floral 2.jpg" alt="Aquarela Floral 2" onclick="abrirModal('painel/Aquarela Floral 2.jpg')">
-              <span>Aquarela Floral 2</span>
+              <img src="painel/Aquarela Floral 2.jpg" alt="Aquarela Floral" onclick="abrirModal('painel/Aquarela Floral 2.jpg')">
+              <span>Aquarela Floral</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="painel/Aquarela Floral.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('painel/Aquarela Floral.jpg', this)">🤍</button>
@@ -138,8 +138,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="painel/Aquarela Pendente 2.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('painel/Aquarela Pendente 2.jpg', this)">🤍</button>
-              <img src="painel/Aquarela Pendente 2.jpg" alt="Aquarela Pendente 2" onclick="abrirModal('painel/Aquarela Pendente 2.jpg')">
-              <span>Aquarela Pendente 2</span>
+              <img src="painel/Aquarela Pendente 2.jpg" alt="Aquarela Pendente" onclick="abrirModal('painel/Aquarela Pendente 2.jpg')">
+              <span>Aquarela Pendente</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="painel/Aquarela Pendente.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('painel/Aquarela Pendente.jpg', this)">🤍</button>
@@ -158,8 +158,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="painel/Arca de Noé 2.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('painel/Arca de Noé 2.jpg', this)">🤍</button>
-              <img src="painel/Arca de Noé 2.jpg" alt="Arca de Noé 2" onclick="abrirModal('painel/Arca de Noé 2.jpg')">
-              <span>Arca de Noé 2</span>
+              <img src="painel/Arca de Noé 2.jpg" alt="Arca de Noé" onclick="abrirModal('painel/Arca de Noé 2.jpg')">
+              <span>Arca de Noé</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="painel/Arca de Noé.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('painel/Arca de Noé.jpg', this)">🤍</button>
@@ -173,8 +173,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="painel/Arco Íris e Bolinhas Aquarela 2.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('painel/Arco Íris e Bolinhas Aquarela 2.jpg', this)">🤍</button>
-              <img src="painel/Arco Íris e Bolinhas Aquarela 2.jpg" alt="Arco Íris e Bolinhas Aquarela 2" onclick="abrirModal('painel/Arco Íris e Bolinhas Aquarela 2.jpg')">
-              <span>Arco Íris e Bolinhas Aquarela 2</span>
+              <img src="painel/Arco Íris e Bolinhas Aquarela 2.jpg" alt="Arco Íris e Bolinhas Aquarela" onclick="abrirModal('painel/Arco Íris e Bolinhas Aquarela 2.jpg')">
+              <span>Arco Íris e Bolinhas Aquarela</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="painel/Arco Íris e Bolinhas Aquarela.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('painel/Arco Íris e Bolinhas Aquarela.jpg', this)">🤍</button>
@@ -188,8 +188,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="painel/Astronauta Azul 2.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('painel/Astronauta Azul 2.jpg', this)">🤍</button>
-              <img src="painel/Astronauta Azul 2.jpg" alt="Astronauta Azul 2" onclick="abrirModal('painel/Astronauta Azul 2.jpg')">
-              <span>Astronauta Azul 2</span>
+              <img src="painel/Astronauta Azul 2.jpg" alt="Astronauta Azul" onclick="abrirModal('painel/Astronauta Azul 2.jpg')">
+              <span>Astronauta Azul</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="painel/Astronauta Azul.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('painel/Astronauta Azul.jpg', this)">🤍</button>
@@ -208,8 +208,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="painel/Astronauta Rosa 2.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('painel/Astronauta Rosa 2.jpg', this)">🤍</button>
-              <img src="painel/Astronauta Rosa 2.jpg" alt="Astronauta Rosa 2" onclick="abrirModal('painel/Astronauta Rosa 2.jpg')">
-              <span>Astronauta Rosa 2</span>
+              <img src="painel/Astronauta Rosa 2.jpg" alt="Astronauta Rosa" onclick="abrirModal('painel/Astronauta Rosa 2.jpg')">
+              <span>Astronauta Rosa</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="painel/Astronauta Rosa.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('painel/Astronauta Rosa.jpg', this)">🤍</button>
@@ -228,8 +228,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="painel/Balões Azul (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('painel/Balões Azul (2).jpg', this)">🤍</button>
-              <img src="painel/Balões Azul (2).jpg" alt="Balões Azul (2)" onclick="abrirModal('painel/Balões Azul (2).jpg')">
-              <span>Balões Azul (2)</span>
+              <img src="painel/Balões Azul (2).jpg" alt="Balões Azul" onclick="abrirModal('painel/Balões Azul (2).jpg')">
+              <span>Balões Azul</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="painel/Balões Azul (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('painel/Balões Azul (STILL).jpg', this)">🤍</button>
@@ -238,8 +238,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="painel/Balões Azul 2.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('painel/Balões Azul 2.jpg', this)">🤍</button>
-              <img src="painel/Balões Azul 2.jpg" alt="Balões Azul 2" onclick="abrirModal('painel/Balões Azul 2.jpg')">
-              <span>Balões Azul 2</span>
+              <img src="painel/Balões Azul 2.jpg" alt="Balões Azul" onclick="abrirModal('painel/Balões Azul 2.jpg')">
+              <span>Balões Azul</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="painel/Balões Azul Claro (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('painel/Balões Azul Claro (STILL).jpg', this)">🤍</button>
@@ -248,8 +248,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="painel/Balões Azul Claro 2.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('painel/Balões Azul Claro 2.jpg', this)">🤍</button>
-              <img src="painel/Balões Azul Claro 2.jpg" alt="Balões Azul Claro 2" onclick="abrirModal('painel/Balões Azul Claro 2.jpg')">
-              <span>Balões Azul Claro 2</span>
+              <img src="painel/Balões Azul Claro 2.jpg" alt="Balões Azul Claro" onclick="abrirModal('painel/Balões Azul Claro 2.jpg')">
+              <span>Balões Azul Claro</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="painel/Balões Azul Claro.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('painel/Balões Azul Claro.jpg', this)">🤍</button>
@@ -258,8 +258,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="painel/Balões Azul Claro3.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('painel/Balões Azul Claro3.jpg', this)">🤍</button>
-              <img src="painel/Balões Azul Claro3.jpg" alt="Balões Azul Claro3" onclick="abrirModal('painel/Balões Azul Claro3.jpg')">
-              <span>Balões Azul Claro3</span>
+              <img src="painel/Balões Azul Claro3.jpg" alt="Balões Azul Claro" onclick="abrirModal('painel/Balões Azul Claro3.jpg')">
+              <span>Balões Azul Claro</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="painel/Balões Azul.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('painel/Balões Azul.jpg', this)">🤍</button>
@@ -278,13 +278,13 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="painel/Balões nos Alpes Azul 2.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('painel/Balões nos Alpes Azul 2.jpg', this)">🤍</button>
-              <img src="painel/Balões nos Alpes Azul 2.jpg" alt="Balões nos Alpes Azul 2" onclick="abrirModal('painel/Balões nos Alpes Azul 2.jpg')">
-              <span>Balões nos Alpes Azul 2</span>
+              <img src="painel/Balões nos Alpes Azul 2.jpg" alt="Balões nos Alpes Azul" onclick="abrirModal('painel/Balões nos Alpes Azul 2.jpg')">
+              <span>Balões nos Alpes Azul</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="painel/Balões Rosa (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('painel/Balões Rosa (2).jpg', this)">🤍</button>
-              <img src="painel/Balões Rosa (2).jpg" alt="Balões Rosa (2)" onclick="abrirModal('painel/Balões Rosa (2).jpg')">
-              <span>Balões Rosa (2)</span>
+              <img src="painel/Balões Rosa (2).jpg" alt="Balões Rosa" onclick="abrirModal('painel/Balões Rosa (2).jpg')">
+              <span>Balões Rosa</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="painel/Balões Rosa (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('painel/Balões Rosa (STILL).jpg', this)">🤍</button>
@@ -358,8 +358,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="painel/Conexão Mundo Preto 2.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('painel/Conexão Mundo Preto 2.jpg', this)">🤍</button>
-              <img src="painel/Conexão Mundo Preto 2.jpg" alt="Conexão Mundo Preto 2" onclick="abrirModal('painel/Conexão Mundo Preto 2.jpg')">
-              <span>Conexão Mundo Preto 2</span>
+              <img src="painel/Conexão Mundo Preto 2.jpg" alt="Conexão Mundo Preto" onclick="abrirModal('painel/Conexão Mundo Preto 2.jpg')">
+              <span>Conexão Mundo Preto</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="painel/Conexão Mundo Preto.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('painel/Conexão Mundo Preto.jpg', this)">🤍</button>
@@ -368,8 +368,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="painel/Cute Folhagem (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('painel/Cute Folhagem (2).jpg', this)">🤍</button>
-              <img src="painel/Cute Folhagem (2).jpg" alt="Cute Folhagem (2)" onclick="abrirModal('painel/Cute Folhagem (2).jpg')">
-              <span>Cute Folhagem (2)</span>
+              <img src="painel/Cute Folhagem (2).jpg" alt="Cute Folhagem" onclick="abrirModal('painel/Cute Folhagem (2).jpg')">
+              <span>Cute Folhagem</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="painel/Cute Folhagem (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('painel/Cute Folhagem (STILL).jpg', this)">🤍</button>
@@ -378,8 +378,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="painel/Cute Folhagem 02.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('painel/Cute Folhagem 02.jpg', this)">🤍</button>
-              <img src="painel/Cute Folhagem 02.jpg" alt="Cute Folhagem 02" onclick="abrirModal('painel/Cute Folhagem 02.jpg')">
-              <span>Cute Folhagem 02</span>
+              <img src="painel/Cute Folhagem 02.jpg" alt="Cute Folhagem" onclick="abrirModal('painel/Cute Folhagem 02.jpg')">
+              <span>Cute Folhagem</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="painel/Cute Folhagem.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('painel/Cute Folhagem.jpg', this)">🤍</button>
@@ -443,8 +443,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="painel/Fazendinha (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('painel/Fazendinha (2).jpg', this)">🤍</button>
-              <img src="painel/Fazendinha (2).jpg" alt="Fazendinha (2)" onclick="abrirModal('painel/Fazendinha (2).jpg')">
-              <span>Fazendinha (2)</span>
+              <img src="painel/Fazendinha (2).jpg" alt="Fazendinha" onclick="abrirModal('painel/Fazendinha (2).jpg')">
+              <span>Fazendinha</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="painel/Fazendinha (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('painel/Fazendinha (STILL).jpg', this)">🤍</button>
@@ -453,8 +453,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="painel/Fazendinha 2.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('painel/Fazendinha 2.jpg', this)">🤍</button>
-              <img src="painel/Fazendinha 2.jpg" alt="Fazendinha 2" onclick="abrirModal('painel/Fazendinha 2.jpg')">
-              <span>Fazendinha 2</span>
+              <img src="painel/Fazendinha 2.jpg" alt="Fazendinha" onclick="abrirModal('painel/Fazendinha 2.jpg')">
+              <span>Fazendinha</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="painel/Fazendinha Aquarela (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('painel/Fazendinha Aquarela (STILL).jpg', this)">🤍</button>
@@ -508,13 +508,13 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="painel/Floresta Aquarela 2.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('painel/Floresta Aquarela 2.jpg', this)">🤍</button>
-              <img src="painel/Floresta Aquarela 2.jpg" alt="Floresta Aquarela 2" onclick="abrirModal('painel/Floresta Aquarela 2.jpg')">
-              <span>Floresta Aquarela 2</span>
+              <img src="painel/Floresta Aquarela 2.jpg" alt="Floresta Aquarela" onclick="abrirModal('painel/Floresta Aquarela 2.jpg')">
+              <span>Floresta Aquarela</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="painel/Floresta Aquarela 3.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('painel/Floresta Aquarela 3.jpg', this)">🤍</button>
-              <img src="painel/Floresta Aquarela 3.jpg" alt="Floresta Aquarela 3" onclick="abrirModal('painel/Floresta Aquarela 3.jpg')">
-              <span>Floresta Aquarela 3</span>
+              <img src="painel/Floresta Aquarela 3.jpg" alt="Floresta Aquarela" onclick="abrirModal('painel/Floresta Aquarela 3.jpg')">
+              <span>Floresta Aquarela</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="painel/Floresta Aquarela.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('painel/Floresta Aquarela.jpg', this)">🤍</button>
@@ -553,8 +553,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="painel/Forest (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('painel/Forest (2).jpg', this)">🤍</button>
-              <img src="painel/Forest (2).jpg" alt="Forest (2)" onclick="abrirModal('painel/Forest (2).jpg')">
-              <span>Forest (2)</span>
+              <img src="painel/Forest (2).jpg" alt="Forest" onclick="abrirModal('painel/Forest (2).jpg')">
+              <span>Forest</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="painel/Forest (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('painel/Forest (STILL).jpg', this)">🤍</button>
@@ -568,8 +568,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="painel/Fundo do Mar (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('painel/Fundo do Mar (2).jpg', this)">🤍</button>
-              <img src="painel/Fundo do Mar (2).jpg" alt="Fundo do Mar (2)" onclick="abrirModal('painel/Fundo do Mar (2).jpg')">
-              <span>Fundo do Mar (2)</span>
+              <img src="painel/Fundo do Mar (2).jpg" alt="Fundo do Mar" onclick="abrirModal('painel/Fundo do Mar (2).jpg')">
+              <span>Fundo do Mar</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="painel/Fundo do Mar (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('painel/Fundo do Mar (STILL).jpg', this)">🤍</button>
@@ -578,8 +578,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="painel/Fundo do Mar 2.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('painel/Fundo do Mar 2.jpg', this)">🤍</button>
-              <img src="painel/Fundo do Mar 2.jpg" alt="Fundo do Mar 2" onclick="abrirModal('painel/Fundo do Mar 2.jpg')">
-              <span>Fundo do Mar 2</span>
+              <img src="painel/Fundo do Mar 2.jpg" alt="Fundo do Mar" onclick="abrirModal('painel/Fundo do Mar 2.jpg')">
+              <span>Fundo do Mar</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="painel/Fundo do Mar Baby Cute (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('painel/Fundo do Mar Baby Cute (STILL).jpg', this)">🤍</button>
@@ -628,8 +628,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="painel/Galáxia 2.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('painel/Galáxia 2.jpg', this)">🤍</button>
-              <img src="painel/Galáxia 2.jpg" alt="Galáxia 2" onclick="abrirModal('painel/Galáxia 2.jpg')">
-              <span>Galáxia 2</span>
+              <img src="painel/Galáxia 2.jpg" alt="Galáxia" onclick="abrirModal('painel/Galáxia 2.jpg')">
+              <span>Galáxia</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="painel/Galáxia.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('painel/Galáxia.jpg', this)">🤍</button>
@@ -643,8 +643,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="painel/Girafinha e a Turma da Bicicleta 2.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('painel/Girafinha e a Turma da Bicicleta 2.jpg', this)">🤍</button>
-              <img src="painel/Girafinha e a Turma da Bicicleta 2.jpg" alt="Girafinha e a Turma da Bicicleta 2" onclick="abrirModal('painel/Girafinha e a Turma da Bicicleta 2.jpg')">
-              <span>Girafinha e a Turma da Bicicleta 2</span>
+              <img src="painel/Girafinha e a Turma da Bicicleta 2.jpg" alt="Girafinha e a Turma da Bicicleta" onclick="abrirModal('painel/Girafinha e a Turma da Bicicleta 2.jpg')">
+              <span>Girafinha e a Turma da Bicicleta</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="painel/Girafinha e a Turma da Bicicleta.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('painel/Girafinha e a Turma da Bicicleta.jpg', this)">🤍</button>
@@ -703,8 +703,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="painel/Jardim Encantado (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('painel/Jardim Encantado (2).jpg', this)">🤍</button>
-              <img src="painel/Jardim Encantado (2).jpg" alt="Jardim Encantado (2)" onclick="abrirModal('painel/Jardim Encantado (2).jpg')">
-              <span>Jardim Encantado (2)</span>
+              <img src="painel/Jardim Encantado (2).jpg" alt="Jardim Encantado" onclick="abrirModal('painel/Jardim Encantado (2).jpg')">
+              <span>Jardim Encantado</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="painel/Jardim Encantado (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('painel/Jardim Encantado (STILL).jpg', this)">🤍</button>
@@ -713,8 +713,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="painel/Jardim Encantado 02.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('painel/Jardim Encantado 02.jpg', this)">🤍</button>
-              <img src="painel/Jardim Encantado 02.jpg" alt="Jardim Encantado 02" onclick="abrirModal('painel/Jardim Encantado 02.jpg')">
-              <span>Jardim Encantado 02</span>
+              <img src="painel/Jardim Encantado 02.jpg" alt="Jardim Encantado" onclick="abrirModal('painel/Jardim Encantado 02.jpg')">
+              <span>Jardim Encantado</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="painel/Jardim Encantado.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('painel/Jardim Encantado.jpg', this)">🤍</button>
@@ -768,8 +768,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="painel/Mapa Mundi Animais Areia (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('painel/Mapa Mundi Animais Areia (2).jpg', this)">🤍</button>
-              <img src="painel/Mapa Mundi Animais Areia (2).jpg" alt="Mapa Mundi Animais Areia (2)" onclick="abrirModal('painel/Mapa Mundi Animais Areia (2).jpg')">
-              <span>Mapa Mundi Animais Areia (2)</span>
+              <img src="painel/Mapa Mundi Animais Areia (2).jpg" alt="Mapa Mundi Animais Areia" onclick="abrirModal('painel/Mapa Mundi Animais Areia (2).jpg')">
+              <span>Mapa Mundi Animais Areia</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="painel/Mapa Mundi Animais Areia (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('painel/Mapa Mundi Animais Areia (STILL).jpg', this)">🤍</button>
@@ -783,8 +783,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="painel/Mapa Mundi Animais Azul (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('painel/Mapa Mundi Animais Azul (2).jpg', this)">🤍</button>
-              <img src="painel/Mapa Mundi Animais Azul (2).jpg" alt="Mapa Mundi Animais Azul (2)" onclick="abrirModal('painel/Mapa Mundi Animais Azul (2).jpg')">
-              <span>Mapa Mundi Animais Azul (2)</span>
+              <img src="painel/Mapa Mundi Animais Azul (2).jpg" alt="Mapa Mundi Animais Azul" onclick="abrirModal('painel/Mapa Mundi Animais Azul (2).jpg')">
+              <span>Mapa Mundi Animais Azul</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="painel/Mapa Mundi Animais Azul (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('painel/Mapa Mundi Animais Azul (STILL).jpg', this)">🤍</button>
@@ -798,8 +798,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="painel/Mapa Mundi Animais Rosa (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('painel/Mapa Mundi Animais Rosa (2).jpg', this)">🤍</button>
-              <img src="painel/Mapa Mundi Animais Rosa (2).jpg" alt="Mapa Mundi Animais Rosa (2)" onclick="abrirModal('painel/Mapa Mundi Animais Rosa (2).jpg')">
-              <span>Mapa Mundi Animais Rosa (2)</span>
+              <img src="painel/Mapa Mundi Animais Rosa (2).jpg" alt="Mapa Mundi Animais Rosa" onclick="abrirModal('painel/Mapa Mundi Animais Rosa (2).jpg')">
+              <span>Mapa Mundi Animais Rosa</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="painel/Mapa Mundi Animais Rosa (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('painel/Mapa Mundi Animais Rosa (STILL).jpg', this)">🤍</button>
@@ -913,8 +913,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="painel/Meu Jardim Aquarela (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('painel/Meu Jardim Aquarela (2).jpg', this)">🤍</button>
-              <img src="painel/Meu Jardim Aquarela (2).jpg" alt="Meu Jardim Aquarela (2)" onclick="abrirModal('painel/Meu Jardim Aquarela (2).jpg')">
-              <span>Meu Jardim Aquarela (2)</span>
+              <img src="painel/Meu Jardim Aquarela (2).jpg" alt="Meu Jardim Aquarela" onclick="abrirModal('painel/Meu Jardim Aquarela (2).jpg')">
+              <span>Meu Jardim Aquarela</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="painel/Meu Jardim Aquarela (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('painel/Meu Jardim Aquarela (STILL).jpg', this)">🤍</button>
@@ -978,8 +978,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="painel/Plantas Clean 2.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('painel/Plantas Clean 2.jpg', this)">🤍</button>
-              <img src="painel/Plantas Clean 2.jpg" alt="Plantas Clean 2" onclick="abrirModal('painel/Plantas Clean 2.jpg')">
-              <span>Plantas Clean 2</span>
+              <img src="painel/Plantas Clean 2.jpg" alt="Plantas Clean" onclick="abrirModal('painel/Plantas Clean 2.jpg')">
+              <span>Plantas Clean</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="painel/Plantas Clean.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('painel/Plantas Clean.jpg', this)">🤍</button>
@@ -1008,8 +1008,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="painel/Safari Aquarela 2.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('painel/Safari Aquarela 2.jpg', this)">🤍</button>
-              <img src="painel/Safari Aquarela 2.jpg" alt="Safari Aquarela 2" onclick="abrirModal('painel/Safari Aquarela 2.jpg')">
-              <span>Safari Aquarela 2</span>
+              <img src="painel/Safari Aquarela 2.jpg" alt="Safari Aquarela" onclick="abrirModal('painel/Safari Aquarela 2.jpg')">
+              <span>Safari Aquarela</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="painel/Safari Aquarela.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('painel/Safari Aquarela.jpg', this)">🤍</button>
@@ -1028,8 +1028,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="painel/Safari Bebê 2.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('painel/Safari Bebê 2.jpg', this)">🤍</button>
-              <img src="painel/Safari Bebê 2.jpg" alt="Safari Bebê 2" onclick="abrirModal('painel/Safari Bebê 2.jpg')">
-              <span>Safari Bebê 2</span>
+              <img src="painel/Safari Bebê 2.jpg" alt="Safari Bebê" onclick="abrirModal('painel/Safari Bebê 2.jpg')">
+              <span>Safari Bebê</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="painel/Safari Bebê Fofinho (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('painel/Safari Bebê Fofinho (STILL).jpg', this)">🤍</button>
@@ -1053,8 +1053,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="painel/Safari Bichinhos na Floresta 2.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('painel/Safari Bichinhos na Floresta 2.jpg', this)">🤍</button>
-              <img src="painel/Safari Bichinhos na Floresta 2.jpg" alt="Safari Bichinhos na Floresta 2" onclick="abrirModal('painel/Safari Bichinhos na Floresta 2.jpg')">
-              <span>Safari Bichinhos na Floresta 2</span>
+              <img src="painel/Safari Bichinhos na Floresta 2.jpg" alt="Safari Bichinhos na Floresta" onclick="abrirModal('painel/Safari Bichinhos na Floresta 2.jpg')">
+              <span>Safari Bichinhos na Floresta</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="painel/Safari Bichinhos na Floresta.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('painel/Safari Bichinhos na Floresta.jpg', this)">🤍</button>
@@ -1083,8 +1083,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="painel/Safari Trenzinho de Bike 2.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('painel/Safari Trenzinho de Bike 2.jpg', this)">🤍</button>
-              <img src="painel/Safari Trenzinho de Bike 2.jpg" alt="Safari Trenzinho de Bike 2" onclick="abrirModal('painel/Safari Trenzinho de Bike 2.jpg')">
-              <span>Safari Trenzinho de Bike 2</span>
+              <img src="painel/Safari Trenzinho de Bike 2.jpg" alt="Safari Trenzinho de Bike" onclick="abrirModal('painel/Safari Trenzinho de Bike 2.jpg')">
+              <span>Safari Trenzinho de Bike</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="painel/Safari Trenzinho de Bike.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('painel/Safari Trenzinho de Bike.jpg', this)">🤍</button>
@@ -1113,8 +1113,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="painel/Selva Aquarela (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('painel/Selva Aquarela (2).jpg', this)">🤍</button>
-              <img src="painel/Selva Aquarela (2).jpg" alt="Selva Aquarela (2)" onclick="abrirModal('painel/Selva Aquarela (2).jpg')">
-              <span>Selva Aquarela (2)</span>
+              <img src="painel/Selva Aquarela (2).jpg" alt="Selva Aquarela" onclick="abrirModal('painel/Selva Aquarela (2).jpg')">
+              <span>Selva Aquarela</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="painel/Selva Aquarela (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('painel/Selva Aquarela (STILL).jpg', this)">🤍</button>
@@ -1143,8 +1143,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="painel/Universo de Ursinhos (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('painel/Universo de Ursinhos (2).jpg', this)">🤍</button>
-              <img src="painel/Universo de Ursinhos (2).jpg" alt="Universo de Ursinhos (2)" onclick="abrirModal('painel/Universo de Ursinhos (2).jpg')">
-              <span>Universo de Ursinhos (2)</span>
+              <img src="painel/Universo de Ursinhos (2).jpg" alt="Universo de Ursinhos" onclick="abrirModal('painel/Universo de Ursinhos (2).jpg')">
+              <span>Universo de Ursinhos</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="painel/Universo de Ursinhos (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('painel/Universo de Ursinhos (STILL).jpg', this)">🤍</button>
@@ -1183,8 +1183,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="painel/Árvore Cerejeira 3.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('painel/Árvore Cerejeira 3.jpg', this)">🤍</button>
-              <img src="painel/Árvore Cerejeira 3.jpg" alt="Árvore Cerejeira 3" onclick="abrirModal('painel/Árvore Cerejeira 3.jpg')">
-              <span>Árvore Cerejeira 3</span>
+              <img src="painel/Árvore Cerejeira 3.jpg" alt="Árvore Cerejeira" onclick="abrirModal('painel/Árvore Cerejeira 3.jpg')">
+              <span>Árvore Cerejeira</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="painel/Árvore Cerejeira de Outono (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('painel/Árvore Cerejeira de Outono (STILL).jpg', this)">🤍</button>

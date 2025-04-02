@@ -12,20 +12,20 @@
       top: 0;
       background: white;
       display: flex;
+      flex-wrap: wrap;
       justify-content: space-between;
       align-items: center;
       padding: 10px 20px;
+      gap: 10px;
       box-shadow: 0 2px 5px rgba(0,0,0,0.1);
       z-index: 1000;
     }
-    .top-bar h1 { font-size: 18px; margin: 0; }
     .btn {
       background: #01b9b5;
       color: white;
       text-decoration: none;
       padding: 8px 14px;
       border-radius: 6px;
-      margin-left: 10px;
       font-size: 14px;
       cursor: pointer;
     }
@@ -88,11 +88,11 @@
 <body>
 <div class="top-bar">
   <div>
-    <a href="index.html" class="btn">&larr; Voltar</a>
+    <a href="https://catalogo.artspapeisdeparede.com.br/index.html" class="btn">&larr; Voltar</a>
     <button class="btn" onclick="baixarSelecionadas()">📥 Baixar selecionadas</button>
   </div>
   <h1>Mapa Mundi</h1>
-  <a href="https://luizbaby.github.io/catalogo-arts/favoritos.html" class="btn">⭐ Ver favoritos</a>
+  <a href="https://catalogo.artspapeisdeparede.com.br/favoritos.html" class="btn">⭐ Ver favoritos</a>
 </div>
 <div class="grid">
 <div class="card">
@@ -103,8 +103,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="mapa-mundi/Conexão Mundo Preto 2.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('mapa-mundi/Conexão Mundo Preto 2.jpg', this)">🤍</button>
-              <img src="mapa-mundi/Conexão Mundo Preto 2.jpg" alt="Conexão Mundo Preto 2" onclick="abrirModal('mapa-mundi/Conexão Mundo Preto 2.jpg')">
-              <span>Conexão Mundo Preto 2</span>
+              <img src="mapa-mundi/Conexão Mundo Preto 2.jpg" alt="Conexão Mundo Preto" onclick="abrirModal('mapa-mundi/Conexão Mundo Preto 2.jpg')">
+              <span>Conexão Mundo Preto</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="mapa-mundi/Conexão Mundo Preto.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('mapa-mundi/Conexão Mundo Preto.jpg', this)">🤍</button>
@@ -123,8 +123,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="mapa-mundi/Mapa Mundi Animais Areia (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('mapa-mundi/Mapa Mundi Animais Areia (2).jpg', this)">🤍</button>
-              <img src="mapa-mundi/Mapa Mundi Animais Areia (2).jpg" alt="Mapa Mundi Animais Areia (2)" onclick="abrirModal('mapa-mundi/Mapa Mundi Animais Areia (2).jpg')">
-              <span>Mapa Mundi Animais Areia (2)</span>
+              <img src="mapa-mundi/Mapa Mundi Animais Areia (2).jpg" alt="Mapa Mundi Animais Areia" onclick="abrirModal('mapa-mundi/Mapa Mundi Animais Areia (2).jpg')">
+              <span>Mapa Mundi Animais Areia</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="mapa-mundi/Mapa Mundi Animais Areia (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('mapa-mundi/Mapa Mundi Animais Areia (STILL).jpg', this)">🤍</button>
@@ -138,8 +138,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="mapa-mundi/Mapa Mundi Animais Azul (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('mapa-mundi/Mapa Mundi Animais Azul (2).jpg', this)">🤍</button>
-              <img src="mapa-mundi/Mapa Mundi Animais Azul (2).jpg" alt="Mapa Mundi Animais Azul (2)" onclick="abrirModal('mapa-mundi/Mapa Mundi Animais Azul (2).jpg')">
-              <span>Mapa Mundi Animais Azul (2)</span>
+              <img src="mapa-mundi/Mapa Mundi Animais Azul (2).jpg" alt="Mapa Mundi Animais Azul" onclick="abrirModal('mapa-mundi/Mapa Mundi Animais Azul (2).jpg')">
+              <span>Mapa Mundi Animais Azul</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="mapa-mundi/Mapa Mundi Animais Azul (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('mapa-mundi/Mapa Mundi Animais Azul (STILL).jpg', this)">🤍</button>

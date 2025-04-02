@@ -12,20 +12,20 @@
       top: 0;
       background: white;
       display: flex;
+      flex-wrap: wrap;
       justify-content: space-between;
       align-items: center;
       padding: 10px 20px;
+      gap: 10px;
       box-shadow: 0 2px 5px rgba(0,0,0,0.1);
       z-index: 1000;
     }
-    .top-bar h1 { font-size: 18px; margin: 0; }
     .btn {
       background: #01b9b5;
       color: white;
       text-decoration: none;
       padding: 8px 14px;
       border-radius: 6px;
-      margin-left: 10px;
       font-size: 14px;
       cursor: pointer;
     }
@@ -88,11 +88,11 @@
 <body>
 <div class="top-bar">
   <div>
-    <a href="index.html" class="btn">&larr; Voltar</a>
+    <a href="https://catalogo.artspapeisdeparede.com.br/index.html" class="btn">&larr; Voltar</a>
     <button class="btn" onclick="baixarSelecionadas()">📥 Baixar selecionadas</button>
   </div>
   <h1>Geométrico</h1>
-  <a href="https://luizbaby.github.io/catalogo-arts/favoritos.html" class="btn">⭐ Ver favoritos</a>
+  <a href="https://catalogo.artspapeisdeparede.com.br/favoritos.html" class="btn">⭐ Ver favoritos</a>
 </div>
 <div class="grid">
 <div class="card">
@@ -168,8 +168,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Charming Amarelo (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Charming Amarelo (2).jpg', this)">🤍</button>
-              <img src="geométrico/Charming Amarelo (2).jpg" alt="Charming Amarelo (2)" onclick="abrirModal('geométrico/Charming Amarelo (2).jpg')">
-              <span>Charming Amarelo (2)</span>
+              <img src="geométrico/Charming Amarelo (2).jpg" alt="Charming Amarelo" onclick="abrirModal('geométrico/Charming Amarelo (2).jpg')">
+              <span>Charming Amarelo</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Charming Amarelo (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Charming Amarelo (STILL).jpg', this)">🤍</button>
@@ -183,8 +183,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Charming Azul (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Charming Azul (2).jpg', this)">🤍</button>
-              <img src="geométrico/Charming Azul (2).jpg" alt="Charming Azul (2)" onclick="abrirModal('geométrico/Charming Azul (2).jpg')">
-              <span>Charming Azul (2)</span>
+              <img src="geométrico/Charming Azul (2).jpg" alt="Charming Azul" onclick="abrirModal('geométrico/Charming Azul (2).jpg')">
+              <span>Charming Azul</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Charming Azul (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Charming Azul (STILL).jpg', this)">🤍</button>
@@ -198,13 +198,13 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Charming Cinza (1).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Charming Cinza (1).jpg', this)">🤍</button>
-              <img src="geométrico/Charming Cinza (1).jpg" alt="Charming Cinza (1)" onclick="abrirModal('geométrico/Charming Cinza (1).jpg')">
-              <span>Charming Cinza (1)</span>
+              <img src="geométrico/Charming Cinza (1).jpg" alt="Charming Cinza" onclick="abrirModal('geométrico/Charming Cinza (1).jpg')">
+              <span>Charming Cinza</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Charming Cinza (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Charming Cinza (2).jpg', this)">🤍</button>
-              <img src="geométrico/Charming Cinza (2).jpg" alt="Charming Cinza (2)" onclick="abrirModal('geométrico/Charming Cinza (2).jpg')">
-              <span>Charming Cinza (2)</span>
+              <img src="geométrico/Charming Cinza (2).jpg" alt="Charming Cinza" onclick="abrirModal('geométrico/Charming Cinza (2).jpg')">
+              <span>Charming Cinza</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Charming Cinza (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Charming Cinza (STILL).jpg', this)">🤍</button>
@@ -218,8 +218,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Charming Rosa (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Charming Rosa (2).jpg', this)">🤍</button>
-              <img src="geométrico/Charming Rosa (2).jpg" alt="Charming Rosa (2)" onclick="abrirModal('geométrico/Charming Rosa (2).jpg')">
-              <span>Charming Rosa (2)</span>
+              <img src="geométrico/Charming Rosa (2).jpg" alt="Charming Rosa" onclick="abrirModal('geométrico/Charming Rosa (2).jpg')">
+              <span>Charming Rosa</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Charming Rosa (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Charming Rosa (STILL).jpg', this)">🤍</button>
@@ -228,8 +228,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Charming Rosa 2.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Charming Rosa 2.jpg', this)">🤍</button>
-              <img src="geométrico/Charming Rosa 2.jpg" alt="Charming Rosa 2" onclick="abrirModal('geométrico/Charming Rosa 2.jpg')">
-              <span>Charming Rosa 2</span>
+              <img src="geométrico/Charming Rosa 2.jpg" alt="Charming Rosa" onclick="abrirModal('geométrico/Charming Rosa 2.jpg')">
+              <span>Charming Rosa</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Charming Rosa.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Charming Rosa.jpg', this)">🤍</button>
@@ -238,8 +238,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Charming Verde (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Charming Verde (2).jpg', this)">🤍</button>
-              <img src="geométrico/Charming Verde (2).jpg" alt="Charming Verde (2)" onclick="abrirModal('geométrico/Charming Verde (2).jpg')">
-              <span>Charming Verde (2)</span>
+              <img src="geométrico/Charming Verde (2).jpg" alt="Charming Verde" onclick="abrirModal('geométrico/Charming Verde (2).jpg')">
+              <span>Charming Verde</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Charming Verde (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Charming Verde (STILL).jpg', this)">🤍</button>
@@ -248,8 +248,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Charming Verde 2.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Charming Verde 2.jpg', this)">🤍</button>
-              <img src="geométrico/Charming Verde 2.jpg" alt="Charming Verde 2" onclick="abrirModal('geométrico/Charming Verde 2.jpg')">
-              <span>Charming Verde 2</span>
+              <img src="geométrico/Charming Verde 2.jpg" alt="Charming Verde" onclick="abrirModal('geométrico/Charming Verde 2.jpg')">
+              <span>Charming Verde</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Charming Verde.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Charming Verde.jpg', this)">🤍</button>
@@ -258,8 +258,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Chevron Amarelo (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Chevron Amarelo (2).jpg', this)">🤍</button>
-              <img src="geométrico/Chevron Amarelo (2).jpg" alt="Chevron Amarelo (2)" onclick="abrirModal('geométrico/Chevron Amarelo (2).jpg')">
-              <span>Chevron Amarelo (2)</span>
+              <img src="geométrico/Chevron Amarelo (2).jpg" alt="Chevron Amarelo" onclick="abrirModal('geométrico/Chevron Amarelo (2).jpg')">
+              <span>Chevron Amarelo</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Chevron Amarelo (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Chevron Amarelo (STILL).jpg', this)">🤍</button>
@@ -293,8 +293,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Chevron Aquarela Azul Laranja (1).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Chevron Aquarela Azul Laranja (1).jpg', this)">🤍</button>
-              <img src="geométrico/Chevron Aquarela Azul Laranja (1).jpg" alt="Chevron Aquarela Azul Laranja (1)" onclick="abrirModal('geométrico/Chevron Aquarela Azul Laranja (1).jpg')">
-              <span>Chevron Aquarela Azul Laranja (1)</span>
+              <img src="geométrico/Chevron Aquarela Azul Laranja (1).jpg" alt="Chevron Aquarela Azul Laranja" onclick="abrirModal('geométrico/Chevron Aquarela Azul Laranja (1).jpg')">
+              <span>Chevron Aquarela Azul Laranja</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Chevron Aquarela Azul Laranja (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Chevron Aquarela Azul Laranja (STILL).jpg', this)">🤍</button>
@@ -308,13 +308,13 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Chevron Azul (1).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Chevron Azul (1).jpg', this)">🤍</button>
-              <img src="geométrico/Chevron Azul (1).jpg" alt="Chevron Azul (1)" onclick="abrirModal('geométrico/Chevron Azul (1).jpg')">
-              <span>Chevron Azul (1)</span>
+              <img src="geométrico/Chevron Azul (1).jpg" alt="Chevron Azul" onclick="abrirModal('geométrico/Chevron Azul (1).jpg')">
+              <span>Chevron Azul</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Chevron Azul (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Chevron Azul (2).jpg', this)">🤍</button>
-              <img src="geométrico/Chevron Azul (2).jpg" alt="Chevron Azul (2)" onclick="abrirModal('geométrico/Chevron Azul (2).jpg')">
-              <span>Chevron Azul (2)</span>
+              <img src="geométrico/Chevron Azul (2).jpg" alt="Chevron Azul" onclick="abrirModal('geométrico/Chevron Azul (2).jpg')">
+              <span>Chevron Azul</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Chevron Azul (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Chevron Azul (STILL).jpg', this)">🤍</button>
@@ -323,13 +323,13 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Chevron Azul e Cinza (1).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Chevron Azul e Cinza (1).jpg', this)">🤍</button>
-              <img src="geométrico/Chevron Azul e Cinza (1).jpg" alt="Chevron Azul e Cinza (1)" onclick="abrirModal('geométrico/Chevron Azul e Cinza (1).jpg')">
-              <span>Chevron Azul e Cinza (1)</span>
+              <img src="geométrico/Chevron Azul e Cinza (1).jpg" alt="Chevron Azul e Cinza" onclick="abrirModal('geométrico/Chevron Azul e Cinza (1).jpg')">
+              <span>Chevron Azul e Cinza</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Chevron Azul e Cinza (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Chevron Azul e Cinza (2).jpg', this)">🤍</button>
-              <img src="geométrico/Chevron Azul e Cinza (2).jpg" alt="Chevron Azul e Cinza (2)" onclick="abrirModal('geométrico/Chevron Azul e Cinza (2).jpg')">
-              <span>Chevron Azul e Cinza (2)</span>
+              <img src="geométrico/Chevron Azul e Cinza (2).jpg" alt="Chevron Azul e Cinza" onclick="abrirModal('geométrico/Chevron Azul e Cinza (2).jpg')">
+              <span>Chevron Azul e Cinza</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Chevron Azul e Cinza (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Chevron Azul e Cinza (STILL).jpg', this)">🤍</button>
@@ -343,8 +343,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Chevron Azul Marinho (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Chevron Azul Marinho (2).jpg', this)">🤍</button>
-              <img src="geométrico/Chevron Azul Marinho (2).jpg" alt="Chevron Azul Marinho (2)" onclick="abrirModal('geométrico/Chevron Azul Marinho (2).jpg')">
-              <span>Chevron Azul Marinho (2)</span>
+              <img src="geométrico/Chevron Azul Marinho (2).jpg" alt="Chevron Azul Marinho" onclick="abrirModal('geométrico/Chevron Azul Marinho (2).jpg')">
+              <span>Chevron Azul Marinho</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Chevron Azul Marinho (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Chevron Azul Marinho (STILL).jpg', this)">🤍</button>
@@ -363,8 +363,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Chevron Cinza (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Chevron Cinza (2).jpg', this)">🤍</button>
-              <img src="geométrico/Chevron Cinza (2).jpg" alt="Chevron Cinza (2)" onclick="abrirModal('geométrico/Chevron Cinza (2).jpg')">
-              <span>Chevron Cinza (2)</span>
+              <img src="geométrico/Chevron Cinza (2).jpg" alt="Chevron Cinza" onclick="abrirModal('geométrico/Chevron Cinza (2).jpg')">
+              <span>Chevron Cinza</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Chevron Cinza (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Chevron Cinza (STILL).jpg', this)">🤍</button>
@@ -373,13 +373,13 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Chevron Cinza Claro (1).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Chevron Cinza Claro (1).jpg', this)">🤍</button>
-              <img src="geométrico/Chevron Cinza Claro (1).jpg" alt="Chevron Cinza Claro (1)" onclick="abrirModal('geométrico/Chevron Cinza Claro (1).jpg')">
-              <span>Chevron Cinza Claro (1)</span>
+              <img src="geométrico/Chevron Cinza Claro (1).jpg" alt="Chevron Cinza Claro" onclick="abrirModal('geométrico/Chevron Cinza Claro (1).jpg')">
+              <span>Chevron Cinza Claro</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Chevron Cinza Claro (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Chevron Cinza Claro (2).jpg', this)">🤍</button>
-              <img src="geométrico/Chevron Cinza Claro (2).jpg" alt="Chevron Cinza Claro (2)" onclick="abrirModal('geométrico/Chevron Cinza Claro (2).jpg')">
-              <span>Chevron Cinza Claro (2)</span>
+              <img src="geométrico/Chevron Cinza Claro (2).jpg" alt="Chevron Cinza Claro" onclick="abrirModal('geométrico/Chevron Cinza Claro (2).jpg')">
+              <span>Chevron Cinza Claro</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Chevron Cinza Claro (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Chevron Cinza Claro (STILL).jpg', this)">🤍</button>
@@ -398,13 +398,13 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Chevron Clean Azul (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Chevron Clean Azul (2).jpg', this)">🤍</button>
-              <img src="geométrico/Chevron Clean Azul (2).jpg" alt="Chevron Clean Azul (2)" onclick="abrirModal('geométrico/Chevron Clean Azul (2).jpg')">
-              <span>Chevron Clean Azul (2)</span>
+              <img src="geométrico/Chevron Clean Azul (2).jpg" alt="Chevron Clean Azul" onclick="abrirModal('geométrico/Chevron Clean Azul (2).jpg')">
+              <span>Chevron Clean Azul</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Chevron Clean Azul (3).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Chevron Clean Azul (3).jpg', this)">🤍</button>
-              <img src="geométrico/Chevron Clean Azul (3).jpg" alt="Chevron Clean Azul (3)" onclick="abrirModal('geométrico/Chevron Clean Azul (3).jpg')">
-              <span>Chevron Clean Azul (3)</span>
+              <img src="geométrico/Chevron Clean Azul (3).jpg" alt="Chevron Clean Azul" onclick="abrirModal('geométrico/Chevron Clean Azul (3).jpg')">
+              <span>Chevron Clean Azul</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Chevron Clean Azul (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Chevron Clean Azul (STILL).jpg', this)">🤍</button>
@@ -418,18 +418,18 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Chevron Clean Azul2.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Chevron Clean Azul2.jpg', this)">🤍</button>
-              <img src="geométrico/Chevron Clean Azul2.jpg" alt="Chevron Clean Azul2" onclick="abrirModal('geométrico/Chevron Clean Azul2.jpg')">
-              <span>Chevron Clean Azul2</span>
+              <img src="geométrico/Chevron Clean Azul2.jpg" alt="Chevron Clean Azul" onclick="abrirModal('geométrico/Chevron Clean Azul2.jpg')">
+              <span>Chevron Clean Azul</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Chevron Clean Cinza (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Chevron Clean Cinza (2).jpg', this)">🤍</button>
-              <img src="geométrico/Chevron Clean Cinza (2).jpg" alt="Chevron Clean Cinza (2)" onclick="abrirModal('geométrico/Chevron Clean Cinza (2).jpg')">
-              <span>Chevron Clean Cinza (2)</span>
+              <img src="geométrico/Chevron Clean Cinza (2).jpg" alt="Chevron Clean Cinza" onclick="abrirModal('geométrico/Chevron Clean Cinza (2).jpg')">
+              <span>Chevron Clean Cinza</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Chevron Clean Cinza (3).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Chevron Clean Cinza (3).jpg', this)">🤍</button>
-              <img src="geométrico/Chevron Clean Cinza (3).jpg" alt="Chevron Clean Cinza (3)" onclick="abrirModal('geométrico/Chevron Clean Cinza (3).jpg')">
-              <span>Chevron Clean Cinza (3)</span>
+              <img src="geométrico/Chevron Clean Cinza (3).jpg" alt="Chevron Clean Cinza" onclick="abrirModal('geométrico/Chevron Clean Cinza (3).jpg')">
+              <span>Chevron Clean Cinza</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Chevron Clean Cinza (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Chevron Clean Cinza (STILL).jpg', this)">🤍</button>
@@ -443,8 +443,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Chevron Clean Preto (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Chevron Clean Preto (2).jpg', this)">🤍</button>
-              <img src="geométrico/Chevron Clean Preto (2).jpg" alt="Chevron Clean Preto (2)" onclick="abrirModal('geométrico/Chevron Clean Preto (2).jpg')">
-              <span>Chevron Clean Preto (2)</span>
+              <img src="geométrico/Chevron Clean Preto (2).jpg" alt="Chevron Clean Preto" onclick="abrirModal('geométrico/Chevron Clean Preto (2).jpg')">
+              <span>Chevron Clean Preto</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Chevron Clean Preto (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Chevron Clean Preto (STILL).jpg', this)">🤍</button>
@@ -458,8 +458,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Chevron Clean Rosa (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Chevron Clean Rosa (2).jpg', this)">🤍</button>
-              <img src="geométrico/Chevron Clean Rosa (2).jpg" alt="Chevron Clean Rosa (2)" onclick="abrirModal('geométrico/Chevron Clean Rosa (2).jpg')">
-              <span>Chevron Clean Rosa (2)</span>
+              <img src="geométrico/Chevron Clean Rosa (2).jpg" alt="Chevron Clean Rosa" onclick="abrirModal('geométrico/Chevron Clean Rosa (2).jpg')">
+              <span>Chevron Clean Rosa</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Chevron Clean Rosa (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Chevron Clean Rosa (STILL).jpg', this)">🤍</button>
@@ -473,8 +473,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Chevron Clean Salmão (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Chevron Clean Salmão (2).jpg', this)">🤍</button>
-              <img src="geométrico/Chevron Clean Salmão (2).jpg" alt="Chevron Clean Salmão (2)" onclick="abrirModal('geométrico/Chevron Clean Salmão (2).jpg')">
-              <span>Chevron Clean Salmão (2)</span>
+              <img src="geométrico/Chevron Clean Salmão (2).jpg" alt="Chevron Clean Salmão" onclick="abrirModal('geométrico/Chevron Clean Salmão (2).jpg')">
+              <span>Chevron Clean Salmão</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Chevron Clean Salmão (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Chevron Clean Salmão (STILL).jpg', this)">🤍</button>
@@ -488,8 +488,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Chevron Clean Verde (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Chevron Clean Verde (2).jpg', this)">🤍</button>
-              <img src="geométrico/Chevron Clean Verde (2).jpg" alt="Chevron Clean Verde (2)" onclick="abrirModal('geométrico/Chevron Clean Verde (2).jpg')">
-              <span>Chevron Clean Verde (2)</span>
+              <img src="geométrico/Chevron Clean Verde (2).jpg" alt="Chevron Clean Verde" onclick="abrirModal('geométrico/Chevron Clean Verde (2).jpg')">
+              <span>Chevron Clean Verde</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Chevron Clean Verde (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Chevron Clean Verde (STILL).jpg', this)">🤍</button>
@@ -513,13 +513,13 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Chevron Laranja (1).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Chevron Laranja (1).jpg', this)">🤍</button>
-              <img src="geométrico/Chevron Laranja (1).jpg" alt="Chevron Laranja (1)" onclick="abrirModal('geométrico/Chevron Laranja (1).jpg')">
-              <span>Chevron Laranja (1)</span>
+              <img src="geométrico/Chevron Laranja (1).jpg" alt="Chevron Laranja" onclick="abrirModal('geométrico/Chevron Laranja (1).jpg')">
+              <span>Chevron Laranja</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Chevron Laranja (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Chevron Laranja (2).jpg', this)">🤍</button>
-              <img src="geométrico/Chevron Laranja (2).jpg" alt="Chevron Laranja (2)" onclick="abrirModal('geométrico/Chevron Laranja (2).jpg')">
-              <span>Chevron Laranja (2)</span>
+              <img src="geométrico/Chevron Laranja (2).jpg" alt="Chevron Laranja" onclick="abrirModal('geométrico/Chevron Laranja (2).jpg')">
+              <span>Chevron Laranja</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Chevron Laranja (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Chevron Laranja (STILL).jpg', this)">🤍</button>
@@ -533,8 +533,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Chevron Preto Cimento Queimado (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Chevron Preto Cimento Queimado (2).jpg', this)">🤍</button>
-              <img src="geométrico/Chevron Preto Cimento Queimado (2).jpg" alt="Chevron Preto Cimento Queimado (2)" onclick="abrirModal('geométrico/Chevron Preto Cimento Queimado (2).jpg')">
-              <span>Chevron Preto Cimento Queimado (2)</span>
+              <img src="geométrico/Chevron Preto Cimento Queimado (2).jpg" alt="Chevron Preto Cimento Queimado" onclick="abrirModal('geométrico/Chevron Preto Cimento Queimado (2).jpg')">
+              <span>Chevron Preto Cimento Queimado</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Chevron Preto Cimento Queimado (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Chevron Preto Cimento Queimado (STILL).jpg', this)">🤍</button>
@@ -548,13 +548,13 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Chevron Rosa (1).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Chevron Rosa (1).jpg', this)">🤍</button>
-              <img src="geométrico/Chevron Rosa (1).jpg" alt="Chevron Rosa (1)" onclick="abrirModal('geométrico/Chevron Rosa (1).jpg')">
-              <span>Chevron Rosa (1)</span>
+              <img src="geométrico/Chevron Rosa (1).jpg" alt="Chevron Rosa" onclick="abrirModal('geométrico/Chevron Rosa (1).jpg')">
+              <span>Chevron Rosa</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Chevron Rosa (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Chevron Rosa (2).jpg', this)">🤍</button>
-              <img src="geométrico/Chevron Rosa (2).jpg" alt="Chevron Rosa (2)" onclick="abrirModal('geométrico/Chevron Rosa (2).jpg')">
-              <span>Chevron Rosa (2)</span>
+              <img src="geométrico/Chevron Rosa (2).jpg" alt="Chevron Rosa" onclick="abrirModal('geométrico/Chevron Rosa (2).jpg')">
+              <span>Chevron Rosa</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Chevron Rosa (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Chevron Rosa (STILL).jpg', this)">🤍</button>
@@ -563,13 +563,13 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Chevron Rosa Cinza (1).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Chevron Rosa Cinza (1).jpg', this)">🤍</button>
-              <img src="geométrico/Chevron Rosa Cinza (1).jpg" alt="Chevron Rosa Cinza (1)" onclick="abrirModal('geométrico/Chevron Rosa Cinza (1).jpg')">
-              <span>Chevron Rosa Cinza (1)</span>
+              <img src="geométrico/Chevron Rosa Cinza (1).jpg" alt="Chevron Rosa Cinza" onclick="abrirModal('geométrico/Chevron Rosa Cinza (1).jpg')">
+              <span>Chevron Rosa Cinza</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Chevron Rosa Cinza (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Chevron Rosa Cinza (2).jpg', this)">🤍</button>
-              <img src="geométrico/Chevron Rosa Cinza (2).jpg" alt="Chevron Rosa Cinza (2)" onclick="abrirModal('geométrico/Chevron Rosa Cinza (2).jpg')">
-              <span>Chevron Rosa Cinza (2)</span>
+              <img src="geométrico/Chevron Rosa Cinza (2).jpg" alt="Chevron Rosa Cinza" onclick="abrirModal('geométrico/Chevron Rosa Cinza (2).jpg')">
+              <span>Chevron Rosa Cinza</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Chevron Rosa Cinza (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Chevron Rosa Cinza (STILL).jpg', this)">🤍</button>
@@ -588,13 +588,13 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Chevron Roxo (1).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Chevron Roxo (1).jpg', this)">🤍</button>
-              <img src="geométrico/Chevron Roxo (1).jpg" alt="Chevron Roxo (1)" onclick="abrirModal('geométrico/Chevron Roxo (1).jpg')">
-              <span>Chevron Roxo (1)</span>
+              <img src="geométrico/Chevron Roxo (1).jpg" alt="Chevron Roxo" onclick="abrirModal('geométrico/Chevron Roxo (1).jpg')">
+              <span>Chevron Roxo</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Chevron Roxo (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Chevron Roxo (2).jpg', this)">🤍</button>
-              <img src="geométrico/Chevron Roxo (2).jpg" alt="Chevron Roxo (2)" onclick="abrirModal('geométrico/Chevron Roxo (2).jpg')">
-              <span>Chevron Roxo (2)</span>
+              <img src="geométrico/Chevron Roxo (2).jpg" alt="Chevron Roxo" onclick="abrirModal('geométrico/Chevron Roxo (2).jpg')">
+              <span>Chevron Roxo</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Chevron Roxo (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Chevron Roxo (STILL).jpg', this)">🤍</button>
@@ -608,8 +608,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Chevron Slim Azul (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Chevron Slim Azul (2).jpg', this)">🤍</button>
-              <img src="geométrico/Chevron Slim Azul (2).jpg" alt="Chevron Slim Azul (2)" onclick="abrirModal('geométrico/Chevron Slim Azul (2).jpg')">
-              <span>Chevron Slim Azul (2)</span>
+              <img src="geométrico/Chevron Slim Azul (2).jpg" alt="Chevron Slim Azul" onclick="abrirModal('geométrico/Chevron Slim Azul (2).jpg')">
+              <span>Chevron Slim Azul</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Chevron Slim Azul (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Chevron Slim Azul (STILL).jpg', this)">🤍</button>
@@ -618,8 +618,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Chevron Slim Azul Marinho (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Chevron Slim Azul Marinho (2).jpg', this)">🤍</button>
-              <img src="geométrico/Chevron Slim Azul Marinho (2).jpg" alt="Chevron Slim Azul Marinho (2)" onclick="abrirModal('geométrico/Chevron Slim Azul Marinho (2).jpg')">
-              <span>Chevron Slim Azul Marinho (2)</span>
+              <img src="geométrico/Chevron Slim Azul Marinho (2).jpg" alt="Chevron Slim Azul Marinho" onclick="abrirModal('geométrico/Chevron Slim Azul Marinho (2).jpg')">
+              <span>Chevron Slim Azul Marinho</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Chevron Slim Azul Marinho (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Chevron Slim Azul Marinho (STILL).jpg', this)">🤍</button>
@@ -638,8 +638,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Chevron Slim Cinza (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Chevron Slim Cinza (2).jpg', this)">🤍</button>
-              <img src="geométrico/Chevron Slim Cinza (2).jpg" alt="Chevron Slim Cinza (2)" onclick="abrirModal('geométrico/Chevron Slim Cinza (2).jpg')">
-              <span>Chevron Slim Cinza (2)</span>
+              <img src="geométrico/Chevron Slim Cinza (2).jpg" alt="Chevron Slim Cinza" onclick="abrirModal('geométrico/Chevron Slim Cinza (2).jpg')">
+              <span>Chevron Slim Cinza</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Chevron Slim Cinza (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Chevron Slim Cinza (STILL).jpg', this)">🤍</button>
@@ -648,8 +648,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Chevron Slim Cinza Claro (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Chevron Slim Cinza Claro (2).jpg', this)">🤍</button>
-              <img src="geométrico/Chevron Slim Cinza Claro (2).jpg" alt="Chevron Slim Cinza Claro (2)" onclick="abrirModal('geométrico/Chevron Slim Cinza Claro (2).jpg')">
-              <span>Chevron Slim Cinza Claro (2)</span>
+              <img src="geométrico/Chevron Slim Cinza Claro (2).jpg" alt="Chevron Slim Cinza Claro" onclick="abrirModal('geométrico/Chevron Slim Cinza Claro (2).jpg')">
+              <span>Chevron Slim Cinza Claro</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Chevron Slim Cinza Claro (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Chevron Slim Cinza Claro (STILL).jpg', this)">🤍</button>
@@ -668,8 +668,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Chevron Slim Laranja (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Chevron Slim Laranja (2).jpg', this)">🤍</button>
-              <img src="geométrico/Chevron Slim Laranja (2).jpg" alt="Chevron Slim Laranja (2)" onclick="abrirModal('geométrico/Chevron Slim Laranja (2).jpg')">
-              <span>Chevron Slim Laranja (2)</span>
+              <img src="geométrico/Chevron Slim Laranja (2).jpg" alt="Chevron Slim Laranja" onclick="abrirModal('geométrico/Chevron Slim Laranja (2).jpg')">
+              <span>Chevron Slim Laranja</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Chevron Slim Laranja (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Chevron Slim Laranja (STILL).jpg', this)">🤍</button>
@@ -683,8 +683,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Chevron Slim Rosa (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Chevron Slim Rosa (2).jpg', this)">🤍</button>
-              <img src="geométrico/Chevron Slim Rosa (2).jpg" alt="Chevron Slim Rosa (2)" onclick="abrirModal('geométrico/Chevron Slim Rosa (2).jpg')">
-              <span>Chevron Slim Rosa (2)</span>
+              <img src="geométrico/Chevron Slim Rosa (2).jpg" alt="Chevron Slim Rosa" onclick="abrirModal('geométrico/Chevron Slim Rosa (2).jpg')">
+              <span>Chevron Slim Rosa</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Chevron Slim Rosa (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Chevron Slim Rosa (STILL).jpg', this)">🤍</button>
@@ -698,8 +698,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Chevron Slim Roxo (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Chevron Slim Roxo (2).jpg', this)">🤍</button>
-              <img src="geométrico/Chevron Slim Roxo (2).jpg" alt="Chevron Slim Roxo (2)" onclick="abrirModal('geométrico/Chevron Slim Roxo (2).jpg')">
-              <span>Chevron Slim Roxo (2)</span>
+              <img src="geométrico/Chevron Slim Roxo (2).jpg" alt="Chevron Slim Roxo" onclick="abrirModal('geométrico/Chevron Slim Roxo (2).jpg')">
+              <span>Chevron Slim Roxo</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Chevron Slim Roxo (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Chevron Slim Roxo (STILL).jpg', this)">🤍</button>
@@ -713,8 +713,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Chevron Slim Verde (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Chevron Slim Verde (2).jpg', this)">🤍</button>
-              <img src="geométrico/Chevron Slim Verde (2).jpg" alt="Chevron Slim Verde (2)" onclick="abrirModal('geométrico/Chevron Slim Verde (2).jpg')">
-              <span>Chevron Slim Verde (2)</span>
+              <img src="geométrico/Chevron Slim Verde (2).jpg" alt="Chevron Slim Verde" onclick="abrirModal('geométrico/Chevron Slim Verde (2).jpg')">
+              <span>Chevron Slim Verde</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Chevron Slim Verde (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Chevron Slim Verde (STILL).jpg', this)">🤍</button>
@@ -743,8 +743,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Chevron Texturizado Cinza (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Chevron Texturizado Cinza (2).jpg', this)">🤍</button>
-              <img src="geométrico/Chevron Texturizado Cinza (2).jpg" alt="Chevron Texturizado Cinza (2)" onclick="abrirModal('geométrico/Chevron Texturizado Cinza (2).jpg')">
-              <span>Chevron Texturizado Cinza (2)</span>
+              <img src="geométrico/Chevron Texturizado Cinza (2).jpg" alt="Chevron Texturizado Cinza" onclick="abrirModal('geométrico/Chevron Texturizado Cinza (2).jpg')">
+              <span>Chevron Texturizado Cinza</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Chevron Texturizado Cinza (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Chevron Texturizado Cinza (STILL).jpg', this)">🤍</button>
@@ -758,13 +758,13 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Chevron Verde (1).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Chevron Verde (1).jpg', this)">🤍</button>
-              <img src="geométrico/Chevron Verde (1).jpg" alt="Chevron Verde (1)" onclick="abrirModal('geométrico/Chevron Verde (1).jpg')">
-              <span>Chevron Verde (1)</span>
+              <img src="geométrico/Chevron Verde (1).jpg" alt="Chevron Verde" onclick="abrirModal('geométrico/Chevron Verde (1).jpg')">
+              <span>Chevron Verde</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Chevron Verde (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Chevron Verde (2).jpg', this)">🤍</button>
-              <img src="geométrico/Chevron Verde (2).jpg" alt="Chevron Verde (2)" onclick="abrirModal('geométrico/Chevron Verde (2).jpg')">
-              <span>Chevron Verde (2)</span>
+              <img src="geométrico/Chevron Verde (2).jpg" alt="Chevron Verde" onclick="abrirModal('geométrico/Chevron Verde (2).jpg')">
+              <span>Chevron Verde</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Chevron Verde (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Chevron Verde (STILL).jpg', this)">🤍</button>
@@ -773,8 +773,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Chevron Verde Agua (1).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Chevron Verde Agua (1).jpg', this)">🤍</button>
-              <img src="geométrico/Chevron Verde Agua (1).jpg" alt="Chevron Verde Agua (1)" onclick="abrirModal('geométrico/Chevron Verde Agua (1).jpg')">
-              <span>Chevron Verde Agua (1)</span>
+              <img src="geométrico/Chevron Verde Agua (1).jpg" alt="Chevron Verde Agua" onclick="abrirModal('geométrico/Chevron Verde Agua (1).jpg')">
+              <span>Chevron Verde Agua</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Chevron Verde Agua (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Chevron Verde Agua (STILL).jpg', this)">🤍</button>
@@ -788,13 +788,13 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Chevron Verde e Cinza (1).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Chevron Verde e Cinza (1).jpg', this)">🤍</button>
-              <img src="geométrico/Chevron Verde e Cinza (1).jpg" alt="Chevron Verde e Cinza (1)" onclick="abrirModal('geométrico/Chevron Verde e Cinza (1).jpg')">
-              <span>Chevron Verde e Cinza (1)</span>
+              <img src="geométrico/Chevron Verde e Cinza (1).jpg" alt="Chevron Verde e Cinza" onclick="abrirModal('geométrico/Chevron Verde e Cinza (1).jpg')">
+              <span>Chevron Verde e Cinza</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Chevron Verde e Cinza (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Chevron Verde e Cinza (2).jpg', this)">🤍</button>
-              <img src="geométrico/Chevron Verde e Cinza (2).jpg" alt="Chevron Verde e Cinza (2)" onclick="abrirModal('geométrico/Chevron Verde e Cinza (2).jpg')">
-              <span>Chevron Verde e Cinza (2)</span>
+              <img src="geométrico/Chevron Verde e Cinza (2).jpg" alt="Chevron Verde e Cinza" onclick="abrirModal('geométrico/Chevron Verde e Cinza (2).jpg')">
+              <span>Chevron Verde e Cinza</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Chevron Verde e Cinza (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Chevron Verde e Cinza (STILL).jpg', this)">🤍</button>
@@ -873,8 +873,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Losangos Baby Azul 2.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Losangos Baby Azul 2.jpg', this)">🤍</button>
-              <img src="geométrico/Losangos Baby Azul 2.jpg" alt="Losangos Baby Azul 2" onclick="abrirModal('geométrico/Losangos Baby Azul 2.jpg')">
-              <span>Losangos Baby Azul 2</span>
+              <img src="geométrico/Losangos Baby Azul 2.jpg" alt="Losangos Baby Azul" onclick="abrirModal('geométrico/Losangos Baby Azul 2.jpg')">
+              <span>Losangos Baby Azul</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Losangos Baby Azul.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Losangos Baby Azul.jpg', this)">🤍</button>
@@ -888,8 +888,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Losangos Baby Cinza 2.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Losangos Baby Cinza 2.jpg', this)">🤍</button>
-              <img src="geométrico/Losangos Baby Cinza 2.jpg" alt="Losangos Baby Cinza 2" onclick="abrirModal('geométrico/Losangos Baby Cinza 2.jpg')">
-              <span>Losangos Baby Cinza 2</span>
+              <img src="geométrico/Losangos Baby Cinza 2.jpg" alt="Losangos Baby Cinza" onclick="abrirModal('geométrico/Losangos Baby Cinza 2.jpg')">
+              <span>Losangos Baby Cinza</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Losangos Baby Cinza.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Losangos Baby Cinza.jpg', this)">🤍</button>
@@ -903,8 +903,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Losangos Baby Rosa 2.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Losangos Baby Rosa 2.jpg', this)">🤍</button>
-              <img src="geométrico/Losangos Baby Rosa 2.jpg" alt="Losangos Baby Rosa 2" onclick="abrirModal('geométrico/Losangos Baby Rosa 2.jpg')">
-              <span>Losangos Baby Rosa 2</span>
+              <img src="geométrico/Losangos Baby Rosa 2.jpg" alt="Losangos Baby Rosa" onclick="abrirModal('geométrico/Losangos Baby Rosa 2.jpg')">
+              <span>Losangos Baby Rosa</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Losangos Baby Rosa.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Losangos Baby Rosa.jpg', this)">🤍</button>
@@ -913,8 +913,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Quadriculado Formigas (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Quadriculado Formigas (2).jpg', this)">🤍</button>
-              <img src="geométrico/Quadriculado Formigas (2).jpg" alt="Quadriculado Formigas (2)" onclick="abrirModal('geométrico/Quadriculado Formigas (2).jpg')">
-              <span>Quadriculado Formigas (2)</span>
+              <img src="geométrico/Quadriculado Formigas (2).jpg" alt="Quadriculado Formigas" onclick="abrirModal('geométrico/Quadriculado Formigas (2).jpg')">
+              <span>Quadriculado Formigas</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Quadriculado Formigas (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Quadriculado Formigas (STILL).jpg', this)">🤍</button>
@@ -923,8 +923,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Quadriculado Formigas Azul (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Quadriculado Formigas Azul (2).jpg', this)">🤍</button>
-              <img src="geométrico/Quadriculado Formigas Azul (2).jpg" alt="Quadriculado Formigas Azul (2)" onclick="abrirModal('geométrico/Quadriculado Formigas Azul (2).jpg')">
-              <span>Quadriculado Formigas Azul (2)</span>
+              <img src="geométrico/Quadriculado Formigas Azul (2).jpg" alt="Quadriculado Formigas Azul" onclick="abrirModal('geométrico/Quadriculado Formigas Azul (2).jpg')">
+              <span>Quadriculado Formigas Azul</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Quadriculado Formigas Azul (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Quadriculado Formigas Azul (STILL).jpg', this)">🤍</button>
@@ -938,8 +938,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Quadriculado Formigas Rosa (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Quadriculado Formigas Rosa (2).jpg', this)">🤍</button>
-              <img src="geométrico/Quadriculado Formigas Rosa (2).jpg" alt="Quadriculado Formigas Rosa (2)" onclick="abrirModal('geométrico/Quadriculado Formigas Rosa (2).jpg')">
-              <span>Quadriculado Formigas Rosa (2)</span>
+              <img src="geométrico/Quadriculado Formigas Rosa (2).jpg" alt="Quadriculado Formigas Rosa" onclick="abrirModal('geométrico/Quadriculado Formigas Rosa (2).jpg')">
+              <span>Quadriculado Formigas Rosa</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Quadriculado Formigas Rosa (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Quadriculado Formigas Rosa (STILL).jpg', this)">🤍</button>
@@ -953,8 +953,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Quadriculado Formigas Verde (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Quadriculado Formigas Verde (2).jpg', this)">🤍</button>
-              <img src="geométrico/Quadriculado Formigas Verde (2).jpg" alt="Quadriculado Formigas Verde (2)" onclick="abrirModal('geométrico/Quadriculado Formigas Verde (2).jpg')">
-              <span>Quadriculado Formigas Verde (2)</span>
+              <img src="geométrico/Quadriculado Formigas Verde (2).jpg" alt="Quadriculado Formigas Verde" onclick="abrirModal('geométrico/Quadriculado Formigas Verde (2).jpg')">
+              <span>Quadriculado Formigas Verde</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Quadriculado Formigas Verde (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Quadriculado Formigas Verde (STILL).jpg', this)">🤍</button>
@@ -978,8 +978,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Quadriculado Linhas Cinza 2.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Quadriculado Linhas Cinza 2.jpg', this)">🤍</button>
-              <img src="geométrico/Quadriculado Linhas Cinza 2.jpg" alt="Quadriculado Linhas Cinza 2" onclick="abrirModal('geométrico/Quadriculado Linhas Cinza 2.jpg')">
-              <span>Quadriculado Linhas Cinza 2</span>
+              <img src="geométrico/Quadriculado Linhas Cinza 2.jpg" alt="Quadriculado Linhas Cinza" onclick="abrirModal('geométrico/Quadriculado Linhas Cinza 2.jpg')">
+              <span>Quadriculado Linhas Cinza</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Quadriculado Linhas Cinza.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Quadriculado Linhas Cinza.jpg', this)">🤍</button>
@@ -1023,8 +1023,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Quadriculado Linhas Preta 2.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Quadriculado Linhas Preta 2.jpg', this)">🤍</button>
-              <img src="geométrico/Quadriculado Linhas Preta 2.jpg" alt="Quadriculado Linhas Preta 2" onclick="abrirModal('geométrico/Quadriculado Linhas Preta 2.jpg')">
-              <span>Quadriculado Linhas Preta 2</span>
+              <img src="geométrico/Quadriculado Linhas Preta 2.jpg" alt="Quadriculado Linhas Preta" onclick="abrirModal('geométrico/Quadriculado Linhas Preta 2.jpg')">
+              <span>Quadriculado Linhas Preta</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Quadriculado Linhas Preta.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Quadriculado Linhas Preta.jpg', this)">🤍</button>
@@ -1033,8 +1033,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Quadriculado Riscado Azul (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Quadriculado Riscado Azul (2).jpg', this)">🤍</button>
-              <img src="geométrico/Quadriculado Riscado Azul (2).jpg" alt="Quadriculado Riscado Azul (2)" onclick="abrirModal('geométrico/Quadriculado Riscado Azul (2).jpg')">
-              <span>Quadriculado Riscado Azul (2)</span>
+              <img src="geométrico/Quadriculado Riscado Azul (2).jpg" alt="Quadriculado Riscado Azul" onclick="abrirModal('geométrico/Quadriculado Riscado Azul (2).jpg')">
+              <span>Quadriculado Riscado Azul</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Quadriculado Riscado Azul (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Quadriculado Riscado Azul (STILL).jpg', this)">🤍</button>
@@ -1043,13 +1043,13 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Quadriculado Riscado Azul 2.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Quadriculado Riscado Azul 2.jpg', this)">🤍</button>
-              <img src="geométrico/Quadriculado Riscado Azul 2.jpg" alt="Quadriculado Riscado Azul 2" onclick="abrirModal('geométrico/Quadriculado Riscado Azul 2.jpg')">
-              <span>Quadriculado Riscado Azul 2</span>
+              <img src="geométrico/Quadriculado Riscado Azul 2.jpg" alt="Quadriculado Riscado Azul" onclick="abrirModal('geométrico/Quadriculado Riscado Azul 2.jpg')">
+              <span>Quadriculado Riscado Azul</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Quadriculado Riscado Azul Marinho (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Quadriculado Riscado Azul Marinho (2).jpg', this)">🤍</button>
-              <img src="geométrico/Quadriculado Riscado Azul Marinho (2).jpg" alt="Quadriculado Riscado Azul Marinho (2)" onclick="abrirModal('geométrico/Quadriculado Riscado Azul Marinho (2).jpg')">
-              <span>Quadriculado Riscado Azul Marinho (2)</span>
+              <img src="geométrico/Quadriculado Riscado Azul Marinho (2).jpg" alt="Quadriculado Riscado Azul Marinho" onclick="abrirModal('geométrico/Quadriculado Riscado Azul Marinho (2).jpg')">
+              <span>Quadriculado Riscado Azul Marinho</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Quadriculado Riscado Azul Marinho (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Quadriculado Riscado Azul Marinho (STILL).jpg', this)">🤍</button>
@@ -1068,8 +1068,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Quadriculado Riscado Branco (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Quadriculado Riscado Branco (2).jpg', this)">🤍</button>
-              <img src="geométrico/Quadriculado Riscado Branco (2).jpg" alt="Quadriculado Riscado Branco (2)" onclick="abrirModal('geométrico/Quadriculado Riscado Branco (2).jpg')">
-              <span>Quadriculado Riscado Branco (2)</span>
+              <img src="geométrico/Quadriculado Riscado Branco (2).jpg" alt="Quadriculado Riscado Branco" onclick="abrirModal('geométrico/Quadriculado Riscado Branco (2).jpg')">
+              <span>Quadriculado Riscado Branco</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Quadriculado Riscado Branco (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Quadriculado Riscado Branco (STILL).jpg', this)">🤍</button>
@@ -1078,8 +1078,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Quadriculado Riscado Branco (WIDE) 2.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Quadriculado Riscado Branco (WIDE) 2.jpg', this)">🤍</button>
-              <img src="geométrico/Quadriculado Riscado Branco (WIDE) 2.jpg" alt="Quadriculado Riscado Branco (WIDE) 2" onclick="abrirModal('geométrico/Quadriculado Riscado Branco (WIDE) 2.jpg')">
-              <span>Quadriculado Riscado Branco (WIDE) 2</span>
+              <img src="geométrico/Quadriculado Riscado Branco (WIDE) 2.jpg" alt="Quadriculado Riscado Branco (WIDE)" onclick="abrirModal('geométrico/Quadriculado Riscado Branco (WIDE) 2.jpg')">
+              <span>Quadriculado Riscado Branco (WIDE)</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Quadriculado Riscado Branco (WIDE).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Quadriculado Riscado Branco (WIDE).jpg', this)">🤍</button>
@@ -1088,13 +1088,13 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Quadriculado Riscado Branco 2 (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Quadriculado Riscado Branco 2 (2).jpg', this)">🤍</button>
-              <img src="geométrico/Quadriculado Riscado Branco 2 (2).jpg" alt="Quadriculado Riscado Branco 2 (2)" onclick="abrirModal('geométrico/Quadriculado Riscado Branco 2 (2).jpg')">
-              <span>Quadriculado Riscado Branco 2 (2)</span>
+              <img src="geométrico/Quadriculado Riscado Branco 2 (2).jpg" alt="Quadriculado Riscado Branco 2" onclick="abrirModal('geométrico/Quadriculado Riscado Branco 2 (2).jpg')">
+              <span>Quadriculado Riscado Branco 2</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Quadriculado Riscado Branco 2.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Quadriculado Riscado Branco 2.jpg', this)">🤍</button>
-              <img src="geométrico/Quadriculado Riscado Branco 2.jpg" alt="Quadriculado Riscado Branco 2" onclick="abrirModal('geométrico/Quadriculado Riscado Branco 2.jpg')">
-              <span>Quadriculado Riscado Branco 2</span>
+              <img src="geométrico/Quadriculado Riscado Branco 2.jpg" alt="Quadriculado Riscado Branco" onclick="abrirModal('geométrico/Quadriculado Riscado Branco 2.jpg')">
+              <span>Quadriculado Riscado Branco</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Quadriculado Riscado Branco.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Quadriculado Riscado Branco.jpg', this)">🤍</button>
@@ -1113,8 +1113,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Quadriculado Riscado Camurça 2.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Quadriculado Riscado Camurça 2.jpg', this)">🤍</button>
-              <img src="geométrico/Quadriculado Riscado Camurça 2.jpg" alt="Quadriculado Riscado Camurça 2" onclick="abrirModal('geométrico/Quadriculado Riscado Camurça 2.jpg')">
-              <span>Quadriculado Riscado Camurça 2</span>
+              <img src="geométrico/Quadriculado Riscado Camurça 2.jpg" alt="Quadriculado Riscado Camurça" onclick="abrirModal('geométrico/Quadriculado Riscado Camurça 2.jpg')">
+              <span>Quadriculado Riscado Camurça</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Quadriculado Riscado Camurça.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Quadriculado Riscado Camurça.jpg', this)">🤍</button>
@@ -1123,8 +1123,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Quadriculado Riscado Cinza (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Quadriculado Riscado Cinza (2).jpg', this)">🤍</button>
-              <img src="geométrico/Quadriculado Riscado Cinza (2).jpg" alt="Quadriculado Riscado Cinza (2)" onclick="abrirModal('geométrico/Quadriculado Riscado Cinza (2).jpg')">
-              <span>Quadriculado Riscado Cinza (2)</span>
+              <img src="geométrico/Quadriculado Riscado Cinza (2).jpg" alt="Quadriculado Riscado Cinza" onclick="abrirModal('geométrico/Quadriculado Riscado Cinza (2).jpg')">
+              <span>Quadriculado Riscado Cinza</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Quadriculado Riscado Cinza (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Quadriculado Riscado Cinza (STILL).jpg', this)">🤍</button>
@@ -1138,8 +1138,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Quadriculado Riscado Off White (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Quadriculado Riscado Off White (2).jpg', this)">🤍</button>
-              <img src="geométrico/Quadriculado Riscado Off White (2).jpg" alt="Quadriculado Riscado Off White (2)" onclick="abrirModal('geométrico/Quadriculado Riscado Off White (2).jpg')">
-              <span>Quadriculado Riscado Off White (2)</span>
+              <img src="geométrico/Quadriculado Riscado Off White (2).jpg" alt="Quadriculado Riscado Off White" onclick="abrirModal('geométrico/Quadriculado Riscado Off White (2).jpg')">
+              <span>Quadriculado Riscado Off White</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Quadriculado Riscado Off White (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Quadriculado Riscado Off White (STILL).jpg', this)">🤍</button>
@@ -1153,8 +1153,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Quadriculado Riscado Off White 2.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Quadriculado Riscado Off White 2.jpg', this)">🤍</button>
-              <img src="geométrico/Quadriculado Riscado Off White 2.jpg" alt="Quadriculado Riscado Off White 2" onclick="abrirModal('geométrico/Quadriculado Riscado Off White 2.jpg')">
-              <span>Quadriculado Riscado Off White 2</span>
+              <img src="geométrico/Quadriculado Riscado Off White 2.jpg" alt="Quadriculado Riscado Off White" onclick="abrirModal('geométrico/Quadriculado Riscado Off White 2.jpg')">
+              <span>Quadriculado Riscado Off White</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Quadriculado Riscado Off White.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Quadriculado Riscado Off White.jpg', this)">🤍</button>
@@ -1163,8 +1163,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Quadriculado Riscado Preto (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Quadriculado Riscado Preto (2).jpg', this)">🤍</button>
-              <img src="geométrico/Quadriculado Riscado Preto (2).jpg" alt="Quadriculado Riscado Preto (2)" onclick="abrirModal('geométrico/Quadriculado Riscado Preto (2).jpg')">
-              <span>Quadriculado Riscado Preto (2)</span>
+              <img src="geométrico/Quadriculado Riscado Preto (2).jpg" alt="Quadriculado Riscado Preto" onclick="abrirModal('geométrico/Quadriculado Riscado Preto (2).jpg')">
+              <span>Quadriculado Riscado Preto</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Quadriculado Riscado Preto (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Quadriculado Riscado Preto (STILL).jpg', this)">🤍</button>
@@ -1178,8 +1178,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Quadriculado Riscado Rose (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Quadriculado Riscado Rose (2).jpg', this)">🤍</button>
-              <img src="geométrico/Quadriculado Riscado Rose (2).jpg" alt="Quadriculado Riscado Rose (2)" onclick="abrirModal('geométrico/Quadriculado Riscado Rose (2).jpg')">
-              <span>Quadriculado Riscado Rose (2)</span>
+              <img src="geométrico/Quadriculado Riscado Rose (2).jpg" alt="Quadriculado Riscado Rose" onclick="abrirModal('geométrico/Quadriculado Riscado Rose (2).jpg')">
+              <span>Quadriculado Riscado Rose</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Quadriculado Riscado Rose (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Quadriculado Riscado Rose (STILL).jpg', this)">🤍</button>
@@ -1188,8 +1188,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Quadriculado Riscado Rose 2.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Quadriculado Riscado Rose 2.jpg', this)">🤍</button>
-              <img src="geométrico/Quadriculado Riscado Rose 2.jpg" alt="Quadriculado Riscado Rose 2" onclick="abrirModal('geométrico/Quadriculado Riscado Rose 2.jpg')">
-              <span>Quadriculado Riscado Rose 2</span>
+              <img src="geométrico/Quadriculado Riscado Rose 2.jpg" alt="Quadriculado Riscado Rose" onclick="abrirModal('geométrico/Quadriculado Riscado Rose 2.jpg')">
+              <span>Quadriculado Riscado Rose</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Quadriculado Riscado Rose.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Quadriculado Riscado Rose.jpg', this)">🤍</button>
@@ -1198,8 +1198,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Quadriculado Riscado Verde (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Quadriculado Riscado Verde (2).jpg', this)">🤍</button>
-              <img src="geométrico/Quadriculado Riscado Verde (2).jpg" alt="Quadriculado Riscado Verde (2)" onclick="abrirModal('geométrico/Quadriculado Riscado Verde (2).jpg')">
-              <span>Quadriculado Riscado Verde (2)</span>
+              <img src="geométrico/Quadriculado Riscado Verde (2).jpg" alt="Quadriculado Riscado Verde" onclick="abrirModal('geométrico/Quadriculado Riscado Verde (2).jpg')">
+              <span>Quadriculado Riscado Verde</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Quadriculado Riscado Verde (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Quadriculado Riscado Verde (STILL).jpg', this)">🤍</button>
@@ -1273,8 +1273,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Triângulos Areia 2.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Triângulos Areia 2.jpg', this)">🤍</button>
-              <img src="geométrico/Triângulos Areia 2.jpg" alt="Triângulos Areia 2" onclick="abrirModal('geométrico/Triângulos Areia 2.jpg')">
-              <span>Triângulos Areia 2</span>
+              <img src="geométrico/Triângulos Areia 2.jpg" alt="Triângulos Areia" onclick="abrirModal('geométrico/Triângulos Areia 2.jpg')">
+              <span>Triângulos Areia</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Triângulos Areia.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Triângulos Areia.jpg', this)">🤍</button>
@@ -1283,8 +1283,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Triângulos Azuis 2.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Triângulos Azuis 2.jpg', this)">🤍</button>
-              <img src="geométrico/Triângulos Azuis 2.jpg" alt="Triângulos Azuis 2" onclick="abrirModal('geométrico/Triângulos Azuis 2.jpg')">
-              <span>Triângulos Azuis 2</span>
+              <img src="geométrico/Triângulos Azuis 2.jpg" alt="Triângulos Azuis" onclick="abrirModal('geométrico/Triângulos Azuis 2.jpg')">
+              <span>Triângulos Azuis</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Triângulos Azuis.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Triângulos Azuis.jpg', this)">🤍</button>
@@ -1378,8 +1378,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Triângulos Listrados Azul (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Triângulos Listrados Azul (2).jpg', this)">🤍</button>
-              <img src="geométrico/Triângulos Listrados Azul (2).jpg" alt="Triângulos Listrados Azul (2)" onclick="abrirModal('geométrico/Triângulos Listrados Azul (2).jpg')">
-              <span>Triângulos Listrados Azul (2)</span>
+              <img src="geométrico/Triângulos Listrados Azul (2).jpg" alt="Triângulos Listrados Azul" onclick="abrirModal('geométrico/Triângulos Listrados Azul (2).jpg')">
+              <span>Triângulos Listrados Azul</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Triângulos Listrados Azul (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Triângulos Listrados Azul (STILL).jpg', this)">🤍</button>
@@ -1388,8 +1388,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Triângulos Listrados Azul 2.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Triângulos Listrados Azul 2.jpg', this)">🤍</button>
-              <img src="geométrico/Triângulos Listrados Azul 2.jpg" alt="Triângulos Listrados Azul 2" onclick="abrirModal('geométrico/Triângulos Listrados Azul 2.jpg')">
-              <span>Triângulos Listrados Azul 2</span>
+              <img src="geométrico/Triângulos Listrados Azul 2.jpg" alt="Triângulos Listrados Azul" onclick="abrirModal('geométrico/Triângulos Listrados Azul 2.jpg')">
+              <span>Triângulos Listrados Azul</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Triângulos Listrados Azul.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Triângulos Listrados Azul.jpg', this)">🤍</button>
@@ -1448,8 +1448,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Triângulos Rosa (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Triângulos Rosa (2).jpg', this)">🤍</button>
-              <img src="geométrico/Triângulos Rosa (2).jpg" alt="Triângulos Rosa (2)" onclick="abrirModal('geométrico/Triângulos Rosa (2).jpg')">
-              <span>Triângulos Rosa (2)</span>
+              <img src="geométrico/Triângulos Rosa (2).jpg" alt="Triângulos Rosa" onclick="abrirModal('geométrico/Triângulos Rosa (2).jpg')">
+              <span>Triângulos Rosa</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Triângulos Rosa (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Triângulos Rosa (STILL).jpg', this)">🤍</button>
@@ -1458,8 +1458,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Triângulos Rosa 2.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Triângulos Rosa 2.jpg', this)">🤍</button>
-              <img src="geométrico/Triângulos Rosa 2.jpg" alt="Triângulos Rosa 2" onclick="abrirModal('geométrico/Triângulos Rosa 2.jpg')">
-              <span>Triângulos Rosa 2</span>
+              <img src="geométrico/Triângulos Rosa 2.jpg" alt="Triângulos Rosa" onclick="abrirModal('geométrico/Triângulos Rosa 2.jpg')">
+              <span>Triângulos Rosa</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Triângulos Rosa.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Triângulos Rosa.jpg', this)">🤍</button>
@@ -1513,8 +1513,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Triângulos Verde (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Triângulos Verde (2).jpg', this)">🤍</button>
-              <img src="geométrico/Triângulos Verde (2).jpg" alt="Triângulos Verde (2)" onclick="abrirModal('geométrico/Triângulos Verde (2).jpg')">
-              <span>Triângulos Verde (2)</span>
+              <img src="geométrico/Triângulos Verde (2).jpg" alt="Triângulos Verde" onclick="abrirModal('geométrico/Triângulos Verde (2).jpg')">
+              <span>Triângulos Verde</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Triângulos Verde (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Triângulos Verde (STILL).jpg', this)">🤍</button>
@@ -1523,13 +1523,13 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Triângulos Verde 2.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Triângulos Verde 2.jpg', this)">🤍</button>
-              <img src="geométrico/Triângulos Verde 2.jpg" alt="Triângulos Verde 2" onclick="abrirModal('geométrico/Triângulos Verde 2.jpg')">
-              <span>Triângulos Verde 2</span>
+              <img src="geométrico/Triângulos Verde 2.jpg" alt="Triângulos Verde" onclick="abrirModal('geométrico/Triângulos Verde 2.jpg')">
+              <span>Triângulos Verde</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Triângulos Verde Água (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Triângulos Verde Água (2).jpg', this)">🤍</button>
-              <img src="geométrico/Triângulos Verde Água (2).jpg" alt="Triângulos Verde Água (2)" onclick="abrirModal('geométrico/Triângulos Verde Água (2).jpg')">
-              <span>Triângulos Verde Água (2)</span>
+              <img src="geométrico/Triângulos Verde Água (2).jpg" alt="Triângulos Verde Água" onclick="abrirModal('geométrico/Triângulos Verde Água (2).jpg')">
+              <span>Triângulos Verde Água</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Triângulos Verde Água (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Triângulos Verde Água (STILL).jpg', this)">🤍</button>
@@ -1538,8 +1538,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Triângulos Verde Água 2.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Triângulos Verde Água 2.jpg', this)">🤍</button>
-              <img src="geométrico/Triângulos Verde Água 2.jpg" alt="Triângulos Verde Água 2" onclick="abrirModal('geométrico/Triângulos Verde Água 2.jpg')">
-              <span>Triângulos Verde Água 2</span>
+              <img src="geométrico/Triângulos Verde Água 2.jpg" alt="Triângulos Verde Água" onclick="abrirModal('geométrico/Triângulos Verde Água 2.jpg')">
+              <span>Triângulos Verde Água</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Triângulos Verde Água.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Triângulos Verde Água.jpg', this)">🤍</button>
@@ -1553,13 +1553,13 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Xadrez Amarelo (1).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Xadrez Amarelo (1).jpg', this)">🤍</button>
-              <img src="geométrico/Xadrez Amarelo (1).jpg" alt="Xadrez Amarelo (1)" onclick="abrirModal('geométrico/Xadrez Amarelo (1).jpg')">
-              <span>Xadrez Amarelo (1)</span>
+              <img src="geométrico/Xadrez Amarelo (1).jpg" alt="Xadrez Amarelo" onclick="abrirModal('geométrico/Xadrez Amarelo (1).jpg')">
+              <span>Xadrez Amarelo</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Xadrez Amarelo (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Xadrez Amarelo (2).jpg', this)">🤍</button>
-              <img src="geométrico/Xadrez Amarelo (2).jpg" alt="Xadrez Amarelo (2)" onclick="abrirModal('geométrico/Xadrez Amarelo (2).jpg')">
-              <span>Xadrez Amarelo (2)</span>
+              <img src="geométrico/Xadrez Amarelo (2).jpg" alt="Xadrez Amarelo" onclick="abrirModal('geométrico/Xadrez Amarelo (2).jpg')">
+              <span>Xadrez Amarelo</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Xadrez Amarelo (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Xadrez Amarelo (STILL).jpg', this)">🤍</button>
@@ -1573,13 +1573,13 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Xadrez Azul Marinho (1).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Xadrez Azul Marinho (1).jpg', this)">🤍</button>
-              <img src="geométrico/Xadrez Azul Marinho (1).jpg" alt="Xadrez Azul Marinho (1)" onclick="abrirModal('geométrico/Xadrez Azul Marinho (1).jpg')">
-              <span>Xadrez Azul Marinho (1)</span>
+              <img src="geométrico/Xadrez Azul Marinho (1).jpg" alt="Xadrez Azul Marinho" onclick="abrirModal('geométrico/Xadrez Azul Marinho (1).jpg')">
+              <span>Xadrez Azul Marinho</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Xadrez Azul Marinho (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Xadrez Azul Marinho (2).jpg', this)">🤍</button>
-              <img src="geométrico/Xadrez Azul Marinho (2).jpg" alt="Xadrez Azul Marinho (2)" onclick="abrirModal('geométrico/Xadrez Azul Marinho (2).jpg')">
-              <span>Xadrez Azul Marinho (2)</span>
+              <img src="geométrico/Xadrez Azul Marinho (2).jpg" alt="Xadrez Azul Marinho" onclick="abrirModal('geométrico/Xadrez Azul Marinho (2).jpg')">
+              <span>Xadrez Azul Marinho</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Xadrez Azul Marinho (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Xadrez Azul Marinho (STILL).jpg', this)">🤍</button>
@@ -1678,13 +1678,13 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Xadrez Rosa (1).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Xadrez Rosa (1).jpg', this)">🤍</button>
-              <img src="geométrico/Xadrez Rosa (1).jpg" alt="Xadrez Rosa (1)" onclick="abrirModal('geométrico/Xadrez Rosa (1).jpg')">
-              <span>Xadrez Rosa (1)</span>
+              <img src="geométrico/Xadrez Rosa (1).jpg" alt="Xadrez Rosa" onclick="abrirModal('geométrico/Xadrez Rosa (1).jpg')">
+              <span>Xadrez Rosa</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Xadrez Rosa (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Xadrez Rosa (2).jpg', this)">🤍</button>
-              <img src="geométrico/Xadrez Rosa (2).jpg" alt="Xadrez Rosa (2)" onclick="abrirModal('geométrico/Xadrez Rosa (2).jpg')">
-              <span>Xadrez Rosa (2)</span>
+              <img src="geométrico/Xadrez Rosa (2).jpg" alt="Xadrez Rosa" onclick="abrirModal('geométrico/Xadrez Rosa (2).jpg')">
+              <span>Xadrez Rosa</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Xadrez Rosa (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Xadrez Rosa (STILL).jpg', this)">🤍</button>
@@ -1703,8 +1703,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Xadrez Sarja Azul 2.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Xadrez Sarja Azul 2.jpg', this)">🤍</button>
-              <img src="geométrico/Xadrez Sarja Azul 2.jpg" alt="Xadrez Sarja Azul 2" onclick="abrirModal('geométrico/Xadrez Sarja Azul 2.jpg')">
-              <span>Xadrez Sarja Azul 2</span>
+              <img src="geométrico/Xadrez Sarja Azul 2.jpg" alt="Xadrez Sarja Azul" onclick="abrirModal('geométrico/Xadrez Sarja Azul 2.jpg')">
+              <span>Xadrez Sarja Azul</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Xadrez Sarja Azul.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Xadrez Sarja Azul.jpg', this)">🤍</button>
@@ -1718,8 +1718,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Xadrez Sarja Rosa 2.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Xadrez Sarja Rosa 2.jpg', this)">🤍</button>
-              <img src="geométrico/Xadrez Sarja Rosa 2.jpg" alt="Xadrez Sarja Rosa 2" onclick="abrirModal('geométrico/Xadrez Sarja Rosa 2.jpg')">
-              <span>Xadrez Sarja Rosa 2</span>
+              <img src="geométrico/Xadrez Sarja Rosa 2.jpg" alt="Xadrez Sarja Rosa" onclick="abrirModal('geométrico/Xadrez Sarja Rosa 2.jpg')">
+              <span>Xadrez Sarja Rosa</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Xadrez Sarja Rosa.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Xadrez Sarja Rosa.jpg', this)">🤍</button>
@@ -1733,8 +1733,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Xadrez Sarja Roxo 2.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Xadrez Sarja Roxo 2.jpg', this)">🤍</button>
-              <img src="geométrico/Xadrez Sarja Roxo 2.jpg" alt="Xadrez Sarja Roxo 2" onclick="abrirModal('geométrico/Xadrez Sarja Roxo 2.jpg')">
-              <span>Xadrez Sarja Roxo 2</span>
+              <img src="geométrico/Xadrez Sarja Roxo 2.jpg" alt="Xadrez Sarja Roxo" onclick="abrirModal('geométrico/Xadrez Sarja Roxo 2.jpg')">
+              <span>Xadrez Sarja Roxo</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Xadrez Sarja Roxo.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Xadrez Sarja Roxo.jpg', this)">🤍</button>
@@ -1743,13 +1743,13 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Xadrez Verde Agua (1).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Xadrez Verde Agua (1).jpg', this)">🤍</button>
-              <img src="geométrico/Xadrez Verde Agua (1).jpg" alt="Xadrez Verde Agua (1)" onclick="abrirModal('geométrico/Xadrez Verde Agua (1).jpg')">
-              <span>Xadrez Verde Agua (1)</span>
+              <img src="geométrico/Xadrez Verde Agua (1).jpg" alt="Xadrez Verde Agua" onclick="abrirModal('geométrico/Xadrez Verde Agua (1).jpg')">
+              <span>Xadrez Verde Agua</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Xadrez Verde Agua (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Xadrez Verde Agua (2).jpg', this)">🤍</button>
-              <img src="geométrico/Xadrez Verde Agua (2).jpg" alt="Xadrez Verde Agua (2)" onclick="abrirModal('geométrico/Xadrez Verde Agua (2).jpg')">
-              <span>Xadrez Verde Agua (2)</span>
+              <img src="geométrico/Xadrez Verde Agua (2).jpg" alt="Xadrez Verde Agua" onclick="abrirModal('geométrico/Xadrez Verde Agua (2).jpg')">
+              <span>Xadrez Verde Agua</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Xadrez Verde Agua (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Xadrez Verde Agua (STILL).jpg', this)">🤍</button>
@@ -1763,13 +1763,13 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Xadrez Vermelho (1).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Xadrez Vermelho (1).jpg', this)">🤍</button>
-              <img src="geométrico/Xadrez Vermelho (1).jpg" alt="Xadrez Vermelho (1)" onclick="abrirModal('geométrico/Xadrez Vermelho (1).jpg')">
-              <span>Xadrez Vermelho (1)</span>
+              <img src="geométrico/Xadrez Vermelho (1).jpg" alt="Xadrez Vermelho" onclick="abrirModal('geométrico/Xadrez Vermelho (1).jpg')">
+              <span>Xadrez Vermelho</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Xadrez Vermelho (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Xadrez Vermelho (2).jpg', this)">🤍</button>
-              <img src="geométrico/Xadrez Vermelho (2).jpg" alt="Xadrez Vermelho (2)" onclick="abrirModal('geométrico/Xadrez Vermelho (2).jpg')">
-              <span>Xadrez Vermelho (2)</span>
+              <img src="geométrico/Xadrez Vermelho (2).jpg" alt="Xadrez Vermelho" onclick="abrirModal('geométrico/Xadrez Vermelho (2).jpg')">
+              <span>Xadrez Vermelho</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="geométrico/Xadrez Vermelho (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('geométrico/Xadrez Vermelho (STILL).jpg', this)">🤍</button>

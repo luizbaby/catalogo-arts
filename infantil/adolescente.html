@@ -12,20 +12,20 @@
       top: 0;
       background: white;
       display: flex;
+      flex-wrap: wrap;
       justify-content: space-between;
       align-items: center;
       padding: 10px 20px;
+      gap: 10px;
       box-shadow: 0 2px 5px rgba(0,0,0,0.1);
       z-index: 1000;
     }
-    .top-bar h1 { font-size: 18px; margin: 0; }
     .btn {
       background: #01b9b5;
       color: white;
       text-decoration: none;
       padding: 8px 14px;
       border-radius: 6px;
-      margin-left: 10px;
       font-size: 14px;
       cursor: pointer;
     }
@@ -88,11 +88,11 @@
 <body>
 <div class="top-bar">
   <div>
-    <a href="index.html" class="btn">&larr; Voltar</a>
+    <a href="https://catalogo.artspapeisdeparede.com.br/index.html" class="btn">&larr; Voltar</a>
     <button class="btn" onclick="baixarSelecionadas()">📥 Baixar selecionadas</button>
   </div>
   <h1>Adolescente</h1>
-  <a href="https://luizbaby.github.io/catalogo-arts/favoritos.html" class="btn">⭐ Ver favoritos</a>
+  <a href="https://catalogo.artspapeisdeparede.com.br/favoritos.html" class="btn">⭐ Ver favoritos</a>
 </div>
 <div class="grid">
 <div class="card">
@@ -168,13 +168,13 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="adolescente/Aquarela Pendente 2.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('adolescente/Aquarela Pendente 2.jpg', this)">🤍</button>
-              <img src="adolescente/Aquarela Pendente 2.jpg" alt="Aquarela Pendente 2" onclick="abrirModal('adolescente/Aquarela Pendente 2.jpg')">
-              <span>Aquarela Pendente 2</span>
+              <img src="adolescente/Aquarela Pendente 2.jpg" alt="Aquarela Pendente" onclick="abrirModal('adolescente/Aquarela Pendente 2.jpg')">
+              <span>Aquarela Pendente</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="adolescente/Arte Urbana (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('adolescente/Arte Urbana (2).jpg', this)">🤍</button>
-              <img src="adolescente/Arte Urbana (2).jpg" alt="Arte Urbana (2)" onclick="abrirModal('adolescente/Arte Urbana (2).jpg')">
-              <span>Arte Urbana (2)</span>
+              <img src="adolescente/Arte Urbana (2).jpg" alt="Arte Urbana" onclick="abrirModal('adolescente/Arte Urbana (2).jpg')">
+              <span>Arte Urbana</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="adolescente/Arte Urbana (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('adolescente/Arte Urbana (STILL).jpg', this)">🤍</button>
@@ -188,8 +188,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="adolescente/Bolas de Esportes Azul (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('adolescente/Bolas de Esportes Azul (2).jpg', this)">🤍</button>
-              <img src="adolescente/Bolas de Esportes Azul (2).jpg" alt="Bolas de Esportes Azul (2)" onclick="abrirModal('adolescente/Bolas de Esportes Azul (2).jpg')">
-              <span>Bolas de Esportes Azul (2)</span>
+              <img src="adolescente/Bolas de Esportes Azul (2).jpg" alt="Bolas de Esportes Azul" onclick="abrirModal('adolescente/Bolas de Esportes Azul (2).jpg')">
+              <span>Bolas de Esportes Azul</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="adolescente/Bolas de Esportes Azul (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('adolescente/Bolas de Esportes Azul (STILL).jpg', this)">🤍</button>
@@ -203,8 +203,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="adolescente/Bolas de Esportes Cinza (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('adolescente/Bolas de Esportes Cinza (2).jpg', this)">🤍</button>
-              <img src="adolescente/Bolas de Esportes Cinza (2).jpg" alt="Bolas de Esportes Cinza (2)" onclick="abrirModal('adolescente/Bolas de Esportes Cinza (2).jpg')">
-              <span>Bolas de Esportes Cinza (2)</span>
+              <img src="adolescente/Bolas de Esportes Cinza (2).jpg" alt="Bolas de Esportes Cinza" onclick="abrirModal('adolescente/Bolas de Esportes Cinza (2).jpg')">
+              <span>Bolas de Esportes Cinza</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="adolescente/Bolas de Esportes Cinza (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('adolescente/Bolas de Esportes Cinza (STILL).jpg', this)">🤍</button>
@@ -218,8 +218,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="adolescente/Bolas de Esportes Rose (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('adolescente/Bolas de Esportes Rose (2).jpg', this)">🤍</button>
-              <img src="adolescente/Bolas de Esportes Rose (2).jpg" alt="Bolas de Esportes Rose (2)" onclick="abrirModal('adolescente/Bolas de Esportes Rose (2).jpg')">
-              <span>Bolas de Esportes Rose (2)</span>
+              <img src="adolescente/Bolas de Esportes Rose (2).jpg" alt="Bolas de Esportes Rose" onclick="abrirModal('adolescente/Bolas de Esportes Rose (2).jpg')">
+              <span>Bolas de Esportes Rose</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="adolescente/Bolas de Esportes Rose (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('adolescente/Bolas de Esportes Rose (STILL).jpg', this)">🤍</button>
@@ -233,13 +233,13 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="adolescente/Bolinhas de Tinta Azul (1).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('adolescente/Bolinhas de Tinta Azul (1).jpg', this)">🤍</button>
-              <img src="adolescente/Bolinhas de Tinta Azul (1).jpg" alt="Bolinhas de Tinta Azul (1)" onclick="abrirModal('adolescente/Bolinhas de Tinta Azul (1).jpg')">
-              <span>Bolinhas de Tinta Azul (1)</span>
+              <img src="adolescente/Bolinhas de Tinta Azul (1).jpg" alt="Bolinhas de Tinta Azul" onclick="abrirModal('adolescente/Bolinhas de Tinta Azul (1).jpg')">
+              <span>Bolinhas de Tinta Azul</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="adolescente/Bolinhas de Tinta Azul (STILL) (1).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('adolescente/Bolinhas de Tinta Azul (STILL) (1).jpg', this)">🤍</button>
-              <img src="adolescente/Bolinhas de Tinta Azul (STILL) (1).jpg" alt="Bolinhas de Tinta Azul (STILL) (1)" onclick="abrirModal('adolescente/Bolinhas de Tinta Azul (STILL) (1).jpg')">
-              <span>Bolinhas de Tinta Azul (STILL) (1)</span>
+              <img src="adolescente/Bolinhas de Tinta Azul (STILL) (1).jpg" alt="Bolinhas de Tinta Azul (STILL)" onclick="abrirModal('adolescente/Bolinhas de Tinta Azul (STILL) (1).jpg')">
+              <span>Bolinhas de Tinta Azul (STILL)</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="adolescente/Bolinhas de Tinta Azul (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('adolescente/Bolinhas de Tinta Azul (STILL).jpg', this)">🤍</button>
@@ -258,13 +258,13 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="adolescente/Bolinhas de Tinta Coloridas 2.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('adolescente/Bolinhas de Tinta Coloridas 2.jpg', this)">🤍</button>
-              <img src="adolescente/Bolinhas de Tinta Coloridas 2.jpg" alt="Bolinhas de Tinta Coloridas 2" onclick="abrirModal('adolescente/Bolinhas de Tinta Coloridas 2.jpg')">
-              <span>Bolinhas de Tinta Coloridas 2</span>
+              <img src="adolescente/Bolinhas de Tinta Coloridas 2.jpg" alt="Bolinhas de Tinta Coloridas" onclick="abrirModal('adolescente/Bolinhas de Tinta Coloridas 2.jpg')">
+              <span>Bolinhas de Tinta Coloridas</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="adolescente/Bolinhas de Tinta Rosa e Cinza (STILL) (1).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('adolescente/Bolinhas de Tinta Rosa e Cinza (STILL) (1).jpg', this)">🤍</button>
-              <img src="adolescente/Bolinhas de Tinta Rosa e Cinza (STILL) (1).jpg" alt="Bolinhas de Tinta Rosa e Cinza (STILL) (1)" onclick="abrirModal('adolescente/Bolinhas de Tinta Rosa e Cinza (STILL) (1).jpg')">
-              <span>Bolinhas de Tinta Rosa e Cinza (STILL) (1)</span>
+              <img src="adolescente/Bolinhas de Tinta Rosa e Cinza (STILL) (1).jpg" alt="Bolinhas de Tinta Rosa e Cinza (STILL)" onclick="abrirModal('adolescente/Bolinhas de Tinta Rosa e Cinza (STILL) (1).jpg')">
+              <span>Bolinhas de Tinta Rosa e Cinza (STILL)</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="adolescente/Bolinhas de Tinta Rosa e Cinza (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('adolescente/Bolinhas de Tinta Rosa e Cinza (STILL).jpg', this)">🤍</button>
@@ -338,8 +338,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="adolescente/Confetti Gold Rose (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('adolescente/Confetti Gold Rose (2).jpg', this)">🤍</button>
-              <img src="adolescente/Confetti Gold Rose (2).jpg" alt="Confetti Gold Rose (2)" onclick="abrirModal('adolescente/Confetti Gold Rose (2).jpg')">
-              <span>Confetti Gold Rose (2)</span>
+              <img src="adolescente/Confetti Gold Rose (2).jpg" alt="Confetti Gold Rose" onclick="abrirModal('adolescente/Confetti Gold Rose (2).jpg')">
+              <span>Confetti Gold Rose</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="adolescente/Confetti Gold Rose (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('adolescente/Confetti Gold Rose (STILL).jpg', this)">🤍</button>
@@ -358,8 +358,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="adolescente/Corações Coloridos 2.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('adolescente/Corações Coloridos 2.jpg', this)">🤍</button>
-              <img src="adolescente/Corações Coloridos 2.jpg" alt="Corações Coloridos 2" onclick="abrirModal('adolescente/Corações Coloridos 2.jpg')">
-              <span>Corações Coloridos 2</span>
+              <img src="adolescente/Corações Coloridos 2.jpg" alt="Corações Coloridos" onclick="abrirModal('adolescente/Corações Coloridos 2.jpg')">
+              <span>Corações Coloridos</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="adolescente/Corações Coloridos.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('adolescente/Corações Coloridos.jpg', this)">🤍</button>
@@ -373,8 +373,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="adolescente/Cute Folhagem 02.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('adolescente/Cute Folhagem 02.jpg', this)">🤍</button>
-              <img src="adolescente/Cute Folhagem 02.jpg" alt="Cute Folhagem 02" onclick="abrirModal('adolescente/Cute Folhagem 02.jpg')">
-              <span>Cute Folhagem 02</span>
+              <img src="adolescente/Cute Folhagem 02.jpg" alt="Cute Folhagem" onclick="abrirModal('adolescente/Cute Folhagem 02.jpg')">
+              <span>Cute Folhagem</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="adolescente/Cute Folhagem.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('adolescente/Cute Folhagem.jpg', this)">🤍</button>
@@ -403,13 +403,13 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="adolescente/Escandinavo Leaves Areia 2.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('adolescente/Escandinavo Leaves Areia 2.jpg', this)">🤍</button>
-              <img src="adolescente/Escandinavo Leaves Areia 2.jpg" alt="Escandinavo Leaves Areia 2" onclick="abrirModal('adolescente/Escandinavo Leaves Areia 2.jpg')">
-              <span>Escandinavo Leaves Areia 2</span>
+              <img src="adolescente/Escandinavo Leaves Areia 2.jpg" alt="Escandinavo Leaves Areia" onclick="abrirModal('adolescente/Escandinavo Leaves Areia 2.jpg')">
+              <span>Escandinavo Leaves Areia</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="adolescente/Esportes Cimento Queimado (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('adolescente/Esportes Cimento Queimado (2).jpg', this)">🤍</button>
-              <img src="adolescente/Esportes Cimento Queimado (2).jpg" alt="Esportes Cimento Queimado (2)" onclick="abrirModal('adolescente/Esportes Cimento Queimado (2).jpg')">
-              <span>Esportes Cimento Queimado (2)</span>
+              <img src="adolescente/Esportes Cimento Queimado (2).jpg" alt="Esportes Cimento Queimado" onclick="abrirModal('adolescente/Esportes Cimento Queimado (2).jpg')">
+              <span>Esportes Cimento Queimado</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="adolescente/Esportes Cimento Queimado (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('adolescente/Esportes Cimento Queimado (STILL).jpg', this)">🤍</button>
@@ -433,8 +433,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="adolescente/Floral Pendente (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('adolescente/Floral Pendente (2).jpg', this)">🤍</button>
-              <img src="adolescente/Floral Pendente (2).jpg" alt="Floral Pendente (2)" onclick="abrirModal('adolescente/Floral Pendente (2).jpg')">
-              <span>Floral Pendente (2)</span>
+              <img src="adolescente/Floral Pendente (2).jpg" alt="Floral Pendente" onclick="abrirModal('adolescente/Floral Pendente (2).jpg')">
+              <span>Floral Pendente</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="adolescente/Floral Pendente (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('adolescente/Floral Pendente (STILL).jpg', this)">🤍</button>
@@ -443,8 +443,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="adolescente/Floral Pendente 02.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('adolescente/Floral Pendente 02.jpg', this)">🤍</button>
-              <img src="adolescente/Floral Pendente 02.jpg" alt="Floral Pendente 02" onclick="abrirModal('adolescente/Floral Pendente 02.jpg')">
-              <span>Floral Pendente 02</span>
+              <img src="adolescente/Floral Pendente 02.jpg" alt="Floral Pendente" onclick="abrirModal('adolescente/Floral Pendente 02.jpg')">
+              <span>Floral Pendente</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="adolescente/Floral Pendente Verde (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('adolescente/Floral Pendente Verde (STILL).jpg', this)">🤍</button>
@@ -503,8 +503,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="adolescente/Gaming Grafite (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('adolescente/Gaming Grafite (2).jpg', this)">🤍</button>
-              <img src="adolescente/Gaming Grafite (2).jpg" alt="Gaming Grafite (2)" onclick="abrirModal('adolescente/Gaming Grafite (2).jpg')">
-              <span>Gaming Grafite (2)</span>
+              <img src="adolescente/Gaming Grafite (2).jpg" alt="Gaming Grafite" onclick="abrirModal('adolescente/Gaming Grafite (2).jpg')">
+              <span>Gaming Grafite</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="adolescente/Gaming Grafite (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('adolescente/Gaming Grafite (STILL).jpg', this)">🤍</button>
@@ -518,13 +518,13 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="adolescente/Gaming Grafite2.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('adolescente/Gaming Grafite2.jpg', this)">🤍</button>
-              <img src="adolescente/Gaming Grafite2.jpg" alt="Gaming Grafite2" onclick="abrirModal('adolescente/Gaming Grafite2.jpg')">
-              <span>Gaming Grafite2</span>
+              <img src="adolescente/Gaming Grafite2.jpg" alt="Gaming Grafite" onclick="abrirModal('adolescente/Gaming Grafite2.jpg')">
+              <span>Gaming Grafite</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="adolescente/Gaming Roxo (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('adolescente/Gaming Roxo (2).jpg', this)">🤍</button>
-              <img src="adolescente/Gaming Roxo (2).jpg" alt="Gaming Roxo (2)" onclick="abrirModal('adolescente/Gaming Roxo (2).jpg')">
-              <span>Gaming Roxo (2)</span>
+              <img src="adolescente/Gaming Roxo (2).jpg" alt="Gaming Roxo" onclick="abrirModal('adolescente/Gaming Roxo (2).jpg')">
+              <span>Gaming Roxo</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="adolescente/Gaming Roxo (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('adolescente/Gaming Roxo (STILL).jpg', this)">🤍</button>
@@ -533,8 +533,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="adolescente/Gaming Roxo 02.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('adolescente/Gaming Roxo 02.jpg', this)">🤍</button>
-              <img src="adolescente/Gaming Roxo 02.jpg" alt="Gaming Roxo 02" onclick="abrirModal('adolescente/Gaming Roxo 02.jpg')">
-              <span>Gaming Roxo 02</span>
+              <img src="adolescente/Gaming Roxo 02.jpg" alt="Gaming Roxo" onclick="abrirModal('adolescente/Gaming Roxo 02.jpg')">
+              <span>Gaming Roxo</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="adolescente/Gaming Roxo.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('adolescente/Gaming Roxo.jpg', this)">🤍</button>
@@ -543,8 +543,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="adolescente/Gaming Roxo2.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('adolescente/Gaming Roxo2.jpg', this)">🤍</button>
-              <img src="adolescente/Gaming Roxo2.jpg" alt="Gaming Roxo2" onclick="abrirModal('adolescente/Gaming Roxo2.jpg')">
-              <span>Gaming Roxo2</span>
+              <img src="adolescente/Gaming Roxo2.jpg" alt="Gaming Roxo" onclick="abrirModal('adolescente/Gaming Roxo2.jpg')">
+              <span>Gaming Roxo</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="adolescente/Grafite Crazy (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('adolescente/Grafite Crazy (STILL).jpg', this)">🤍</button>
@@ -553,8 +553,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="adolescente/Granilite Azul e Tiffany (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('adolescente/Granilite Azul e Tiffany (2).jpg', this)">🤍</button>
-              <img src="adolescente/Granilite Azul e Tiffany (2).jpg" alt="Granilite Azul e Tiffany (2)" onclick="abrirModal('adolescente/Granilite Azul e Tiffany (2).jpg')">
-              <span>Granilite Azul e Tiffany (2)</span>
+              <img src="adolescente/Granilite Azul e Tiffany (2).jpg" alt="Granilite Azul e Tiffany" onclick="abrirModal('adolescente/Granilite Azul e Tiffany (2).jpg')">
+              <span>Granilite Azul e Tiffany</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="adolescente/Granilite Azul e Tiffany (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('adolescente/Granilite Azul e Tiffany (STILL).jpg', this)">🤍</button>
@@ -563,8 +563,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="adolescente/Granilite Azul e Tiffany 02.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('adolescente/Granilite Azul e Tiffany 02.jpg', this)">🤍</button>
-              <img src="adolescente/Granilite Azul e Tiffany 02.jpg" alt="Granilite Azul e Tiffany 02" onclick="abrirModal('adolescente/Granilite Azul e Tiffany 02.jpg')">
-              <span>Granilite Azul e Tiffany 02</span>
+              <img src="adolescente/Granilite Azul e Tiffany 02.jpg" alt="Granilite Azul e Tiffany" onclick="abrirModal('adolescente/Granilite Azul e Tiffany 02.jpg')">
+              <span>Granilite Azul e Tiffany</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="adolescente/Granilite Rose e Azul Marinho (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('adolescente/Granilite Rose e Azul Marinho (STILL).jpg', this)">🤍</button>
@@ -573,8 +573,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="adolescente/Granilite Rose e Azul Marinho 02.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('adolescente/Granilite Rose e Azul Marinho 02.jpg', this)">🤍</button>
-              <img src="adolescente/Granilite Rose e Azul Marinho 02.jpg" alt="Granilite Rose e Azul Marinho 02" onclick="abrirModal('adolescente/Granilite Rose e Azul Marinho 02.jpg')">
-              <span>Granilite Rose e Azul Marinho 02</span>
+              <img src="adolescente/Granilite Rose e Azul Marinho 02.jpg" alt="Granilite Rose e Azul Marinho" onclick="abrirModal('adolescente/Granilite Rose e Azul Marinho 02.jpg')">
+              <span>Granilite Rose e Azul Marinho</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="adolescente/Granilite Rose e Azul Marinho.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('adolescente/Granilite Rose e Azul Marinho.jpg', this)">🤍</button>
@@ -583,8 +583,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="adolescente/Granilite Rose e Roxo (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('adolescente/Granilite Rose e Roxo (2).jpg', this)">🤍</button>
-              <img src="adolescente/Granilite Rose e Roxo (2).jpg" alt="Granilite Rose e Roxo (2)" onclick="abrirModal('adolescente/Granilite Rose e Roxo (2).jpg')">
-              <span>Granilite Rose e Roxo (2)</span>
+              <img src="adolescente/Granilite Rose e Roxo (2).jpg" alt="Granilite Rose e Roxo" onclick="abrirModal('adolescente/Granilite Rose e Roxo (2).jpg')">
+              <span>Granilite Rose e Roxo</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="adolescente/Granilite Rose e Roxo (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('adolescente/Granilite Rose e Roxo (STILL).jpg', this)">🤍</button>
@@ -593,8 +593,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="adolescente/Granilite Rose e Roxo 02.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('adolescente/Granilite Rose e Roxo 02.jpg', this)">🤍</button>
-              <img src="adolescente/Granilite Rose e Roxo 02.jpg" alt="Granilite Rose e Roxo 02" onclick="abrirModal('adolescente/Granilite Rose e Roxo 02.jpg')">
-              <span>Granilite Rose e Roxo 02</span>
+              <img src="adolescente/Granilite Rose e Roxo 02.jpg" alt="Granilite Rose e Roxo" onclick="abrirModal('adolescente/Granilite Rose e Roxo 02.jpg')">
+              <span>Granilite Rose e Roxo</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="adolescente/Granilite Rose e Roxo.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('adolescente/Granilite Rose e Roxo.jpg', this)">🤍</button>
@@ -603,8 +603,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="adolescente/Granilite Rose e Tiffany (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('adolescente/Granilite Rose e Tiffany (2).jpg', this)">🤍</button>
-              <img src="adolescente/Granilite Rose e Tiffany (2).jpg" alt="Granilite Rose e Tiffany (2)" onclick="abrirModal('adolescente/Granilite Rose e Tiffany (2).jpg')">
-              <span>Granilite Rose e Tiffany (2)</span>
+              <img src="adolescente/Granilite Rose e Tiffany (2).jpg" alt="Granilite Rose e Tiffany" onclick="abrirModal('adolescente/Granilite Rose e Tiffany (2).jpg')">
+              <span>Granilite Rose e Tiffany</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="adolescente/Granilite Rose e Tiffany (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('adolescente/Granilite Rose e Tiffany (STILL).jpg', this)">🤍</button>
@@ -613,8 +613,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="adolescente/Granilite Rose e Tiffany 02.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('adolescente/Granilite Rose e Tiffany 02.jpg', this)">🤍</button>
-              <img src="adolescente/Granilite Rose e Tiffany 02.jpg" alt="Granilite Rose e Tiffany 02" onclick="abrirModal('adolescente/Granilite Rose e Tiffany 02.jpg')">
-              <span>Granilite Rose e Tiffany 02</span>
+              <img src="adolescente/Granilite Rose e Tiffany 02.jpg" alt="Granilite Rose e Tiffany" onclick="abrirModal('adolescente/Granilite Rose e Tiffany 02.jpg')">
+              <span>Granilite Rose e Tiffany</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="adolescente/Granilite Rose e Tiffany.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('adolescente/Granilite Rose e Tiffany.jpg', this)">🤍</button>
@@ -623,8 +623,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="adolescente/Granilite Rose Gold (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('adolescente/Granilite Rose Gold (2).jpg', this)">🤍</button>
-              <img src="adolescente/Granilite Rose Gold (2).jpg" alt="Granilite Rose Gold (2)" onclick="abrirModal('adolescente/Granilite Rose Gold (2).jpg')">
-              <span>Granilite Rose Gold (2)</span>
+              <img src="adolescente/Granilite Rose Gold (2).jpg" alt="Granilite Rose Gold" onclick="abrirModal('adolescente/Granilite Rose Gold (2).jpg')">
+              <span>Granilite Rose Gold</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="adolescente/Granilite Rose Gold (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('adolescente/Granilite Rose Gold (STILL).jpg', this)">🤍</button>
@@ -633,8 +633,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="adolescente/Granilite Rose Gold 02.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('adolescente/Granilite Rose Gold 02.jpg', this)">🤍</button>
-              <img src="adolescente/Granilite Rose Gold 02.jpg" alt="Granilite Rose Gold 02" onclick="abrirModal('adolescente/Granilite Rose Gold 02.jpg')">
-              <span>Granilite Rose Gold 02</span>
+              <img src="adolescente/Granilite Rose Gold 02.jpg" alt="Granilite Rose Gold" onclick="abrirModal('adolescente/Granilite Rose Gold 02.jpg')">
+              <span>Granilite Rose Gold</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="adolescente/Granilite Rose Gold.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('adolescente/Granilite Rose Gold.jpg', this)">🤍</button>
@@ -643,8 +643,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="adolescente/Granilite Verde (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('adolescente/Granilite Verde (2).jpg', this)">🤍</button>
-              <img src="adolescente/Granilite Verde (2).jpg" alt="Granilite Verde (2)" onclick="abrirModal('adolescente/Granilite Verde (2).jpg')">
-              <span>Granilite Verde (2)</span>
+              <img src="adolescente/Granilite Verde (2).jpg" alt="Granilite Verde" onclick="abrirModal('adolescente/Granilite Verde (2).jpg')">
+              <span>Granilite Verde</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="adolescente/Granilite Verde (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('adolescente/Granilite Verde (STILL).jpg', this)">🤍</button>
@@ -708,8 +708,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="adolescente/Lets Dance (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('adolescente/Lets Dance (2).jpg', this)">🤍</button>
-              <img src="adolescente/Lets Dance (2).jpg" alt="Lets Dance (2)" onclick="abrirModal('adolescente/Lets Dance (2).jpg')">
-              <span>Lets Dance (2)</span>
+              <img src="adolescente/Lets Dance (2).jpg" alt="Lets Dance" onclick="abrirModal('adolescente/Lets Dance (2).jpg')">
+              <span>Lets Dance</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="adolescente/Lets dance (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('adolescente/Lets dance (STILL).jpg', this)">🤍</button>
@@ -763,8 +763,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="adolescente/Paisagem Mata Colors 2.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('adolescente/Paisagem Mata Colors 2.jpg', this)">🤍</button>
-              <img src="adolescente/Paisagem Mata Colors 2.jpg" alt="Paisagem Mata Colors 2" onclick="abrirModal('adolescente/Paisagem Mata Colors 2.jpg')">
-              <span>Paisagem Mata Colors 2</span>
+              <img src="adolescente/Paisagem Mata Colors 2.jpg" alt="Paisagem Mata Colors" onclick="abrirModal('adolescente/Paisagem Mata Colors 2.jpg')">
+              <span>Paisagem Mata Colors</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="adolescente/Paisagem Mata Colors.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('adolescente/Paisagem Mata Colors.jpg', this)">🤍</button>
@@ -788,13 +788,13 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="adolescente/Plantas Clean 2 (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('adolescente/Plantas Clean 2 (2).jpg', this)">🤍</button>
-              <img src="adolescente/Plantas Clean 2 (2).jpg" alt="Plantas Clean 2 (2)" onclick="abrirModal('adolescente/Plantas Clean 2 (2).jpg')">
-              <span>Plantas Clean 2 (2)</span>
+              <img src="adolescente/Plantas Clean 2 (2).jpg" alt="Plantas Clean 2" onclick="abrirModal('adolescente/Plantas Clean 2 (2).jpg')">
+              <span>Plantas Clean 2</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="adolescente/Plantas Clean 2.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('adolescente/Plantas Clean 2.jpg', this)">🤍</button>
-              <img src="adolescente/Plantas Clean 2.jpg" alt="Plantas Clean 2" onclick="abrirModal('adolescente/Plantas Clean 2.jpg')">
-              <span>Plantas Clean 2</span>
+              <img src="adolescente/Plantas Clean 2.jpg" alt="Plantas Clean" onclick="abrirModal('adolescente/Plantas Clean 2.jpg')">
+              <span>Plantas Clean</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="adolescente/Plantas Clean.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('adolescente/Plantas Clean.jpg', this)">🤍</button>
@@ -803,8 +803,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="adolescente/Raminhos Aquarela (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('adolescente/Raminhos Aquarela (2).jpg', this)">🤍</button>
-              <img src="adolescente/Raminhos Aquarela (2).jpg" alt="Raminhos Aquarela (2)" onclick="abrirModal('adolescente/Raminhos Aquarela (2).jpg')">
-              <span>Raminhos Aquarela (2)</span>
+              <img src="adolescente/Raminhos Aquarela (2).jpg" alt="Raminhos Aquarela" onclick="abrirModal('adolescente/Raminhos Aquarela (2).jpg')">
+              <span>Raminhos Aquarela</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="adolescente/Raminhos Aquarela (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('adolescente/Raminhos Aquarela (STILL).jpg', this)">🤍</button>
@@ -813,8 +813,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="adolescente/Raminhos Aquarela 2.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('adolescente/Raminhos Aquarela 2.jpg', this)">🤍</button>
-              <img src="adolescente/Raminhos Aquarela 2.jpg" alt="Raminhos Aquarela 2" onclick="abrirModal('adolescente/Raminhos Aquarela 2.jpg')">
-              <span>Raminhos Aquarela 2</span>
+              <img src="adolescente/Raminhos Aquarela 2.jpg" alt="Raminhos Aquarela" onclick="abrirModal('adolescente/Raminhos Aquarela 2.jpg')">
+              <span>Raminhos Aquarela</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="adolescente/Raminhos Aquarela.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('adolescente/Raminhos Aquarela.jpg', this)">🤍</button>

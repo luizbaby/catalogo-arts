@@ -12,20 +12,20 @@
       top: 0;
       background: white;
       display: flex;
+      flex-wrap: wrap;
       justify-content: space-between;
       align-items: center;
       padding: 10px 20px;
+      gap: 10px;
       box-shadow: 0 2px 5px rgba(0,0,0,0.1);
       z-index: 1000;
     }
-    .top-bar h1 { font-size: 18px; margin: 0; }
     .btn {
       background: #01b9b5;
       color: white;
       text-decoration: none;
       padding: 8px 14px;
       border-radius: 6px;
-      margin-left: 10px;
       font-size: 14px;
       cursor: pointer;
     }
@@ -88,23 +88,23 @@
 <body>
 <div class="top-bar">
   <div>
-    <a href="index.html" class="btn">&larr; Voltar</a>
+    <a href="https://catalogo.artspapeisdeparede.com.br/index.html" class="btn">&larr; Voltar</a>
     <button class="btn" onclick="baixarSelecionadas()">📥 Baixar selecionadas</button>
   </div>
   <h1>Xadrez</h1>
-  <a href="https://luizbaby.github.io/catalogo-arts/favoritos.html" class="btn">⭐ Ver favoritos</a>
+  <a href="https://catalogo.artspapeisdeparede.com.br/favoritos.html" class="btn">⭐ Ver favoritos</a>
 </div>
 <div class="grid">
 <div class="card">
               <input type="checkbox" class="checkbox-select" value="xadrez/Xadrez Amarelo (1).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('xadrez/Xadrez Amarelo (1).jpg', this)">🤍</button>
-              <img src="xadrez/Xadrez Amarelo (1).jpg" alt="Xadrez Amarelo (1)" onclick="abrirModal('xadrez/Xadrez Amarelo (1).jpg')">
-              <span>Xadrez Amarelo (1)</span>
+              <img src="xadrez/Xadrez Amarelo (1).jpg" alt="Xadrez Amarelo" onclick="abrirModal('xadrez/Xadrez Amarelo (1).jpg')">
+              <span>Xadrez Amarelo</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="xadrez/Xadrez Amarelo (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('xadrez/Xadrez Amarelo (2).jpg', this)">🤍</button>
-              <img src="xadrez/Xadrez Amarelo (2).jpg" alt="Xadrez Amarelo (2)" onclick="abrirModal('xadrez/Xadrez Amarelo (2).jpg')">
-              <span>Xadrez Amarelo (2)</span>
+              <img src="xadrez/Xadrez Amarelo (2).jpg" alt="Xadrez Amarelo" onclick="abrirModal('xadrez/Xadrez Amarelo (2).jpg')">
+              <span>Xadrez Amarelo</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="xadrez/Xadrez Amarelo (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('xadrez/Xadrez Amarelo (STILL).jpg', this)">🤍</button>
@@ -143,13 +143,13 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="xadrez/Xadrez Azul Marinho (1).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('xadrez/Xadrez Azul Marinho (1).jpg', this)">🤍</button>
-              <img src="xadrez/Xadrez Azul Marinho (1).jpg" alt="Xadrez Azul Marinho (1)" onclick="abrirModal('xadrez/Xadrez Azul Marinho (1).jpg')">
-              <span>Xadrez Azul Marinho (1)</span>
+              <img src="xadrez/Xadrez Azul Marinho (1).jpg" alt="Xadrez Azul Marinho" onclick="abrirModal('xadrez/Xadrez Azul Marinho (1).jpg')">
+              <span>Xadrez Azul Marinho</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="xadrez/Xadrez Azul Marinho (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('xadrez/Xadrez Azul Marinho (2).jpg', this)">🤍</button>
-              <img src="xadrez/Xadrez Azul Marinho (2).jpg" alt="Xadrez Azul Marinho (2)" onclick="abrirModal('xadrez/Xadrez Azul Marinho (2).jpg')">
-              <span>Xadrez Azul Marinho (2)</span>
+              <img src="xadrez/Xadrez Azul Marinho (2).jpg" alt="Xadrez Azul Marinho" onclick="abrirModal('xadrez/Xadrez Azul Marinho (2).jpg')">
+              <span>Xadrez Azul Marinho</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="xadrez/Xadrez Azul Marinho (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('xadrez/Xadrez Azul Marinho (STILL).jpg', this)">🤍</button>
@@ -328,13 +328,13 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="xadrez/Xadrez Rosa (1).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('xadrez/Xadrez Rosa (1).jpg', this)">🤍</button>
-              <img src="xadrez/Xadrez Rosa (1).jpg" alt="Xadrez Rosa (1)" onclick="abrirModal('xadrez/Xadrez Rosa (1).jpg')">
-              <span>Xadrez Rosa (1)</span>
+              <img src="xadrez/Xadrez Rosa (1).jpg" alt="Xadrez Rosa" onclick="abrirModal('xadrez/Xadrez Rosa (1).jpg')">
+              <span>Xadrez Rosa</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="xadrez/Xadrez Rosa (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('xadrez/Xadrez Rosa (2).jpg', this)">🤍</button>
-              <img src="xadrez/Xadrez Rosa (2).jpg" alt="Xadrez Rosa (2)" onclick="abrirModal('xadrez/Xadrez Rosa (2).jpg')">
-              <span>Xadrez Rosa (2)</span>
+              <img src="xadrez/Xadrez Rosa (2).jpg" alt="Xadrez Rosa" onclick="abrirModal('xadrez/Xadrez Rosa (2).jpg')">
+              <span>Xadrez Rosa</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="xadrez/Xadrez Rosa (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('xadrez/Xadrez Rosa (STILL).jpg', this)">🤍</button>
@@ -353,8 +353,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="xadrez/Xadrez Sarja Azul 2.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('xadrez/Xadrez Sarja Azul 2.jpg', this)">🤍</button>
-              <img src="xadrez/Xadrez Sarja Azul 2.jpg" alt="Xadrez Sarja Azul 2" onclick="abrirModal('xadrez/Xadrez Sarja Azul 2.jpg')">
-              <span>Xadrez Sarja Azul 2</span>
+              <img src="xadrez/Xadrez Sarja Azul 2.jpg" alt="Xadrez Sarja Azul" onclick="abrirModal('xadrez/Xadrez Sarja Azul 2.jpg')">
+              <span>Xadrez Sarja Azul</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="xadrez/Xadrez Sarja Azul.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('xadrez/Xadrez Sarja Azul.jpg', this)">🤍</button>
@@ -368,8 +368,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="xadrez/Xadrez Sarja Rosa 2.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('xadrez/Xadrez Sarja Rosa 2.jpg', this)">🤍</button>
-              <img src="xadrez/Xadrez Sarja Rosa 2.jpg" alt="Xadrez Sarja Rosa 2" onclick="abrirModal('xadrez/Xadrez Sarja Rosa 2.jpg')">
-              <span>Xadrez Sarja Rosa 2</span>
+              <img src="xadrez/Xadrez Sarja Rosa 2.jpg" alt="Xadrez Sarja Rosa" onclick="abrirModal('xadrez/Xadrez Sarja Rosa 2.jpg')">
+              <span>Xadrez Sarja Rosa</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="xadrez/Xadrez Sarja Rosa.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('xadrez/Xadrez Sarja Rosa.jpg', this)">🤍</button>
@@ -383,8 +383,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="xadrez/Xadrez Sarja Roxo 2.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('xadrez/Xadrez Sarja Roxo 2.jpg', this)">🤍</button>
-              <img src="xadrez/Xadrez Sarja Roxo 2.jpg" alt="Xadrez Sarja Roxo 2" onclick="abrirModal('xadrez/Xadrez Sarja Roxo 2.jpg')">
-              <span>Xadrez Sarja Roxo 2</span>
+              <img src="xadrez/Xadrez Sarja Roxo 2.jpg" alt="Xadrez Sarja Roxo" onclick="abrirModal('xadrez/Xadrez Sarja Roxo 2.jpg')">
+              <span>Xadrez Sarja Roxo</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="xadrez/Xadrez Sarja Roxo.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('xadrez/Xadrez Sarja Roxo.jpg', this)">🤍</button>
@@ -393,13 +393,13 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="xadrez/Xadrez Verde Agua (1).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('xadrez/Xadrez Verde Agua (1).jpg', this)">🤍</button>
-              <img src="xadrez/Xadrez Verde Agua (1).jpg" alt="Xadrez Verde Agua (1)" onclick="abrirModal('xadrez/Xadrez Verde Agua (1).jpg')">
-              <span>Xadrez Verde Agua (1)</span>
+              <img src="xadrez/Xadrez Verde Agua (1).jpg" alt="Xadrez Verde Agua" onclick="abrirModal('xadrez/Xadrez Verde Agua (1).jpg')">
+              <span>Xadrez Verde Agua</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="xadrez/Xadrez Verde Agua (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('xadrez/Xadrez Verde Agua (2).jpg', this)">🤍</button>
-              <img src="xadrez/Xadrez Verde Agua (2).jpg" alt="Xadrez Verde Agua (2)" onclick="abrirModal('xadrez/Xadrez Verde Agua (2).jpg')">
-              <span>Xadrez Verde Agua (2)</span>
+              <img src="xadrez/Xadrez Verde Agua (2).jpg" alt="Xadrez Verde Agua" onclick="abrirModal('xadrez/Xadrez Verde Agua (2).jpg')">
+              <span>Xadrez Verde Agua</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="xadrez/Xadrez Verde Agua (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('xadrez/Xadrez Verde Agua (STILL).jpg', this)">🤍</button>
@@ -413,13 +413,13 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="xadrez/Xadrez Vermelho (1).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('xadrez/Xadrez Vermelho (1).jpg', this)">🤍</button>
-              <img src="xadrez/Xadrez Vermelho (1).jpg" alt="Xadrez Vermelho (1)" onclick="abrirModal('xadrez/Xadrez Vermelho (1).jpg')">
-              <span>Xadrez Vermelho (1)</span>
+              <img src="xadrez/Xadrez Vermelho (1).jpg" alt="Xadrez Vermelho" onclick="abrirModal('xadrez/Xadrez Vermelho (1).jpg')">
+              <span>Xadrez Vermelho</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="xadrez/Xadrez Vermelho (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('xadrez/Xadrez Vermelho (2).jpg', this)">🤍</button>
-              <img src="xadrez/Xadrez Vermelho (2).jpg" alt="Xadrez Vermelho (2)" onclick="abrirModal('xadrez/Xadrez Vermelho (2).jpg')">
-              <span>Xadrez Vermelho (2)</span>
+              <img src="xadrez/Xadrez Vermelho (2).jpg" alt="Xadrez Vermelho" onclick="abrirModal('xadrez/Xadrez Vermelho (2).jpg')">
+              <span>Xadrez Vermelho</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="xadrez/Xadrez Vermelho (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('xadrez/Xadrez Vermelho (STILL).jpg', this)">🤍</button>

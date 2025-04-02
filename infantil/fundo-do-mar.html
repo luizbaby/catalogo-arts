@@ -12,20 +12,20 @@
       top: 0;
       background: white;
       display: flex;
+      flex-wrap: wrap;
       justify-content: space-between;
       align-items: center;
       padding: 10px 20px;
+      gap: 10px;
       box-shadow: 0 2px 5px rgba(0,0,0,0.1);
       z-index: 1000;
     }
-    .top-bar h1 { font-size: 18px; margin: 0; }
     .btn {
       background: #01b9b5;
       color: white;
       text-decoration: none;
       padding: 8px 14px;
       border-radius: 6px;
-      margin-left: 10px;
       font-size: 14px;
       cursor: pointer;
     }
@@ -88,11 +88,11 @@
 <body>
 <div class="top-bar">
   <div>
-    <a href="index.html" class="btn">&larr; Voltar</a>
+    <a href="https://catalogo.artspapeisdeparede.com.br/index.html" class="btn">&larr; Voltar</a>
     <button class="btn" onclick="baixarSelecionadas()">📥 Baixar selecionadas</button>
   </div>
   <h1>Fundo do Mar</h1>
-  <a href="https://luizbaby.github.io/catalogo-arts/favoritos.html" class="btn">⭐ Ver favoritos</a>
+  <a href="https://catalogo.artspapeisdeparede.com.br/favoritos.html" class="btn">⭐ Ver favoritos</a>
 </div>
 <div class="grid">
 <div class="card">
@@ -108,8 +108,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="fundo-do-mar/Fundo do Mar (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('fundo-do-mar/Fundo do Mar (2).jpg', this)">🤍</button>
-              <img src="fundo-do-mar/Fundo do Mar (2).jpg" alt="Fundo do Mar (2)" onclick="abrirModal('fundo-do-mar/Fundo do Mar (2).jpg')">
-              <span>Fundo do Mar (2)</span>
+              <img src="fundo-do-mar/Fundo do Mar (2).jpg" alt="Fundo do Mar" onclick="abrirModal('fundo-do-mar/Fundo do Mar (2).jpg')">
+              <span>Fundo do Mar</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="fundo-do-mar/Fundo do Mar (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('fundo-do-mar/Fundo do Mar (STILL).jpg', this)">🤍</button>
@@ -118,8 +118,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="fundo-do-mar/Fundo do Mar 2.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('fundo-do-mar/Fundo do Mar 2.jpg', this)">🤍</button>
-              <img src="fundo-do-mar/Fundo do Mar 2.jpg" alt="Fundo do Mar 2" onclick="abrirModal('fundo-do-mar/Fundo do Mar 2.jpg')">
-              <span>Fundo do Mar 2</span>
+              <img src="fundo-do-mar/Fundo do Mar 2.jpg" alt="Fundo do Mar" onclick="abrirModal('fundo-do-mar/Fundo do Mar 2.jpg')">
+              <span>Fundo do Mar</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="fundo-do-mar/Fundo do Mar Baby Cute (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('fundo-do-mar/Fundo do Mar Baby Cute (STILL).jpg', this)">🤍</button>
@@ -128,8 +128,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="fundo-do-mar/Fundo do Mar Baby Cute 2.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('fundo-do-mar/Fundo do Mar Baby Cute 2.jpg', this)">🤍</button>
-              <img src="fundo-do-mar/Fundo do Mar Baby Cute 2.jpg" alt="Fundo do Mar Baby Cute 2" onclick="abrirModal('fundo-do-mar/Fundo do Mar Baby Cute 2.jpg')">
-              <span>Fundo do Mar Baby Cute 2</span>
+              <img src="fundo-do-mar/Fundo do Mar Baby Cute 2.jpg" alt="Fundo do Mar Baby Cute" onclick="abrirModal('fundo-do-mar/Fundo do Mar Baby Cute 2.jpg')">
+              <span>Fundo do Mar Baby Cute</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="fundo-do-mar/Fundo do Mar Baby Cute.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('fundo-do-mar/Fundo do Mar Baby Cute.jpg', this)">🤍</button>

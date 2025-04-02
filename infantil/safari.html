@@ -12,20 +12,20 @@
       top: 0;
       background: white;
       display: flex;
+      flex-wrap: wrap;
       justify-content: space-between;
       align-items: center;
       padding: 10px 20px;
+      gap: 10px;
       box-shadow: 0 2px 5px rgba(0,0,0,0.1);
       z-index: 1000;
     }
-    .top-bar h1 { font-size: 18px; margin: 0; }
     .btn {
       background: #01b9b5;
       color: white;
       text-decoration: none;
       padding: 8px 14px;
       border-radius: 6px;
-      margin-left: 10px;
       font-size: 14px;
       cursor: pointer;
     }
@@ -88,11 +88,11 @@
 <body>
 <div class="top-bar">
   <div>
-    <a href="index.html" class="btn">&larr; Voltar</a>
+    <a href="https://catalogo.artspapeisdeparede.com.br/index.html" class="btn">&larr; Voltar</a>
     <button class="btn" onclick="baixarSelecionadas()">📥 Baixar selecionadas</button>
   </div>
   <h1>Safari</h1>
-  <a href="https://luizbaby.github.io/catalogo-arts/favoritos.html" class="btn">⭐ Ver favoritos</a>
+  <a href="https://catalogo.artspapeisdeparede.com.br/favoritos.html" class="btn">⭐ Ver favoritos</a>
 </div>
 <div class="grid">
 <div class="card">
@@ -123,8 +123,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="safari/Girafinha e a Turma da Bicicleta 2.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('safari/Girafinha e a Turma da Bicicleta 2.jpg', this)">🤍</button>
-              <img src="safari/Girafinha e a Turma da Bicicleta 2.jpg" alt="Girafinha e a Turma da Bicicleta 2" onclick="abrirModal('safari/Girafinha e a Turma da Bicicleta 2.jpg')">
-              <span>Girafinha e a Turma da Bicicleta 2</span>
+              <img src="safari/Girafinha e a Turma da Bicicleta 2.jpg" alt="Girafinha e a Turma da Bicicleta" onclick="abrirModal('safari/Girafinha e a Turma da Bicicleta 2.jpg')">
+              <span>Girafinha e a Turma da Bicicleta</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="safari/Girafinha e a Turma da Bicicleta.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('safari/Girafinha e a Turma da Bicicleta.jpg', this)">🤍</button>
@@ -148,8 +148,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="safari/Safari Aquarela 2.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('safari/Safari Aquarela 2.jpg', this)">🤍</button>
-              <img src="safari/Safari Aquarela 2.jpg" alt="Safari Aquarela 2" onclick="abrirModal('safari/Safari Aquarela 2.jpg')">
-              <span>Safari Aquarela 2</span>
+              <img src="safari/Safari Aquarela 2.jpg" alt="Safari Aquarela" onclick="abrirModal('safari/Safari Aquarela 2.jpg')">
+              <span>Safari Aquarela</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="safari/Safari Aquarela.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('safari/Safari Aquarela.jpg', this)">🤍</button>
@@ -168,8 +168,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="safari/Safari Bebê 2.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('safari/Safari Bebê 2.jpg', this)">🤍</button>
-              <img src="safari/Safari Bebê 2.jpg" alt="Safari Bebê 2" onclick="abrirModal('safari/Safari Bebê 2.jpg')">
-              <span>Safari Bebê 2</span>
+              <img src="safari/Safari Bebê 2.jpg" alt="Safari Bebê" onclick="abrirModal('safari/Safari Bebê 2.jpg')">
+              <span>Safari Bebê</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="safari/Safari Bebê Fofinho (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('safari/Safari Bebê Fofinho (STILL).jpg', this)">🤍</button>
@@ -193,8 +193,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="safari/Safari Bichinhos na Floresta 2.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('safari/Safari Bichinhos na Floresta 2.jpg', this)">🤍</button>
-              <img src="safari/Safari Bichinhos na Floresta 2.jpg" alt="Safari Bichinhos na Floresta 2" onclick="abrirModal('safari/Safari Bichinhos na Floresta 2.jpg')">
-              <span>Safari Bichinhos na Floresta 2</span>
+              <img src="safari/Safari Bichinhos na Floresta 2.jpg" alt="Safari Bichinhos na Floresta" onclick="abrirModal('safari/Safari Bichinhos na Floresta 2.jpg')">
+              <span>Safari Bichinhos na Floresta</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="safari/Safari Bichinhos na Floresta.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('safari/Safari Bichinhos na Floresta.jpg', this)">🤍</button>
@@ -248,8 +248,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="safari/Safari Trenzinho de Bike 2.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('safari/Safari Trenzinho de Bike 2.jpg', this)">🤍</button>
-              <img src="safari/Safari Trenzinho de Bike 2.jpg" alt="Safari Trenzinho de Bike 2" onclick="abrirModal('safari/Safari Trenzinho de Bike 2.jpg')">
-              <span>Safari Trenzinho de Bike 2</span>
+              <img src="safari/Safari Trenzinho de Bike 2.jpg" alt="Safari Trenzinho de Bike" onclick="abrirModal('safari/Safari Trenzinho de Bike 2.jpg')">
+              <span>Safari Trenzinho de Bike</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="safari/Safari Trenzinho de Bike.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('safari/Safari Trenzinho de Bike.jpg', this)">🤍</button>
@@ -273,8 +273,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="safari/Savana Allover 02.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('safari/Savana Allover 02.jpg', this)">🤍</button>
-              <img src="safari/Savana Allover 02.jpg" alt="Savana Allover 02" onclick="abrirModal('safari/Savana Allover 02.jpg')">
-              <span>Savana Allover 02</span>
+              <img src="safari/Savana Allover 02.jpg" alt="Savana Allover" onclick="abrirModal('safari/Savana Allover 02.jpg')">
+              <span>Savana Allover</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="safari/Savana Allover.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('safari/Savana Allover.jpg', this)">🤍</button>
@@ -293,8 +293,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="safari/Selva Aquarela (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('safari/Selva Aquarela (2).jpg', this)">🤍</button>
-              <img src="safari/Selva Aquarela (2).jpg" alt="Selva Aquarela (2)" onclick="abrirModal('safari/Selva Aquarela (2).jpg')">
-              <span>Selva Aquarela (2)</span>
+              <img src="safari/Selva Aquarela (2).jpg" alt="Selva Aquarela" onclick="abrirModal('safari/Selva Aquarela (2).jpg')">
+              <span>Selva Aquarela</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="safari/Selva Aquarela (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('safari/Selva Aquarela (STILL).jpg', this)">🤍</button>

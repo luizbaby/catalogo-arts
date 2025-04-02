@@ -12,20 +12,20 @@
       top: 0;
       background: white;
       display: flex;
+      flex-wrap: wrap;
       justify-content: space-between;
       align-items: center;
       padding: 10px 20px;
+      gap: 10px;
       box-shadow: 0 2px 5px rgba(0,0,0,0.1);
       z-index: 1000;
     }
-    .top-bar h1 { font-size: 18px; margin: 0; }
     .btn {
       background: #01b9b5;
       color: white;
       text-decoration: none;
       padding: 8px 14px;
       border-radius: 6px;
-      margin-left: 10px;
       font-size: 14px;
       cursor: pointer;
     }
@@ -88,11 +88,11 @@
 <body>
 <div class="top-bar">
   <div>
-    <a href="index.html" class="btn">&larr; Voltar</a>
+    <a href="https://catalogo.artspapeisdeparede.com.br/index.html" class="btn">&larr; Voltar</a>
     <button class="btn" onclick="baixarSelecionadas()">📥 Baixar selecionadas</button>
   </div>
   <h1>Bailarina</h1>
-  <a href="https://luizbaby.github.io/catalogo-arts/favoritos.html" class="btn">⭐ Ver favoritos</a>
+  <a href="https://catalogo.artspapeisdeparede.com.br/favoritos.html" class="btn">⭐ Ver favoritos</a>
 </div>
 <div class="grid">
 <div class="card">
@@ -103,8 +103,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="bailarina/Bailarinas (1).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('bailarina/Bailarinas (1).jpg', this)">🤍</button>
-              <img src="bailarina/Bailarinas (1).jpg" alt="Bailarinas (1)" onclick="abrirModal('bailarina/Bailarinas (1).jpg')">
-              <span>Bailarinas (1)</span>
+              <img src="bailarina/Bailarinas (1).jpg" alt="Bailarinas" onclick="abrirModal('bailarina/Bailarinas (1).jpg')">
+              <span>Bailarinas</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="bailarina/Bailarinas (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('bailarina/Bailarinas (STILL).jpg', this)">🤍</button>

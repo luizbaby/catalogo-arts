@@ -12,20 +12,20 @@
       top: 0;
       background: white;
       display: flex;
+      flex-wrap: wrap;
       justify-content: space-between;
       align-items: center;
       padding: 10px 20px;
+      gap: 10px;
       box-shadow: 0 2px 5px rgba(0,0,0,0.1);
       z-index: 1000;
     }
-    .top-bar h1 { font-size: 18px; margin: 0; }
     .btn {
       background: #01b9b5;
       color: white;
       text-decoration: none;
       padding: 8px 14px;
       border-radius: 6px;
-      margin-left: 10px;
       font-size: 14px;
       cursor: pointer;
     }
@@ -88,11 +88,11 @@
 <body>
 <div class="top-bar">
   <div>
-    <a href="index.html" class="btn">&larr; Voltar</a>
+    <a href="https://catalogo.artspapeisdeparede.com.br/index.html" class="btn">&larr; Voltar</a>
     <button class="btn" onclick="baixarSelecionadas()">📥 Baixar selecionadas</button>
   </div>
   <h1>Cimento Queimado</h1>
-  <a href="https://luizbaby.github.io/catalogo-arts/favoritos.html" class="btn">⭐ Ver favoritos</a>
+  <a href="https://catalogo.artspapeisdeparede.com.br/favoritos.html" class="btn">⭐ Ver favoritos</a>
 </div>
 <div class="grid">
 <div class="card">
@@ -108,8 +108,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="cimento-queimado/Cimento Queimado (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('cimento-queimado/Cimento Queimado (2).jpg', this)">🤍</button>
-              <img src="cimento-queimado/Cimento Queimado (2).jpg" alt="Cimento Queimado (2)" onclick="abrirModal('cimento-queimado/Cimento Queimado (2).jpg')">
-              <span>Cimento Queimado (2)</span>
+              <img src="cimento-queimado/Cimento Queimado (2).jpg" alt="Cimento Queimado" onclick="abrirModal('cimento-queimado/Cimento Queimado (2).jpg')">
+              <span>Cimento Queimado</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="cimento-queimado/Cimento Queimado (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('cimento-queimado/Cimento Queimado (STILL).jpg', this)">🤍</button>
@@ -118,13 +118,13 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="cimento-queimado/Cimento Queimado 2.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('cimento-queimado/Cimento Queimado 2.jpg', this)">🤍</button>
-              <img src="cimento-queimado/Cimento Queimado 2.jpg" alt="Cimento Queimado 2" onclick="abrirModal('cimento-queimado/Cimento Queimado 2.jpg')">
-              <span>Cimento Queimado 2</span>
+              <img src="cimento-queimado/Cimento Queimado 2.jpg" alt="Cimento Queimado" onclick="abrirModal('cimento-queimado/Cimento Queimado 2.jpg')">
+              <span>Cimento Queimado</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="cimento-queimado/Cimento Queimado Amarelo (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('cimento-queimado/Cimento Queimado Amarelo (2).jpg', this)">🤍</button>
-              <img src="cimento-queimado/Cimento Queimado Amarelo (2).jpg" alt="Cimento Queimado Amarelo (2)" onclick="abrirModal('cimento-queimado/Cimento Queimado Amarelo (2).jpg')">
-              <span>Cimento Queimado Amarelo (2)</span>
+              <img src="cimento-queimado/Cimento Queimado Amarelo (2).jpg" alt="Cimento Queimado Amarelo" onclick="abrirModal('cimento-queimado/Cimento Queimado Amarelo (2).jpg')">
+              <span>Cimento Queimado Amarelo</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="cimento-queimado/Cimento Queimado Amarelo (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('cimento-queimado/Cimento Queimado Amarelo (STILL).jpg', this)">🤍</button>
@@ -133,8 +133,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="cimento-queimado/Cimento Queimado Amarelo 2.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('cimento-queimado/Cimento Queimado Amarelo 2.jpg', this)">🤍</button>
-              <img src="cimento-queimado/Cimento Queimado Amarelo 2.jpg" alt="Cimento Queimado Amarelo 2" onclick="abrirModal('cimento-queimado/Cimento Queimado Amarelo 2.jpg')">
-              <span>Cimento Queimado Amarelo 2</span>
+              <img src="cimento-queimado/Cimento Queimado Amarelo 2.jpg" alt="Cimento Queimado Amarelo" onclick="abrirModal('cimento-queimado/Cimento Queimado Amarelo 2.jpg')">
+              <span>Cimento Queimado Amarelo</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="cimento-queimado/Cimento Queimado Amarelo.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('cimento-queimado/Cimento Queimado Amarelo.jpg', this)">🤍</button>
@@ -143,8 +143,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="cimento-queimado/Cimento Queimado Areia (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('cimento-queimado/Cimento Queimado Areia (2).jpg', this)">🤍</button>
-              <img src="cimento-queimado/Cimento Queimado Areia (2).jpg" alt="Cimento Queimado Areia (2)" onclick="abrirModal('cimento-queimado/Cimento Queimado Areia (2).jpg')">
-              <span>Cimento Queimado Areia (2)</span>
+              <img src="cimento-queimado/Cimento Queimado Areia (2).jpg" alt="Cimento Queimado Areia" onclick="abrirModal('cimento-queimado/Cimento Queimado Areia (2).jpg')">
+              <span>Cimento Queimado Areia</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="cimento-queimado/Cimento Queimado Areia (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('cimento-queimado/Cimento Queimado Areia (STILL).jpg', this)">🤍</button>
@@ -158,8 +158,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="cimento-queimado/Cimento Queimado Azul (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('cimento-queimado/Cimento Queimado Azul (2).jpg', this)">🤍</button>
-              <img src="cimento-queimado/Cimento Queimado Azul (2).jpg" alt="Cimento Queimado Azul (2)" onclick="abrirModal('cimento-queimado/Cimento Queimado Azul (2).jpg')">
-              <span>Cimento Queimado Azul (2)</span>
+              <img src="cimento-queimado/Cimento Queimado Azul (2).jpg" alt="Cimento Queimado Azul" onclick="abrirModal('cimento-queimado/Cimento Queimado Azul (2).jpg')">
+              <span>Cimento Queimado Azul</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="cimento-queimado/Cimento Queimado Azul (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('cimento-queimado/Cimento Queimado Azul (STILL).jpg', this)">🤍</button>
@@ -173,8 +173,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="cimento-queimado/Cimento Queimado Escuro (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('cimento-queimado/Cimento Queimado Escuro (2).jpg', this)">🤍</button>
-              <img src="cimento-queimado/Cimento Queimado Escuro (2).jpg" alt="Cimento Queimado Escuro (2)" onclick="abrirModal('cimento-queimado/Cimento Queimado Escuro (2).jpg')">
-              <span>Cimento Queimado Escuro (2)</span>
+              <img src="cimento-queimado/Cimento Queimado Escuro (2).jpg" alt="Cimento Queimado Escuro" onclick="abrirModal('cimento-queimado/Cimento Queimado Escuro (2).jpg')">
+              <span>Cimento Queimado Escuro</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="cimento-queimado/Cimento Queimado Escuro (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('cimento-queimado/Cimento Queimado Escuro (STILL).jpg', this)">🤍</button>
@@ -183,13 +183,13 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="cimento-queimado/CImento Queimado Escuro 2 (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('cimento-queimado/CImento Queimado Escuro 2 (2).jpg', this)">🤍</button>
-              <img src="cimento-queimado/CImento Queimado Escuro 2 (2).jpg" alt="CImento Queimado Escuro 2 (2)" onclick="abrirModal('cimento-queimado/CImento Queimado Escuro 2 (2).jpg')">
-              <span>CImento Queimado Escuro 2 (2)</span>
+              <img src="cimento-queimado/CImento Queimado Escuro 2 (2).jpg" alt="CImento Queimado Escuro 2" onclick="abrirModal('cimento-queimado/CImento Queimado Escuro 2 (2).jpg')">
+              <span>CImento Queimado Escuro 2</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="cimento-queimado/Cimento Queimado Escuro 2.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('cimento-queimado/Cimento Queimado Escuro 2.jpg', this)">🤍</button>
-              <img src="cimento-queimado/Cimento Queimado Escuro 2.jpg" alt="Cimento Queimado Escuro 2" onclick="abrirModal('cimento-queimado/Cimento Queimado Escuro 2.jpg')">
-              <span>Cimento Queimado Escuro 2</span>
+              <img src="cimento-queimado/Cimento Queimado Escuro 2.jpg" alt="Cimento Queimado Escuro" onclick="abrirModal('cimento-queimado/Cimento Queimado Escuro 2.jpg')">
+              <span>Cimento Queimado Escuro</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="cimento-queimado/Cimento Queimado Escuro.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('cimento-queimado/Cimento Queimado Escuro.jpg', this)">🤍</button>
@@ -198,8 +198,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="cimento-queimado/Cimento Queimado Nude (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('cimento-queimado/Cimento Queimado Nude (2).jpg', this)">🤍</button>
-              <img src="cimento-queimado/Cimento Queimado Nude (2).jpg" alt="Cimento Queimado Nude (2)" onclick="abrirModal('cimento-queimado/Cimento Queimado Nude (2).jpg')">
-              <span>Cimento Queimado Nude (2)</span>
+              <img src="cimento-queimado/Cimento Queimado Nude (2).jpg" alt="Cimento Queimado Nude" onclick="abrirModal('cimento-queimado/Cimento Queimado Nude (2).jpg')">
+              <span>Cimento Queimado Nude</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="cimento-queimado/Cimento Queimado Nude (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('cimento-queimado/Cimento Queimado Nude (STILL).jpg', this)">🤍</button>
@@ -213,8 +213,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="cimento-queimado/Cimento Queimado Rose (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('cimento-queimado/Cimento Queimado Rose (2).jpg', this)">🤍</button>
-              <img src="cimento-queimado/Cimento Queimado Rose (2).jpg" alt="Cimento Queimado Rose (2)" onclick="abrirModal('cimento-queimado/Cimento Queimado Rose (2).jpg')">
-              <span>Cimento Queimado Rose (2)</span>
+              <img src="cimento-queimado/Cimento Queimado Rose (2).jpg" alt="Cimento Queimado Rose" onclick="abrirModal('cimento-queimado/Cimento Queimado Rose (2).jpg')">
+              <span>Cimento Queimado Rose</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="cimento-queimado/Cimento Queimado Rose (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('cimento-queimado/Cimento Queimado Rose (STILL).jpg', this)">🤍</button>
@@ -223,8 +223,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="cimento-queimado/Cimento Queimado Rose 2.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('cimento-queimado/Cimento Queimado Rose 2.jpg', this)">🤍</button>
-              <img src="cimento-queimado/Cimento Queimado Rose 2.jpg" alt="Cimento Queimado Rose 2" onclick="abrirModal('cimento-queimado/Cimento Queimado Rose 2.jpg')">
-              <span>Cimento Queimado Rose 2</span>
+              <img src="cimento-queimado/Cimento Queimado Rose 2.jpg" alt="Cimento Queimado Rose" onclick="abrirModal('cimento-queimado/Cimento Queimado Rose 2.jpg')">
+              <span>Cimento Queimado Rose</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="cimento-queimado/Cimento Queimado Rose.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('cimento-queimado/Cimento Queimado Rose.jpg', this)">🤍</button>
@@ -243,8 +243,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="cimento-queimado/Cimento Queimado Verde Água (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('cimento-queimado/Cimento Queimado Verde Água (2).jpg', this)">🤍</button>
-              <img src="cimento-queimado/Cimento Queimado Verde Água (2).jpg" alt="Cimento Queimado Verde Água (2)" onclick="abrirModal('cimento-queimado/Cimento Queimado Verde Água (2).jpg')">
-              <span>Cimento Queimado Verde Água (2)</span>
+              <img src="cimento-queimado/Cimento Queimado Verde Água (2).jpg" alt="Cimento Queimado Verde Água" onclick="abrirModal('cimento-queimado/Cimento Queimado Verde Água (2).jpg')">
+              <span>Cimento Queimado Verde Água</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="cimento-queimado/Cimento Queimado Verde Água.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('cimento-queimado/Cimento Queimado Verde Água.jpg', this)">🤍</button>
@@ -258,13 +258,13 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="cimento-queimado/Concreto Aparente Textura (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('cimento-queimado/Concreto Aparente Textura (2).jpg', this)">🤍</button>
-              <img src="cimento-queimado/Concreto Aparente Textura (2).jpg" alt="Concreto Aparente Textura (2)" onclick="abrirModal('cimento-queimado/Concreto Aparente Textura (2).jpg')">
-              <span>Concreto Aparente Textura (2)</span>
+              <img src="cimento-queimado/Concreto Aparente Textura (2).jpg" alt="Concreto Aparente Textura" onclick="abrirModal('cimento-queimado/Concreto Aparente Textura (2).jpg')">
+              <span>Concreto Aparente Textura</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="cimento-queimado/Concreto Aparente Textura (3).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('cimento-queimado/Concreto Aparente Textura (3).jpg', this)">🤍</button>
-              <img src="cimento-queimado/Concreto Aparente Textura (3).jpg" alt="Concreto Aparente Textura (3)" onclick="abrirModal('cimento-queimado/Concreto Aparente Textura (3).jpg')">
-              <span>Concreto Aparente Textura (3)</span>
+              <img src="cimento-queimado/Concreto Aparente Textura (3).jpg" alt="Concreto Aparente Textura" onclick="abrirModal('cimento-queimado/Concreto Aparente Textura (3).jpg')">
+              <span>Concreto Aparente Textura</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="cimento-queimado/Concreto Aparente Textura (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('cimento-queimado/Concreto Aparente Textura (STILL).jpg', this)">🤍</button>
@@ -273,8 +273,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="cimento-queimado/Concreto Aparente Textura 2.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('cimento-queimado/Concreto Aparente Textura 2.jpg', this)">🤍</button>
-              <img src="cimento-queimado/Concreto Aparente Textura 2.jpg" alt="Concreto Aparente Textura 2" onclick="abrirModal('cimento-queimado/Concreto Aparente Textura 2.jpg')">
-              <span>Concreto Aparente Textura 2</span>
+              <img src="cimento-queimado/Concreto Aparente Textura 2.jpg" alt="Concreto Aparente Textura" onclick="abrirModal('cimento-queimado/Concreto Aparente Textura 2.jpg')">
+              <span>Concreto Aparente Textura</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="cimento-queimado/Concreto Aparente Textura.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('cimento-queimado/Concreto Aparente Textura.jpg', this)">🤍</button>
@@ -298,8 +298,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="cimento-queimado/Folhagem em Muro Rústico Areia 2.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('cimento-queimado/Folhagem em Muro Rústico Areia 2.jpg', this)">🤍</button>
-              <img src="cimento-queimado/Folhagem em Muro Rústico Areia 2.jpg" alt="Folhagem em Muro Rústico Areia 2" onclick="abrirModal('cimento-queimado/Folhagem em Muro Rústico Areia 2.jpg')">
-              <span>Folhagem em Muro Rústico Areia 2</span>
+              <img src="cimento-queimado/Folhagem em Muro Rústico Areia 2.jpg" alt="Folhagem em Muro Rústico Areia" onclick="abrirModal('cimento-queimado/Folhagem em Muro Rústico Areia 2.jpg')">
+              <span>Folhagem em Muro Rústico Areia</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="cimento-queimado/Folhagem em Muro Rústico Cinza (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('cimento-queimado/Folhagem em Muro Rústico Cinza (STILL).jpg', this)">🤍</button>
@@ -308,8 +308,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="cimento-queimado/Folhagem em Muro Rústico Cinza 2.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('cimento-queimado/Folhagem em Muro Rústico Cinza 2.jpg', this)">🤍</button>
-              <img src="cimento-queimado/Folhagem em Muro Rústico Cinza 2.jpg" alt="Folhagem em Muro Rústico Cinza 2" onclick="abrirModal('cimento-queimado/Folhagem em Muro Rústico Cinza 2.jpg')">
-              <span>Folhagem em Muro Rústico Cinza 2</span>
+              <img src="cimento-queimado/Folhagem em Muro Rústico Cinza 2.jpg" alt="Folhagem em Muro Rústico Cinza" onclick="abrirModal('cimento-queimado/Folhagem em Muro Rústico Cinza 2.jpg')">
+              <span>Folhagem em Muro Rústico Cinza</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="cimento-queimado/Folhagem em Muro Rústico Terracota (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('cimento-queimado/Folhagem em Muro Rústico Terracota (STILL).jpg', this)">🤍</button>
@@ -318,8 +318,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="cimento-queimado/Folhagem em Muro Rústico Terracota 2.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('cimento-queimado/Folhagem em Muro Rústico Terracota 2.jpg', this)">🤍</button>
-              <img src="cimento-queimado/Folhagem em Muro Rústico Terracota 2.jpg" alt="Folhagem em Muro Rústico Terracota 2" onclick="abrirModal('cimento-queimado/Folhagem em Muro Rústico Terracota 2.jpg')">
-              <span>Folhagem em Muro Rústico Terracota 2</span>
+              <img src="cimento-queimado/Folhagem em Muro Rústico Terracota 2.jpg" alt="Folhagem em Muro Rústico Terracota" onclick="abrirModal('cimento-queimado/Folhagem em Muro Rústico Terracota 2.jpg')">
+              <span>Folhagem em Muro Rústico Terracota</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="cimento-queimado/Folhagem em Muro Rústico Verde (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('cimento-queimado/Folhagem em Muro Rústico Verde (STILL).jpg', this)">🤍</button>
@@ -328,8 +328,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="cimento-queimado/Folhagem em Muro Rústico Verde 2.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('cimento-queimado/Folhagem em Muro Rústico Verde 2.jpg', this)">🤍</button>
-              <img src="cimento-queimado/Folhagem em Muro Rústico Verde 2.jpg" alt="Folhagem em Muro Rústico Verde 2" onclick="abrirModal('cimento-queimado/Folhagem em Muro Rústico Verde 2.jpg')">
-              <span>Folhagem em Muro Rústico Verde 2</span>
+              <img src="cimento-queimado/Folhagem em Muro Rústico Verde 2.jpg" alt="Folhagem em Muro Rústico Verde" onclick="abrirModal('cimento-queimado/Folhagem em Muro Rústico Verde 2.jpg')">
+              <span>Folhagem em Muro Rústico Verde</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="cimento-queimado/Mapa Estonado Cinza (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('cimento-queimado/Mapa Estonado Cinza (STILL).jpg', this)">🤍</button>
@@ -388,8 +388,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="cimento-queimado/Textura Desgastada Areia 2.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('cimento-queimado/Textura Desgastada Areia 2.jpg', this)">🤍</button>
-              <img src="cimento-queimado/Textura Desgastada Areia 2.jpg" alt="Textura Desgastada Areia 2" onclick="abrirModal('cimento-queimado/Textura Desgastada Areia 2.jpg')">
-              <span>Textura Desgastada Areia 2</span>
+              <img src="cimento-queimado/Textura Desgastada Areia 2.jpg" alt="Textura Desgastada Areia" onclick="abrirModal('cimento-queimado/Textura Desgastada Areia 2.jpg')">
+              <span>Textura Desgastada Areia</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="cimento-queimado/Textura Desgastada Azul (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('cimento-queimado/Textura Desgastada Azul (STILL).jpg', this)">🤍</button>
@@ -428,8 +428,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="cimento-queimado/Textura Desgastada Off White 2.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('cimento-queimado/Textura Desgastada Off White 2.jpg', this)">🤍</button>
-              <img src="cimento-queimado/Textura Desgastada Off White 2.jpg" alt="Textura Desgastada Off White 2" onclick="abrirModal('cimento-queimado/Textura Desgastada Off White 2.jpg')">
-              <span>Textura Desgastada Off White 2</span>
+              <img src="cimento-queimado/Textura Desgastada Off White 2.jpg" alt="Textura Desgastada Off White" onclick="abrirModal('cimento-queimado/Textura Desgastada Off White 2.jpg')">
+              <span>Textura Desgastada Off White</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="cimento-queimado/Textura Desgastada Rose (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('cimento-queimado/Textura Desgastada Rose (STILL).jpg', this)">🤍</button>
@@ -438,8 +438,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="cimento-queimado/Textura Desgastada Rose 2.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('cimento-queimado/Textura Desgastada Rose 2.jpg', this)">🤍</button>
-              <img src="cimento-queimado/Textura Desgastada Rose 2.jpg" alt="Textura Desgastada Rose 2" onclick="abrirModal('cimento-queimado/Textura Desgastada Rose 2.jpg')">
-              <span>Textura Desgastada Rose 2</span>
+              <img src="cimento-queimado/Textura Desgastada Rose 2.jpg" alt="Textura Desgastada Rose" onclick="abrirModal('cimento-queimado/Textura Desgastada Rose 2.jpg')">
+              <span>Textura Desgastada Rose</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="cimento-queimado/Textura Desgastada Verde (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('cimento-queimado/Textura Desgastada Verde (STILL).jpg', this)">🤍</button>
@@ -453,8 +453,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="cimento-queimado/Zara Cimento Queimado Black (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('cimento-queimado/Zara Cimento Queimado Black (2).jpg', this)">🤍</button>
-              <img src="cimento-queimado/Zara Cimento Queimado Black (2).jpg" alt="Zara Cimento Queimado Black (2)" onclick="abrirModal('cimento-queimado/Zara Cimento Queimado Black (2).jpg')">
-              <span>Zara Cimento Queimado Black (2)</span>
+              <img src="cimento-queimado/Zara Cimento Queimado Black (2).jpg" alt="Zara Cimento Queimado Black" onclick="abrirModal('cimento-queimado/Zara Cimento Queimado Black (2).jpg')">
+              <span>Zara Cimento Queimado Black</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="cimento-queimado/Zara Cimento Queimado Black (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('cimento-queimado/Zara Cimento Queimado Black (STILL).jpg', this)">🤍</button>
@@ -468,8 +468,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="cimento-queimado/Zara Gold Cimento Queimado Rose (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('cimento-queimado/Zara Gold Cimento Queimado Rose (2).jpg', this)">🤍</button>
-              <img src="cimento-queimado/Zara Gold Cimento Queimado Rose (2).jpg" alt="Zara Gold Cimento Queimado Rose (2)" onclick="abrirModal('cimento-queimado/Zara Gold Cimento Queimado Rose (2).jpg')">
-              <span>Zara Gold Cimento Queimado Rose (2)</span>
+              <img src="cimento-queimado/Zara Gold Cimento Queimado Rose (2).jpg" alt="Zara Gold Cimento Queimado Rose" onclick="abrirModal('cimento-queimado/Zara Gold Cimento Queimado Rose (2).jpg')">
+              <span>Zara Gold Cimento Queimado Rose</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="cimento-queimado/Zara Gold Cimento Queimado Rose (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('cimento-queimado/Zara Gold Cimento Queimado Rose (STILL).jpg', this)">🤍</button>
@@ -483,8 +483,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="cimento-queimado/Zara Rose Gold Cimento Queimado (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('cimento-queimado/Zara Rose Gold Cimento Queimado (2).jpg', this)">🤍</button>
-              <img src="cimento-queimado/Zara Rose Gold Cimento Queimado (2).jpg" alt="Zara Rose Gold Cimento Queimado (2)" onclick="abrirModal('cimento-queimado/Zara Rose Gold Cimento Queimado (2).jpg')">
-              <span>Zara Rose Gold Cimento Queimado (2)</span>
+              <img src="cimento-queimado/Zara Rose Gold Cimento Queimado (2).jpg" alt="Zara Rose Gold Cimento Queimado" onclick="abrirModal('cimento-queimado/Zara Rose Gold Cimento Queimado (2).jpg')">
+              <span>Zara Rose Gold Cimento Queimado</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="cimento-queimado/Zara Rose Gold Cimento Queimado (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('cimento-queimado/Zara Rose Gold Cimento Queimado (STILL).jpg', this)">🤍</button>

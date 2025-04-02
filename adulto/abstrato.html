@@ -12,20 +12,20 @@
       top: 0;
       background: white;
       display: flex;
+      flex-wrap: wrap;
       justify-content: space-between;
       align-items: center;
       padding: 10px 20px;
+      gap: 10px;
       box-shadow: 0 2px 5px rgba(0,0,0,0.1);
       z-index: 1000;
     }
-    .top-bar h1 { font-size: 18px; margin: 0; }
     .btn {
       background: #01b9b5;
       color: white;
       text-decoration: none;
       padding: 8px 14px;
       border-radius: 6px;
-      margin-left: 10px;
       font-size: 14px;
       cursor: pointer;
     }
@@ -88,11 +88,11 @@
 <body>
 <div class="top-bar">
   <div>
-    <a href="index.html" class="btn">&larr; Voltar</a>
+    <a href="https://catalogo.artspapeisdeparede.com.br/index.html" class="btn">&larr; Voltar</a>
     <button class="btn" onclick="baixarSelecionadas()">📥 Baixar selecionadas</button>
   </div>
   <h1>Abstrato</h1>
-  <a href="https://luizbaby.github.io/catalogo-arts/favoritos.html" class="btn">⭐ Ver favoritos</a>
+  <a href="https://catalogo.artspapeisdeparede.com.br/favoritos.html" class="btn">⭐ Ver favoritos</a>
 </div>
 <div class="grid">
 <div class="card">
@@ -198,8 +198,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="abstrato/Escandinavo Leaves Areia 2.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('abstrato/Escandinavo Leaves Areia 2.jpg', this)">🤍</button>
-              <img src="abstrato/Escandinavo Leaves Areia 2.jpg" alt="Escandinavo Leaves Areia 2" onclick="abrirModal('abstrato/Escandinavo Leaves Areia 2.jpg')">
-              <span>Escandinavo Leaves Areia 2</span>
+              <img src="abstrato/Escandinavo Leaves Areia 2.jpg" alt="Escandinavo Leaves Areia" onclick="abrirModal('abstrato/Escandinavo Leaves Areia 2.jpg')">
+              <span>Escandinavo Leaves Areia</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="abstrato/Escandinavo Leaves Areia.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('abstrato/Escandinavo Leaves Areia.jpg', this)">🤍</button>
@@ -208,8 +208,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="abstrato/Etternity Azul Marinho (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('abstrato/Etternity Azul Marinho (2).jpg', this)">🤍</button>
-              <img src="abstrato/Etternity Azul Marinho (2).jpg" alt="Etternity Azul Marinho (2)" onclick="abrirModal('abstrato/Etternity Azul Marinho (2).jpg')">
-              <span>Etternity Azul Marinho (2)</span>
+              <img src="abstrato/Etternity Azul Marinho (2).jpg" alt="Etternity Azul Marinho" onclick="abrirModal('abstrato/Etternity Azul Marinho (2).jpg')">
+              <span>Etternity Azul Marinho</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="abstrato/Etternity Azul Marinho (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('abstrato/Etternity Azul Marinho (STILL).jpg', this)">🤍</button>
@@ -223,8 +223,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="abstrato/Etternity Cinza (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('abstrato/Etternity Cinza (2).jpg', this)">🤍</button>
-              <img src="abstrato/Etternity Cinza (2).jpg" alt="Etternity Cinza (2)" onclick="abrirModal('abstrato/Etternity Cinza (2).jpg')">
-              <span>Etternity Cinza (2)</span>
+              <img src="abstrato/Etternity Cinza (2).jpg" alt="Etternity Cinza" onclick="abrirModal('abstrato/Etternity Cinza (2).jpg')">
+              <span>Etternity Cinza</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="abstrato/Etternity Cinza (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('abstrato/Etternity Cinza (STILL).jpg', this)">🤍</button>
@@ -238,8 +238,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="abstrato/Etternity Marrom (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('abstrato/Etternity Marrom (2).jpg', this)">🤍</button>
-              <img src="abstrato/Etternity Marrom (2).jpg" alt="Etternity Marrom (2)" onclick="abrirModal('abstrato/Etternity Marrom (2).jpg')">
-              <span>Etternity Marrom (2)</span>
+              <img src="abstrato/Etternity Marrom (2).jpg" alt="Etternity Marrom" onclick="abrirModal('abstrato/Etternity Marrom (2).jpg')">
+              <span>Etternity Marrom</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="abstrato/Etternity Marrom (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('abstrato/Etternity Marrom (STILL).jpg', this)">🤍</button>
@@ -258,8 +258,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="abstrato/Folhas de Bananeira Azul 2.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('abstrato/Folhas de Bananeira Azul 2.jpg', this)">🤍</button>
-              <img src="abstrato/Folhas de Bananeira Azul 2.jpg" alt="Folhas de Bananeira Azul 2" onclick="abrirModal('abstrato/Folhas de Bananeira Azul 2.jpg')">
-              <span>Folhas de Bananeira Azul 2</span>
+              <img src="abstrato/Folhas de Bananeira Azul 2.jpg" alt="Folhas de Bananeira Azul" onclick="abrirModal('abstrato/Folhas de Bananeira Azul 2.jpg')">
+              <span>Folhas de Bananeira Azul</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="abstrato/Folhas de Bananeira Azul.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('abstrato/Folhas de Bananeira Azul.jpg', this)">🤍</button>
@@ -273,8 +273,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="abstrato/Folhas de Bananeira Gold 2.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('abstrato/Folhas de Bananeira Gold 2.jpg', this)">🤍</button>
-              <img src="abstrato/Folhas de Bananeira Gold 2.jpg" alt="Folhas de Bananeira Gold 2" onclick="abrirModal('abstrato/Folhas de Bananeira Gold 2.jpg')">
-              <span>Folhas de Bananeira Gold 2</span>
+              <img src="abstrato/Folhas de Bananeira Gold 2.jpg" alt="Folhas de Bananeira Gold" onclick="abrirModal('abstrato/Folhas de Bananeira Gold 2.jpg')">
+              <span>Folhas de Bananeira Gold</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="abstrato/Folhas de Bananeira Gold.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('abstrato/Folhas de Bananeira Gold.jpg', this)">🤍</button>
@@ -288,8 +288,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="abstrato/Folhas de Bananeira Rose Gold 2.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('abstrato/Folhas de Bananeira Rose Gold 2.jpg', this)">🤍</button>
-              <img src="abstrato/Folhas de Bananeira Rose Gold 2.jpg" alt="Folhas de Bananeira Rose Gold 2" onclick="abrirModal('abstrato/Folhas de Bananeira Rose Gold 2.jpg')">
-              <span>Folhas de Bananeira Rose Gold 2</span>
+              <img src="abstrato/Folhas de Bananeira Rose Gold 2.jpg" alt="Folhas de Bananeira Rose Gold" onclick="abrirModal('abstrato/Folhas de Bananeira Rose Gold 2.jpg')">
+              <span>Folhas de Bananeira Rose Gold</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="abstrato/Folhas de Bananeira Rose Gold.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('abstrato/Folhas de Bananeira Rose Gold.jpg', this)">🤍</button>
@@ -303,8 +303,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="abstrato/Folhas de Bananeira Tiffany Gold 2.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('abstrato/Folhas de Bananeira Tiffany Gold 2.jpg', this)">🤍</button>
-              <img src="abstrato/Folhas de Bananeira Tiffany Gold 2.jpg" alt="Folhas de Bananeira Tiffany Gold 2" onclick="abrirModal('abstrato/Folhas de Bananeira Tiffany Gold 2.jpg')">
-              <span>Folhas de Bananeira Tiffany Gold 2</span>
+              <img src="abstrato/Folhas de Bananeira Tiffany Gold 2.jpg" alt="Folhas de Bananeira Tiffany Gold" onclick="abrirModal('abstrato/Folhas de Bananeira Tiffany Gold 2.jpg')">
+              <span>Folhas de Bananeira Tiffany Gold</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="abstrato/Folhas de Bananeira Tiffany Gold.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('abstrato/Folhas de Bananeira Tiffany Gold.jpg', this)">🤍</button>
@@ -318,8 +318,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="abstrato/Geométrico Maya Areia 2.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('abstrato/Geométrico Maya Areia 2.jpg', this)">🤍</button>
-              <img src="abstrato/Geométrico Maya Areia 2.jpg" alt="Geométrico Maya Areia 2" onclick="abrirModal('abstrato/Geométrico Maya Areia 2.jpg')">
-              <span>Geométrico Maya Areia 2</span>
+              <img src="abstrato/Geométrico Maya Areia 2.jpg" alt="Geométrico Maya Areia" onclick="abrirModal('abstrato/Geométrico Maya Areia 2.jpg')">
+              <span>Geométrico Maya Areia</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="abstrato/Geométrico Maya Azul (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('abstrato/Geométrico Maya Azul (STILL).jpg', this)">🤍</button>
@@ -338,8 +338,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="abstrato/Geométrico Maya Terracota 2.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('abstrato/Geométrico Maya Terracota 2.jpg', this)">🤍</button>
-              <img src="abstrato/Geométrico Maya Terracota 2.jpg" alt="Geométrico Maya Terracota 2" onclick="abrirModal('abstrato/Geométrico Maya Terracota 2.jpg')">
-              <span>Geométrico Maya Terracota 2</span>
+              <img src="abstrato/Geométrico Maya Terracota 2.jpg" alt="Geométrico Maya Terracota" onclick="abrirModal('abstrato/Geométrico Maya Terracota 2.jpg')">
+              <span>Geométrico Maya Terracota</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="abstrato/Geométrico Maya Verde (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('abstrato/Geométrico Maya Verde (STILL).jpg', this)">🤍</button>
@@ -368,8 +368,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="abstrato/Graphic Azul (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('abstrato/Graphic Azul (2).jpg', this)">🤍</button>
-              <img src="abstrato/Graphic Azul (2).jpg" alt="Graphic Azul (2)" onclick="abrirModal('abstrato/Graphic Azul (2).jpg')">
-              <span>Graphic Azul (2)</span>
+              <img src="abstrato/Graphic Azul (2).jpg" alt="Graphic Azul" onclick="abrirModal('abstrato/Graphic Azul (2).jpg')">
+              <span>Graphic Azul</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="abstrato/Graphic Azul (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('abstrato/Graphic Azul (STILL).jpg', this)">🤍</button>
@@ -568,8 +568,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="abstrato/Praia Abstrata 2.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('abstrato/Praia Abstrata 2.jpg', this)">🤍</button>
-              <img src="abstrato/Praia Abstrata 2.jpg" alt="Praia Abstrata 2" onclick="abrirModal('abstrato/Praia Abstrata 2.jpg')">
-              <span>Praia Abstrata 2</span>
+              <img src="abstrato/Praia Abstrata 2.jpg" alt="Praia Abstrata" onclick="abrirModal('abstrato/Praia Abstrata 2.jpg')">
+              <span>Praia Abstrata</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="abstrato/Praia Abstrata.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('abstrato/Praia Abstrata.jpg', this)">🤍</button>
@@ -578,8 +578,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="abstrato/Primitive Areia (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('abstrato/Primitive Areia (2).jpg', this)">🤍</button>
-              <img src="abstrato/Primitive Areia (2).jpg" alt="Primitive Areia (2)" onclick="abrirModal('abstrato/Primitive Areia (2).jpg')">
-              <span>Primitive Areia (2)</span>
+              <img src="abstrato/Primitive Areia (2).jpg" alt="Primitive Areia" onclick="abrirModal('abstrato/Primitive Areia (2).jpg')">
+              <span>Primitive Areia</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="abstrato/Primitive Areia (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('abstrato/Primitive Areia (STILL).jpg', this)">🤍</button>
@@ -593,8 +593,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="abstrato/Primitive Cinza (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('abstrato/Primitive Cinza (2).jpg', this)">🤍</button>
-              <img src="abstrato/Primitive Cinza (2).jpg" alt="Primitive Cinza (2)" onclick="abrirModal('abstrato/Primitive Cinza (2).jpg')">
-              <span>Primitive Cinza (2)</span>
+              <img src="abstrato/Primitive Cinza (2).jpg" alt="Primitive Cinza" onclick="abrirModal('abstrato/Primitive Cinza (2).jpg')">
+              <span>Primitive Cinza</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="abstrato/Primitive Cinza (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('abstrato/Primitive Cinza (STILL).jpg', this)">🤍</button>

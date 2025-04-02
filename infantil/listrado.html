@@ -12,20 +12,20 @@
       top: 0;
       background: white;
       display: flex;
+      flex-wrap: wrap;
       justify-content: space-between;
       align-items: center;
       padding: 10px 20px;
+      gap: 10px;
       box-shadow: 0 2px 5px rgba(0,0,0,0.1);
       z-index: 1000;
     }
-    .top-bar h1 { font-size: 18px; margin: 0; }
     .btn {
       background: #01b9b5;
       color: white;
       text-decoration: none;
       padding: 8px 14px;
       border-radius: 6px;
-      margin-left: 10px;
       font-size: 14px;
       cursor: pointer;
     }
@@ -88,11 +88,11 @@
 <body>
 <div class="top-bar">
   <div>
-    <a href="index.html" class="btn">&larr; Voltar</a>
+    <a href="https://catalogo.artspapeisdeparede.com.br/index.html" class="btn">&larr; Voltar</a>
     <button class="btn" onclick="baixarSelecionadas()">📥 Baixar selecionadas</button>
   </div>
   <h1>Listrado</h1>
-  <a href="https://luizbaby.github.io/catalogo-arts/favoritos.html" class="btn">⭐ Ver favoritos</a>
+  <a href="https://catalogo.artspapeisdeparede.com.br/favoritos.html" class="btn">⭐ Ver favoritos</a>
 </div>
 <div class="grid">
 <div class="card">
@@ -103,8 +103,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="listrado/Linho Listras 60x60.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('listrado/Linho Listras 60x60.jpg', this)">🤍</button>
-              <img src="listrado/Linho Listras 60x60.jpg" alt="Linho Listras 60x60" onclick="abrirModal('listrado/Linho Listras 60x60.jpg')">
-              <span>Linho Listras 60x60</span>
+              <img src="listrado/Linho Listras 60x60.jpg" alt="Linho Listras 60x" onclick="abrirModal('listrado/Linho Listras 60x60.jpg')">
+              <span>Linho Listras 60x</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="listrado/Linho Listras Stout Azul (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('listrado/Linho Listras Stout Azul (STILL).jpg', this)">🤍</button>
@@ -138,8 +138,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="listrado/Linho Listras Stout Verde Claro 60x60.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('listrado/Linho Listras Stout Verde Claro 60x60.jpg', this)">🤍</button>
-              <img src="listrado/Linho Listras Stout Verde Claro 60x60.jpg" alt="Linho Listras Stout Verde Claro 60x60" onclick="abrirModal('listrado/Linho Listras Stout Verde Claro 60x60.jpg')">
-              <span>Linho Listras Stout Verde Claro 60x60</span>
+              <img src="listrado/Linho Listras Stout Verde Claro 60x60.jpg" alt="Linho Listras Stout Verde Claro 60x" onclick="abrirModal('listrado/Linho Listras Stout Verde Claro 60x60.jpg')">
+              <span>Linho Listras Stout Verde Claro 60x</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="listrado/Listrado Aquarela Bege com Cinza (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('listrado/Listrado Aquarela Bege com Cinza (STILL).jpg', this)">🤍</button>
@@ -293,13 +293,13 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="listrado/Listrado Texturizado Areia 2 (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('listrado/Listrado Texturizado Areia 2 (2).jpg', this)">🤍</button>
-              <img src="listrado/Listrado Texturizado Areia 2 (2).jpg" alt="Listrado Texturizado Areia 2 (2)" onclick="abrirModal('listrado/Listrado Texturizado Areia 2 (2).jpg')">
-              <span>Listrado Texturizado Areia 2 (2)</span>
+              <img src="listrado/Listrado Texturizado Areia 2 (2).jpg" alt="Listrado Texturizado Areia 2" onclick="abrirModal('listrado/Listrado Texturizado Areia 2 (2).jpg')">
+              <span>Listrado Texturizado Areia 2</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="listrado/Listrado Texturizado Areia 2.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('listrado/Listrado Texturizado Areia 2.jpg', this)">🤍</button>
-              <img src="listrado/Listrado Texturizado Areia 2.jpg" alt="Listrado Texturizado Areia 2" onclick="abrirModal('listrado/Listrado Texturizado Areia 2.jpg')">
-              <span>Listrado Texturizado Areia 2</span>
+              <img src="listrado/Listrado Texturizado Areia 2.jpg" alt="Listrado Texturizado Areia" onclick="abrirModal('listrado/Listrado Texturizado Areia 2.jpg')">
+              <span>Listrado Texturizado Areia</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="listrado/Listrado Texturizado Areia.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('listrado/Listrado Texturizado Areia.jpg', this)">🤍</button>
@@ -313,8 +313,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="listrado/Listrado Texturizado Azul Claro 2.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('listrado/Listrado Texturizado Azul Claro 2.jpg', this)">🤍</button>
-              <img src="listrado/Listrado Texturizado Azul Claro 2.jpg" alt="Listrado Texturizado Azul Claro 2" onclick="abrirModal('listrado/Listrado Texturizado Azul Claro 2.jpg')">
-              <span>Listrado Texturizado Azul Claro 2</span>
+              <img src="listrado/Listrado Texturizado Azul Claro 2.jpg" alt="Listrado Texturizado Azul Claro" onclick="abrirModal('listrado/Listrado Texturizado Azul Claro 2.jpg')">
+              <span>Listrado Texturizado Azul Claro</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="listrado/Listrado Texturizado Azul Claro.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('listrado/Listrado Texturizado Azul Claro.jpg', this)">🤍</button>
@@ -328,8 +328,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="listrado/Listrado Texturizado Azul Escuro 2.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('listrado/Listrado Texturizado Azul Escuro 2.jpg', this)">🤍</button>
-              <img src="listrado/Listrado Texturizado Azul Escuro 2.jpg" alt="Listrado Texturizado Azul Escuro 2" onclick="abrirModal('listrado/Listrado Texturizado Azul Escuro 2.jpg')">
-              <span>Listrado Texturizado Azul Escuro 2</span>
+              <img src="listrado/Listrado Texturizado Azul Escuro 2.jpg" alt="Listrado Texturizado Azul Escuro" onclick="abrirModal('listrado/Listrado Texturizado Azul Escuro 2.jpg')">
+              <span>Listrado Texturizado Azul Escuro</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="listrado/Listrado Texturizado Azul Escuro.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('listrado/Listrado Texturizado Azul Escuro.jpg', this)">🤍</button>
@@ -343,8 +343,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="listrado/Listrado Texturizado Cinza 2.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('listrado/Listrado Texturizado Cinza 2.jpg', this)">🤍</button>
-              <img src="listrado/Listrado Texturizado Cinza 2.jpg" alt="Listrado Texturizado Cinza 2" onclick="abrirModal('listrado/Listrado Texturizado Cinza 2.jpg')">
-              <span>Listrado Texturizado Cinza 2</span>
+              <img src="listrado/Listrado Texturizado Cinza 2.jpg" alt="Listrado Texturizado Cinza" onclick="abrirModal('listrado/Listrado Texturizado Cinza 2.jpg')">
+              <span>Listrado Texturizado Cinza</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="listrado/Listrado Texturizado Cinza.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('listrado/Listrado Texturizado Cinza.jpg', this)">🤍</button>
@@ -358,8 +358,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="listrado/Listrado Texturizado Rosa 2.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('listrado/Listrado Texturizado Rosa 2.jpg', this)">🤍</button>
-              <img src="listrado/Listrado Texturizado Rosa 2.jpg" alt="Listrado Texturizado Rosa 2" onclick="abrirModal('listrado/Listrado Texturizado Rosa 2.jpg')">
-              <span>Listrado Texturizado Rosa 2</span>
+              <img src="listrado/Listrado Texturizado Rosa 2.jpg" alt="Listrado Texturizado Rosa" onclick="abrirModal('listrado/Listrado Texturizado Rosa 2.jpg')">
+              <span>Listrado Texturizado Rosa</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="listrado/Listrado Texturizado Rosa.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('listrado/Listrado Texturizado Rosa.jpg', this)">🤍</button>
@@ -373,8 +373,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="listrado/Listrado Texturizado Rose 2.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('listrado/Listrado Texturizado Rose 2.jpg', this)">🤍</button>
-              <img src="listrado/Listrado Texturizado Rose 2.jpg" alt="Listrado Texturizado Rose 2" onclick="abrirModal('listrado/Listrado Texturizado Rose 2.jpg')">
-              <span>Listrado Texturizado Rose 2</span>
+              <img src="listrado/Listrado Texturizado Rose 2.jpg" alt="Listrado Texturizado Rose" onclick="abrirModal('listrado/Listrado Texturizado Rose 2.jpg')">
+              <span>Listrado Texturizado Rose</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="listrado/Listrado Texturizado Rose.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('listrado/Listrado Texturizado Rose.jpg', this)">🤍</button>
@@ -388,8 +388,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="listrado/Listrado Texturizado Verde 2.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('listrado/Listrado Texturizado Verde 2.jpg', this)">🤍</button>
-              <img src="listrado/Listrado Texturizado Verde 2.jpg" alt="Listrado Texturizado Verde 2" onclick="abrirModal('listrado/Listrado Texturizado Verde 2.jpg')">
-              <span>Listrado Texturizado Verde 2</span>
+              <img src="listrado/Listrado Texturizado Verde 2.jpg" alt="Listrado Texturizado Verde" onclick="abrirModal('listrado/Listrado Texturizado Verde 2.jpg')">
+              <span>Listrado Texturizado Verde</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="listrado/Listrado Texturizado Verde Água (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('listrado/Listrado Texturizado Verde Água (STILL).jpg', this)">🤍</button>
@@ -398,8 +398,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="listrado/Listrado Texturizado Verde Água 2.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('listrado/Listrado Texturizado Verde Água 2.jpg', this)">🤍</button>
-              <img src="listrado/Listrado Texturizado Verde Água 2.jpg" alt="Listrado Texturizado Verde Água 2" onclick="abrirModal('listrado/Listrado Texturizado Verde Água 2.jpg')">
-              <span>Listrado Texturizado Verde Água 2</span>
+              <img src="listrado/Listrado Texturizado Verde Água 2.jpg" alt="Listrado Texturizado Verde Água" onclick="abrirModal('listrado/Listrado Texturizado Verde Água 2.jpg')">
+              <span>Listrado Texturizado Verde Água</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="listrado/Listrado Texturizado Verde Água.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('listrado/Listrado Texturizado Verde Água.jpg', this)">🤍</button>
@@ -418,8 +418,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="listrado/Listras Alternadas Azul 2.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('listrado/Listras Alternadas Azul 2.jpg', this)">🤍</button>
-              <img src="listrado/Listras Alternadas Azul 2.jpg" alt="Listras Alternadas Azul 2" onclick="abrirModal('listrado/Listras Alternadas Azul 2.jpg')">
-              <span>Listras Alternadas Azul 2</span>
+              <img src="listrado/Listras Alternadas Azul 2.jpg" alt="Listras Alternadas Azul" onclick="abrirModal('listrado/Listras Alternadas Azul 2.jpg')">
+              <span>Listras Alternadas Azul</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="listrado/Listras Alternadas Azul.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('listrado/Listras Alternadas Azul.jpg', this)">🤍</button>
@@ -433,8 +433,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="listrado/Listras Alternadas Rosa 2.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('listrado/Listras Alternadas Rosa 2.jpg', this)">🤍</button>
-              <img src="listrado/Listras Alternadas Rosa 2.jpg" alt="Listras Alternadas Rosa 2" onclick="abrirModal('listrado/Listras Alternadas Rosa 2.jpg')">
-              <span>Listras Alternadas Rosa 2</span>
+              <img src="listrado/Listras Alternadas Rosa 2.jpg" alt="Listras Alternadas Rosa" onclick="abrirModal('listrado/Listras Alternadas Rosa 2.jpg')">
+              <span>Listras Alternadas Rosa</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="listrado/Listras Alternadas Rosa.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('listrado/Listras Alternadas Rosa.jpg', this)">🤍</button>
@@ -448,8 +448,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="listrado/Listras Alternadas Verde 2.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('listrado/Listras Alternadas Verde 2.jpg', this)">🤍</button>
-              <img src="listrado/Listras Alternadas Verde 2.jpg" alt="Listras Alternadas Verde 2" onclick="abrirModal('listrado/Listras Alternadas Verde 2.jpg')">
-              <span>Listras Alternadas Verde 2</span>
+              <img src="listrado/Listras Alternadas Verde 2.jpg" alt="Listras Alternadas Verde" onclick="abrirModal('listrado/Listras Alternadas Verde 2.jpg')">
+              <span>Listras Alternadas Verde</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="listrado/Listras Alternadas Verde Acqua e Cinza (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('listrado/Listras Alternadas Verde Acqua e Cinza (STILL).jpg', this)">🤍</button>
@@ -463,8 +463,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="listrado/Listras Alternadas Verde Água 2.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('listrado/Listras Alternadas Verde Água 2.jpg', this)">🤍</button>
-              <img src="listrado/Listras Alternadas Verde Água 2.jpg" alt="Listras Alternadas Verde Água 2" onclick="abrirModal('listrado/Listras Alternadas Verde Água 2.jpg')">
-              <span>Listras Alternadas Verde Água 2</span>
+              <img src="listrado/Listras Alternadas Verde Água 2.jpg" alt="Listras Alternadas Verde Água" onclick="abrirModal('listrado/Listras Alternadas Verde Água 2.jpg')">
+              <span>Listras Alternadas Verde Água</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="listrado/Listras Alternadas Verde.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('listrado/Listras Alternadas Verde.jpg', this)">🤍</button>
@@ -478,8 +478,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="listrado/Listras Amarelo e Branco (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('listrado/Listras Amarelo e Branco (2).jpg', this)">🤍</button>
-              <img src="listrado/Listras Amarelo e Branco (2).jpg" alt="Listras Amarelo e Branco (2)" onclick="abrirModal('listrado/Listras Amarelo e Branco (2).jpg')">
-              <span>Listras Amarelo e Branco (2)</span>
+              <img src="listrado/Listras Amarelo e Branco (2).jpg" alt="Listras Amarelo e Branco" onclick="abrirModal('listrado/Listras Amarelo e Branco (2).jpg')">
+              <span>Listras Amarelo e Branco</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="listrado/Listras Amarelo e Branco (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('listrado/Listras Amarelo e Branco (STILL).jpg', this)">🤍</button>
@@ -488,8 +488,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="listrado/Listras Amarelo e Branco 2.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('listrado/Listras Amarelo e Branco 2.jpg', this)">🤍</button>
-              <img src="listrado/Listras Amarelo e Branco 2.jpg" alt="Listras Amarelo e Branco 2" onclick="abrirModal('listrado/Listras Amarelo e Branco 2.jpg')">
-              <span>Listras Amarelo e Branco 2</span>
+              <img src="listrado/Listras Amarelo e Branco 2.jpg" alt="Listras Amarelo e Branco" onclick="abrirModal('listrado/Listras Amarelo e Branco 2.jpg')">
+              <span>Listras Amarelo e Branco</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="listrado/Listras Amarelo e Branco.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('listrado/Listras Amarelo e Branco.jpg', this)">🤍</button>
@@ -498,8 +498,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="listrado/Listras Azul Claro e Branco (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('listrado/Listras Azul Claro e Branco (2).jpg', this)">🤍</button>
-              <img src="listrado/Listras Azul Claro e Branco (2).jpg" alt="Listras Azul Claro e Branco (2)" onclick="abrirModal('listrado/Listras Azul Claro e Branco (2).jpg')">
-              <span>Listras Azul Claro e Branco (2)</span>
+              <img src="listrado/Listras Azul Claro e Branco (2).jpg" alt="Listras Azul Claro e Branco" onclick="abrirModal('listrado/Listras Azul Claro e Branco (2).jpg')">
+              <span>Listras Azul Claro e Branco</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="listrado/Listras Azul Claro e Branco (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('listrado/Listras Azul Claro e Branco (STILL).jpg', this)">🤍</button>
@@ -508,8 +508,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="listrado/Listras Azul Claro e Branco 2.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('listrado/Listras Azul Claro e Branco 2.jpg', this)">🤍</button>
-              <img src="listrado/Listras Azul Claro e Branco 2.jpg" alt="Listras Azul Claro e Branco 2" onclick="abrirModal('listrado/Listras Azul Claro e Branco 2.jpg')">
-              <span>Listras Azul Claro e Branco 2</span>
+              <img src="listrado/Listras Azul Claro e Branco 2.jpg" alt="Listras Azul Claro e Branco" onclick="abrirModal('listrado/Listras Azul Claro e Branco 2.jpg')">
+              <span>Listras Azul Claro e Branco</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="listrado/Listras Azul Claro e Branco.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('listrado/Listras Azul Claro e Branco.jpg', this)">🤍</button>
@@ -518,8 +518,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="listrado/Listras Azul e Branco (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('listrado/Listras Azul e Branco (2).jpg', this)">🤍</button>
-              <img src="listrado/Listras Azul e Branco (2).jpg" alt="Listras Azul e Branco (2)" onclick="abrirModal('listrado/Listras Azul e Branco (2).jpg')">
-              <span>Listras Azul e Branco (2)</span>
+              <img src="listrado/Listras Azul e Branco (2).jpg" alt="Listras Azul e Branco" onclick="abrirModal('listrado/Listras Azul e Branco (2).jpg')">
+              <span>Listras Azul e Branco</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="listrado/Listras Azul e Branco (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('listrado/Listras Azul e Branco (STILL).jpg', this)">🤍</button>
@@ -528,13 +528,13 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="listrado/Listras Azul e Branco 2 (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('listrado/Listras Azul e Branco 2 (2).jpg', this)">🤍</button>
-              <img src="listrado/Listras Azul e Branco 2 (2).jpg" alt="Listras Azul e Branco 2 (2)" onclick="abrirModal('listrado/Listras Azul e Branco 2 (2).jpg')">
-              <span>Listras Azul e Branco 2 (2)</span>
+              <img src="listrado/Listras Azul e Branco 2 (2).jpg" alt="Listras Azul e Branco 2" onclick="abrirModal('listrado/Listras Azul e Branco 2 (2).jpg')">
+              <span>Listras Azul e Branco 2</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="listrado/Listras Azul e Branco 2.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('listrado/Listras Azul e Branco 2.jpg', this)">🤍</button>
-              <img src="listrado/Listras Azul e Branco 2.jpg" alt="Listras Azul e Branco 2" onclick="abrirModal('listrado/Listras Azul e Branco 2.jpg')">
-              <span>Listras Azul e Branco 2</span>
+              <img src="listrado/Listras Azul e Branco 2.jpg" alt="Listras Azul e Branco" onclick="abrirModal('listrado/Listras Azul e Branco 2.jpg')">
+              <span>Listras Azul e Branco</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="listrado/Listras Azul e Branco.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('listrado/Listras Azul e Branco.jpg', this)">🤍</button>
@@ -613,8 +613,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="listrado/Listras Rosa e Branco (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('listrado/Listras Rosa e Branco (2).jpg', this)">🤍</button>
-              <img src="listrado/Listras Rosa e Branco (2).jpg" alt="Listras Rosa e Branco (2)" onclick="abrirModal('listrado/Listras Rosa e Branco (2).jpg')">
-              <span>Listras Rosa e Branco (2)</span>
+              <img src="listrado/Listras Rosa e Branco (2).jpg" alt="Listras Rosa e Branco" onclick="abrirModal('listrado/Listras Rosa e Branco (2).jpg')">
+              <span>Listras Rosa e Branco</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="listrado/Listras Rosa e Branco (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('listrado/Listras Rosa e Branco (STILL).jpg', this)">🤍</button>
@@ -623,8 +623,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="listrado/Listras Rosa e Branco 2.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('listrado/Listras Rosa e Branco 2.jpg', this)">🤍</button>
-              <img src="listrado/Listras Rosa e Branco 2.jpg" alt="Listras Rosa e Branco 2" onclick="abrirModal('listrado/Listras Rosa e Branco 2.jpg')">
-              <span>Listras Rosa e Branco 2</span>
+              <img src="listrado/Listras Rosa e Branco 2.jpg" alt="Listras Rosa e Branco" onclick="abrirModal('listrado/Listras Rosa e Branco 2.jpg')">
+              <span>Listras Rosa e Branco</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="listrado/Listras Rosa e Branco.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('listrado/Listras Rosa e Branco.jpg', this)">🤍</button>
@@ -633,8 +633,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="listrado/Listras Verde e Branco (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('listrado/Listras Verde e Branco (2).jpg', this)">🤍</button>
-              <img src="listrado/Listras Verde e Branco (2).jpg" alt="Listras Verde e Branco (2)" onclick="abrirModal('listrado/Listras Verde e Branco (2).jpg')">
-              <span>Listras Verde e Branco (2)</span>
+              <img src="listrado/Listras Verde e Branco (2).jpg" alt="Listras Verde e Branco" onclick="abrirModal('listrado/Listras Verde e Branco (2).jpg')">
+              <span>Listras Verde e Branco</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="listrado/Listras Verde e Branco (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('listrado/Listras Verde e Branco (STILL).jpg', this)">🤍</button>
@@ -643,8 +643,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="listrado/Listras Verde e Branco 2.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('listrado/Listras Verde e Branco 2.jpg', this)">🤍</button>
-              <img src="listrado/Listras Verde e Branco 2.jpg" alt="Listras Verde e Branco 2" onclick="abrirModal('listrado/Listras Verde e Branco 2.jpg')">
-              <span>Listras Verde e Branco 2</span>
+              <img src="listrado/Listras Verde e Branco 2.jpg" alt="Listras Verde e Branco" onclick="abrirModal('listrado/Listras Verde e Branco 2.jpg')">
+              <span>Listras Verde e Branco</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="listrado/Listras Verde e Branco.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('listrado/Listras Verde e Branco.jpg', this)">🤍</button>
@@ -658,8 +658,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="listrado/Listras Verticais Aquarela Areia 2.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('listrado/Listras Verticais Aquarela Areia 2.jpg', this)">🤍</button>
-              <img src="listrado/Listras Verticais Aquarela Areia 2.jpg" alt="Listras Verticais Aquarela Areia 2" onclick="abrirModal('listrado/Listras Verticais Aquarela Areia 2.jpg')">
-              <span>Listras Verticais Aquarela Areia 2</span>
+              <img src="listrado/Listras Verticais Aquarela Areia 2.jpg" alt="Listras Verticais Aquarela Areia" onclick="abrirModal('listrado/Listras Verticais Aquarela Areia 2.jpg')">
+              <span>Listras Verticais Aquarela Areia</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="listrado/Listras Verticais Aquarela Areia.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('listrado/Listras Verticais Aquarela Areia.jpg', this)">🤍</button>
@@ -723,8 +723,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="listrado/Listras Verticais Aquarela Slim Areia 2.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('listrado/Listras Verticais Aquarela Slim Areia 2.jpg', this)">🤍</button>
-              <img src="listrado/Listras Verticais Aquarela Slim Areia 2.jpg" alt="Listras Verticais Aquarela Slim Areia 2" onclick="abrirModal('listrado/Listras Verticais Aquarela Slim Areia 2.jpg')">
-              <span>Listras Verticais Aquarela Slim Areia 2</span>
+              <img src="listrado/Listras Verticais Aquarela Slim Areia 2.jpg" alt="Listras Verticais Aquarela Slim Areia" onclick="abrirModal('listrado/Listras Verticais Aquarela Slim Areia 2.jpg')">
+              <span>Listras Verticais Aquarela Slim Areia</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="listrado/Listras Verticais Aquarela Slim Areia.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('listrado/Listras Verticais Aquarela Slim Areia.jpg', this)">🤍</button>
@@ -738,13 +738,13 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="listrado/Listras Verticais Aquarela Slim Azul 2.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('listrado/Listras Verticais Aquarela Slim Azul 2.jpg', this)">🤍</button>
-              <img src="listrado/Listras Verticais Aquarela Slim Azul 2.jpg" alt="Listras Verticais Aquarela Slim Azul 2" onclick="abrirModal('listrado/Listras Verticais Aquarela Slim Azul 2.jpg')">
-              <span>Listras Verticais Aquarela Slim Azul 2</span>
+              <img src="listrado/Listras Verticais Aquarela Slim Azul 2.jpg" alt="Listras Verticais Aquarela Slim Azul" onclick="abrirModal('listrado/Listras Verticais Aquarela Slim Azul 2.jpg')">
+              <span>Listras Verticais Aquarela Slim Azul</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="listrado/Listras Verticais Aquarela Slim Azul 3.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('listrado/Listras Verticais Aquarela Slim Azul 3.jpg', this)">🤍</button>
-              <img src="listrado/Listras Verticais Aquarela Slim Azul 3.jpg" alt="Listras Verticais Aquarela Slim Azul 3" onclick="abrirModal('listrado/Listras Verticais Aquarela Slim Azul 3.jpg')">
-              <span>Listras Verticais Aquarela Slim Azul 3</span>
+              <img src="listrado/Listras Verticais Aquarela Slim Azul 3.jpg" alt="Listras Verticais Aquarela Slim Azul" onclick="abrirModal('listrado/Listras Verticais Aquarela Slim Azul 3.jpg')">
+              <span>Listras Verticais Aquarela Slim Azul</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="listrado/Listras Verticais Aquarela Slim Azul.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('listrado/Listras Verticais Aquarela Slim Azul.jpg', this)">🤍</button>
@@ -768,8 +768,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="listrado/Listras Verticais Aquarela Slim Laranja 2.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('listrado/Listras Verticais Aquarela Slim Laranja 2.jpg', this)">🤍</button>
-              <img src="listrado/Listras Verticais Aquarela Slim Laranja 2.jpg" alt="Listras Verticais Aquarela Slim Laranja 2" onclick="abrirModal('listrado/Listras Verticais Aquarela Slim Laranja 2.jpg')">
-              <span>Listras Verticais Aquarela Slim Laranja 2</span>
+              <img src="listrado/Listras Verticais Aquarela Slim Laranja 2.jpg" alt="Listras Verticais Aquarela Slim Laranja" onclick="abrirModal('listrado/Listras Verticais Aquarela Slim Laranja 2.jpg')">
+              <span>Listras Verticais Aquarela Slim Laranja</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="listrado/Listras Verticais Aquarela Slim Laranja.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('listrado/Listras Verticais Aquarela Slim Laranja.jpg', this)">🤍</button>

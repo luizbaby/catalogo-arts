@@ -12,20 +12,20 @@
       top: 0;
       background: white;
       display: flex;
+      flex-wrap: wrap;
       justify-content: space-between;
       align-items: center;
       padding: 10px 20px;
+      gap: 10px;
       box-shadow: 0 2px 5px rgba(0,0,0,0.1);
       z-index: 1000;
     }
-    .top-bar h1 { font-size: 18px; margin: 0; }
     .btn {
       background: #01b9b5;
       color: white;
       text-decoration: none;
       padding: 8px 14px;
       border-radius: 6px;
-      margin-left: 10px;
       font-size: 14px;
       cursor: pointer;
     }
@@ -88,11 +88,11 @@
 <body>
 <div class="top-bar">
   <div>
-    <a href="index.html" class="btn">&larr; Voltar</a>
+    <a href="https://catalogo.artspapeisdeparede.com.br/index.html" class="btn">&larr; Voltar</a>
     <button class="btn" onclick="baixarSelecionadas()">📥 Baixar selecionadas</button>
   </div>
   <h1>Folhagem</h1>
-  <a href="https://luizbaby.github.io/catalogo-arts/favoritos.html" class="btn">⭐ Ver favoritos</a>
+  <a href="https://catalogo.artspapeisdeparede.com.br/favoritos.html" class="btn">⭐ Ver favoritos</a>
 </div>
 <div class="grid">
 <div class="card">
@@ -103,8 +103,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="folhagem/Aquarela Pendente 2.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('folhagem/Aquarela Pendente 2.jpg', this)">🤍</button>
-              <img src="folhagem/Aquarela Pendente 2.jpg" alt="Aquarela Pendente 2" onclick="abrirModal('folhagem/Aquarela Pendente 2.jpg')">
-              <span>Aquarela Pendente 2</span>
+              <img src="folhagem/Aquarela Pendente 2.jpg" alt="Aquarela Pendente" onclick="abrirModal('folhagem/Aquarela Pendente 2.jpg')">
+              <span>Aquarela Pendente</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="folhagem/Borboletas em Jardim Suspenso (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('folhagem/Borboletas em Jardim Suspenso (STILL).jpg', this)">🤍</button>
@@ -118,8 +118,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="folhagem/Cute Folhagem (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('folhagem/Cute Folhagem (2).jpg', this)">🤍</button>
-              <img src="folhagem/Cute Folhagem (2).jpg" alt="Cute Folhagem (2)" onclick="abrirModal('folhagem/Cute Folhagem (2).jpg')">
-              <span>Cute Folhagem (2)</span>
+              <img src="folhagem/Cute Folhagem (2).jpg" alt="Cute Folhagem" onclick="abrirModal('folhagem/Cute Folhagem (2).jpg')">
+              <span>Cute Folhagem</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="folhagem/Cute Folhagem (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('folhagem/Cute Folhagem (STILL).jpg', this)">🤍</button>
@@ -128,8 +128,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="folhagem/Cute Folhagem 02.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('folhagem/Cute Folhagem 02.jpg', this)">🤍</button>
-              <img src="folhagem/Cute Folhagem 02.jpg" alt="Cute Folhagem 02" onclick="abrirModal('folhagem/Cute Folhagem 02.jpg')">
-              <span>Cute Folhagem 02</span>
+              <img src="folhagem/Cute Folhagem 02.jpg" alt="Cute Folhagem" onclick="abrirModal('folhagem/Cute Folhagem 02.jpg')">
+              <span>Cute Folhagem</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="folhagem/Cute Folhagem.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('folhagem/Cute Folhagem.jpg', this)">🤍</button>
@@ -143,8 +143,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="folhagem/Floral Pendente 02.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('folhagem/Floral Pendente 02.jpg', this)">🤍</button>
-              <img src="folhagem/Floral Pendente 02.jpg" alt="Floral Pendente 02" onclick="abrirModal('folhagem/Floral Pendente 02.jpg')">
-              <span>Floral Pendente 02</span>
+              <img src="folhagem/Floral Pendente 02.jpg" alt="Floral Pendente" onclick="abrirModal('folhagem/Floral Pendente 02.jpg')">
+              <span>Floral Pendente</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="folhagem/Floral Pendente Verde (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('folhagem/Floral Pendente Verde (STILL).jpg', this)">🤍</button>
@@ -153,8 +153,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="folhagem/Floral Pendente Verde 2.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('folhagem/Floral Pendente Verde 2.jpg', this)">🤍</button>
-              <img src="folhagem/Floral Pendente Verde 2.jpg" alt="Floral Pendente Verde 2" onclick="abrirModal('folhagem/Floral Pendente Verde 2.jpg')">
-              <span>Floral Pendente Verde 2</span>
+              <img src="folhagem/Floral Pendente Verde 2.jpg" alt="Floral Pendente Verde" onclick="abrirModal('folhagem/Floral Pendente Verde 2.jpg')">
+              <span>Floral Pendente Verde</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="folhagem/Floral Pendente Verde.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('folhagem/Floral Pendente Verde.jpg', this)">🤍</button>
@@ -173,8 +173,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="folhagem/Folhagem Aquarela Clean 2.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('folhagem/Folhagem Aquarela Clean 2.jpg', this)">🤍</button>
-              <img src="folhagem/Folhagem Aquarela Clean 2.jpg" alt="Folhagem Aquarela Clean 2" onclick="abrirModal('folhagem/Folhagem Aquarela Clean 2.jpg')">
-              <span>Folhagem Aquarela Clean 2</span>
+              <img src="folhagem/Folhagem Aquarela Clean 2.jpg" alt="Folhagem Aquarela Clean" onclick="abrirModal('folhagem/Folhagem Aquarela Clean 2.jpg')">
+              <span>Folhagem Aquarela Clean</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="folhagem/Folhagem Aquarela Clean Gold (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('folhagem/Folhagem Aquarela Clean Gold (STILL).jpg', this)">🤍</button>
@@ -258,8 +258,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="folhagem/Plantas Clean 2.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('folhagem/Plantas Clean 2.jpg', this)">🤍</button>
-              <img src="folhagem/Plantas Clean 2.jpg" alt="Plantas Clean 2" onclick="abrirModal('folhagem/Plantas Clean 2.jpg')">
-              <span>Plantas Clean 2</span>
+              <img src="folhagem/Plantas Clean 2.jpg" alt="Plantas Clean" onclick="abrirModal('folhagem/Plantas Clean 2.jpg')">
+              <span>Plantas Clean</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="folhagem/Plantas Clean.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('folhagem/Plantas Clean.jpg', this)">🤍</button>
@@ -273,8 +273,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="folhagem/Raminhos Aquarela (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('folhagem/Raminhos Aquarela (2).jpg', this)">🤍</button>
-              <img src="folhagem/Raminhos Aquarela (2).jpg" alt="Raminhos Aquarela (2)" onclick="abrirModal('folhagem/Raminhos Aquarela (2).jpg')">
-              <span>Raminhos Aquarela (2)</span>
+              <img src="folhagem/Raminhos Aquarela (2).jpg" alt="Raminhos Aquarela" onclick="abrirModal('folhagem/Raminhos Aquarela (2).jpg')">
+              <span>Raminhos Aquarela</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="folhagem/Raminhos Aquarela (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('folhagem/Raminhos Aquarela (STILL).jpg', this)">🤍</button>
@@ -283,8 +283,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="folhagem/Raminhos Aquarela 2.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('folhagem/Raminhos Aquarela 2.jpg', this)">🤍</button>
-              <img src="folhagem/Raminhos Aquarela 2.jpg" alt="Raminhos Aquarela 2" onclick="abrirModal('folhagem/Raminhos Aquarela 2.jpg')">
-              <span>Raminhos Aquarela 2</span>
+              <img src="folhagem/Raminhos Aquarela 2.jpg" alt="Raminhos Aquarela" onclick="abrirModal('folhagem/Raminhos Aquarela 2.jpg')">
+              <span>Raminhos Aquarela</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="folhagem/Raminhos Aquarela.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('folhagem/Raminhos Aquarela.jpg', this)">🤍</button>

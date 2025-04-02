@@ -12,20 +12,20 @@
       top: 0;
       background: white;
       display: flex;
+      flex-wrap: wrap;
       justify-content: space-between;
       align-items: center;
       padding: 10px 20px;
+      gap: 10px;
       box-shadow: 0 2px 5px rgba(0,0,0,0.1);
       z-index: 1000;
     }
-    .top-bar h1 { font-size: 18px; margin: 0; }
     .btn {
       background: #01b9b5;
       color: white;
       text-decoration: none;
       padding: 8px 14px;
       border-radius: 6px;
-      margin-left: 10px;
       font-size: 14px;
       cursor: pointer;
     }
@@ -88,18 +88,18 @@
 <body>
 <div class="top-bar">
   <div>
-    <a href="index.html" class="btn">&larr; Voltar</a>
+    <a href="https://catalogo.artspapeisdeparede.com.br/index.html" class="btn">&larr; Voltar</a>
     <button class="btn" onclick="baixarSelecionadas()">📥 Baixar selecionadas</button>
   </div>
   <h1>Céu</h1>
-  <a href="https://luizbaby.github.io/catalogo-arts/favoritos.html" class="btn">⭐ Ver favoritos</a>
+  <a href="https://catalogo.artspapeisdeparede.com.br/favoritos.html" class="btn">⭐ Ver favoritos</a>
 </div>
 <div class="grid">
 <div class="card">
               <input type="checkbox" class="checkbox-select" value="céu/Céu Azul (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('céu/Céu Azul (2).jpg', this)">🤍</button>
-              <img src="céu/Céu Azul (2).jpg" alt="Céu Azul (2)" onclick="abrirModal('céu/Céu Azul (2).jpg')">
-              <span>Céu Azul (2)</span>
+              <img src="céu/Céu Azul (2).jpg" alt="Céu Azul" onclick="abrirModal('céu/Céu Azul (2).jpg')">
+              <span>Céu Azul</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="céu/Céu Azul (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('céu/Céu Azul (STILL).jpg', this)">🤍</button>
@@ -113,13 +113,13 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="céu/Céu Azul2.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('céu/Céu Azul2.jpg', this)">🤍</button>
-              <img src="céu/Céu Azul2.jpg" alt="Céu Azul2" onclick="abrirModal('céu/Céu Azul2.jpg')">
-              <span>Céu Azul2</span>
+              <img src="céu/Céu Azul2.jpg" alt="Céu Azul" onclick="abrirModal('céu/Céu Azul2.jpg')">
+              <span>Céu Azul</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="céu/Céu Rosa (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('céu/Céu Rosa (2).jpg', this)">🤍</button>
-              <img src="céu/Céu Rosa (2).jpg" alt="Céu Rosa (2)" onclick="abrirModal('céu/Céu Rosa (2).jpg')">
-              <span>Céu Rosa (2)</span>
+              <img src="céu/Céu Rosa (2).jpg" alt="Céu Rosa" onclick="abrirModal('céu/Céu Rosa (2).jpg')">
+              <span>Céu Rosa</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="céu/Céu Rosa (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('céu/Céu Rosa (STILL).jpg', this)">🤍</button>
@@ -133,8 +133,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="céu/Nuvem Areia (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('céu/Nuvem Areia (2).jpg', this)">🤍</button>
-              <img src="céu/Nuvem Areia (2).jpg" alt="Nuvem Areia (2)" onclick="abrirModal('céu/Nuvem Areia (2).jpg')">
-              <span>Nuvem Areia (2)</span>
+              <img src="céu/Nuvem Areia (2).jpg" alt="Nuvem Areia" onclick="abrirModal('céu/Nuvem Areia (2).jpg')">
+              <span>Nuvem Areia</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="céu/Nuvem Areia (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('céu/Nuvem Areia (STILL).jpg', this)">🤍</button>
@@ -148,8 +148,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="céu/Nuvem Azul (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('céu/Nuvem Azul (2).jpg', this)">🤍</button>
-              <img src="céu/Nuvem Azul (2).jpg" alt="Nuvem Azul (2)" onclick="abrirModal('céu/Nuvem Azul (2).jpg')">
-              <span>Nuvem Azul (2)</span>
+              <img src="céu/Nuvem Azul (2).jpg" alt="Nuvem Azul" onclick="abrirModal('céu/Nuvem Azul (2).jpg')">
+              <span>Nuvem Azul</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="céu/Nuvem Azul (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('céu/Nuvem Azul (STILL).jpg', this)">🤍</button>
@@ -163,8 +163,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="céu/Nuvem Cinza (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('céu/Nuvem Cinza (2).jpg', this)">🤍</button>
-              <img src="céu/Nuvem Cinza (2).jpg" alt="Nuvem Cinza (2)" onclick="abrirModal('céu/Nuvem Cinza (2).jpg')">
-              <span>Nuvem Cinza (2)</span>
+              <img src="céu/Nuvem Cinza (2).jpg" alt="Nuvem Cinza" onclick="abrirModal('céu/Nuvem Cinza (2).jpg')">
+              <span>Nuvem Cinza</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="céu/Nuvem Cinza (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('céu/Nuvem Cinza (STILL).jpg', this)">🤍</button>
@@ -178,8 +178,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="céu/Nuvem Mint (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('céu/Nuvem Mint (2).jpg', this)">🤍</button>
-              <img src="céu/Nuvem Mint (2).jpg" alt="Nuvem Mint (2)" onclick="abrirModal('céu/Nuvem Mint (2).jpg')">
-              <span>Nuvem Mint (2)</span>
+              <img src="céu/Nuvem Mint (2).jpg" alt="Nuvem Mint" onclick="abrirModal('céu/Nuvem Mint (2).jpg')">
+              <span>Nuvem Mint</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="céu/Nuvem Mint (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('céu/Nuvem Mint (STILL).jpg', this)">🤍</button>
@@ -193,8 +193,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="céu/Nuvem Rosa (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('céu/Nuvem Rosa (2).jpg', this)">🤍</button>
-              <img src="céu/Nuvem Rosa (2).jpg" alt="Nuvem Rosa (2)" onclick="abrirModal('céu/Nuvem Rosa (2).jpg')">
-              <span>Nuvem Rosa (2)</span>
+              <img src="céu/Nuvem Rosa (2).jpg" alt="Nuvem Rosa" onclick="abrirModal('céu/Nuvem Rosa (2).jpg')">
+              <span>Nuvem Rosa</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="céu/Nuvem Rosa (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('céu/Nuvem Rosa (STILL).jpg', this)">🤍</button>
@@ -208,8 +208,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="céu/Nuvem Rose (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('céu/Nuvem Rose (2).jpg', this)">🤍</button>
-              <img src="céu/Nuvem Rose (2).jpg" alt="Nuvem Rose (2)" onclick="abrirModal('céu/Nuvem Rose (2).jpg')">
-              <span>Nuvem Rose (2)</span>
+              <img src="céu/Nuvem Rose (2).jpg" alt="Nuvem Rose" onclick="abrirModal('céu/Nuvem Rose (2).jpg')">
+              <span>Nuvem Rose</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="céu/Nuvem Rose (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('céu/Nuvem Rose (STILL).jpg', this)">🤍</button>
@@ -223,13 +223,13 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="céu/Nuvem Tiffany (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('céu/Nuvem Tiffany (2).jpg', this)">🤍</button>
-              <img src="céu/Nuvem Tiffany (2).jpg" alt="Nuvem Tiffany (2)" onclick="abrirModal('céu/Nuvem Tiffany (2).jpg')">
-              <span>Nuvem Tiffany (2)</span>
+              <img src="céu/Nuvem Tiffany (2).jpg" alt="Nuvem Tiffany" onclick="abrirModal('céu/Nuvem Tiffany (2).jpg')">
+              <span>Nuvem Tiffany</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="céu/Nuvem Tiffany (STILL) (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('céu/Nuvem Tiffany (STILL) (2).jpg', this)">🤍</button>
-              <img src="céu/Nuvem Tiffany (STILL) (2).jpg" alt="Nuvem Tiffany (STILL) (2)" onclick="abrirModal('céu/Nuvem Tiffany (STILL) (2).jpg')">
-              <span>Nuvem Tiffany (STILL) (2)</span>
+              <img src="céu/Nuvem Tiffany (STILL) (2).jpg" alt="Nuvem Tiffany (STILL)" onclick="abrirModal('céu/Nuvem Tiffany (STILL) (2).jpg')">
+              <span>Nuvem Tiffany (STILL)</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="céu/Nuvem Tiffany (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('céu/Nuvem Tiffany (STILL).jpg', this)">🤍</button>
@@ -253,8 +253,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="céu/Nuvens Poa Rosa 2.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('céu/Nuvens Poa Rosa 2.jpg', this)">🤍</button>
-              <img src="céu/Nuvens Poa Rosa 2.jpg" alt="Nuvens Poa Rosa 2" onclick="abrirModal('céu/Nuvens Poa Rosa 2.jpg')">
-              <span>Nuvens Poa Rosa 2</span>
+              <img src="céu/Nuvens Poa Rosa 2.jpg" alt="Nuvens Poa Rosa" onclick="abrirModal('céu/Nuvens Poa Rosa 2.jpg')">
+              <span>Nuvens Poa Rosa</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="céu/Nuvens Poa Rosa.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('céu/Nuvens Poa Rosa.jpg', this)">🤍</button>

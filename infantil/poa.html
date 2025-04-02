@@ -12,20 +12,20 @@
       top: 0;
       background: white;
       display: flex;
+      flex-wrap: wrap;
       justify-content: space-between;
       align-items: center;
       padding: 10px 20px;
+      gap: 10px;
       box-shadow: 0 2px 5px rgba(0,0,0,0.1);
       z-index: 1000;
     }
-    .top-bar h1 { font-size: 18px; margin: 0; }
     .btn {
       background: #01b9b5;
       color: white;
       text-decoration: none;
       padding: 8px 14px;
       border-radius: 6px;
-      margin-left: 10px;
       font-size: 14px;
       cursor: pointer;
     }
@@ -88,18 +88,18 @@
 <body>
 <div class="top-bar">
   <div>
-    <a href="index.html" class="btn">&larr; Voltar</a>
+    <a href="https://catalogo.artspapeisdeparede.com.br/index.html" class="btn">&larr; Voltar</a>
     <button class="btn" onclick="baixarSelecionadas()">📥 Baixar selecionadas</button>
   </div>
   <h1>Poa</h1>
-  <a href="https://luizbaby.github.io/catalogo-arts/favoritos.html" class="btn">⭐ Ver favoritos</a>
+  <a href="https://catalogo.artspapeisdeparede.com.br/favoritos.html" class="btn">⭐ Ver favoritos</a>
 </div>
 <div class="grid">
 <div class="card">
               <input type="checkbox" class="checkbox-select" value="poa/Bolinhas de Tinta Azul (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('poa/Bolinhas de Tinta Azul (2).jpg', this)">🤍</button>
-              <img src="poa/Bolinhas de Tinta Azul (2).jpg" alt="Bolinhas de Tinta Azul (2)" onclick="abrirModal('poa/Bolinhas de Tinta Azul (2).jpg')">
-              <span>Bolinhas de Tinta Azul (2)</span>
+              <img src="poa/Bolinhas de Tinta Azul (2).jpg" alt="Bolinhas de Tinta Azul" onclick="abrirModal('poa/Bolinhas de Tinta Azul (2).jpg')">
+              <span>Bolinhas de Tinta Azul</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="poa/Bolinhas de Tinta Azul (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('poa/Bolinhas de Tinta Azul (STILL).jpg', this)">🤍</button>
@@ -118,13 +118,13 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="poa/Bolinhas de Tinta Coloridas 2.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('poa/Bolinhas de Tinta Coloridas 2.jpg', this)">🤍</button>
-              <img src="poa/Bolinhas de Tinta Coloridas 2.jpg" alt="Bolinhas de Tinta Coloridas 2" onclick="abrirModal('poa/Bolinhas de Tinta Coloridas 2.jpg')">
-              <span>Bolinhas de Tinta Coloridas 2</span>
+              <img src="poa/Bolinhas de Tinta Coloridas 2.jpg" alt="Bolinhas de Tinta Coloridas" onclick="abrirModal('poa/Bolinhas de Tinta Coloridas 2.jpg')">
+              <span>Bolinhas de Tinta Coloridas</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="poa/Bolinhas de Tinta Rosa e Cinza (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('poa/Bolinhas de Tinta Rosa e Cinza (2).jpg', this)">🤍</button>
-              <img src="poa/Bolinhas de Tinta Rosa e Cinza (2).jpg" alt="Bolinhas de Tinta Rosa e Cinza (2)" onclick="abrirModal('poa/Bolinhas de Tinta Rosa e Cinza (2).jpg')">
-              <span>Bolinhas de Tinta Rosa e Cinza (2)</span>
+              <img src="poa/Bolinhas de Tinta Rosa e Cinza (2).jpg" alt="Bolinhas de Tinta Rosa e Cinza" onclick="abrirModal('poa/Bolinhas de Tinta Rosa e Cinza (2).jpg')">
+              <span>Bolinhas de Tinta Rosa e Cinza</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="poa/Bolinhas de Tinta Rosa e Cinza (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('poa/Bolinhas de Tinta Rosa e Cinza (STILL).jpg', this)">🤍</button>
@@ -153,8 +153,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="poa/Nuvens Poa Rosa 2.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('poa/Nuvens Poa Rosa 2.jpg', this)">🤍</button>
-              <img src="poa/Nuvens Poa Rosa 2.jpg" alt="Nuvens Poa Rosa 2" onclick="abrirModal('poa/Nuvens Poa Rosa 2.jpg')">
-              <span>Nuvens Poa Rosa 2</span>
+              <img src="poa/Nuvens Poa Rosa 2.jpg" alt="Nuvens Poa Rosa" onclick="abrirModal('poa/Nuvens Poa Rosa 2.jpg')">
+              <span>Nuvens Poa Rosa</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="poa/Pintinhas Azul (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('poa/Pintinhas Azul (STILL).jpg', this)">🤍</button>
@@ -198,8 +198,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="poa/Poa Amarelo (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('poa/Poa Amarelo (2).jpg', this)">🤍</button>
-              <img src="poa/Poa Amarelo (2).jpg" alt="Poa Amarelo (2)" onclick="abrirModal('poa/Poa Amarelo (2).jpg')">
-              <span>Poa Amarelo (2)</span>
+              <img src="poa/Poa Amarelo (2).jpg" alt="Poa Amarelo" onclick="abrirModal('poa/Poa Amarelo (2).jpg')">
+              <span>Poa Amarelo</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="poa/Poa Amarelo (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('poa/Poa Amarelo (STILL).jpg', this)">🤍</button>
@@ -213,8 +213,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="poa/Poa Areia (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('poa/Poa Areia (2).jpg', this)">🤍</button>
-              <img src="poa/Poa Areia (2).jpg" alt="Poa Areia (2)" onclick="abrirModal('poa/Poa Areia (2).jpg')">
-              <span>Poa Areia (2)</span>
+              <img src="poa/Poa Areia (2).jpg" alt="Poa Areia" onclick="abrirModal('poa/Poa Areia (2).jpg')">
+              <span>Poa Areia</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="poa/Poa Areia (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('poa/Poa Areia (STILL).jpg', this)">🤍</button>
@@ -233,8 +233,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="poa/Poa Assimetrico Azul 2.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('poa/Poa Assimetrico Azul 2.jpg', this)">🤍</button>
-              <img src="poa/Poa Assimetrico Azul 2.jpg" alt="Poa Assimetrico Azul 2" onclick="abrirModal('poa/Poa Assimetrico Azul 2.jpg')">
-              <span>Poa Assimetrico Azul 2</span>
+              <img src="poa/Poa Assimetrico Azul 2.jpg" alt="Poa Assimetrico Azul" onclick="abrirModal('poa/Poa Assimetrico Azul 2.jpg')">
+              <span>Poa Assimetrico Azul</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="poa/Poa Assimetrico Azul.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('poa/Poa Assimetrico Azul.jpg', this)">🤍</button>
@@ -258,8 +258,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="poa/Poa Assimetrico Rose 2.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('poa/Poa Assimetrico Rose 2.jpg', this)">🤍</button>
-              <img src="poa/Poa Assimetrico Rose 2.jpg" alt="Poa Assimetrico Rose 2" onclick="abrirModal('poa/Poa Assimetrico Rose 2.jpg')">
-              <span>Poa Assimetrico Rose 2</span>
+              <img src="poa/Poa Assimetrico Rose 2.jpg" alt="Poa Assimetrico Rose" onclick="abrirModal('poa/Poa Assimetrico Rose 2.jpg')">
+              <span>Poa Assimetrico Rose</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="poa/Poa Assimetrico Rose.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('poa/Poa Assimetrico Rose.jpg', this)">🤍</button>
@@ -278,8 +278,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="poa/Poa Assimetrico Verde 2.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('poa/Poa Assimetrico Verde 2.jpg', this)">🤍</button>
-              <img src="poa/Poa Assimetrico Verde 2.jpg" alt="Poa Assimetrico Verde 2" onclick="abrirModal('poa/Poa Assimetrico Verde 2.jpg')">
-              <span>Poa Assimetrico Verde 2</span>
+              <img src="poa/Poa Assimetrico Verde 2.jpg" alt="Poa Assimetrico Verde" onclick="abrirModal('poa/Poa Assimetrico Verde 2.jpg')">
+              <span>Poa Assimetrico Verde</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="poa/Poa Assimetrico Verde.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('poa/Poa Assimetrico Verde.jpg', this)">🤍</button>
@@ -288,8 +288,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="poa/Poa Assimétrico Fundo Cinza 2.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('poa/Poa Assimétrico Fundo Cinza 2.jpg', this)">🤍</button>
-              <img src="poa/Poa Assimétrico Fundo Cinza 2.jpg" alt="Poa Assimétrico Fundo Cinza 2" onclick="abrirModal('poa/Poa Assimétrico Fundo Cinza 2.jpg')">
-              <span>Poa Assimétrico Fundo Cinza 2</span>
+              <img src="poa/Poa Assimétrico Fundo Cinza 2.jpg" alt="Poa Assimétrico Fundo Cinza" onclick="abrirModal('poa/Poa Assimétrico Fundo Cinza 2.jpg')">
+              <span>Poa Assimétrico Fundo Cinza</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="poa/Poa Assimétrico Fundo Cinza.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('poa/Poa Assimétrico Fundo Cinza.jpg', this)">🤍</button>
@@ -298,8 +298,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="poa/Poa Assimétrico Tiffany 2.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('poa/Poa Assimétrico Tiffany 2.jpg', this)">🤍</button>
-              <img src="poa/Poa Assimétrico Tiffany 2.jpg" alt="Poa Assimétrico Tiffany 2" onclick="abrirModal('poa/Poa Assimétrico Tiffany 2.jpg')">
-              <span>Poa Assimétrico Tiffany 2</span>
+              <img src="poa/Poa Assimétrico Tiffany 2.jpg" alt="Poa Assimétrico Tiffany" onclick="abrirModal('poa/Poa Assimétrico Tiffany 2.jpg')">
+              <span>Poa Assimétrico Tiffany</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="poa/Poa Assimétrico Tiffany.jpg">
               <button class="favorito-btn" onclick="toggleFavorito('poa/Poa Assimétrico Tiffany.jpg', this)">🤍</button>
@@ -308,8 +308,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="poa/Poa Azul (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('poa/Poa Azul (2).jpg', this)">🤍</button>
-              <img src="poa/Poa Azul (2).jpg" alt="Poa Azul (2)" onclick="abrirModal('poa/Poa Azul (2).jpg')">
-              <span>Poa Azul (2)</span>
+              <img src="poa/Poa Azul (2).jpg" alt="Poa Azul" onclick="abrirModal('poa/Poa Azul (2).jpg')">
+              <span>Poa Azul</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="poa/Poa Azul (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('poa/Poa Azul (STILL).jpg', this)">🤍</button>
@@ -323,8 +323,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="poa/Poa Camurça (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('poa/Poa Camurça (2).jpg', this)">🤍</button>
-              <img src="poa/Poa Camurça (2).jpg" alt="Poa Camurça (2)" onclick="abrirModal('poa/Poa Camurça (2).jpg')">
-              <span>Poa Camurça (2)</span>
+              <img src="poa/Poa Camurça (2).jpg" alt="Poa Camurça" onclick="abrirModal('poa/Poa Camurça (2).jpg')">
+              <span>Poa Camurça</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="poa/Poa Camurça (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('poa/Poa Camurça (STILL).jpg', this)">🤍</button>
@@ -338,8 +338,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="poa/Poa Cinza (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('poa/Poa Cinza (2).jpg', this)">🤍</button>
-              <img src="poa/Poa Cinza (2).jpg" alt="Poa Cinza (2)" onclick="abrirModal('poa/Poa Cinza (2).jpg')">
-              <span>Poa Cinza (2)</span>
+              <img src="poa/Poa Cinza (2).jpg" alt="Poa Cinza" onclick="abrirModal('poa/Poa Cinza (2).jpg')">
+              <span>Poa Cinza</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="poa/Poa Cinza (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('poa/Poa Cinza (STILL).jpg', this)">🤍</button>
@@ -358,8 +358,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="poa/Poa Off White (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('poa/Poa Off White (2).jpg', this)">🤍</button>
-              <img src="poa/Poa Off White (2).jpg" alt="Poa Off White (2)" onclick="abrirModal('poa/Poa Off White (2).jpg')">
-              <span>Poa Off White (2)</span>
+              <img src="poa/Poa Off White (2).jpg" alt="Poa Off White" onclick="abrirModal('poa/Poa Off White (2).jpg')">
+              <span>Poa Off White</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="poa/Poa Off White (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('poa/Poa Off White (STILL).jpg', this)">🤍</button>
@@ -373,8 +373,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="poa/Poa Rosa (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('poa/Poa Rosa (2).jpg', this)">🤍</button>
-              <img src="poa/Poa Rosa (2).jpg" alt="Poa Rosa (2)" onclick="abrirModal('poa/Poa Rosa (2).jpg')">
-              <span>Poa Rosa (2)</span>
+              <img src="poa/Poa Rosa (2).jpg" alt="Poa Rosa" onclick="abrirModal('poa/Poa Rosa (2).jpg')">
+              <span>Poa Rosa</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="poa/Poa Rosa (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('poa/Poa Rosa (STILL).jpg', this)">🤍</button>
@@ -388,8 +388,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="poa/Poa Roxo (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('poa/Poa Roxo (2).jpg', this)">🤍</button>
-              <img src="poa/Poa Roxo (2).jpg" alt="Poa Roxo (2)" onclick="abrirModal('poa/Poa Roxo (2).jpg')">
-              <span>Poa Roxo (2)</span>
+              <img src="poa/Poa Roxo (2).jpg" alt="Poa Roxo" onclick="abrirModal('poa/Poa Roxo (2).jpg')">
+              <span>Poa Roxo</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="poa/Poa Roxo (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('poa/Poa Roxo (STILL).jpg', this)">🤍</button>
@@ -403,8 +403,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="poa/Poa Textura Areia (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('poa/Poa Textura Areia (2).jpg', this)">🤍</button>
-              <img src="poa/Poa Textura Areia (2).jpg" alt="Poa Textura Areia (2)" onclick="abrirModal('poa/Poa Textura Areia (2).jpg')">
-              <span>Poa Textura Areia (2)</span>
+              <img src="poa/Poa Textura Areia (2).jpg" alt="Poa Textura Areia" onclick="abrirModal('poa/Poa Textura Areia (2).jpg')">
+              <span>Poa Textura Areia</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="poa/Poa Textura Areia (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('poa/Poa Textura Areia (STILL).jpg', this)">🤍</button>
@@ -418,8 +418,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="poa/Poa Textura Azul (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('poa/Poa Textura Azul (2).jpg', this)">🤍</button>
-              <img src="poa/Poa Textura Azul (2).jpg" alt="Poa Textura Azul (2)" onclick="abrirModal('poa/Poa Textura Azul (2).jpg')">
-              <span>Poa Textura Azul (2)</span>
+              <img src="poa/Poa Textura Azul (2).jpg" alt="Poa Textura Azul" onclick="abrirModal('poa/Poa Textura Azul (2).jpg')">
+              <span>Poa Textura Azul</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="poa/Poa Textura Azul (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('poa/Poa Textura Azul (STILL).jpg', this)">🤍</button>
@@ -433,8 +433,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="poa/Poa Textura Cinza (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('poa/Poa Textura Cinza (2).jpg', this)">🤍</button>
-              <img src="poa/Poa Textura Cinza (2).jpg" alt="Poa Textura Cinza (2)" onclick="abrirModal('poa/Poa Textura Cinza (2).jpg')">
-              <span>Poa Textura Cinza (2)</span>
+              <img src="poa/Poa Textura Cinza (2).jpg" alt="Poa Textura Cinza" onclick="abrirModal('poa/Poa Textura Cinza (2).jpg')">
+              <span>Poa Textura Cinza</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="poa/Poa Textura Cinza (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('poa/Poa Textura Cinza (STILL).jpg', this)">🤍</button>
@@ -448,8 +448,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="poa/Poa Textura Rosa (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('poa/Poa Textura Rosa (2).jpg', this)">🤍</button>
-              <img src="poa/Poa Textura Rosa (2).jpg" alt="Poa Textura Rosa (2)" onclick="abrirModal('poa/Poa Textura Rosa (2).jpg')">
-              <span>Poa Textura Rosa (2)</span>
+              <img src="poa/Poa Textura Rosa (2).jpg" alt="Poa Textura Rosa" onclick="abrirModal('poa/Poa Textura Rosa (2).jpg')">
+              <span>Poa Textura Rosa</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="poa/Poa Textura Rosa (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('poa/Poa Textura Rosa (STILL).jpg', this)">🤍</button>
@@ -463,8 +463,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="poa/Poa Textura Roxo (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('poa/Poa Textura Roxo (2).jpg', this)">🤍</button>
-              <img src="poa/Poa Textura Roxo (2).jpg" alt="Poa Textura Roxo (2)" onclick="abrirModal('poa/Poa Textura Roxo (2).jpg')">
-              <span>Poa Textura Roxo (2)</span>
+              <img src="poa/Poa Textura Roxo (2).jpg" alt="Poa Textura Roxo" onclick="abrirModal('poa/Poa Textura Roxo (2).jpg')">
+              <span>Poa Textura Roxo</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="poa/Poa Textura Roxo (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('poa/Poa Textura Roxo (STILL).jpg', this)">🤍</button>
@@ -478,8 +478,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="poa/Poa Textura Verde (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('poa/Poa Textura Verde (2).jpg', this)">🤍</button>
-              <img src="poa/Poa Textura Verde (2).jpg" alt="Poa Textura Verde (2)" onclick="abrirModal('poa/Poa Textura Verde (2).jpg')">
-              <span>Poa Textura Verde (2)</span>
+              <img src="poa/Poa Textura Verde (2).jpg" alt="Poa Textura Verde" onclick="abrirModal('poa/Poa Textura Verde (2).jpg')">
+              <span>Poa Textura Verde</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="poa/Poa Textura Verde (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('poa/Poa Textura Verde (STILL).jpg', this)">🤍</button>
@@ -493,8 +493,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="poa/Poa Verde Agua (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('poa/Poa Verde Agua (2).jpg', this)">🤍</button>
-              <img src="poa/Poa Verde Agua (2).jpg" alt="Poa Verde Agua (2)" onclick="abrirModal('poa/Poa Verde Agua (2).jpg')">
-              <span>Poa Verde Agua (2)</span>
+              <img src="poa/Poa Verde Agua (2).jpg" alt="Poa Verde Agua" onclick="abrirModal('poa/Poa Verde Agua (2).jpg')">
+              <span>Poa Verde Agua</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="poa/Poa Verde Agua (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('poa/Poa Verde Agua (STILL).jpg', this)">🤍</button>

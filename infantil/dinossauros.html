@@ -12,20 +12,20 @@
       top: 0;
       background: white;
       display: flex;
+      flex-wrap: wrap;
       justify-content: space-between;
       align-items: center;
       padding: 10px 20px;
+      gap: 10px;
       box-shadow: 0 2px 5px rgba(0,0,0,0.1);
       z-index: 1000;
     }
-    .top-bar h1 { font-size: 18px; margin: 0; }
     .btn {
       background: #01b9b5;
       color: white;
       text-decoration: none;
       padding: 8px 14px;
       border-radius: 6px;
-      margin-left: 10px;
       font-size: 14px;
       cursor: pointer;
     }
@@ -88,18 +88,18 @@
 <body>
 <div class="top-bar">
   <div>
-    <a href="index.html" class="btn">&larr; Voltar</a>
+    <a href="https://catalogo.artspapeisdeparede.com.br/index.html" class="btn">&larr; Voltar</a>
     <button class="btn" onclick="baixarSelecionadas()">📥 Baixar selecionadas</button>
   </div>
   <h1>Dinossauros</h1>
-  <a href="https://luizbaby.github.io/catalogo-arts/favoritos.html" class="btn">⭐ Ver favoritos</a>
+  <a href="https://catalogo.artspapeisdeparede.com.br/favoritos.html" class="btn">⭐ Ver favoritos</a>
 </div>
 <div class="grid">
 <div class="card">
               <input type="checkbox" class="checkbox-select" value="dinossauros/Cute Dinos Azul (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('dinossauros/Cute Dinos Azul (2).jpg', this)">🤍</button>
-              <img src="dinossauros/Cute Dinos Azul (2).jpg" alt="Cute Dinos Azul (2)" onclick="abrirModal('dinossauros/Cute Dinos Azul (2).jpg')">
-              <span>Cute Dinos Azul (2)</span>
+              <img src="dinossauros/Cute Dinos Azul (2).jpg" alt="Cute Dinos Azul" onclick="abrirModal('dinossauros/Cute Dinos Azul (2).jpg')">
+              <span>Cute Dinos Azul</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="dinossauros/Cute Dinos Azul (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('dinossauros/Cute Dinos Azul (STILL).jpg', this)">🤍</button>
@@ -113,8 +113,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="dinossauros/Dinos Areia (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('dinossauros/Dinos Areia (2).jpg', this)">🤍</button>
-              <img src="dinossauros/Dinos Areia (2).jpg" alt="Dinos Areia (2)" onclick="abrirModal('dinossauros/Dinos Areia (2).jpg')">
-              <span>Dinos Areia (2)</span>
+              <img src="dinossauros/Dinos Areia (2).jpg" alt="Dinos Areia" onclick="abrirModal('dinossauros/Dinos Areia (2).jpg')">
+              <span>Dinos Areia</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="dinossauros/Dinos Areia (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('dinossauros/Dinos Areia (STILL).jpg', this)">🤍</button>
@@ -128,8 +128,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="dinossauros/Dinos Azul (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('dinossauros/Dinos Azul (2).jpg', this)">🤍</button>
-              <img src="dinossauros/Dinos Azul (2).jpg" alt="Dinos Azul (2)" onclick="abrirModal('dinossauros/Dinos Azul (2).jpg')">
-              <span>Dinos Azul (2)</span>
+              <img src="dinossauros/Dinos Azul (2).jpg" alt="Dinos Azul" onclick="abrirModal('dinossauros/Dinos Azul (2).jpg')">
+              <span>Dinos Azul</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="dinossauros/Dinos Azul (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('dinossauros/Dinos Azul (STILL).jpg', this)">🤍</button>
@@ -143,8 +143,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="dinossauros/Dinos Branco (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('dinossauros/Dinos Branco (2).jpg', this)">🤍</button>
-              <img src="dinossauros/Dinos Branco (2).jpg" alt="Dinos Branco (2)" onclick="abrirModal('dinossauros/Dinos Branco (2).jpg')">
-              <span>Dinos Branco (2)</span>
+              <img src="dinossauros/Dinos Branco (2).jpg" alt="Dinos Branco" onclick="abrirModal('dinossauros/Dinos Branco (2).jpg')">
+              <span>Dinos Branco</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="dinossauros/Dinos Branco (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('dinossauros/Dinos Branco (STILL).jpg', this)">🤍</button>
@@ -158,8 +158,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="dinossauros/Dinos Cinza (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('dinossauros/Dinos Cinza (2).jpg', this)">🤍</button>
-              <img src="dinossauros/Dinos Cinza (2).jpg" alt="Dinos Cinza (2)" onclick="abrirModal('dinossauros/Dinos Cinza (2).jpg')">
-              <span>Dinos Cinza (2)</span>
+              <img src="dinossauros/Dinos Cinza (2).jpg" alt="Dinos Cinza" onclick="abrirModal('dinossauros/Dinos Cinza (2).jpg')">
+              <span>Dinos Cinza</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="dinossauros/Dinos Cinza (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('dinossauros/Dinos Cinza (STILL).jpg', this)">🤍</button>
@@ -173,8 +173,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="dinossauros/Dinos Verde (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('dinossauros/Dinos Verde (2).jpg', this)">🤍</button>
-              <img src="dinossauros/Dinos Verde (2).jpg" alt="Dinos Verde (2)" onclick="abrirModal('dinossauros/Dinos Verde (2).jpg')">
-              <span>Dinos Verde (2)</span>
+              <img src="dinossauros/Dinos Verde (2).jpg" alt="Dinos Verde" onclick="abrirModal('dinossauros/Dinos Verde (2).jpg')">
+              <span>Dinos Verde</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="dinossauros/Dinos Verde (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('dinossauros/Dinos Verde (STILL).jpg', this)">🤍</button>
@@ -188,8 +188,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="dinossauros/Dinossauros (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('dinossauros/Dinossauros (2).jpg', this)">🤍</button>
-              <img src="dinossauros/Dinossauros (2).jpg" alt="Dinossauros (2)" onclick="abrirModal('dinossauros/Dinossauros (2).jpg')">
-              <span>Dinossauros (2)</span>
+              <img src="dinossauros/Dinossauros (2).jpg" alt="Dinossauros" onclick="abrirModal('dinossauros/Dinossauros (2).jpg')">
+              <span>Dinossauros</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="dinossauros/Dinossauros (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('dinossauros/Dinossauros (STILL).jpg', this)">🤍</button>
@@ -208,8 +208,8 @@
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="dinossauros/Era dos Dinossauros (2).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('dinossauros/Era dos Dinossauros (2).jpg', this)">🤍</button>
-              <img src="dinossauros/Era dos Dinossauros (2).jpg" alt="Era dos Dinossauros (2)" onclick="abrirModal('dinossauros/Era dos Dinossauros (2).jpg')">
-              <span>Era dos Dinossauros (2)</span>
+              <img src="dinossauros/Era dos Dinossauros (2).jpg" alt="Era dos Dinossauros" onclick="abrirModal('dinossauros/Era dos Dinossauros (2).jpg')">
+              <span>Era dos Dinossauros</span>
             </div><div class="card">
               <input type="checkbox" class="checkbox-select" value="dinossauros/Era dos Dinossauros (STILL).jpg">
               <button class="favorito-btn" onclick="toggleFavorito('dinossauros/Era dos Dinossauros (STILL).jpg', this)">🤍</button>

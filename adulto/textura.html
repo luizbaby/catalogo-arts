@@ -1,0 +1,1076 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Textura</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    * { box-sizing: border-box; }
+    body { font-family: sans-serif; margin: 0; background: #f4f4f4; }
+    .top-bar {
+      position: sticky;
+      top: 0;
+      background: white;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      gap: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      z-index: 1000;
+    }
+    .btn {
+      background: #01b9b5;
+      color: white;
+      text-decoration: none;
+      padding: 8px 14px;
+      border-radius: 6px;
+      font-size: 14px;
+      cursor: pointer;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      gap: 20px;
+      padding: 20px;
+    }
+    @media (min-width: 768px) {
+      .grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    .card {
+      background: white;
+      padding: 10px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      text-align: center;
+      position: relative;
+    }
+    .card img { width: 100%; border-radius: 8px; cursor: pointer; }
+    .card span { display: block; margin-top: 8px; font-weight: bold; }
+    .checkbox-select {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      transform: scale(1.5);
+    }
+    .favorito-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: none;
+      border: none;
+      font-size: 20px;
+      cursor: pointer;
+    }
+    .favorito-btn.favorito { color: red; }
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.85);
+      z-index: 9999;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+    .modal img { max-width: 90vw; max-height: 80vh; }
+    .modal button {
+      margin-top: 10px;
+      padding: 8px 20px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+<div class="top-bar">
+  <div>
+    <a href="https://catalogo.artspapeisdeparede.com.br/index.html" class="btn">&larr; Voltar</a>
+    <button class="btn" onclick="baixarSelecionadas()">📥 Baixar selecionadas</button>
+  </div>
+  <h1>Textura</h1>
+  <a href="https://catalogo.artspapeisdeparede.com.br/favoritos.html" class="btn">⭐ Ver favoritos</a>
+</div>
+<div class="grid">
+<div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Jeans Areia (2).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Jeans Areia (2).jpg', this)">🤍</button>
+              <img src="textura/Jeans Areia (2).jpg" alt="Jeans Areia" onclick="abrirModal('textura/Jeans Areia (2).jpg')">
+              <span>Jeans Areia</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Jeans Areia (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Jeans Areia (STILL).jpg', this)">🤍</button>
+              <img src="textura/Jeans Areia (STILL).jpg" alt="Jeans Areia (STILL)" onclick="abrirModal('textura/Jeans Areia (STILL).jpg')">
+              <span>Jeans Areia (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Jeans Areia.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Jeans Areia.jpg', this)">🤍</button>
+              <img src="textura/Jeans Areia.jpg" alt="Jeans Areia" onclick="abrirModal('textura/Jeans Areia.jpg')">
+              <span>Jeans Areia</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Jeans Azul (2).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Jeans Azul (2).jpg', this)">🤍</button>
+              <img src="textura/Jeans Azul (2).jpg" alt="Jeans Azul" onclick="abrirModal('textura/Jeans Azul (2).jpg')">
+              <span>Jeans Azul</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Jeans Azul (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Jeans Azul (STILL).jpg', this)">🤍</button>
+              <img src="textura/Jeans Azul (STILL).jpg" alt="Jeans Azul (STILL)" onclick="abrirModal('textura/Jeans Azul (STILL).jpg')">
+              <span>Jeans Azul (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Jeans Azul.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Jeans Azul.jpg', this)">🤍</button>
+              <img src="textura/Jeans Azul.jpg" alt="Jeans Azul" onclick="abrirModal('textura/Jeans Azul.jpg')">
+              <span>Jeans Azul</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Jeans Bordo (2).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Jeans Bordo (2).jpg', this)">🤍</button>
+              <img src="textura/Jeans Bordo (2).jpg" alt="Jeans Bordo" onclick="abrirModal('textura/Jeans Bordo (2).jpg')">
+              <span>Jeans Bordo</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Jeans Bordo (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Jeans Bordo (STILL).jpg', this)">🤍</button>
+              <img src="textura/Jeans Bordo (STILL).jpg" alt="Jeans Bordo (STILL)" onclick="abrirModal('textura/Jeans Bordo (STILL).jpg')">
+              <span>Jeans Bordo (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Jeans Bordo.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Jeans Bordo.jpg', this)">🤍</button>
+              <img src="textura/Jeans Bordo.jpg" alt="Jeans Bordo" onclick="abrirModal('textura/Jeans Bordo.jpg')">
+              <span>Jeans Bordo</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Jeans Rose (2).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Jeans Rose (2).jpg', this)">🤍</button>
+              <img src="textura/Jeans Rose (2).jpg" alt="Jeans Rose" onclick="abrirModal('textura/Jeans Rose (2).jpg')">
+              <span>Jeans Rose</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Jeans Rose (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Jeans Rose (STILL).jpg', this)">🤍</button>
+              <img src="textura/Jeans Rose (STILL).jpg" alt="Jeans Rose (STILL)" onclick="abrirModal('textura/Jeans Rose (STILL).jpg')">
+              <span>Jeans Rose (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Jeans Rose.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Jeans Rose.jpg', this)">🤍</button>
+              <img src="textura/Jeans Rose.jpg" alt="Jeans Rose" onclick="abrirModal('textura/Jeans Rose.jpg')">
+              <span>Jeans Rose</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Linho (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Linho (STILL).jpg', this)">🤍</button>
+              <img src="textura/Linho (STILL).jpg" alt="Linho (STILL)" onclick="abrirModal('textura/Linho (STILL).jpg')">
+              <span>Linho (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Linho Azul (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Linho Azul (STILL).jpg', this)">🤍</button>
+              <img src="textura/Linho Azul (STILL).jpg" alt="Linho Azul (STILL)" onclick="abrirModal('textura/Linho Azul (STILL).jpg')">
+              <span>Linho Azul (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Linho Bege (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Linho Bege (STILL).jpg', this)">🤍</button>
+              <img src="textura/Linho Bege (STILL).jpg" alt="Linho Bege (STILL)" onclick="abrirModal('textura/Linho Bege (STILL).jpg')">
+              <span>Linho Bege (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Linho Cinza (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Linho Cinza (STILL).jpg', this)">🤍</button>
+              <img src="textura/Linho Cinza (STILL).jpg" alt="Linho Cinza (STILL)" onclick="abrirModal('textura/Linho Cinza (STILL).jpg')">
+              <span>Linho Cinza (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Linho Off White (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Linho Off White (STILL).jpg', this)">🤍</button>
+              <img src="textura/Linho Off White (STILL).jpg" alt="Linho Off White (STILL)" onclick="abrirModal('textura/Linho Off White (STILL).jpg')">
+              <span>Linho Off White (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Linho Rosa (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Linho Rosa (STILL).jpg', this)">🤍</button>
+              <img src="textura/Linho Rosa (STILL).jpg" alt="Linho Rosa (STILL)" onclick="abrirModal('textura/Linho Rosa (STILL).jpg')">
+              <span>Linho Rosa (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Linho Verde (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Linho Verde (STILL).jpg', this)">🤍</button>
+              <img src="textura/Linho Verde (STILL).jpg" alt="Linho Verde (STILL)" onclick="abrirModal('textura/Linho Verde (STILL).jpg')">
+              <span>Linho Verde (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Mosaico de Linhas  Escuras (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Mosaico de Linhas  Escuras (STILL).jpg', this)">🤍</button>
+              <img src="textura/Mosaico de Linhas  Escuras (STILL).jpg" alt="Mosaico de Linhas  Escuras (STILL)" onclick="abrirModal('textura/Mosaico de Linhas  Escuras (STILL).jpg')">
+              <span>Mosaico de Linhas  Escuras (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Mosaico de Linhas  Escuras.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Mosaico de Linhas  Escuras.jpg', this)">🤍</button>
+              <img src="textura/Mosaico de Linhas  Escuras.jpg" alt="Mosaico de Linhas  Escuras" onclick="abrirModal('textura/Mosaico de Linhas  Escuras.jpg')">
+              <span>Mosaico de Linhas  Escuras</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Mosaico de Linhas Cinza (2).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Mosaico de Linhas Cinza (2).jpg', this)">🤍</button>
+              <img src="textura/Mosaico de Linhas Cinza (2).jpg" alt="Mosaico de Linhas Cinza" onclick="abrirModal('textura/Mosaico de Linhas Cinza (2).jpg')">
+              <span>Mosaico de Linhas Cinza</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Mosaico de Linhas Cinza (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Mosaico de Linhas Cinza (STILL).jpg', this)">🤍</button>
+              <img src="textura/Mosaico de Linhas Cinza (STILL).jpg" alt="Mosaico de Linhas Cinza (STILL)" onclick="abrirModal('textura/Mosaico de Linhas Cinza (STILL).jpg')">
+              <span>Mosaico de Linhas Cinza (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Mosaico de Linhas Cinza.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Mosaico de Linhas Cinza.jpg', this)">🤍</button>
+              <img src="textura/Mosaico de Linhas Cinza.jpg" alt="Mosaico de Linhas Cinza" onclick="abrirModal('textura/Mosaico de Linhas Cinza.jpg')">
+              <span>Mosaico de Linhas Cinza</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Mosaico de Linhas Escuras (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Mosaico de Linhas Escuras (STILL).jpg', this)">🤍</button>
+              <img src="textura/Mosaico de Linhas Escuras (STILL).jpg" alt="Mosaico de Linhas Escuras (STILL)" onclick="abrirModal('textura/Mosaico de Linhas Escuras (STILL).jpg')">
+              <span>Mosaico de Linhas Escuras (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Mosaico de Linhas Escuras.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Mosaico de Linhas Escuras.jpg', this)">🤍</button>
+              <img src="textura/Mosaico de Linhas Escuras.jpg" alt="Mosaico de Linhas Escuras" onclick="abrirModal('textura/Mosaico de Linhas Escuras.jpg')">
+              <span>Mosaico de Linhas Escuras</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Mosaico de Linhas Marrom (2).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Mosaico de Linhas Marrom (2).jpg', this)">🤍</button>
+              <img src="textura/Mosaico de Linhas Marrom (2).jpg" alt="Mosaico de Linhas Marrom" onclick="abrirModal('textura/Mosaico de Linhas Marrom (2).jpg')">
+              <span>Mosaico de Linhas Marrom</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Mosaico de Linhas Marrom (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Mosaico de Linhas Marrom (STILL).jpg', this)">🤍</button>
+              <img src="textura/Mosaico de Linhas Marrom (STILL).jpg" alt="Mosaico de Linhas Marrom (STILL)" onclick="abrirModal('textura/Mosaico de Linhas Marrom (STILL).jpg')">
+              <span>Mosaico de Linhas Marrom (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Mosaico de Linhas Marrom.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Mosaico de Linhas Marrom.jpg', this)">🤍</button>
+              <img src="textura/Mosaico de Linhas Marrom.jpg" alt="Mosaico de Linhas Marrom" onclick="abrirModal('textura/Mosaico de Linhas Marrom.jpg')">
+              <span>Mosaico de Linhas Marrom</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Mosaico de Linhas Rose (2).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Mosaico de Linhas Rose (2).jpg', this)">🤍</button>
+              <img src="textura/Mosaico de Linhas Rose (2).jpg" alt="Mosaico de Linhas Rose" onclick="abrirModal('textura/Mosaico de Linhas Rose (2).jpg')">
+              <span>Mosaico de Linhas Rose</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Mosaico de Linhas Rose (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Mosaico de Linhas Rose (STILL).jpg', this)">🤍</button>
+              <img src="textura/Mosaico de Linhas Rose (STILL).jpg" alt="Mosaico de Linhas Rose (STILL)" onclick="abrirModal('textura/Mosaico de Linhas Rose (STILL).jpg')">
+              <span>Mosaico de Linhas Rose (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Mosaico de Linhas Rose.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Mosaico de Linhas Rose.jpg', this)">🤍</button>
+              <img src="textura/Mosaico de Linhas Rose.jpg" alt="Mosaico de Linhas Rose" onclick="abrirModal('textura/Mosaico de Linhas Rose.jpg')">
+              <span>Mosaico de Linhas Rose</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Mosaico de Linhas Verde (2).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Mosaico de Linhas Verde (2).jpg', this)">🤍</button>
+              <img src="textura/Mosaico de Linhas Verde (2).jpg" alt="Mosaico de Linhas Verde" onclick="abrirModal('textura/Mosaico de Linhas Verde (2).jpg')">
+              <span>Mosaico de Linhas Verde</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Mosaico de Linhas Verde (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Mosaico de Linhas Verde (STILL).jpg', this)">🤍</button>
+              <img src="textura/Mosaico de Linhas Verde (STILL).jpg" alt="Mosaico de Linhas Verde (STILL)" onclick="abrirModal('textura/Mosaico de Linhas Verde (STILL).jpg')">
+              <span>Mosaico de Linhas Verde (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Mosaico de Linhas Verde.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Mosaico de Linhas Verde.jpg', this)">🤍</button>
+              <img src="textura/Mosaico de Linhas Verde.jpg" alt="Mosaico de Linhas Verde" onclick="abrirModal('textura/Mosaico de Linhas Verde.jpg')">
+              <span>Mosaico de Linhas Verde</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Palha Areia (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Palha Areia (STILL).jpg', this)">🤍</button>
+              <img src="textura/Palha Areia (STILL).jpg" alt="Palha Areia (STILL)" onclick="abrirModal('textura/Palha Areia (STILL).jpg')">
+              <span>Palha Areia (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Palha Azul (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Palha Azul (STILL).jpg', this)">🤍</button>
+              <img src="textura/Palha Azul (STILL).jpg" alt="Palha Azul (STILL)" onclick="abrirModal('textura/Palha Azul (STILL).jpg')">
+              <span>Palha Azul (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Palha Cinza (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Palha Cinza (STILL).jpg', this)">🤍</button>
+              <img src="textura/Palha Cinza (STILL).jpg" alt="Palha Cinza (STILL)" onclick="abrirModal('textura/Palha Cinza (STILL).jpg')">
+              <span>Palha Cinza (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Palha Entrelaçada (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Palha Entrelaçada (STILL).jpg', this)">🤍</button>
+              <img src="textura/Palha Entrelaçada (STILL).jpg" alt="Palha Entrelaçada (STILL)" onclick="abrirModal('textura/Palha Entrelaçada (STILL).jpg')">
+              <span>Palha Entrelaçada (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Palha Entrelaçada.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Palha Entrelaçada.jpg', this)">🤍</button>
+              <img src="textura/Palha Entrelaçada.jpg" alt="Palha Entrelaçada" onclick="abrirModal('textura/Palha Entrelaçada.jpg')">
+              <span>Palha Entrelaçada</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Palha Marrom (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Palha Marrom (STILL).jpg', this)">🤍</button>
+              <img src="textura/Palha Marrom (STILL).jpg" alt="Palha Marrom (STILL)" onclick="abrirModal('textura/Palha Marrom (STILL).jpg')">
+              <span>Palha Marrom (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Palha Natural (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Palha Natural (STILL).jpg', this)">🤍</button>
+              <img src="textura/Palha Natural (STILL).jpg" alt="Palha Natural (STILL)" onclick="abrirModal('textura/Palha Natural (STILL).jpg')">
+              <span>Palha Natural (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Palha Off White (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Palha Off White (STILL).jpg', this)">🤍</button>
+              <img src="textura/Palha Off White (STILL).jpg" alt="Palha Off White (STILL)" onclick="abrirModal('textura/Palha Off White (STILL).jpg')">
+              <span>Palha Off White (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Palha Rosa (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Palha Rosa (STILL).jpg', this)">🤍</button>
+              <img src="textura/Palha Rosa (STILL).jpg" alt="Palha Rosa (STILL)" onclick="abrirModal('textura/Palha Rosa (STILL).jpg')">
+              <span>Palha Rosa (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Palha Verde (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Palha Verde (STILL).jpg', this)">🤍</button>
+              <img src="textura/Palha Verde (STILL).jpg" alt="Palha Verde (STILL)" onclick="abrirModal('textura/Palha Verde (STILL).jpg')">
+              <span>Palha Verde (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Rustico Desgastado (2).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Rustico Desgastado (2).jpg', this)">🤍</button>
+              <img src="textura/Rustico Desgastado (2).jpg" alt="Rustico Desgastado" onclick="abrirModal('textura/Rustico Desgastado (2).jpg')">
+              <span>Rustico Desgastado</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Rustico Desgastado (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Rustico Desgastado (STILL).jpg', this)">🤍</button>
+              <img src="textura/Rustico Desgastado (STILL).jpg" alt="Rustico Desgastado (STILL)" onclick="abrirModal('textura/Rustico Desgastado (STILL).jpg')">
+              <span>Rustico Desgastado (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Rustico Desgastado.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Rustico Desgastado.jpg', this)">🤍</button>
+              <img src="textura/Rustico Desgastado.jpg" alt="Rustico Desgastado" onclick="abrirModal('textura/Rustico Desgastado.jpg')">
+              <span>Rustico Desgastado</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Textura Chevron Areia (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Textura Chevron Areia (STILL).jpg', this)">🤍</button>
+              <img src="textura/Textura Chevron Areia (STILL).jpg" alt="Textura Chevron Areia (STILL)" onclick="abrirModal('textura/Textura Chevron Areia (STILL).jpg')">
+              <span>Textura Chevron Areia (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Textura Chevron Azul (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Textura Chevron Azul (STILL).jpg', this)">🤍</button>
+              <img src="textura/Textura Chevron Azul (STILL).jpg" alt="Textura Chevron Azul (STILL)" onclick="abrirModal('textura/Textura Chevron Azul (STILL).jpg')">
+              <span>Textura Chevron Azul (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Textura Chevron Azul Marinho (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Textura Chevron Azul Marinho (STILL).jpg', this)">🤍</button>
+              <img src="textura/Textura Chevron Azul Marinho (STILL).jpg" alt="Textura Chevron Azul Marinho (STILL)" onclick="abrirModal('textura/Textura Chevron Azul Marinho (STILL).jpg')">
+              <span>Textura Chevron Azul Marinho (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Textura Chevron Cinza (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Textura Chevron Cinza (STILL).jpg', this)">🤍</button>
+              <img src="textura/Textura Chevron Cinza (STILL).jpg" alt="Textura Chevron Cinza (STILL)" onclick="abrirModal('textura/Textura Chevron Cinza (STILL).jpg')">
+              <span>Textura Chevron Cinza (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Textura Chevron Preto (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Textura Chevron Preto (STILL).jpg', this)">🤍</button>
+              <img src="textura/Textura Chevron Preto (STILL).jpg" alt="Textura Chevron Preto (STILL)" onclick="abrirModal('textura/Textura Chevron Preto (STILL).jpg')">
+              <span>Textura Chevron Preto (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Textura Chevron Rosa (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Textura Chevron Rosa (STILL).jpg', this)">🤍</button>
+              <img src="textura/Textura Chevron Rosa (STILL).jpg" alt="Textura Chevron Rosa (STILL)" onclick="abrirModal('textura/Textura Chevron Rosa (STILL).jpg')">
+              <span>Textura Chevron Rosa (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Textura Degrade Areia e Azul.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Textura Degrade Areia e Azul.jpg', this)">🤍</button>
+              <img src="textura/Textura Degrade Areia e Azul.jpg" alt="Textura Degrade Areia e Azul" onclick="abrirModal('textura/Textura Degrade Areia e Azul.jpg')">
+              <span>Textura Degrade Areia e Azul</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Textura Degrade Azul (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Textura Degrade Azul (STILL).jpg', this)">🤍</button>
+              <img src="textura/Textura Degrade Azul (STILL).jpg" alt="Textura Degrade Azul (STILL)" onclick="abrirModal('textura/Textura Degrade Azul (STILL).jpg')">
+              <span>Textura Degrade Azul (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Textura Degrade Azul Claro (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Textura Degrade Azul Claro (STILL).jpg', this)">🤍</button>
+              <img src="textura/Textura Degrade Azul Claro (STILL).jpg" alt="Textura Degrade Azul Claro (STILL)" onclick="abrirModal('textura/Textura Degrade Azul Claro (STILL).jpg')">
+              <span>Textura Degrade Azul Claro (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Textura Degrade Azul Claro.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Textura Degrade Azul Claro.jpg', this)">🤍</button>
+              <img src="textura/Textura Degrade Azul Claro.jpg" alt="Textura Degrade Azul Claro" onclick="abrirModal('textura/Textura Degrade Azul Claro.jpg')">
+              <span>Textura Degrade Azul Claro</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Textura Degrade Azul.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Textura Degrade Azul.jpg', this)">🤍</button>
+              <img src="textura/Textura Degrade Azul.jpg" alt="Textura Degrade Azul" onclick="abrirModal('textura/Textura Degrade Azul.jpg')">
+              <span>Textura Degrade Azul</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Textura Degrade Grafite (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Textura Degrade Grafite (STILL).jpg', this)">🤍</button>
+              <img src="textura/Textura Degrade Grafite (STILL).jpg" alt="Textura Degrade Grafite (STILL)" onclick="abrirModal('textura/Textura Degrade Grafite (STILL).jpg')">
+              <span>Textura Degrade Grafite (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Textura Degrade Grafite 2.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Textura Degrade Grafite 2.jpg', this)">🤍</button>
+              <img src="textura/Textura Degrade Grafite 2.jpg" alt="Textura Degrade Grafite" onclick="abrirModal('textura/Textura Degrade Grafite 2.jpg')">
+              <span>Textura Degrade Grafite</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Textura Degrade Grafite.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Textura Degrade Grafite.jpg', this)">🤍</button>
+              <img src="textura/Textura Degrade Grafite.jpg" alt="Textura Degrade Grafite" onclick="abrirModal('textura/Textura Degrade Grafite.jpg')">
+              <span>Textura Degrade Grafite</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Textura Degrade Nude (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Textura Degrade Nude (STILL).jpg', this)">🤍</button>
+              <img src="textura/Textura Degrade Nude (STILL).jpg" alt="Textura Degrade Nude (STILL)" onclick="abrirModal('textura/Textura Degrade Nude (STILL).jpg')">
+              <span>Textura Degrade Nude (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Textura Degrade Nude 2.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Textura Degrade Nude 2.jpg', this)">🤍</button>
+              <img src="textura/Textura Degrade Nude 2.jpg" alt="Textura Degrade Nude" onclick="abrirModal('textura/Textura Degrade Nude 2.jpg')">
+              <span>Textura Degrade Nude</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Textura Degrade Nude.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Textura Degrade Nude.jpg', this)">🤍</button>
+              <img src="textura/Textura Degrade Nude.jpg" alt="Textura Degrade Nude" onclick="abrirModal('textura/Textura Degrade Nude.jpg')">
+              <span>Textura Degrade Nude</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Textura Degrade Preto (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Textura Degrade Preto (STILL).jpg', this)">🤍</button>
+              <img src="textura/Textura Degrade Preto (STILL).jpg" alt="Textura Degrade Preto (STILL)" onclick="abrirModal('textura/Textura Degrade Preto (STILL).jpg')">
+              <span>Textura Degrade Preto (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Textura Degrade Preto 2.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Textura Degrade Preto 2.jpg', this)">🤍</button>
+              <img src="textura/Textura Degrade Preto 2.jpg" alt="Textura Degrade Preto" onclick="abrirModal('textura/Textura Degrade Preto 2.jpg')">
+              <span>Textura Degrade Preto</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Textura Degrade Preto.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Textura Degrade Preto.jpg', this)">🤍</button>
+              <img src="textura/Textura Degrade Preto.jpg" alt="Textura Degrade Preto" onclick="abrirModal('textura/Textura Degrade Preto.jpg')">
+              <span>Textura Degrade Preto</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Textura Degrade Rosa (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Textura Degrade Rosa (STILL).jpg', this)">🤍</button>
+              <img src="textura/Textura Degrade Rosa (STILL).jpg" alt="Textura Degrade Rosa (STILL)" onclick="abrirModal('textura/Textura Degrade Rosa (STILL).jpg')">
+              <span>Textura Degrade Rosa (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Textura Degrade Rosa e Tiffany (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Textura Degrade Rosa e Tiffany (STILL).jpg', this)">🤍</button>
+              <img src="textura/Textura Degrade Rosa e Tiffany (STILL).jpg" alt="Textura Degrade Rosa e Tiffany (STILL)" onclick="abrirModal('textura/Textura Degrade Rosa e Tiffany (STILL).jpg')">
+              <span>Textura Degrade Rosa e Tiffany (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Textura Degrade Rosa e Tiffany.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Textura Degrade Rosa e Tiffany.jpg', this)">🤍</button>
+              <img src="textura/Textura Degrade Rosa e Tiffany.jpg" alt="Textura Degrade Rosa e Tiffany" onclick="abrirModal('textura/Textura Degrade Rosa e Tiffany.jpg')">
+              <span>Textura Degrade Rosa e Tiffany</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Textura Degrade Rosa.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Textura Degrade Rosa.jpg', this)">🤍</button>
+              <img src="textura/Textura Degrade Rosa.jpg" alt="Textura Degrade Rosa" onclick="abrirModal('textura/Textura Degrade Rosa.jpg')">
+              <span>Textura Degrade Rosa</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Textura Degrade Tiffany (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Textura Degrade Tiffany (STILL).jpg', this)">🤍</button>
+              <img src="textura/Textura Degrade Tiffany (STILL).jpg" alt="Textura Degrade Tiffany (STILL)" onclick="abrirModal('textura/Textura Degrade Tiffany (STILL).jpg')">
+              <span>Textura Degrade Tiffany (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Textura Degrade Tiffany.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Textura Degrade Tiffany.jpg', this)">🤍</button>
+              <img src="textura/Textura Degrade Tiffany.jpg" alt="Textura Degrade Tiffany" onclick="abrirModal('textura/Textura Degrade Tiffany.jpg')">
+              <span>Textura Degrade Tiffany</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Textura Degrade Verde (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Textura Degrade Verde (STILL).jpg', this)">🤍</button>
+              <img src="textura/Textura Degrade Verde (STILL).jpg" alt="Textura Degrade Verde (STILL)" onclick="abrirModal('textura/Textura Degrade Verde (STILL).jpg')">
+              <span>Textura Degrade Verde (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Textura Degrade Verde.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Textura Degrade Verde.jpg', this)">🤍</button>
+              <img src="textura/Textura Degrade Verde.jpg" alt="Textura Degrade Verde" onclick="abrirModal('textura/Textura Degrade Verde.jpg')">
+              <span>Textura Degrade Verde</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Textura Desgastada Areia (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Textura Desgastada Areia (STILL).jpg', this)">🤍</button>
+              <img src="textura/Textura Desgastada Areia (STILL).jpg" alt="Textura Desgastada Areia (STILL)" onclick="abrirModal('textura/Textura Desgastada Areia (STILL).jpg')">
+              <span>Textura Desgastada Areia (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Textura Desgastada Areia 2.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Textura Desgastada Areia 2.jpg', this)">🤍</button>
+              <img src="textura/Textura Desgastada Areia 2.jpg" alt="Textura Desgastada Areia" onclick="abrirModal('textura/Textura Desgastada Areia 2.jpg')">
+              <span>Textura Desgastada Areia</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Textura Desgastada Azul (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Textura Desgastada Azul (STILL).jpg', this)">🤍</button>
+              <img src="textura/Textura Desgastada Azul (STILL).jpg" alt="Textura Desgastada Azul (STILL)" onclick="abrirModal('textura/Textura Desgastada Azul (STILL).jpg')">
+              <span>Textura Desgastada Azul (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Textura Desgastada Azul.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Textura Desgastada Azul.jpg', this)">🤍</button>
+              <img src="textura/Textura Desgastada Azul.jpg" alt="Textura Desgastada Azul" onclick="abrirModal('textura/Textura Desgastada Azul.jpg')">
+              <span>Textura Desgastada Azul</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Textura Desgastada Cinza (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Textura Desgastada Cinza (STILL).jpg', this)">🤍</button>
+              <img src="textura/Textura Desgastada Cinza (STILL).jpg" alt="Textura Desgastada Cinza (STILL)" onclick="abrirModal('textura/Textura Desgastada Cinza (STILL).jpg')">
+              <span>Textura Desgastada Cinza (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Textura Desgastada Cinza.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Textura Desgastada Cinza.jpg', this)">🤍</button>
+              <img src="textura/Textura Desgastada Cinza.jpg" alt="Textura Desgastada Cinza" onclick="abrirModal('textura/Textura Desgastada Cinza.jpg')">
+              <span>Textura Desgastada Cinza</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Textura Desgastada Grafite (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Textura Desgastada Grafite (STILL).jpg', this)">🤍</button>
+              <img src="textura/Textura Desgastada Grafite (STILL).jpg" alt="Textura Desgastada Grafite (STILL)" onclick="abrirModal('textura/Textura Desgastada Grafite (STILL).jpg')">
+              <span>Textura Desgastada Grafite (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Textura Desgastada Grafite.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Textura Desgastada Grafite.jpg', this)">🤍</button>
+              <img src="textura/Textura Desgastada Grafite.jpg" alt="Textura Desgastada Grafite" onclick="abrirModal('textura/Textura Desgastada Grafite.jpg')">
+              <span>Textura Desgastada Grafite</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Textura Desgastada Off White (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Textura Desgastada Off White (STILL).jpg', this)">🤍</button>
+              <img src="textura/Textura Desgastada Off White (STILL).jpg" alt="Textura Desgastada Off White (STILL)" onclick="abrirModal('textura/Textura Desgastada Off White (STILL).jpg')">
+              <span>Textura Desgastada Off White (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Textura Desgastada Off White 2.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Textura Desgastada Off White 2.jpg', this)">🤍</button>
+              <img src="textura/Textura Desgastada Off White 2.jpg" alt="Textura Desgastada Off White" onclick="abrirModal('textura/Textura Desgastada Off White 2.jpg')">
+              <span>Textura Desgastada Off White</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Textura Desgastada Rose (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Textura Desgastada Rose (STILL).jpg', this)">🤍</button>
+              <img src="textura/Textura Desgastada Rose (STILL).jpg" alt="Textura Desgastada Rose (STILL)" onclick="abrirModal('textura/Textura Desgastada Rose (STILL).jpg')">
+              <span>Textura Desgastada Rose (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Textura Desgastada Rose 2.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Textura Desgastada Rose 2.jpg', this)">🤍</button>
+              <img src="textura/Textura Desgastada Rose 2.jpg" alt="Textura Desgastada Rose" onclick="abrirModal('textura/Textura Desgastada Rose 2.jpg')">
+              <span>Textura Desgastada Rose</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Textura Desgastada Verde (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Textura Desgastada Verde (STILL).jpg', this)">🤍</button>
+              <img src="textura/Textura Desgastada Verde (STILL).jpg" alt="Textura Desgastada Verde (STILL)" onclick="abrirModal('textura/Textura Desgastada Verde (STILL).jpg')">
+              <span>Textura Desgastada Verde (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Textura Desgastada Verde.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Textura Desgastada Verde.jpg', this)">🤍</button>
+              <img src="textura/Textura Desgastada Verde.jpg" alt="Textura Desgastada Verde" onclick="abrirModal('textura/Textura Desgastada Verde.jpg')">
+              <span>Textura Desgastada Verde</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Textura Flame Azul (2).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Textura Flame Azul (2).jpg', this)">🤍</button>
+              <img src="textura/Textura Flame Azul (2).jpg" alt="Textura Flame Azul" onclick="abrirModal('textura/Textura Flame Azul (2).jpg')">
+              <span>Textura Flame Azul</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Textura Flame Azul (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Textura Flame Azul (STILL).jpg', this)">🤍</button>
+              <img src="textura/Textura Flame Azul (STILL).jpg" alt="Textura Flame Azul (STILL)" onclick="abrirModal('textura/Textura Flame Azul (STILL).jpg')">
+              <span>Textura Flame Azul (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Textura Flame Azul 2.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Textura Flame Azul 2.jpg', this)">🤍</button>
+              <img src="textura/Textura Flame Azul 2.jpg" alt="Textura Flame Azul" onclick="abrirModal('textura/Textura Flame Azul 2.jpg')">
+              <span>Textura Flame Azul</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Textura Flame Azul.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Textura Flame Azul.jpg', this)">🤍</button>
+              <img src="textura/Textura Flame Azul.jpg" alt="Textura Flame Azul" onclick="abrirModal('textura/Textura Flame Azul.jpg')">
+              <span>Textura Flame Azul</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Textura Flame Bege (2).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Textura Flame Bege (2).jpg', this)">🤍</button>
+              <img src="textura/Textura Flame Bege (2).jpg" alt="Textura Flame Bege" onclick="abrirModal('textura/Textura Flame Bege (2).jpg')">
+              <span>Textura Flame Bege</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Textura Flame Bege (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Textura Flame Bege (STILL).jpg', this)">🤍</button>
+              <img src="textura/Textura Flame Bege (STILL).jpg" alt="Textura Flame Bege (STILL)" onclick="abrirModal('textura/Textura Flame Bege (STILL).jpg')">
+              <span>Textura Flame Bege (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Textura Flame Bege 2.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Textura Flame Bege 2.jpg', this)">🤍</button>
+              <img src="textura/Textura Flame Bege 2.jpg" alt="Textura Flame Bege" onclick="abrirModal('textura/Textura Flame Bege 2.jpg')">
+              <span>Textura Flame Bege</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Textura Flame Bege.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Textura Flame Bege.jpg', this)">🤍</button>
+              <img src="textura/Textura Flame Bege.jpg" alt="Textura Flame Bege" onclick="abrirModal('textura/Textura Flame Bege.jpg')">
+              <span>Textura Flame Bege</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Textura Flame Camurça (2).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Textura Flame Camurça (2).jpg', this)">🤍</button>
+              <img src="textura/Textura Flame Camurça (2).jpg" alt="Textura Flame Camurça" onclick="abrirModal('textura/Textura Flame Camurça (2).jpg')">
+              <span>Textura Flame Camurça</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Textura Flame Camurça (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Textura Flame Camurça (STILL).jpg', this)">🤍</button>
+              <img src="textura/Textura Flame Camurça (STILL).jpg" alt="Textura Flame Camurça (STILL)" onclick="abrirModal('textura/Textura Flame Camurça (STILL).jpg')">
+              <span>Textura Flame Camurça (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Textura Flame Camurça 2.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Textura Flame Camurça 2.jpg', this)">🤍</button>
+              <img src="textura/Textura Flame Camurça 2.jpg" alt="Textura Flame Camurça" onclick="abrirModal('textura/Textura Flame Camurça 2.jpg')">
+              <span>Textura Flame Camurça</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Textura Flame Camurça.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Textura Flame Camurça.jpg', this)">🤍</button>
+              <img src="textura/Textura Flame Camurça.jpg" alt="Textura Flame Camurça" onclick="abrirModal('textura/Textura Flame Camurça.jpg')">
+              <span>Textura Flame Camurça</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Textura Flame Nude (2).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Textura Flame Nude (2).jpg', this)">🤍</button>
+              <img src="textura/Textura Flame Nude (2).jpg" alt="Textura Flame Nude" onclick="abrirModal('textura/Textura Flame Nude (2).jpg')">
+              <span>Textura Flame Nude</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Textura Flame Nude (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Textura Flame Nude (STILL).jpg', this)">🤍</button>
+              <img src="textura/Textura Flame Nude (STILL).jpg" alt="Textura Flame Nude (STILL)" onclick="abrirModal('textura/Textura Flame Nude (STILL).jpg')">
+              <span>Textura Flame Nude (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Textura Flame Nude 2.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Textura Flame Nude 2.jpg', this)">🤍</button>
+              <img src="textura/Textura Flame Nude 2.jpg" alt="Textura Flame Nude" onclick="abrirModal('textura/Textura Flame Nude 2.jpg')">
+              <span>Textura Flame Nude</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Textura Flame Nude.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Textura Flame Nude.jpg', this)">🤍</button>
+              <img src="textura/Textura Flame Nude.jpg" alt="Textura Flame Nude" onclick="abrirModal('textura/Textura Flame Nude.jpg')">
+              <span>Textura Flame Nude</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Textura Flame Rosa (2).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Textura Flame Rosa (2).jpg', this)">🤍</button>
+              <img src="textura/Textura Flame Rosa (2).jpg" alt="Textura Flame Rosa" onclick="abrirModal('textura/Textura Flame Rosa (2).jpg')">
+              <span>Textura Flame Rosa</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Textura Flame Rosa (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Textura Flame Rosa (STILL).jpg', this)">🤍</button>
+              <img src="textura/Textura Flame Rosa (STILL).jpg" alt="Textura Flame Rosa (STILL)" onclick="abrirModal('textura/Textura Flame Rosa (STILL).jpg')">
+              <span>Textura Flame Rosa (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Textura Flame Rosa 2.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Textura Flame Rosa 2.jpg', this)">🤍</button>
+              <img src="textura/Textura Flame Rosa 2.jpg" alt="Textura Flame Rosa" onclick="abrirModal('textura/Textura Flame Rosa 2.jpg')">
+              <span>Textura Flame Rosa</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Textura Flame Rosa.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Textura Flame Rosa.jpg', this)">🤍</button>
+              <img src="textura/Textura Flame Rosa.jpg" alt="Textura Flame Rosa" onclick="abrirModal('textura/Textura Flame Rosa.jpg')">
+              <span>Textura Flame Rosa</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Textura Flame Rosa2.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Textura Flame Rosa2.jpg', this)">🤍</button>
+              <img src="textura/Textura Flame Rosa2.jpg" alt="Textura Flame Rosa" onclick="abrirModal('textura/Textura Flame Rosa2.jpg')">
+              <span>Textura Flame Rosa</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Textura Flame Rose (2).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Textura Flame Rose (2).jpg', this)">🤍</button>
+              <img src="textura/Textura Flame Rose (2).jpg" alt="Textura Flame Rose" onclick="abrirModal('textura/Textura Flame Rose (2).jpg')">
+              <span>Textura Flame Rose</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Textura Flame Rose (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Textura Flame Rose (STILL).jpg', this)">🤍</button>
+              <img src="textura/Textura Flame Rose (STILL).jpg" alt="Textura Flame Rose (STILL)" onclick="abrirModal('textura/Textura Flame Rose (STILL).jpg')">
+              <span>Textura Flame Rose (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Textura Flame Rose 2.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Textura Flame Rose 2.jpg', this)">🤍</button>
+              <img src="textura/Textura Flame Rose 2.jpg" alt="Textura Flame Rose" onclick="abrirModal('textura/Textura Flame Rose 2.jpg')">
+              <span>Textura Flame Rose</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Textura Flame Rose.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Textura Flame Rose.jpg', this)">🤍</button>
+              <img src="textura/Textura Flame Rose.jpg" alt="Textura Flame Rose" onclick="abrirModal('textura/Textura Flame Rose.jpg')">
+              <span>Textura Flame Rose</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Textura Linen (2).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Textura Linen (2).jpg', this)">🤍</button>
+              <img src="textura/Textura Linen (2).jpg" alt="Textura Linen" onclick="abrirModal('textura/Textura Linen (2).jpg')">
+              <span>Textura Linen</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Textura Linen (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Textura Linen (STILL).jpg', this)">🤍</button>
+              <img src="textura/Textura Linen (STILL).jpg" alt="Textura Linen (STILL)" onclick="abrirModal('textura/Textura Linen (STILL).jpg')">
+              <span>Textura Linen (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Textura Linen 2.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Textura Linen 2.jpg', this)">🤍</button>
+              <img src="textura/Textura Linen 2.jpg" alt="Textura Linen" onclick="abrirModal('textura/Textura Linen 2.jpg')">
+              <span>Textura Linen</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Textura Linen Azul (2).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Textura Linen Azul (2).jpg', this)">🤍</button>
+              <img src="textura/Textura Linen Azul (2).jpg" alt="Textura Linen Azul" onclick="abrirModal('textura/Textura Linen Azul (2).jpg')">
+              <span>Textura Linen Azul</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Textura Linen Azul (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Textura Linen Azul (STILL).jpg', this)">🤍</button>
+              <img src="textura/Textura Linen Azul (STILL).jpg" alt="Textura Linen Azul (STILL)" onclick="abrirModal('textura/Textura Linen Azul (STILL).jpg')">
+              <span>Textura Linen Azul (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Textura Linen Azul 2.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Textura Linen Azul 2.jpg', this)">🤍</button>
+              <img src="textura/Textura Linen Azul 2.jpg" alt="Textura Linen Azul" onclick="abrirModal('textura/Textura Linen Azul 2.jpg')">
+              <span>Textura Linen Azul</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Textura Linen Azul.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Textura Linen Azul.jpg', this)">🤍</button>
+              <img src="textura/Textura Linen Azul.jpg" alt="Textura Linen Azul" onclick="abrirModal('textura/Textura Linen Azul.jpg')">
+              <span>Textura Linen Azul</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Textura Linen Cinza (2).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Textura Linen Cinza (2).jpg', this)">🤍</button>
+              <img src="textura/Textura Linen Cinza (2).jpg" alt="Textura Linen Cinza" onclick="abrirModal('textura/Textura Linen Cinza (2).jpg')">
+              <span>Textura Linen Cinza</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Textura Linen Cinza (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Textura Linen Cinza (STILL).jpg', this)">🤍</button>
+              <img src="textura/Textura Linen Cinza (STILL).jpg" alt="Textura Linen Cinza (STILL)" onclick="abrirModal('textura/Textura Linen Cinza (STILL).jpg')">
+              <span>Textura Linen Cinza (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Textura Linen Cinza 2.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Textura Linen Cinza 2.jpg', this)">🤍</button>
+              <img src="textura/Textura Linen Cinza 2.jpg" alt="Textura Linen Cinza" onclick="abrirModal('textura/Textura Linen Cinza 2.jpg')">
+              <span>Textura Linen Cinza</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Textura Linen Cinza.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Textura Linen Cinza.jpg', this)">🤍</button>
+              <img src="textura/Textura Linen Cinza.jpg" alt="Textura Linen Cinza" onclick="abrirModal('textura/Textura Linen Cinza.jpg')">
+              <span>Textura Linen Cinza</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Textura Linen Nude (2).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Textura Linen Nude (2).jpg', this)">🤍</button>
+              <img src="textura/Textura Linen Nude (2).jpg" alt="Textura Linen Nude" onclick="abrirModal('textura/Textura Linen Nude (2).jpg')">
+              <span>Textura Linen Nude</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Textura Linen Nude (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Textura Linen Nude (STILL).jpg', this)">🤍</button>
+              <img src="textura/Textura Linen Nude (STILL).jpg" alt="Textura Linen Nude (STILL)" onclick="abrirModal('textura/Textura Linen Nude (STILL).jpg')">
+              <span>Textura Linen Nude (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Textura Linen Nude 2.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Textura Linen Nude 2.jpg', this)">🤍</button>
+              <img src="textura/Textura Linen Nude 2.jpg" alt="Textura Linen Nude" onclick="abrirModal('textura/Textura Linen Nude 2.jpg')">
+              <span>Textura Linen Nude</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Textura Linen Nude.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Textura Linen Nude.jpg', this)">🤍</button>
+              <img src="textura/Textura Linen Nude.jpg" alt="Textura Linen Nude" onclick="abrirModal('textura/Textura Linen Nude.jpg')">
+              <span>Textura Linen Nude</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Textura Linen Rose (2).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Textura Linen Rose (2).jpg', this)">🤍</button>
+              <img src="textura/Textura Linen Rose (2).jpg" alt="Textura Linen Rose" onclick="abrirModal('textura/Textura Linen Rose (2).jpg')">
+              <span>Textura Linen Rose</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Textura Linen Rose (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Textura Linen Rose (STILL).jpg', this)">🤍</button>
+              <img src="textura/Textura Linen Rose (STILL).jpg" alt="Textura Linen Rose (STILL)" onclick="abrirModal('textura/Textura Linen Rose (STILL).jpg')">
+              <span>Textura Linen Rose (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Textura Linen Rose 2.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Textura Linen Rose 2.jpg', this)">🤍</button>
+              <img src="textura/Textura Linen Rose 2.jpg" alt="Textura Linen Rose" onclick="abrirModal('textura/Textura Linen Rose 2.jpg')">
+              <span>Textura Linen Rose</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Textura Linen Rose.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Textura Linen Rose.jpg', this)">🤍</button>
+              <img src="textura/Textura Linen Rose.jpg" alt="Textura Linen Rose" onclick="abrirModal('textura/Textura Linen Rose.jpg')">
+              <span>Textura Linen Rose</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Textura Linen Verde (2).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Textura Linen Verde (2).jpg', this)">🤍</button>
+              <img src="textura/Textura Linen Verde (2).jpg" alt="Textura Linen Verde" onclick="abrirModal('textura/Textura Linen Verde (2).jpg')">
+              <span>Textura Linen Verde</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Textura Linen Verde (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Textura Linen Verde (STILL).jpg', this)">🤍</button>
+              <img src="textura/Textura Linen Verde (STILL).jpg" alt="Textura Linen Verde (STILL)" onclick="abrirModal('textura/Textura Linen Verde (STILL).jpg')">
+              <span>Textura Linen Verde (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Textura Linen Verde 2.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Textura Linen Verde 2.jpg', this)">🤍</button>
+              <img src="textura/Textura Linen Verde 2.jpg" alt="Textura Linen Verde" onclick="abrirModal('textura/Textura Linen Verde 2.jpg')">
+              <span>Textura Linen Verde</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Textura Linen Verde.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Textura Linen Verde.jpg', this)">🤍</button>
+              <img src="textura/Textura Linen Verde.jpg" alt="Textura Linen Verde" onclick="abrirModal('textura/Textura Linen Verde.jpg')">
+              <span>Textura Linen Verde</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Textura Linen.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Textura Linen.jpg', this)">🤍</button>
+              <img src="textura/Textura Linen.jpg" alt="Textura Linen" onclick="abrirModal('textura/Textura Linen.jpg')">
+              <span>Textura Linen</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Textura Linho Amarelo (2).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Textura Linho Amarelo (2).jpg', this)">🤍</button>
+              <img src="textura/Textura Linho Amarelo (2).jpg" alt="Textura Linho Amarelo" onclick="abrirModal('textura/Textura Linho Amarelo (2).jpg')">
+              <span>Textura Linho Amarelo</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Textura Linho Amarelo (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Textura Linho Amarelo (STILL).jpg', this)">🤍</button>
+              <img src="textura/Textura Linho Amarelo (STILL).jpg" alt="Textura Linho Amarelo (STILL)" onclick="abrirModal('textura/Textura Linho Amarelo (STILL).jpg')">
+              <span>Textura Linho Amarelo (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Textura Linho Amarelo.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Textura Linho Amarelo.jpg', this)">🤍</button>
+              <img src="textura/Textura Linho Amarelo.jpg" alt="Textura Linho Amarelo" onclick="abrirModal('textura/Textura Linho Amarelo.jpg')">
+              <span>Textura Linho Amarelo</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Textura Linho Areia (2).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Textura Linho Areia (2).jpg', this)">🤍</button>
+              <img src="textura/Textura Linho Areia (2).jpg" alt="Textura Linho Areia" onclick="abrirModal('textura/Textura Linho Areia (2).jpg')">
+              <span>Textura Linho Areia</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Textura Linho Areia (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Textura Linho Areia (STILL).jpg', this)">🤍</button>
+              <img src="textura/Textura Linho Areia (STILL).jpg" alt="Textura Linho Areia (STILL)" onclick="abrirModal('textura/Textura Linho Areia (STILL).jpg')">
+              <span>Textura Linho Areia (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Textura Linho Areia 2.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Textura Linho Areia 2.jpg', this)">🤍</button>
+              <img src="textura/Textura Linho Areia 2.jpg" alt="Textura Linho Areia" onclick="abrirModal('textura/Textura Linho Areia 2.jpg')">
+              <span>Textura Linho Areia</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Textura Linho Areia.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Textura Linho Areia.jpg', this)">🤍</button>
+              <img src="textura/Textura Linho Areia.jpg" alt="Textura Linho Areia" onclick="abrirModal('textura/Textura Linho Areia.jpg')">
+              <span>Textura Linho Areia</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Textura Linho Azul (2).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Textura Linho Azul (2).jpg', this)">🤍</button>
+              <img src="textura/Textura Linho Azul (2).jpg" alt="Textura Linho Azul" onclick="abrirModal('textura/Textura Linho Azul (2).jpg')">
+              <span>Textura Linho Azul</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Textura Linho Azul (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Textura Linho Azul (STILL).jpg', this)">🤍</button>
+              <img src="textura/Textura Linho Azul (STILL).jpg" alt="Textura Linho Azul (STILL)" onclick="abrirModal('textura/Textura Linho Azul (STILL).jpg')">
+              <span>Textura Linho Azul (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Textura Linho Azul Marinho (2).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Textura Linho Azul Marinho (2).jpg', this)">🤍</button>
+              <img src="textura/Textura Linho Azul Marinho (2).jpg" alt="Textura Linho Azul Marinho" onclick="abrirModal('textura/Textura Linho Azul Marinho (2).jpg')">
+              <span>Textura Linho Azul Marinho</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Textura Linho Azul Marinho (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Textura Linho Azul Marinho (STILL).jpg', this)">🤍</button>
+              <img src="textura/Textura Linho Azul Marinho (STILL).jpg" alt="Textura Linho Azul Marinho (STILL)" onclick="abrirModal('textura/Textura Linho Azul Marinho (STILL).jpg')">
+              <span>Textura Linho Azul Marinho (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Textura Linho Azul Marinho.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Textura Linho Azul Marinho.jpg', this)">🤍</button>
+              <img src="textura/Textura Linho Azul Marinho.jpg" alt="Textura Linho Azul Marinho" onclick="abrirModal('textura/Textura Linho Azul Marinho.jpg')">
+              <span>Textura Linho Azul Marinho</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Textura Linho Azul.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Textura Linho Azul.jpg', this)">🤍</button>
+              <img src="textura/Textura Linho Azul.jpg" alt="Textura Linho Azul" onclick="abrirModal('textura/Textura Linho Azul.jpg')">
+              <span>Textura Linho Azul</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Textura Linho Cinza (2).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Textura Linho Cinza (2).jpg', this)">🤍</button>
+              <img src="textura/Textura Linho Cinza (2).jpg" alt="Textura Linho Cinza" onclick="abrirModal('textura/Textura Linho Cinza (2).jpg')">
+              <span>Textura Linho Cinza</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Textura Linho Cinza (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Textura Linho Cinza (STILL).jpg', this)">🤍</button>
+              <img src="textura/Textura Linho Cinza (STILL).jpg" alt="Textura Linho Cinza (STILL)" onclick="abrirModal('textura/Textura Linho Cinza (STILL).jpg')">
+              <span>Textura Linho Cinza (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Textura Linho Cinza 2.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Textura Linho Cinza 2.jpg', this)">🤍</button>
+              <img src="textura/Textura Linho Cinza 2.jpg" alt="Textura Linho Cinza" onclick="abrirModal('textura/Textura Linho Cinza 2.jpg')">
+              <span>Textura Linho Cinza</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Textura Linho Cinza.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Textura Linho Cinza.jpg', this)">🤍</button>
+              <img src="textura/Textura Linho Cinza.jpg" alt="Textura Linho Cinza" onclick="abrirModal('textura/Textura Linho Cinza.jpg')">
+              <span>Textura Linho Cinza</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Textura Linho Grafite (2).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Textura Linho Grafite (2).jpg', this)">🤍</button>
+              <img src="textura/Textura Linho Grafite (2).jpg" alt="Textura Linho Grafite" onclick="abrirModal('textura/Textura Linho Grafite (2).jpg')">
+              <span>Textura Linho Grafite</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Textura Linho Grafite (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Textura Linho Grafite (STILL).jpg', this)">🤍</button>
+              <img src="textura/Textura Linho Grafite (STILL).jpg" alt="Textura Linho Grafite (STILL)" onclick="abrirModal('textura/Textura Linho Grafite (STILL).jpg')">
+              <span>Textura Linho Grafite (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Textura Linho Grafite 2.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Textura Linho Grafite 2.jpg', this)">🤍</button>
+              <img src="textura/Textura Linho Grafite 2.jpg" alt="Textura Linho Grafite" onclick="abrirModal('textura/Textura Linho Grafite 2.jpg')">
+              <span>Textura Linho Grafite</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Textura Linho Grafite.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Textura Linho Grafite.jpg', this)">🤍</button>
+              <img src="textura/Textura Linho Grafite.jpg" alt="Textura Linho Grafite" onclick="abrirModal('textura/Textura Linho Grafite.jpg')">
+              <span>Textura Linho Grafite</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Textura Linho Marrom (2).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Textura Linho Marrom (2).jpg', this)">🤍</button>
+              <img src="textura/Textura Linho Marrom (2).jpg" alt="Textura Linho Marrom" onclick="abrirModal('textura/Textura Linho Marrom (2).jpg')">
+              <span>Textura Linho Marrom</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Textura Linho Marrom (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Textura Linho Marrom (STILL).jpg', this)">🤍</button>
+              <img src="textura/Textura Linho Marrom (STILL).jpg" alt="Textura Linho Marrom (STILL)" onclick="abrirModal('textura/Textura Linho Marrom (STILL).jpg')">
+              <span>Textura Linho Marrom (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Textura Linho Marrom 2.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Textura Linho Marrom 2.jpg', this)">🤍</button>
+              <img src="textura/Textura Linho Marrom 2.jpg" alt="Textura Linho Marrom" onclick="abrirModal('textura/Textura Linho Marrom 2.jpg')">
+              <span>Textura Linho Marrom</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Textura Linho Marrom.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Textura Linho Marrom.jpg', this)">🤍</button>
+              <img src="textura/Textura Linho Marrom.jpg" alt="Textura Linho Marrom" onclick="abrirModal('textura/Textura Linho Marrom.jpg')">
+              <span>Textura Linho Marrom</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Textura Linho Rosa (2).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Textura Linho Rosa (2).jpg', this)">🤍</button>
+              <img src="textura/Textura Linho Rosa (2).jpg" alt="Textura Linho Rosa" onclick="abrirModal('textura/Textura Linho Rosa (2).jpg')">
+              <span>Textura Linho Rosa</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Textura Linho Rosa (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Textura Linho Rosa (STILL).jpg', this)">🤍</button>
+              <img src="textura/Textura Linho Rosa (STILL).jpg" alt="Textura Linho Rosa (STILL)" onclick="abrirModal('textura/Textura Linho Rosa (STILL).jpg')">
+              <span>Textura Linho Rosa (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Textura Linho Rosa 2.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Textura Linho Rosa 2.jpg', this)">🤍</button>
+              <img src="textura/Textura Linho Rosa 2.jpg" alt="Textura Linho Rosa" onclick="abrirModal('textura/Textura Linho Rosa 2.jpg')">
+              <span>Textura Linho Rosa</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Textura Linho Rosa.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Textura Linho Rosa.jpg', this)">🤍</button>
+              <img src="textura/Textura Linho Rosa.jpg" alt="Textura Linho Rosa" onclick="abrirModal('textura/Textura Linho Rosa.jpg')">
+              <span>Textura Linho Rosa</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Textura Mônaco Areia (2).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Textura Mônaco Areia (2).jpg', this)">🤍</button>
+              <img src="textura/Textura Mônaco Areia (2).jpg" alt="Textura Mônaco Areia" onclick="abrirModal('textura/Textura Mônaco Areia (2).jpg')">
+              <span>Textura Mônaco Areia</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Textura Mônaco Areia (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Textura Mônaco Areia (STILL).jpg', this)">🤍</button>
+              <img src="textura/Textura Mônaco Areia (STILL).jpg" alt="Textura Mônaco Areia (STILL)" onclick="abrirModal('textura/Textura Mônaco Areia (STILL).jpg')">
+              <span>Textura Mônaco Areia (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Textura Mônaco Areia 2.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Textura Mônaco Areia 2.jpg', this)">🤍</button>
+              <img src="textura/Textura Mônaco Areia 2.jpg" alt="Textura Mônaco Areia" onclick="abrirModal('textura/Textura Mônaco Areia 2.jpg')">
+              <span>Textura Mônaco Areia</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Textura Mônaco Areia.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Textura Mônaco Areia.jpg', this)">🤍</button>
+              <img src="textura/Textura Mônaco Areia.jpg" alt="Textura Mônaco Areia" onclick="abrirModal('textura/Textura Mônaco Areia.jpg')">
+              <span>Textura Mônaco Areia</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Textura Palha (2).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Textura Palha (2).jpg', this)">🤍</button>
+              <img src="textura/Textura Palha (2).jpg" alt="Textura Palha" onclick="abrirModal('textura/Textura Palha (2).jpg')">
+              <span>Textura Palha</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Textura Palha (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Textura Palha (STILL).jpg', this)">🤍</button>
+              <img src="textura/Textura Palha (STILL).jpg" alt="Textura Palha (STILL)" onclick="abrirModal('textura/Textura Palha (STILL).jpg')">
+              <span>Textura Palha (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Textura Palha 2.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Textura Palha 2.jpg', this)">🤍</button>
+              <img src="textura/Textura Palha 2.jpg" alt="Textura Palha" onclick="abrirModal('textura/Textura Palha 2.jpg')">
+              <span>Textura Palha</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Textura Palha.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Textura Palha.jpg', this)">🤍</button>
+              <img src="textura/Textura Palha.jpg" alt="Textura Palha" onclick="abrirModal('textura/Textura Palha.jpg')">
+              <span>Textura Palha</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Textura Strips Cinza (2).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Textura Strips Cinza (2).jpg', this)">🤍</button>
+              <img src="textura/Textura Strips Cinza (2).jpg" alt="Textura Strips Cinza" onclick="abrirModal('textura/Textura Strips Cinza (2).jpg')">
+              <span>Textura Strips Cinza</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Textura Strips Cinza (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Textura Strips Cinza (STILL).jpg', this)">🤍</button>
+              <img src="textura/Textura Strips Cinza (STILL).jpg" alt="Textura Strips Cinza (STILL)" onclick="abrirModal('textura/Textura Strips Cinza (STILL).jpg')">
+              <span>Textura Strips Cinza (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Textura Strips Cinza.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Textura Strips Cinza.jpg', this)">🤍</button>
+              <img src="textura/Textura Strips Cinza.jpg" alt="Textura Strips Cinza" onclick="abrirModal('textura/Textura Strips Cinza.jpg')">
+              <span>Textura Strips Cinza</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Textura Strips Marrom (2).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Textura Strips Marrom (2).jpg', this)">🤍</button>
+              <img src="textura/Textura Strips Marrom (2).jpg" alt="Textura Strips Marrom" onclick="abrirModal('textura/Textura Strips Marrom (2).jpg')">
+              <span>Textura Strips Marrom</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Textura Strips Marrom (STILL).jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Textura Strips Marrom (STILL).jpg', this)">🤍</button>
+              <img src="textura/Textura Strips Marrom (STILL).jpg" alt="Textura Strips Marrom (STILL)" onclick="abrirModal('textura/Textura Strips Marrom (STILL).jpg')">
+              <span>Textura Strips Marrom (STILL)</span>
+            </div><div class="card">
+              <input type="checkbox" class="checkbox-select" value="textura/Textura Strips Marrom.jpg">
+              <button class="favorito-btn" onclick="toggleFavorito('textura/Textura Strips Marrom.jpg', this)">🤍</button>
+              <img src="textura/Textura Strips Marrom.jpg" alt="Textura Strips Marrom" onclick="abrirModal('textura/Textura Strips Marrom.jpg')">
+              <span>Textura Strips Marrom</span>
+            </div>
+</div>
+<div class="modal" id="modal">
+  <img id="modal-img" src="">
+  <button onclick="fecharModal()">✖ Fechar</button>
+</div>
+<script src="https://unpkg.com/@panzoom/panzoom@9.4.0/dist/panzoom.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const modal = document.getElementById('modal');
+  const modalImg = document.getElementById('modal-img');
+  let panzoomInstance;
+
+  window.abrirModal = function (src) {
+    modal.style.display = 'flex';
+    modalImg.src = src;
+    if (panzoomInstance) panzoomInstance.destroy();
+    panzoomInstance = Panzoom(modalImg, { maxScale: 5 });
+  }
+
+  window.fecharModal = function () {
+    modal.style.display = 'none';
+    if (panzoomInstance) panzoomInstance.destroy();
+  }
+
+  window.toggleFavorito = function (src, el) {
+    let favoritos = JSON.parse(localStorage.getItem('favoritos')) || [];
+    const index = favoritos.indexOf(src);
+    const agora = new Date().toISOString();
+    if (index >= 0) {
+      favoritos.splice(index, 1);
+      el.classList.remove('favorito');
+      el.textContent = '🤍';
+    } else {
+      favoritos.push(src);
+      el.classList.add('favorito');
+      el.textContent = '❤️';
+      const log = JSON.parse(localStorage.getItem('favoritos_log')) || [];
+      log.push({ img: src, data: agora });
+      localStorage.setItem('favoritos_log', JSON.stringify(log));
+    }
+    localStorage.setItem('favoritos', JSON.stringify(favoritos));
+  }
+
+  const favoritos = JSON.parse(localStorage.getItem('favoritos')) || [];
+  document.querySelectorAll('.favorito-btn').forEach(btn => {
+    const src = btn.getAttribute('onclick').match(/'(.*?)'/)[1];
+    if (favoritos.includes(src)) {
+      btn.textContent = '❤️';
+      btn.classList.add('favorito');
+    }
+  });
+
+  window.baixarSelecionadas = function () {
+    const selecionadas = Array.from(document.querySelectorAll('.checkbox-select:checked')).map(cb => cb.value);
+    if (selecionadas.length === 0) return alert("Nenhuma imagem selecionada.");
+    selecionadas.forEach(src => {
+      const link = document.createElement('a');
+      link.href = src;
+      link.download = src.split('/').pop();
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    });
+  }
+});
+</script>
+</body>
+</html>
