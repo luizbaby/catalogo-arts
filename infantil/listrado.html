@@ -5,912 +5,845 @@
   <title>Listrado</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-    * { box-sizing: border-box; }
     body { font-family: sans-serif; margin: 0; background: #f4f4f4; }
-    .top-bar {
-      position: sticky;
-      top: 0;
-      background: white;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      align-items: center;
-      padding: 10px 20px;
-      gap: 10px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      z-index: 1000;
-    }
-    .btn {
-      background: #01b9b5;
-      color: white;
-      text-decoration: none;
-      padding: 8px 14px;
-      border-radius: 6px;
-      font-size: 14px;
-      cursor: pointer;
-    }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(1, 1fr);
-      gap: 20px;
-      padding: 20px;
-    }
-    @media (min-width: 768px) {
-      .grid { grid-template-columns: repeat(3, 1fr); }
-    }
-    .card {
-      background: white;
-      padding: 10px;
-      border-radius: 10px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      text-align: center;
-      position: relative;
-    }
+    .top-bar { position: sticky; top: 0; background: white; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; padding: 10px 20px; gap: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); z-index: 1000; }
+    .btn { background: #01b9b5; color: white; text-decoration: none; padding: 8px 14px; border-radius: 6px; font-size: 14px; cursor: pointer; }
+    .grid { display: grid; grid-template-columns: repeat(1, 1fr); gap: 20px; padding: 20px; }
+    @media (min-width: 768px) { .grid { grid-template-columns: repeat(3, 1fr); } }
+    .card { background: white; padding: 10px; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); text-align: center; position: relative; }
     .card img { width: 100%; border-radius: 8px; cursor: pointer; }
     .card span { display: block; margin-top: 8px; font-weight: bold; }
-    .checkbox-select {
-      position: absolute;
-      top: 10px;
-      left: 10px;
-      transform: scale(1.5);
-    }
-    .favorito-btn {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      background: none;
-      border: none;
-      font-size: 20px;
-      cursor: pointer;
-    }
+    .checkbox-select { position: absolute; top: 10px; left: 10px; transform: scale(1.5); }
+    .favorito-btn { position: absolute; top: 10px; right: 10px; background: none; border: none; font-size: 20px; cursor: pointer; }
     .favorito-btn.favorito { color: red; }
-    .modal {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0,0,0,0.85);
-      z-index: 9999;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-    }
+    .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); z-index: 9999; align-items: center; justify-content: center; flex-direction: column; }
     .modal img { max-width: 90vw; max-height: 80vh; }
-    .modal button {
-      margin-top: 10px;
-      padding: 8px 20px;
-      font-size: 14px;
-    }
   </style>
 </head>
 <body>
 <div class="top-bar">
-  <div>
-    <a href="https://catalogo.artspapeisdeparede.com.br/index.html" class="btn">&larr; Voltar</a>
-    <button class="btn" onclick="baixarSelecionadas()">📥 Baixar selecionadas</button>
-  </div>
+  <a href="https://catalogo.artspapeisdeparede.com.br/index.html" class="btn">&larr; Voltar</a>
+  <button class="btn" onclick="baixarSelecionadas()">📥 Baixar selecionadas</button>
   <h1>Listrado</h1>
   <a href="https://catalogo.artspapeisdeparede.com.br/favoritos.html" class="btn">⭐ Ver favoritos</a>
 </div>
 <div class="grid">
 <div class="card">
-              <input type="checkbox" class="checkbox-select" value="listrado/Linho%20Listrado%20Rosa%20%28STILL%29.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('listrado/Linho%20Listrado%20Rosa%20%28STILL%29.jpg', this)">🤍</button>
-              <img src="listrado/Linho%20Listrado%20Rosa%20%28STILL%29.jpg" alt="Linho Listrado Rosa (STILL)" onclick="abrirModal('listrado/Linho%20Listrado%20Rosa%20%28STILL%29.jpg')">
-              <span>Linho Listrado Rosa (STILL)</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="listrado/Linho%20Listras%2060x60.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('listrado/Linho%20Listras%2060x60.jpg', this)">🤍</button>
-              <img src="listrado/Linho%20Listras%2060x60.jpg" alt="Linho Listras 60x" onclick="abrirModal('listrado/Linho%20Listras%2060x60.jpg')">
-              <span>Linho Listras 60x</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="listrado/Linho%20Listras%20Stout%20Azul%20%28STILL%29.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('listrado/Linho%20Listras%20Stout%20Azul%20%28STILL%29.jpg', this)">🤍</button>
-              <img src="listrado/Linho%20Listras%20Stout%20Azul%20%28STILL%29.jpg" alt="Linho Listras Stout Azul (STILL)" onclick="abrirModal('listrado/Linho%20Listras%20Stout%20Azul%20%28STILL%29.jpg')">
-              <span>Linho Listras Stout Azul (STILL)</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="listrado/Linho%20Listras%20Stout%20Azul%20Claro%20%28STILL%29.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('listrado/Linho%20Listras%20Stout%20Azul%20Claro%20%28STILL%29.jpg', this)">🤍</button>
-              <img src="listrado/Linho%20Listras%20Stout%20Azul%20Claro%20%28STILL%29.jpg" alt="Linho Listras Stout Azul Claro (STILL)" onclick="abrirModal('listrado/Linho%20Listras%20Stout%20Azul%20Claro%20%28STILL%29.jpg')">
-              <span>Linho Listras Stout Azul Claro (STILL)</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="listrado/Linho%20Listras%20Stout%20Camur%C3%A7a%20%28STILL%29.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('listrado/Linho%20Listras%20Stout%20Camur%C3%A7a%20%28STILL%29.jpg', this)">🤍</button>
-              <img src="listrado/Linho%20Listras%20Stout%20Camur%C3%A7a%20%28STILL%29.jpg" alt="Linho Listras Stout Camurça (STILL)" onclick="abrirModal('listrado/Linho%20Listras%20Stout%20Camur%C3%A7a%20%28STILL%29.jpg')">
-              <span>Linho Listras Stout Camurça (STILL)</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="listrado/Linho%20Listras%20Stout%20Camur%C3%A7a.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('listrado/Linho%20Listras%20Stout%20Camur%C3%A7a.jpg', this)">🤍</button>
-              <img src="listrado/Linho%20Listras%20Stout%20Camur%C3%A7a.jpg" alt="Linho Listras Stout Camurça" onclick="abrirModal('listrado/Linho%20Listras%20Stout%20Camur%C3%A7a.jpg')">
-              <span>Linho Listras Stout Camurça</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="listrado/Linho%20Listras%20Stout%20Rosa%20Claro%20%28STILL%29.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('listrado/Linho%20Listras%20Stout%20Rosa%20Claro%20%28STILL%29.jpg', this)">🤍</button>
-              <img src="listrado/Linho%20Listras%20Stout%20Rosa%20Claro%20%28STILL%29.jpg" alt="Linho Listras Stout Rosa Claro (STILL)" onclick="abrirModal('listrado/Linho%20Listras%20Stout%20Rosa%20Claro%20%28STILL%29.jpg')">
-              <span>Linho Listras Stout Rosa Claro (STILL)</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="listrado/Linho%20Listras%20Stout%20Verde%20%28STILL%29.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('listrado/Linho%20Listras%20Stout%20Verde%20%28STILL%29.jpg', this)">🤍</button>
-              <img src="listrado/Linho%20Listras%20Stout%20Verde%20%28STILL%29.jpg" alt="Linho Listras Stout Verde (STILL)" onclick="abrirModal('listrado/Linho%20Listras%20Stout%20Verde%20%28STILL%29.jpg')">
-              <span>Linho Listras Stout Verde (STILL)</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="listrado/Linho%20Listras%20Stout%20Verde%20Claro%2060x60.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('listrado/Linho%20Listras%20Stout%20Verde%20Claro%2060x60.jpg', this)">🤍</button>
-              <img src="listrado/Linho%20Listras%20Stout%20Verde%20Claro%2060x60.jpg" alt="Linho Listras Stout Verde Claro 60x" onclick="abrirModal('listrado/Linho%20Listras%20Stout%20Verde%20Claro%2060x60.jpg')">
-              <span>Linho Listras Stout Verde Claro 60x</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="listrado/Listrado%20Aquarela%20Bege%20com%20Cinza%20%28STILL%29.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('listrado/Listrado%20Aquarela%20Bege%20com%20Cinza%20%28STILL%29.jpg', this)">🤍</button>
-              <img src="listrado/Listrado%20Aquarela%20Bege%20com%20Cinza%20%28STILL%29.jpg" alt="Listrado Aquarela Bege com Cinza (STILL)" onclick="abrirModal('listrado/Listrado%20Aquarela%20Bege%20com%20Cinza%20%28STILL%29.jpg')">
-              <span>Listrado Aquarela Bege com Cinza (STILL)</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="listrado/Listrado%20Aquarela%20Bege%20com%20Rosa%20%28STILL%29.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('listrado/Listrado%20Aquarela%20Bege%20com%20Rosa%20%28STILL%29.jpg', this)">🤍</button>
-              <img src="listrado/Listrado%20Aquarela%20Bege%20com%20Rosa%20%28STILL%29.jpg" alt="Listrado Aquarela Bege com Rosa (STILL)" onclick="abrirModal('listrado/Listrado%20Aquarela%20Bege%20com%20Rosa%20%28STILL%29.jpg')">
-              <span>Listrado Aquarela Bege com Rosa (STILL)</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="listrado/Listrado%20Aquarela%20Bege%20com%20Verde%20%28STILL%29.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('listrado/Listrado%20Aquarela%20Bege%20com%20Verde%20%28STILL%29.jpg', this)">🤍</button>
-              <img src="listrado/Listrado%20Aquarela%20Bege%20com%20Verde%20%28STILL%29.jpg" alt="Listrado Aquarela Bege com Verde (STILL)" onclick="abrirModal('listrado/Listrado%20Aquarela%20Bege%20com%20Verde%20%28STILL%29.jpg')">
-              <span>Listrado Aquarela Bege com Verde (STILL)</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="listrado/Listrado%20Aquarela%20Verde%20com%20Azul%20%28STILL%29.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('listrado/Listrado%20Aquarela%20Verde%20com%20Azul%20%28STILL%29.jpg', this)">🤍</button>
-              <img src="listrado/Listrado%20Aquarela%20Verde%20com%20Azul%20%28STILL%29.jpg" alt="Listrado Aquarela Verde com Azul (STILL)" onclick="abrirModal('listrado/Listrado%20Aquarela%20Verde%20com%20Azul%20%28STILL%29.jpg')">
-              <span>Listrado Aquarela Verde com Azul (STILL)</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="listrado/Listrado%20Horizontal%20Aquarela%20Amarelo%20%28STILL%29.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('listrado/Listrado%20Horizontal%20Aquarela%20Amarelo%20%28STILL%29.jpg', this)">🤍</button>
-              <img src="listrado/Listrado%20Horizontal%20Aquarela%20Amarelo%20%28STILL%29.jpg" alt="Listrado Horizontal Aquarela Amarelo (STILL)" onclick="abrirModal('listrado/Listrado%20Horizontal%20Aquarela%20Amarelo%20%28STILL%29.jpg')">
-              <span>Listrado Horizontal Aquarela Amarelo (STILL)</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="listrado/Listrado%20Horizontal%20Aquarela%20Azul%20%28STILL%29.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('listrado/Listrado%20Horizontal%20Aquarela%20Azul%20%28STILL%29.jpg', this)">🤍</button>
-              <img src="listrado/Listrado%20Horizontal%20Aquarela%20Azul%20%28STILL%29.jpg" alt="Listrado Horizontal Aquarela Azul (STILL)" onclick="abrirModal('listrado/Listrado%20Horizontal%20Aquarela%20Azul%20%28STILL%29.jpg')">
-              <span>Listrado Horizontal Aquarela Azul (STILL)</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="listrado/Listrado%20Horizontal%20Aquarela%20Rosa%20%28STILL%29.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('listrado/Listrado%20Horizontal%20Aquarela%20Rosa%20%28STILL%29.jpg', this)">🤍</button>
-              <img src="listrado/Listrado%20Horizontal%20Aquarela%20Rosa%20%28STILL%29.jpg" alt="Listrado Horizontal Aquarela Rosa (STILL)" onclick="abrirModal('listrado/Listrado%20Horizontal%20Aquarela%20Rosa%20%28STILL%29.jpg')">
-              <span>Listrado Horizontal Aquarela Rosa (STILL)</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="listrado/Listrado%20Horizontal%20Aquarela%20Rosa.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('listrado/Listrado%20Horizontal%20Aquarela%20Rosa.jpg', this)">🤍</button>
-              <img src="listrado/Listrado%20Horizontal%20Aquarela%20Rosa.jpg" alt="Listrado Horizontal Aquarela Rosa" onclick="abrirModal('listrado/Listrado%20Horizontal%20Aquarela%20Rosa.jpg')">
-              <span>Listrado Horizontal Aquarela Rosa</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="listrado/Listrado%20Horizontal%20Aquarela%20Verde%20%28STILL%29.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('listrado/Listrado%20Horizontal%20Aquarela%20Verde%20%28STILL%29.jpg', this)">🤍</button>
-              <img src="listrado/Listrado%20Horizontal%20Aquarela%20Verde%20%28STILL%29.jpg" alt="Listrado Horizontal Aquarela Verde (STILL)" onclick="abrirModal('listrado/Listrado%20Horizontal%20Aquarela%20Verde%20%28STILL%29.jpg')">
-              <span>Listrado Horizontal Aquarela Verde (STILL)</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="listrado/Listrado%20Horizontal%20Aquarela%20Verde%20%C3%81gua%20%28STILL%29.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('listrado/Listrado%20Horizontal%20Aquarela%20Verde%20%C3%81gua%20%28STILL%29.jpg', this)">🤍</button>
-              <img src="listrado/Listrado%20Horizontal%20Aquarela%20Verde%20%C3%81gua%20%28STILL%29.jpg" alt="Listrado Horizontal Aquarela Verde Água (STILL)" onclick="abrirModal('listrado/Listrado%20Horizontal%20Aquarela%20Verde%20%C3%81gua%20%28STILL%29.jpg')">
-              <span>Listrado Horizontal Aquarela Verde Água (STILL)</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="listrado/Listrado%20Horizontal%20Risk%20Areia%20%28STILL%29.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('listrado/Listrado%20Horizontal%20Risk%20Areia%20%28STILL%29.jpg', this)">🤍</button>
-              <img src="listrado/Listrado%20Horizontal%20Risk%20Areia%20%28STILL%29.jpg" alt="Listrado Horizontal Risk Areia (STILL)" onclick="abrirModal('listrado/Listrado%20Horizontal%20Risk%20Areia%20%28STILL%29.jpg')">
-              <span>Listrado Horizontal Risk Areia (STILL)</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="listrado/Listrado%20Horizontal%20Risk%20Areia.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('listrado/Listrado%20Horizontal%20Risk%20Areia.jpg', this)">🤍</button>
-              <img src="listrado/Listrado%20Horizontal%20Risk%20Areia.jpg" alt="Listrado Horizontal Risk Areia" onclick="abrirModal('listrado/Listrado%20Horizontal%20Risk%20Areia.jpg')">
-              <span>Listrado Horizontal Risk Areia</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="listrado/Listrado%20Horizontal%20Risk%20Azul%20%28STILL%29.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('listrado/Listrado%20Horizontal%20Risk%20Azul%20%28STILL%29.jpg', this)">🤍</button>
-              <img src="listrado/Listrado%20Horizontal%20Risk%20Azul%20%28STILL%29.jpg" alt="Listrado Horizontal Risk Azul (STILL)" onclick="abrirModal('listrado/Listrado%20Horizontal%20Risk%20Azul%20%28STILL%29.jpg')">
-              <span>Listrado Horizontal Risk Azul (STILL)</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="listrado/Listrado%20Horizontal%20Risk%20Azul%20e%20Branco%20%28STILL%29.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('listrado/Listrado%20Horizontal%20Risk%20Azul%20e%20Branco%20%28STILL%29.jpg', this)">🤍</button>
-              <img src="listrado/Listrado%20Horizontal%20Risk%20Azul%20e%20Branco%20%28STILL%29.jpg" alt="Listrado Horizontal Risk Azul e Branco (STILL)" onclick="abrirModal('listrado/Listrado%20Horizontal%20Risk%20Azul%20e%20Branco%20%28STILL%29.jpg')">
-              <span>Listrado Horizontal Risk Azul e Branco (STILL)</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="listrado/Listrado%20Horizontal%20Risk%20Azul%20e%20Branco.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('listrado/Listrado%20Horizontal%20Risk%20Azul%20e%20Branco.jpg', this)">🤍</button>
-              <img src="listrado/Listrado%20Horizontal%20Risk%20Azul%20e%20Branco.jpg" alt="Listrado Horizontal Risk Azul e Branco" onclick="abrirModal('listrado/Listrado%20Horizontal%20Risk%20Azul%20e%20Branco.jpg')">
-              <span>Listrado Horizontal Risk Azul e Branco</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="listrado/Listrado%20Horizontal%20Risk%20Azul.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('listrado/Listrado%20Horizontal%20Risk%20Azul.jpg', this)">🤍</button>
-              <img src="listrado/Listrado%20Horizontal%20Risk%20Azul.jpg" alt="Listrado Horizontal Risk Azul" onclick="abrirModal('listrado/Listrado%20Horizontal%20Risk%20Azul.jpg')">
-              <span>Listrado Horizontal Risk Azul</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="listrado/Listrado%20Horizontal%20Risk%20Camur%C3%A7a%20%28STILL%29.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('listrado/Listrado%20Horizontal%20Risk%20Camur%C3%A7a%20%28STILL%29.jpg', this)">🤍</button>
-              <img src="listrado/Listrado%20Horizontal%20Risk%20Camur%C3%A7a%20%28STILL%29.jpg" alt="Listrado Horizontal Risk Camurça (STILL)" onclick="abrirModal('listrado/Listrado%20Horizontal%20Risk%20Camur%C3%A7a%20%28STILL%29.jpg')">
-              <span>Listrado Horizontal Risk Camurça (STILL)</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="listrado/Listrado%20Horizontal%20Risk%20Camur%C3%A7a.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('listrado/Listrado%20Horizontal%20Risk%20Camur%C3%A7a.jpg', this)">🤍</button>
-              <img src="listrado/Listrado%20Horizontal%20Risk%20Camur%C3%A7a.jpg" alt="Listrado Horizontal Risk Camurça" onclick="abrirModal('listrado/Listrado%20Horizontal%20Risk%20Camur%C3%A7a.jpg')">
-              <span>Listrado Horizontal Risk Camurça</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="listrado/Listrado%20Horizontal%20Risk%20Rosa%20%28STILL%29.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('listrado/Listrado%20Horizontal%20Risk%20Rosa%20%28STILL%29.jpg', this)">🤍</button>
-              <img src="listrado/Listrado%20Horizontal%20Risk%20Rosa%20%28STILL%29.jpg" alt="Listrado Horizontal Risk Rosa (STILL)" onclick="abrirModal('listrado/Listrado%20Horizontal%20Risk%20Rosa%20%28STILL%29.jpg')">
-              <span>Listrado Horizontal Risk Rosa (STILL)</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="listrado/Listrado%20Intercalado%20Azul%20e%20Bege%20%28STILL%29.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('listrado/Listrado%20Intercalado%20Azul%20e%20Bege%20%28STILL%29.jpg', this)">🤍</button>
-              <img src="listrado/Listrado%20Intercalado%20Azul%20e%20Bege%20%28STILL%29.jpg" alt="Listrado Intercalado Azul e Bege (STILL)" onclick="abrirModal('listrado/Listrado%20Intercalado%20Azul%20e%20Bege%20%28STILL%29.jpg')">
-              <span>Listrado Intercalado Azul e Bege (STILL)</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="listrado/Listrado%20Intercalado%20Azul%20e%20Bege.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('listrado/Listrado%20Intercalado%20Azul%20e%20Bege.jpg', this)">🤍</button>
-              <img src="listrado/Listrado%20Intercalado%20Azul%20e%20Bege.jpg" alt="Listrado Intercalado Azul e Bege" onclick="abrirModal('listrado/Listrado%20Intercalado%20Azul%20e%20Bege.jpg')">
-              <span>Listrado Intercalado Azul e Bege</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="listrado/Listrado%20Intercalado%20Camur%C3%A7a%20e%20Bege%20%28STILL%29.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('listrado/Listrado%20Intercalado%20Camur%C3%A7a%20e%20Bege%20%28STILL%29.jpg', this)">🤍</button>
-              <img src="listrado/Listrado%20Intercalado%20Camur%C3%A7a%20e%20Bege%20%28STILL%29.jpg" alt="Listrado Intercalado Camurça e Bege (STILL)" onclick="abrirModal('listrado/Listrado%20Intercalado%20Camur%C3%A7a%20e%20Bege%20%28STILL%29.jpg')">
-              <span>Listrado Intercalado Camurça e Bege (STILL)</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="listrado/Listrado%20Intercalado%20Rosa%20e%20Bege%20%28STILL%29.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('listrado/Listrado%20Intercalado%20Rosa%20e%20Bege%20%28STILL%29.jpg', this)">🤍</button>
-              <img src="listrado/Listrado%20Intercalado%20Rosa%20e%20Bege%20%28STILL%29.jpg" alt="Listrado Intercalado Rosa e Bege (STILL)" onclick="abrirModal('listrado/Listrado%20Intercalado%20Rosa%20e%20Bege%20%28STILL%29.jpg')">
-              <span>Listrado Intercalado Rosa e Bege (STILL)</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="listrado/Listrado%20Intercalado%20Textura%20Linho%20Azul%20%28STILL%29.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('listrado/Listrado%20Intercalado%20Textura%20Linho%20Azul%20%28STILL%29.jpg', this)">🤍</button>
-              <img src="listrado/Listrado%20Intercalado%20Textura%20Linho%20Azul%20%28STILL%29.jpg" alt="Listrado Intercalado Textura Linho Azul (STILL)" onclick="abrirModal('listrado/Listrado%20Intercalado%20Textura%20Linho%20Azul%20%28STILL%29.jpg')">
-              <span>Listrado Intercalado Textura Linho Azul (STILL)</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="listrado/Listrado%20Intercalado%20Textura%20Linho%20Camur%C3%A7a%20%28STILL%29.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('listrado/Listrado%20Intercalado%20Textura%20Linho%20Camur%C3%A7a%20%28STILL%29.jpg', this)">🤍</button>
-              <img src="listrado/Listrado%20Intercalado%20Textura%20Linho%20Camur%C3%A7a%20%28STILL%29.jpg" alt="Listrado Intercalado Textura Linho Camurça (STILL)" onclick="abrirModal('listrado/Listrado%20Intercalado%20Textura%20Linho%20Camur%C3%A7a%20%28STILL%29.jpg')">
-              <span>Listrado Intercalado Textura Linho Camurça (STILL)</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="listrado/Listrado%20Intercalado%20Textura%20Linho%20Rosa%20%28STILL%29.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('listrado/Listrado%20Intercalado%20Textura%20Linho%20Rosa%20%28STILL%29.jpg', this)">🤍</button>
-              <img src="listrado/Listrado%20Intercalado%20Textura%20Linho%20Rosa%20%28STILL%29.jpg" alt="Listrado Intercalado Textura Linho Rosa (STILL)" onclick="abrirModal('listrado/Listrado%20Intercalado%20Textura%20Linho%20Rosa%20%28STILL%29.jpg')">
-              <span>Listrado Intercalado Textura Linho Rosa (STILL)</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="listrado/Listrado%20Intercalado%20Textura%20Linho%20Verde%20%28STILL%29.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('listrado/Listrado%20Intercalado%20Textura%20Linho%20Verde%20%28STILL%29.jpg', this)">🤍</button>
-              <img src="listrado/Listrado%20Intercalado%20Textura%20Linho%20Verde%20%28STILL%29.jpg" alt="Listrado Intercalado Textura Linho Verde (STILL)" onclick="abrirModal('listrado/Listrado%20Intercalado%20Textura%20Linho%20Verde%20%28STILL%29.jpg')">
-              <span>Listrado Intercalado Textura Linho Verde (STILL)</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="listrado/Listrado%20Intercalado%20Verde%20e%20Bege%20%28STILL%29.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('listrado/Listrado%20Intercalado%20Verde%20e%20Bege%20%28STILL%29.jpg', this)">🤍</button>
-              <img src="listrado/Listrado%20Intercalado%20Verde%20e%20Bege%20%28STILL%29.jpg" alt="Listrado Intercalado Verde e Bege (STILL)" onclick="abrirModal('listrado/Listrado%20Intercalado%20Verde%20e%20Bege%20%28STILL%29.jpg')">
-              <span>Listrado Intercalado Verde e Bege (STILL)</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="listrado/Listrado%20Intercalado%20Verde%20e%20Bege.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('listrado/Listrado%20Intercalado%20Verde%20e%20Bege.jpg', this)">🤍</button>
-              <img src="listrado/Listrado%20Intercalado%20Verde%20e%20Bege.jpg" alt="Listrado Intercalado Verde e Bege" onclick="abrirModal('listrado/Listrado%20Intercalado%20Verde%20e%20Bege.jpg')">
-              <span>Listrado Intercalado Verde e Bege</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="listrado/Listrado%20Texturizado%20Areia%20%28STILL%29.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('listrado/Listrado%20Texturizado%20Areia%20%28STILL%29.jpg', this)">🤍</button>
-              <img src="listrado/Listrado%20Texturizado%20Areia%20%28STILL%29.jpg" alt="Listrado Texturizado Areia (STILL)" onclick="abrirModal('listrado/Listrado%20Texturizado%20Areia%20%28STILL%29.jpg')">
-              <span>Listrado Texturizado Areia (STILL)</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="listrado/Listrado%20Texturizado%20Areia%202%20%282%29.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('listrado/Listrado%20Texturizado%20Areia%202%20%282%29.jpg', this)">🤍</button>
-              <img src="listrado/Listrado%20Texturizado%20Areia%202%20%282%29.jpg" alt="Listrado Texturizado Areia 2" onclick="abrirModal('listrado/Listrado%20Texturizado%20Areia%202%20%282%29.jpg')">
-              <span>Listrado Texturizado Areia 2</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="listrado/Listrado%20Texturizado%20Areia%202.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('listrado/Listrado%20Texturizado%20Areia%202.jpg', this)">🤍</button>
-              <img src="listrado/Listrado%20Texturizado%20Areia%202.jpg" alt="Listrado Texturizado Areia" onclick="abrirModal('listrado/Listrado%20Texturizado%20Areia%202.jpg')">
-              <span>Listrado Texturizado Areia</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="listrado/Listrado%20Texturizado%20Areia.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('listrado/Listrado%20Texturizado%20Areia.jpg', this)">🤍</button>
-              <img src="listrado/Listrado%20Texturizado%20Areia.jpg" alt="Listrado Texturizado Areia" onclick="abrirModal('listrado/Listrado%20Texturizado%20Areia.jpg')">
-              <span>Listrado Texturizado Areia</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="listrado/Listrado%20Texturizado%20Azul%20Claro%20%28STILL%29.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('listrado/Listrado%20Texturizado%20Azul%20Claro%20%28STILL%29.jpg', this)">🤍</button>
-              <img src="listrado/Listrado%20Texturizado%20Azul%20Claro%20%28STILL%29.jpg" alt="Listrado Texturizado Azul Claro (STILL)" onclick="abrirModal('listrado/Listrado%20Texturizado%20Azul%20Claro%20%28STILL%29.jpg')">
-              <span>Listrado Texturizado Azul Claro (STILL)</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="listrado/Listrado%20Texturizado%20Azul%20Claro%202.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('listrado/Listrado%20Texturizado%20Azul%20Claro%202.jpg', this)">🤍</button>
-              <img src="listrado/Listrado%20Texturizado%20Azul%20Claro%202.jpg" alt="Listrado Texturizado Azul Claro" onclick="abrirModal('listrado/Listrado%20Texturizado%20Azul%20Claro%202.jpg')">
-              <span>Listrado Texturizado Azul Claro</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="listrado/Listrado%20Texturizado%20Azul%20Claro.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('listrado/Listrado%20Texturizado%20Azul%20Claro.jpg', this)">🤍</button>
-              <img src="listrado/Listrado%20Texturizado%20Azul%20Claro.jpg" alt="Listrado Texturizado Azul Claro" onclick="abrirModal('listrado/Listrado%20Texturizado%20Azul%20Claro.jpg')">
-              <span>Listrado Texturizado Azul Claro</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="listrado/Listrado%20Texturizado%20Azul%20Escuro%20%28STILL%29.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('listrado/Listrado%20Texturizado%20Azul%20Escuro%20%28STILL%29.jpg', this)">🤍</button>
-              <img src="listrado/Listrado%20Texturizado%20Azul%20Escuro%20%28STILL%29.jpg" alt="Listrado Texturizado Azul Escuro (STILL)" onclick="abrirModal('listrado/Listrado%20Texturizado%20Azul%20Escuro%20%28STILL%29.jpg')">
-              <span>Listrado Texturizado Azul Escuro (STILL)</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="listrado/Listrado%20Texturizado%20Azul%20Escuro%202.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('listrado/Listrado%20Texturizado%20Azul%20Escuro%202.jpg', this)">🤍</button>
-              <img src="listrado/Listrado%20Texturizado%20Azul%20Escuro%202.jpg" alt="Listrado Texturizado Azul Escuro" onclick="abrirModal('listrado/Listrado%20Texturizado%20Azul%20Escuro%202.jpg')">
-              <span>Listrado Texturizado Azul Escuro</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="listrado/Listrado%20Texturizado%20Azul%20Escuro.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('listrado/Listrado%20Texturizado%20Azul%20Escuro.jpg', this)">🤍</button>
-              <img src="listrado/Listrado%20Texturizado%20Azul%20Escuro.jpg" alt="Listrado Texturizado Azul Escuro" onclick="abrirModal('listrado/Listrado%20Texturizado%20Azul%20Escuro.jpg')">
-              <span>Listrado Texturizado Azul Escuro</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="listrado/Listrado%20Texturizado%20Cinza%20%28STILL%29.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('listrado/Listrado%20Texturizado%20Cinza%20%28STILL%29.jpg', this)">🤍</button>
-              <img src="listrado/Listrado%20Texturizado%20Cinza%20%28STILL%29.jpg" alt="Listrado Texturizado Cinza (STILL)" onclick="abrirModal('listrado/Listrado%20Texturizado%20Cinza%20%28STILL%29.jpg')">
-              <span>Listrado Texturizado Cinza (STILL)</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="listrado/Listrado%20Texturizado%20Cinza%202.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('listrado/Listrado%20Texturizado%20Cinza%202.jpg', this)">🤍</button>
-              <img src="listrado/Listrado%20Texturizado%20Cinza%202.jpg" alt="Listrado Texturizado Cinza" onclick="abrirModal('listrado/Listrado%20Texturizado%20Cinza%202.jpg')">
-              <span>Listrado Texturizado Cinza</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="listrado/Listrado%20Texturizado%20Cinza.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('listrado/Listrado%20Texturizado%20Cinza.jpg', this)">🤍</button>
-              <img src="listrado/Listrado%20Texturizado%20Cinza.jpg" alt="Listrado Texturizado Cinza" onclick="abrirModal('listrado/Listrado%20Texturizado%20Cinza.jpg')">
-              <span>Listrado Texturizado Cinza</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="listrado/Listrado%20Texturizado%20Rosa%20%28STILL%29.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('listrado/Listrado%20Texturizado%20Rosa%20%28STILL%29.jpg', this)">🤍</button>
-              <img src="listrado/Listrado%20Texturizado%20Rosa%20%28STILL%29.jpg" alt="Listrado Texturizado Rosa (STILL)" onclick="abrirModal('listrado/Listrado%20Texturizado%20Rosa%20%28STILL%29.jpg')">
-              <span>Listrado Texturizado Rosa (STILL)</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="listrado/Listrado%20Texturizado%20Rosa%202.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('listrado/Listrado%20Texturizado%20Rosa%202.jpg', this)">🤍</button>
-              <img src="listrado/Listrado%20Texturizado%20Rosa%202.jpg" alt="Listrado Texturizado Rosa" onclick="abrirModal('listrado/Listrado%20Texturizado%20Rosa%202.jpg')">
-              <span>Listrado Texturizado Rosa</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="listrado/Listrado%20Texturizado%20Rosa.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('listrado/Listrado%20Texturizado%20Rosa.jpg', this)">🤍</button>
-              <img src="listrado/Listrado%20Texturizado%20Rosa.jpg" alt="Listrado Texturizado Rosa" onclick="abrirModal('listrado/Listrado%20Texturizado%20Rosa.jpg')">
-              <span>Listrado Texturizado Rosa</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="listrado/Listrado%20Texturizado%20Rose%20%28STILL%29.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('listrado/Listrado%20Texturizado%20Rose%20%28STILL%29.jpg', this)">🤍</button>
-              <img src="listrado/Listrado%20Texturizado%20Rose%20%28STILL%29.jpg" alt="Listrado Texturizado Rose (STILL)" onclick="abrirModal('listrado/Listrado%20Texturizado%20Rose%20%28STILL%29.jpg')">
-              <span>Listrado Texturizado Rose (STILL)</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="listrado/Listrado%20Texturizado%20Rose%202.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('listrado/Listrado%20Texturizado%20Rose%202.jpg', this)">🤍</button>
-              <img src="listrado/Listrado%20Texturizado%20Rose%202.jpg" alt="Listrado Texturizado Rose" onclick="abrirModal('listrado/Listrado%20Texturizado%20Rose%202.jpg')">
-              <span>Listrado Texturizado Rose</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="listrado/Listrado%20Texturizado%20Rose.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('listrado/Listrado%20Texturizado%20Rose.jpg', this)">🤍</button>
-              <img src="listrado/Listrado%20Texturizado%20Rose.jpg" alt="Listrado Texturizado Rose" onclick="abrirModal('listrado/Listrado%20Texturizado%20Rose.jpg')">
-              <span>Listrado Texturizado Rose</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="listrado/Listrado%20Texturizado%20Verde%20%28STILL%29.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('listrado/Listrado%20Texturizado%20Verde%20%28STILL%29.jpg', this)">🤍</button>
-              <img src="listrado/Listrado%20Texturizado%20Verde%20%28STILL%29.jpg" alt="Listrado Texturizado Verde (STILL)" onclick="abrirModal('listrado/Listrado%20Texturizado%20Verde%20%28STILL%29.jpg')">
-              <span>Listrado Texturizado Verde (STILL)</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="listrado/Listrado%20Texturizado%20Verde%202.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('listrado/Listrado%20Texturizado%20Verde%202.jpg', this)">🤍</button>
-              <img src="listrado/Listrado%20Texturizado%20Verde%202.jpg" alt="Listrado Texturizado Verde" onclick="abrirModal('listrado/Listrado%20Texturizado%20Verde%202.jpg')">
-              <span>Listrado Texturizado Verde</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="listrado/Listrado%20Texturizado%20Verde%20%C3%81gua%20%28STILL%29.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('listrado/Listrado%20Texturizado%20Verde%20%C3%81gua%20%28STILL%29.jpg', this)">🤍</button>
-              <img src="listrado/Listrado%20Texturizado%20Verde%20%C3%81gua%20%28STILL%29.jpg" alt="Listrado Texturizado Verde Água (STILL)" onclick="abrirModal('listrado/Listrado%20Texturizado%20Verde%20%C3%81gua%20%28STILL%29.jpg')">
-              <span>Listrado Texturizado Verde Água (STILL)</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="listrado/Listrado%20Texturizado%20Verde%20%C3%81gua%202.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('listrado/Listrado%20Texturizado%20Verde%20%C3%81gua%202.jpg', this)">🤍</button>
-              <img src="listrado/Listrado%20Texturizado%20Verde%20%C3%81gua%202.jpg" alt="Listrado Texturizado Verde Água" onclick="abrirModal('listrado/Listrado%20Texturizado%20Verde%20%C3%81gua%202.jpg')">
-              <span>Listrado Texturizado Verde Água</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="listrado/Listrado%20Texturizado%20Verde%20%C3%81gua.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('listrado/Listrado%20Texturizado%20Verde%20%C3%81gua.jpg', this)">🤍</button>
-              <img src="listrado/Listrado%20Texturizado%20Verde%20%C3%81gua.jpg" alt="Listrado Texturizado Verde Água" onclick="abrirModal('listrado/Listrado%20Texturizado%20Verde%20%C3%81gua.jpg')">
-              <span>Listrado Texturizado Verde Água</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="listrado/Listrado%20Texturizado%20Verde.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('listrado/Listrado%20Texturizado%20Verde.jpg', this)">🤍</button>
-              <img src="listrado/Listrado%20Texturizado%20Verde.jpg" alt="Listrado Texturizado Verde" onclick="abrirModal('listrado/Listrado%20Texturizado%20Verde.jpg')">
-              <span>Listrado Texturizado Verde</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="listrado/Listras%20Alternadas%20Azul%20%28STILL%29.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('listrado/Listras%20Alternadas%20Azul%20%28STILL%29.jpg', this)">🤍</button>
-              <img src="listrado/Listras%20Alternadas%20Azul%20%28STILL%29.jpg" alt="Listras Alternadas Azul (STILL)" onclick="abrirModal('listrado/Listras%20Alternadas%20Azul%20%28STILL%29.jpg')">
-              <span>Listras Alternadas Azul (STILL)</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="listrado/Listras%20Alternadas%20Azul%202.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('listrado/Listras%20Alternadas%20Azul%202.jpg', this)">🤍</button>
-              <img src="listrado/Listras%20Alternadas%20Azul%202.jpg" alt="Listras Alternadas Azul" onclick="abrirModal('listrado/Listras%20Alternadas%20Azul%202.jpg')">
-              <span>Listras Alternadas Azul</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="listrado/Listras%20Alternadas%20Azul.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('listrado/Listras%20Alternadas%20Azul.jpg', this)">🤍</button>
-              <img src="listrado/Listras%20Alternadas%20Azul.jpg" alt="Listras Alternadas Azul" onclick="abrirModal('listrado/Listras%20Alternadas%20Azul.jpg')">
-              <span>Listras Alternadas Azul</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="listrado/Listras%20Alternadas%20Rosa%20%28STILL%29.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('listrado/Listras%20Alternadas%20Rosa%20%28STILL%29.jpg', this)">🤍</button>
-              <img src="listrado/Listras%20Alternadas%20Rosa%20%28STILL%29.jpg" alt="Listras Alternadas Rosa (STILL)" onclick="abrirModal('listrado/Listras%20Alternadas%20Rosa%20%28STILL%29.jpg')">
-              <span>Listras Alternadas Rosa (STILL)</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="listrado/Listras%20Alternadas%20Rosa%202.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('listrado/Listras%20Alternadas%20Rosa%202.jpg', this)">🤍</button>
-              <img src="listrado/Listras%20Alternadas%20Rosa%202.jpg" alt="Listras Alternadas Rosa" onclick="abrirModal('listrado/Listras%20Alternadas%20Rosa%202.jpg')">
-              <span>Listras Alternadas Rosa</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="listrado/Listras%20Alternadas%20Rosa.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('listrado/Listras%20Alternadas%20Rosa.jpg', this)">🤍</button>
-              <img src="listrado/Listras%20Alternadas%20Rosa.jpg" alt="Listras Alternadas Rosa" onclick="abrirModal('listrado/Listras%20Alternadas%20Rosa.jpg')">
-              <span>Listras Alternadas Rosa</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="listrado/Listras%20Alternadas%20Verde%20%28STILL%29.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('listrado/Listras%20Alternadas%20Verde%20%28STILL%29.jpg', this)">🤍</button>
-              <img src="listrado/Listras%20Alternadas%20Verde%20%28STILL%29.jpg" alt="Listras Alternadas Verde (STILL)" onclick="abrirModal('listrado/Listras%20Alternadas%20Verde%20%28STILL%29.jpg')">
-              <span>Listras Alternadas Verde (STILL)</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="listrado/Listras%20Alternadas%20Verde%202.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('listrado/Listras%20Alternadas%20Verde%202.jpg', this)">🤍</button>
-              <img src="listrado/Listras%20Alternadas%20Verde%202.jpg" alt="Listras Alternadas Verde" onclick="abrirModal('listrado/Listras%20Alternadas%20Verde%202.jpg')">
-              <span>Listras Alternadas Verde</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="listrado/Listras%20Alternadas%20Verde%20Acqua%20e%20Cinza%20%28STILL%29.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('listrado/Listras%20Alternadas%20Verde%20Acqua%20e%20Cinza%20%28STILL%29.jpg', this)">🤍</button>
-              <img src="listrado/Listras%20Alternadas%20Verde%20Acqua%20e%20Cinza%20%28STILL%29.jpg" alt="Listras Alternadas Verde Acqua e Cinza (STILL)" onclick="abrirModal('listrado/Listras%20Alternadas%20Verde%20Acqua%20e%20Cinza%20%28STILL%29.jpg')">
-              <span>Listras Alternadas Verde Acqua e Cinza (STILL)</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="listrado/Listras%20Alternadas%20Verde%20%C3%81gua%20%28STILL%29.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('listrado/Listras%20Alternadas%20Verde%20%C3%81gua%20%28STILL%29.jpg', this)">🤍</button>
-              <img src="listrado/Listras%20Alternadas%20Verde%20%C3%81gua%20%28STILL%29.jpg" alt="Listras Alternadas Verde Água (STILL)" onclick="abrirModal('listrado/Listras%20Alternadas%20Verde%20%C3%81gua%20%28STILL%29.jpg')">
-              <span>Listras Alternadas Verde Água (STILL)</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="listrado/Listras%20Alternadas%20Verde%20%C3%81gua%202.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('listrado/Listras%20Alternadas%20Verde%20%C3%81gua%202.jpg', this)">🤍</button>
-              <img src="listrado/Listras%20Alternadas%20Verde%20%C3%81gua%202.jpg" alt="Listras Alternadas Verde Água" onclick="abrirModal('listrado/Listras%20Alternadas%20Verde%20%C3%81gua%202.jpg')">
-              <span>Listras Alternadas Verde Água</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="listrado/Listras%20Alternadas%20Verde.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('listrado/Listras%20Alternadas%20Verde.jpg', this)">🤍</button>
-              <img src="listrado/Listras%20Alternadas%20Verde.jpg" alt="Listras Alternadas Verde" onclick="abrirModal('listrado/Listras%20Alternadas%20Verde.jpg')">
-              <span>Listras Alternadas Verde</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="listrado/Listras%20Alternadas%20Verde%C3%81gua.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('listrado/Listras%20Alternadas%20Verde%C3%81gua.jpg', this)">🤍</button>
-              <img src="listrado/Listras%20Alternadas%20Verde%C3%81gua.jpg" alt="Listras Alternadas VerdeÁgua" onclick="abrirModal('listrado/Listras%20Alternadas%20Verde%C3%81gua.jpg')">
-              <span>Listras Alternadas VerdeÁgua</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="listrado/Listras%20Amarelo%20e%20Branco%20%282%29.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('listrado/Listras%20Amarelo%20e%20Branco%20%282%29.jpg', this)">🤍</button>
-              <img src="listrado/Listras%20Amarelo%20e%20Branco%20%282%29.jpg" alt="Listras Amarelo e Branco" onclick="abrirModal('listrado/Listras%20Amarelo%20e%20Branco%20%282%29.jpg')">
-              <span>Listras Amarelo e Branco</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="listrado/Listras%20Amarelo%20e%20Branco%20%28STILL%29.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('listrado/Listras%20Amarelo%20e%20Branco%20%28STILL%29.jpg', this)">🤍</button>
-              <img src="listrado/Listras%20Amarelo%20e%20Branco%20%28STILL%29.jpg" alt="Listras Amarelo e Branco (STILL)" onclick="abrirModal('listrado/Listras%20Amarelo%20e%20Branco%20%28STILL%29.jpg')">
-              <span>Listras Amarelo e Branco (STILL)</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="listrado/Listras%20Amarelo%20e%20Branco%202.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('listrado/Listras%20Amarelo%20e%20Branco%202.jpg', this)">🤍</button>
-              <img src="listrado/Listras%20Amarelo%20e%20Branco%202.jpg" alt="Listras Amarelo e Branco" onclick="abrirModal('listrado/Listras%20Amarelo%20e%20Branco%202.jpg')">
-              <span>Listras Amarelo e Branco</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="listrado/Listras%20Amarelo%20e%20Branco.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('listrado/Listras%20Amarelo%20e%20Branco.jpg', this)">🤍</button>
-              <img src="listrado/Listras%20Amarelo%20e%20Branco.jpg" alt="Listras Amarelo e Branco" onclick="abrirModal('listrado/Listras%20Amarelo%20e%20Branco.jpg')">
-              <span>Listras Amarelo e Branco</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="listrado/Listras%20Azul%20Claro%20e%20Branco%20%282%29.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('listrado/Listras%20Azul%20Claro%20e%20Branco%20%282%29.jpg', this)">🤍</button>
-              <img src="listrado/Listras%20Azul%20Claro%20e%20Branco%20%282%29.jpg" alt="Listras Azul Claro e Branco" onclick="abrirModal('listrado/Listras%20Azul%20Claro%20e%20Branco%20%282%29.jpg')">
-              <span>Listras Azul Claro e Branco</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="listrado/Listras%20Azul%20Claro%20e%20Branco%20%28STILL%29.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('listrado/Listras%20Azul%20Claro%20e%20Branco%20%28STILL%29.jpg', this)">🤍</button>
-              <img src="listrado/Listras%20Azul%20Claro%20e%20Branco%20%28STILL%29.jpg" alt="Listras Azul Claro e Branco (STILL)" onclick="abrirModal('listrado/Listras%20Azul%20Claro%20e%20Branco%20%28STILL%29.jpg')">
-              <span>Listras Azul Claro e Branco (STILL)</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="listrado/Listras%20Azul%20Claro%20e%20Branco%202.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('listrado/Listras%20Azul%20Claro%20e%20Branco%202.jpg', this)">🤍</button>
-              <img src="listrado/Listras%20Azul%20Claro%20e%20Branco%202.jpg" alt="Listras Azul Claro e Branco" onclick="abrirModal('listrado/Listras%20Azul%20Claro%20e%20Branco%202.jpg')">
-              <span>Listras Azul Claro e Branco</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="listrado/Listras%20Azul%20Claro%20e%20Branco.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('listrado/Listras%20Azul%20Claro%20e%20Branco.jpg', this)">🤍</button>
-              <img src="listrado/Listras%20Azul%20Claro%20e%20Branco.jpg" alt="Listras Azul Claro e Branco" onclick="abrirModal('listrado/Listras%20Azul%20Claro%20e%20Branco.jpg')">
-              <span>Listras Azul Claro e Branco</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="listrado/Listras%20Azul%20e%20Branco%20%282%29.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('listrado/Listras%20Azul%20e%20Branco%20%282%29.jpg', this)">🤍</button>
-              <img src="listrado/Listras%20Azul%20e%20Branco%20%282%29.jpg" alt="Listras Azul e Branco" onclick="abrirModal('listrado/Listras%20Azul%20e%20Branco%20%282%29.jpg')">
-              <span>Listras Azul e Branco</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="listrado/Listras%20Azul%20e%20Branco%20%28STILL%29.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('listrado/Listras%20Azul%20e%20Branco%20%28STILL%29.jpg', this)">🤍</button>
-              <img src="listrado/Listras%20Azul%20e%20Branco%20%28STILL%29.jpg" alt="Listras Azul e Branco (STILL)" onclick="abrirModal('listrado/Listras%20Azul%20e%20Branco%20%28STILL%29.jpg')">
-              <span>Listras Azul e Branco (STILL)</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="listrado/Listras%20Azul%20e%20Branco%202%20%282%29.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('listrado/Listras%20Azul%20e%20Branco%202%20%282%29.jpg', this)">🤍</button>
-              <img src="listrado/Listras%20Azul%20e%20Branco%202%20%282%29.jpg" alt="Listras Azul e Branco 2" onclick="abrirModal('listrado/Listras%20Azul%20e%20Branco%202%20%282%29.jpg')">
-              <span>Listras Azul e Branco 2</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="listrado/Listras%20Azul%20e%20Branco%202.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('listrado/Listras%20Azul%20e%20Branco%202.jpg', this)">🤍</button>
-              <img src="listrado/Listras%20Azul%20e%20Branco%202.jpg" alt="Listras Azul e Branco" onclick="abrirModal('listrado/Listras%20Azul%20e%20Branco%202.jpg')">
-              <span>Listras Azul e Branco</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="listrado/Listras%20Azul%20e%20Branco.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('listrado/Listras%20Azul%20e%20Branco.jpg', this)">🤍</button>
-              <img src="listrado/Listras%20Azul%20e%20Branco.jpg" alt="Listras Azul e Branco" onclick="abrirModal('listrado/Listras%20Azul%20e%20Branco.jpg')">
-              <span>Listras Azul e Branco</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="listrado/Listras%20Delicadas%20Areia%20%28STILL%29.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('listrado/Listras%20Delicadas%20Areia%20%28STILL%29.jpg', this)">🤍</button>
-              <img src="listrado/Listras%20Delicadas%20Areia%20%28STILL%29.jpg" alt="Listras Delicadas Areia (STILL)" onclick="abrirModal('listrado/Listras%20Delicadas%20Areia%20%28STILL%29.jpg')">
-              <span>Listras Delicadas Areia (STILL)</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="listrado/Listras%20Delicadas%20Azul%20%28STILL%29.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('listrado/Listras%20Delicadas%20Azul%20%28STILL%29.jpg', this)">🤍</button>
-              <img src="listrado/Listras%20Delicadas%20Azul%20%28STILL%29.jpg" alt="Listras Delicadas Azul (STILL)" onclick="abrirModal('listrado/Listras%20Delicadas%20Azul%20%28STILL%29.jpg')">
-              <span>Listras Delicadas Azul (STILL)</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="listrado/Listras%20Delicadas%20Bege%20%28STILL%29.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('listrado/Listras%20Delicadas%20Bege%20%28STILL%29.jpg', this)">🤍</button>
-              <img src="listrado/Listras%20Delicadas%20Bege%20%28STILL%29.jpg" alt="Listras Delicadas Bege (STILL)" onclick="abrirModal('listrado/Listras%20Delicadas%20Bege%20%28STILL%29.jpg')">
-              <span>Listras Delicadas Bege (STILL)</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="listrado/Listras%20Delicadas%20Rosa%20%28STILL%29.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('listrado/Listras%20Delicadas%20Rosa%20%28STILL%29.jpg', this)">🤍</button>
-              <img src="listrado/Listras%20Delicadas%20Rosa%20%28STILL%29.jpg" alt="Listras Delicadas Rosa (STILL)" onclick="abrirModal('listrado/Listras%20Delicadas%20Rosa%20%28STILL%29.jpg')">
-              <span>Listras Delicadas Rosa (STILL)</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="listrado/Listras%20Horizontais%20Aquarela%20Slim%20Areia%20%28STILL%29.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('listrado/Listras%20Horizontais%20Aquarela%20Slim%20Areia%20%28STILL%29.jpg', this)">🤍</button>
-              <img src="listrado/Listras%20Horizontais%20Aquarela%20Slim%20Areia%20%28STILL%29.jpg" alt="Listras Horizontais Aquarela Slim Areia (STILL)" onclick="abrirModal('listrado/Listras%20Horizontais%20Aquarela%20Slim%20Areia%20%28STILL%29.jpg')">
-              <span>Listras Horizontais Aquarela Slim Areia (STILL)</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="listrado/Listras%20Horizontais%20Aquarela%20Slim%20Areia.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('listrado/Listras%20Horizontais%20Aquarela%20Slim%20Areia.jpg', this)">🤍</button>
-              <img src="listrado/Listras%20Horizontais%20Aquarela%20Slim%20Areia.jpg" alt="Listras Horizontais Aquarela Slim Areia" onclick="abrirModal('listrado/Listras%20Horizontais%20Aquarela%20Slim%20Areia.jpg')">
-              <span>Listras Horizontais Aquarela Slim Areia</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="listrado/Listras%20Horizontais%20Aquarela%20Slim%20Azul%20%28STILL%29.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('listrado/Listras%20Horizontais%20Aquarela%20Slim%20Azul%20%28STILL%29.jpg', this)">🤍</button>
-              <img src="listrado/Listras%20Horizontais%20Aquarela%20Slim%20Azul%20%28STILL%29.jpg" alt="Listras Horizontais Aquarela Slim Azul (STILL)" onclick="abrirModal('listrado/Listras%20Horizontais%20Aquarela%20Slim%20Azul%20%28STILL%29.jpg')">
-              <span>Listras Horizontais Aquarela Slim Azul (STILL)</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="listrado/Listras%20Horizontais%20Aquarela%20Slim%20Azul.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('listrado/Listras%20Horizontais%20Aquarela%20Slim%20Azul.jpg', this)">🤍</button>
-              <img src="listrado/Listras%20Horizontais%20Aquarela%20Slim%20Azul.jpg" alt="Listras Horizontais Aquarela Slim Azul" onclick="abrirModal('listrado/Listras%20Horizontais%20Aquarela%20Slim%20Azul.jpg')">
-              <span>Listras Horizontais Aquarela Slim Azul</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="listrado/Listras%20Horizontais%20Aquarela%20Slim%20Cinza%20%28STILL%29.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('listrado/Listras%20Horizontais%20Aquarela%20Slim%20Cinza%20%28STILL%29.jpg', this)">🤍</button>
-              <img src="listrado/Listras%20Horizontais%20Aquarela%20Slim%20Cinza%20%28STILL%29.jpg" alt="Listras Horizontais Aquarela Slim Cinza (STILL)" onclick="abrirModal('listrado/Listras%20Horizontais%20Aquarela%20Slim%20Cinza%20%28STILL%29.jpg')">
-              <span>Listras Horizontais Aquarela Slim Cinza (STILL)</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="listrado/Listras%20Horizontais%20Aquarela%20Slim%20Cinza.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('listrado/Listras%20Horizontais%20Aquarela%20Slim%20Cinza.jpg', this)">🤍</button>
-              <img src="listrado/Listras%20Horizontais%20Aquarela%20Slim%20Cinza.jpg" alt="Listras Horizontais Aquarela Slim Cinza" onclick="abrirModal('listrado/Listras%20Horizontais%20Aquarela%20Slim%20Cinza.jpg')">
-              <span>Listras Horizontais Aquarela Slim Cinza</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="listrado/Listras%20Horizontais%20Aquarela%20Slim%20Rosa%20%28STILL%29.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('listrado/Listras%20Horizontais%20Aquarela%20Slim%20Rosa%20%28STILL%29.jpg', this)">🤍</button>
-              <img src="listrado/Listras%20Horizontais%20Aquarela%20Slim%20Rosa%20%28STILL%29.jpg" alt="Listras Horizontais Aquarela Slim Rosa (STILL)" onclick="abrirModal('listrado/Listras%20Horizontais%20Aquarela%20Slim%20Rosa%20%28STILL%29.jpg')">
-              <span>Listras Horizontais Aquarela Slim Rosa (STILL)</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="listrado/Listras%20Horizontais%20Aquarela%20Slim%20Rosa.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('listrado/Listras%20Horizontais%20Aquarela%20Slim%20Rosa.jpg', this)">🤍</button>
-              <img src="listrado/Listras%20Horizontais%20Aquarela%20Slim%20Rosa.jpg" alt="Listras Horizontais Aquarela Slim Rosa" onclick="abrirModal('listrado/Listras%20Horizontais%20Aquarela%20Slim%20Rosa.jpg')">
-              <span>Listras Horizontais Aquarela Slim Rosa</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="listrado/Listras%20Horizontais%20Aquarela%20Slim%20Verde%20%28STILL%29.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('listrado/Listras%20Horizontais%20Aquarela%20Slim%20Verde%20%28STILL%29.jpg', this)">🤍</button>
-              <img src="listrado/Listras%20Horizontais%20Aquarela%20Slim%20Verde%20%28STILL%29.jpg" alt="Listras Horizontais Aquarela Slim Verde (STILL)" onclick="abrirModal('listrado/Listras%20Horizontais%20Aquarela%20Slim%20Verde%20%28STILL%29.jpg')">
-              <span>Listras Horizontais Aquarela Slim Verde (STILL)</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="listrado/Listras%20Horizontais%20Aquarela%20Slim%20Verde.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('listrado/Listras%20Horizontais%20Aquarela%20Slim%20Verde.jpg', this)">🤍</button>
-              <img src="listrado/Listras%20Horizontais%20Aquarela%20Slim%20Verde.jpg" alt="Listras Horizontais Aquarela Slim Verde" onclick="abrirModal('listrado/Listras%20Horizontais%20Aquarela%20Slim%20Verde.jpg')">
-              <span>Listras Horizontais Aquarela Slim Verde</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="listrado/Listras%20Rosa%20e%20Branco%20%282%29.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('listrado/Listras%20Rosa%20e%20Branco%20%282%29.jpg', this)">🤍</button>
-              <img src="listrado/Listras%20Rosa%20e%20Branco%20%282%29.jpg" alt="Listras Rosa e Branco" onclick="abrirModal('listrado/Listras%20Rosa%20e%20Branco%20%282%29.jpg')">
-              <span>Listras Rosa e Branco</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="listrado/Listras%20Rosa%20e%20Branco%20%28STILL%29.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('listrado/Listras%20Rosa%20e%20Branco%20%28STILL%29.jpg', this)">🤍</button>
-              <img src="listrado/Listras%20Rosa%20e%20Branco%20%28STILL%29.jpg" alt="Listras Rosa e Branco (STILL)" onclick="abrirModal('listrado/Listras%20Rosa%20e%20Branco%20%28STILL%29.jpg')">
-              <span>Listras Rosa e Branco (STILL)</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="listrado/Listras%20Rosa%20e%20Branco%202.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('listrado/Listras%20Rosa%20e%20Branco%202.jpg', this)">🤍</button>
-              <img src="listrado/Listras%20Rosa%20e%20Branco%202.jpg" alt="Listras Rosa e Branco" onclick="abrirModal('listrado/Listras%20Rosa%20e%20Branco%202.jpg')">
-              <span>Listras Rosa e Branco</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="listrado/Listras%20Rosa%20e%20Branco.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('listrado/Listras%20Rosa%20e%20Branco.jpg', this)">🤍</button>
-              <img src="listrado/Listras%20Rosa%20e%20Branco.jpg" alt="Listras Rosa e Branco" onclick="abrirModal('listrado/Listras%20Rosa%20e%20Branco.jpg')">
-              <span>Listras Rosa e Branco</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="listrado/Listras%20Verde%20e%20Branco%20%282%29.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('listrado/Listras%20Verde%20e%20Branco%20%282%29.jpg', this)">🤍</button>
-              <img src="listrado/Listras%20Verde%20e%20Branco%20%282%29.jpg" alt="Listras Verde e Branco" onclick="abrirModal('listrado/Listras%20Verde%20e%20Branco%20%282%29.jpg')">
-              <span>Listras Verde e Branco</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="listrado/Listras%20Verde%20e%20Branco%20%28STILL%29.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('listrado/Listras%20Verde%20e%20Branco%20%28STILL%29.jpg', this)">🤍</button>
-              <img src="listrado/Listras%20Verde%20e%20Branco%20%28STILL%29.jpg" alt="Listras Verde e Branco (STILL)" onclick="abrirModal('listrado/Listras%20Verde%20e%20Branco%20%28STILL%29.jpg')">
-              <span>Listras Verde e Branco (STILL)</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="listrado/Listras%20Verde%20e%20Branco%202.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('listrado/Listras%20Verde%20e%20Branco%202.jpg', this)">🤍</button>
-              <img src="listrado/Listras%20Verde%20e%20Branco%202.jpg" alt="Listras Verde e Branco" onclick="abrirModal('listrado/Listras%20Verde%20e%20Branco%202.jpg')">
-              <span>Listras Verde e Branco</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="listrado/Listras%20Verde%20e%20Branco.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('listrado/Listras%20Verde%20e%20Branco.jpg', this)">🤍</button>
-              <img src="listrado/Listras%20Verde%20e%20Branco.jpg" alt="Listras Verde e Branco" onclick="abrirModal('listrado/Listras%20Verde%20e%20Branco.jpg')">
-              <span>Listras Verde e Branco</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="listrado/Listras%20Verticais%20Aquarela%20Areia%20%28STILL%29.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('listrado/Listras%20Verticais%20Aquarela%20Areia%20%28STILL%29.jpg', this)">🤍</button>
-              <img src="listrado/Listras%20Verticais%20Aquarela%20Areia%20%28STILL%29.jpg" alt="Listras Verticais Aquarela Areia (STILL)" onclick="abrirModal('listrado/Listras%20Verticais%20Aquarela%20Areia%20%28STILL%29.jpg')">
-              <span>Listras Verticais Aquarela Areia (STILL)</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="listrado/Listras%20Verticais%20Aquarela%20Areia%202.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('listrado/Listras%20Verticais%20Aquarela%20Areia%202.jpg', this)">🤍</button>
-              <img src="listrado/Listras%20Verticais%20Aquarela%20Areia%202.jpg" alt="Listras Verticais Aquarela Areia" onclick="abrirModal('listrado/Listras%20Verticais%20Aquarela%20Areia%202.jpg')">
-              <span>Listras Verticais Aquarela Areia</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="listrado/Listras%20Verticais%20Aquarela%20Areia.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('listrado/Listras%20Verticais%20Aquarela%20Areia.jpg', this)">🤍</button>
-              <img src="listrado/Listras%20Verticais%20Aquarela%20Areia.jpg" alt="Listras Verticais Aquarela Areia" onclick="abrirModal('listrado/Listras%20Verticais%20Aquarela%20Areia.jpg')">
-              <span>Listras Verticais Aquarela Areia</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="listrado/Listras%20Verticais%20Aquarela%20Azul%20%28STILL%29.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('listrado/Listras%20Verticais%20Aquarela%20Azul%20%28STILL%29.jpg', this)">🤍</button>
-              <img src="listrado/Listras%20Verticais%20Aquarela%20Azul%20%28STILL%29.jpg" alt="Listras Verticais Aquarela Azul (STILL)" onclick="abrirModal('listrado/Listras%20Verticais%20Aquarela%20Azul%20%28STILL%29.jpg')">
-              <span>Listras Verticais Aquarela Azul (STILL)</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="listrado/Listras%20Verticais%20Aquarela%20Azul.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('listrado/Listras%20Verticais%20Aquarela%20Azul.jpg', this)">🤍</button>
-              <img src="listrado/Listras%20Verticais%20Aquarela%20Azul.jpg" alt="Listras Verticais Aquarela Azul" onclick="abrirModal('listrado/Listras%20Verticais%20Aquarela%20Azul.jpg')">
-              <span>Listras Verticais Aquarela Azul</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="listrado/Listras%20Verticais%20Aquarela%20Cinza%20%28STILL%29.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('listrado/Listras%20Verticais%20Aquarela%20Cinza%20%28STILL%29.jpg', this)">🤍</button>
-              <img src="listrado/Listras%20Verticais%20Aquarela%20Cinza%20%28STILL%29.jpg" alt="Listras Verticais Aquarela Cinza (STILL)" onclick="abrirModal('listrado/Listras%20Verticais%20Aquarela%20Cinza%20%28STILL%29.jpg')">
-              <span>Listras Verticais Aquarela Cinza (STILL)</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="listrado/Listras%20Verticais%20Aquarela%20Cinza.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('listrado/Listras%20Verticais%20Aquarela%20Cinza.jpg', this)">🤍</button>
-              <img src="listrado/Listras%20Verticais%20Aquarela%20Cinza.jpg" alt="Listras Verticais Aquarela Cinza" onclick="abrirModal('listrado/Listras%20Verticais%20Aquarela%20Cinza.jpg')">
-              <span>Listras Verticais Aquarela Cinza</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="listrado/Listras%20Verticais%20Aquarela%20Laranja%20%28STILL%29.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('listrado/Listras%20Verticais%20Aquarela%20Laranja%20%28STILL%29.jpg', this)">🤍</button>
-              <img src="listrado/Listras%20Verticais%20Aquarela%20Laranja%20%28STILL%29.jpg" alt="Listras Verticais Aquarela Laranja (STILL)" onclick="abrirModal('listrado/Listras%20Verticais%20Aquarela%20Laranja%20%28STILL%29.jpg')">
-              <span>Listras Verticais Aquarela Laranja (STILL)</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="listrado/Listras%20Verticais%20Aquarela%20Laranja.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('listrado/Listras%20Verticais%20Aquarela%20Laranja.jpg', this)">🤍</button>
-              <img src="listrado/Listras%20Verticais%20Aquarela%20Laranja.jpg" alt="Listras Verticais Aquarela Laranja" onclick="abrirModal('listrado/Listras%20Verticais%20Aquarela%20Laranja.jpg')">
-              <span>Listras Verticais Aquarela Laranja</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="listrado/Listras%20Verticais%20Aquarela%20Rosa%20%28STILL%29.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('listrado/Listras%20Verticais%20Aquarela%20Rosa%20%28STILL%29.jpg', this)">🤍</button>
-              <img src="listrado/Listras%20Verticais%20Aquarela%20Rosa%20%28STILL%29.jpg" alt="Listras Verticais Aquarela Rosa (STILL)" onclick="abrirModal('listrado/Listras%20Verticais%20Aquarela%20Rosa%20%28STILL%29.jpg')">
-              <span>Listras Verticais Aquarela Rosa (STILL)</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="listrado/Listras%20Verticais%20Aquarela%20Rosa.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('listrado/Listras%20Verticais%20Aquarela%20Rosa.jpg', this)">🤍</button>
-              <img src="listrado/Listras%20Verticais%20Aquarela%20Rosa.jpg" alt="Listras Verticais Aquarela Rosa" onclick="abrirModal('listrado/Listras%20Verticais%20Aquarela%20Rosa.jpg')">
-              <span>Listras Verticais Aquarela Rosa</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="listrado/Listras%20Verticais%20Aquarela%20Rose%20%28STILL%29.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('listrado/Listras%20Verticais%20Aquarela%20Rose%20%28STILL%29.jpg', this)">🤍</button>
-              <img src="listrado/Listras%20Verticais%20Aquarela%20Rose%20%28STILL%29.jpg" alt="Listras Verticais Aquarela Rose (STILL)" onclick="abrirModal('listrado/Listras%20Verticais%20Aquarela%20Rose%20%28STILL%29.jpg')">
-              <span>Listras Verticais Aquarela Rose (STILL)</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="listrado/Listras%20Verticais%20Aquarela%20Rose.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('listrado/Listras%20Verticais%20Aquarela%20Rose.jpg', this)">🤍</button>
-              <img src="listrado/Listras%20Verticais%20Aquarela%20Rose.jpg" alt="Listras Verticais Aquarela Rose" onclick="abrirModal('listrado/Listras%20Verticais%20Aquarela%20Rose.jpg')">
-              <span>Listras Verticais Aquarela Rose</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="listrado/Listras%20Verticais%20Aquarela%20Slim%20Areia%20%28STILL%29.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('listrado/Listras%20Verticais%20Aquarela%20Slim%20Areia%20%28STILL%29.jpg', this)">🤍</button>
-              <img src="listrado/Listras%20Verticais%20Aquarela%20Slim%20Areia%20%28STILL%29.jpg" alt="Listras Verticais Aquarela Slim Areia (STILL)" onclick="abrirModal('listrado/Listras%20Verticais%20Aquarela%20Slim%20Areia%20%28STILL%29.jpg')">
-              <span>Listras Verticais Aquarela Slim Areia (STILL)</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="listrado/Listras%20Verticais%20Aquarela%20Slim%20Areia%202.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('listrado/Listras%20Verticais%20Aquarela%20Slim%20Areia%202.jpg', this)">🤍</button>
-              <img src="listrado/Listras%20Verticais%20Aquarela%20Slim%20Areia%202.jpg" alt="Listras Verticais Aquarela Slim Areia" onclick="abrirModal('listrado/Listras%20Verticais%20Aquarela%20Slim%20Areia%202.jpg')">
-              <span>Listras Verticais Aquarela Slim Areia</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="listrado/Listras%20Verticais%20Aquarela%20Slim%20Areia.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('listrado/Listras%20Verticais%20Aquarela%20Slim%20Areia.jpg', this)">🤍</button>
-              <img src="listrado/Listras%20Verticais%20Aquarela%20Slim%20Areia.jpg" alt="Listras Verticais Aquarela Slim Areia" onclick="abrirModal('listrado/Listras%20Verticais%20Aquarela%20Slim%20Areia.jpg')">
-              <span>Listras Verticais Aquarela Slim Areia</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="listrado/Listras%20Verticais%20Aquarela%20Slim%20Azul%20%28STILL%29.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('listrado/Listras%20Verticais%20Aquarela%20Slim%20Azul%20%28STILL%29.jpg', this)">🤍</button>
-              <img src="listrado/Listras%20Verticais%20Aquarela%20Slim%20Azul%20%28STILL%29.jpg" alt="Listras Verticais Aquarela Slim Azul (STILL)" onclick="abrirModal('listrado/Listras%20Verticais%20Aquarela%20Slim%20Azul%20%28STILL%29.jpg')">
-              <span>Listras Verticais Aquarela Slim Azul (STILL)</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="listrado/Listras%20Verticais%20Aquarela%20Slim%20Azul%202.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('listrado/Listras%20Verticais%20Aquarela%20Slim%20Azul%202.jpg', this)">🤍</button>
-              <img src="listrado/Listras%20Verticais%20Aquarela%20Slim%20Azul%202.jpg" alt="Listras Verticais Aquarela Slim Azul" onclick="abrirModal('listrado/Listras%20Verticais%20Aquarela%20Slim%20Azul%202.jpg')">
-              <span>Listras Verticais Aquarela Slim Azul</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="listrado/Listras%20Verticais%20Aquarela%20Slim%20Azul%203.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('listrado/Listras%20Verticais%20Aquarela%20Slim%20Azul%203.jpg', this)">🤍</button>
-              <img src="listrado/Listras%20Verticais%20Aquarela%20Slim%20Azul%203.jpg" alt="Listras Verticais Aquarela Slim Azul" onclick="abrirModal('listrado/Listras%20Verticais%20Aquarela%20Slim%20Azul%203.jpg')">
-              <span>Listras Verticais Aquarela Slim Azul</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="listrado/Listras%20Verticais%20Aquarela%20Slim%20Azul.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('listrado/Listras%20Verticais%20Aquarela%20Slim%20Azul.jpg', this)">🤍</button>
-              <img src="listrado/Listras%20Verticais%20Aquarela%20Slim%20Azul.jpg" alt="Listras Verticais Aquarela Slim Azul" onclick="abrirModal('listrado/Listras%20Verticais%20Aquarela%20Slim%20Azul.jpg')">
-              <span>Listras Verticais Aquarela Slim Azul</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="listrado/Listras%20Verticais%20Aquarela%20Slim%20Cinza%20%28STILL%29.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('listrado/Listras%20Verticais%20Aquarela%20Slim%20Cinza%20%28STILL%29.jpg', this)">🤍</button>
-              <img src="listrado/Listras%20Verticais%20Aquarela%20Slim%20Cinza%20%28STILL%29.jpg" alt="Listras Verticais Aquarela Slim Cinza (STILL)" onclick="abrirModal('listrado/Listras%20Verticais%20Aquarela%20Slim%20Cinza%20%28STILL%29.jpg')">
-              <span>Listras Verticais Aquarela Slim Cinza (STILL)</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="listrado/Listras%20Verticais%20Aquarela%20Slim%20Cinza.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('listrado/Listras%20Verticais%20Aquarela%20Slim%20Cinza.jpg', this)">🤍</button>
-              <img src="listrado/Listras%20Verticais%20Aquarela%20Slim%20Cinza.jpg" alt="Listras Verticais Aquarela Slim Cinza" onclick="abrirModal('listrado/Listras%20Verticais%20Aquarela%20Slim%20Cinza.jpg')">
-              <span>Listras Verticais Aquarela Slim Cinza</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="listrado/Listras%20Verticais%20Aquarela%20Slim%20Laranja%20%28STILL%29.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('listrado/Listras%20Verticais%20Aquarela%20Slim%20Laranja%20%28STILL%29.jpg', this)">🤍</button>
-              <img src="listrado/Listras%20Verticais%20Aquarela%20Slim%20Laranja%20%28STILL%29.jpg" alt="Listras Verticais Aquarela Slim Laranja (STILL)" onclick="abrirModal('listrado/Listras%20Verticais%20Aquarela%20Slim%20Laranja%20%28STILL%29.jpg')">
-              <span>Listras Verticais Aquarela Slim Laranja (STILL)</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="listrado/Listras%20Verticais%20Aquarela%20Slim%20Laranja%202.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('listrado/Listras%20Verticais%20Aquarela%20Slim%20Laranja%202.jpg', this)">🤍</button>
-              <img src="listrado/Listras%20Verticais%20Aquarela%20Slim%20Laranja%202.jpg" alt="Listras Verticais Aquarela Slim Laranja" onclick="abrirModal('listrado/Listras%20Verticais%20Aquarela%20Slim%20Laranja%202.jpg')">
-              <span>Listras Verticais Aquarela Slim Laranja</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="listrado/Listras%20Verticais%20Aquarela%20Slim%20Laranja.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('listrado/Listras%20Verticais%20Aquarela%20Slim%20Laranja.jpg', this)">🤍</button>
-              <img src="listrado/Listras%20Verticais%20Aquarela%20Slim%20Laranja.jpg" alt="Listras Verticais Aquarela Slim Laranja" onclick="abrirModal('listrado/Listras%20Verticais%20Aquarela%20Slim%20Laranja.jpg')">
-              <span>Listras Verticais Aquarela Slim Laranja</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="listrado/Listras%20Verticais%20Aquarela%20Slim%20Rosa%20%28STILL%29.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('listrado/Listras%20Verticais%20Aquarela%20Slim%20Rosa%20%28STILL%29.jpg', this)">🤍</button>
-              <img src="listrado/Listras%20Verticais%20Aquarela%20Slim%20Rosa%20%28STILL%29.jpg" alt="Listras Verticais Aquarela Slim Rosa (STILL)" onclick="abrirModal('listrado/Listras%20Verticais%20Aquarela%20Slim%20Rosa%20%28STILL%29.jpg')">
-              <span>Listras Verticais Aquarela Slim Rosa (STILL)</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="listrado/Listras%20Verticais%20Aquarela%20Slim%20Rosa.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('listrado/Listras%20Verticais%20Aquarela%20Slim%20Rosa.jpg', this)">🤍</button>
-              <img src="listrado/Listras%20Verticais%20Aquarela%20Slim%20Rosa.jpg" alt="Listras Verticais Aquarela Slim Rosa" onclick="abrirModal('listrado/Listras%20Verticais%20Aquarela%20Slim%20Rosa.jpg')">
-              <span>Listras Verticais Aquarela Slim Rosa</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="listrado/Listras%20Verticais%20Aquarela%20Slim%20Rose%20%28STILL%29.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('listrado/Listras%20Verticais%20Aquarela%20Slim%20Rose%20%28STILL%29.jpg', this)">🤍</button>
-              <img src="listrado/Listras%20Verticais%20Aquarela%20Slim%20Rose%20%28STILL%29.jpg" alt="Listras Verticais Aquarela Slim Rose (STILL)" onclick="abrirModal('listrado/Listras%20Verticais%20Aquarela%20Slim%20Rose%20%28STILL%29.jpg')">
-              <span>Listras Verticais Aquarela Slim Rose (STILL)</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="listrado/Listras%20Verticais%20Aquarela%20Slim%20Rose.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('listrado/Listras%20Verticais%20Aquarela%20Slim%20Rose.jpg', this)">🤍</button>
-              <img src="listrado/Listras%20Verticais%20Aquarela%20Slim%20Rose.jpg" alt="Listras Verticais Aquarela Slim Rose" onclick="abrirModal('listrado/Listras%20Verticais%20Aquarela%20Slim%20Rose.jpg')">
-              <span>Listras Verticais Aquarela Slim Rose</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="listrado/Listras%20Verticais%20Aquarela%20Slim%20Verde%20%28STILL%29.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('listrado/Listras%20Verticais%20Aquarela%20Slim%20Verde%20%28STILL%29.jpg', this)">🤍</button>
-              <img src="listrado/Listras%20Verticais%20Aquarela%20Slim%20Verde%20%28STILL%29.jpg" alt="Listras Verticais Aquarela Slim Verde (STILL)" onclick="abrirModal('listrado/Listras%20Verticais%20Aquarela%20Slim%20Verde%20%28STILL%29.jpg')">
-              <span>Listras Verticais Aquarela Slim Verde (STILL)</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="listrado/Listras%20Verticais%20Aquarela%20Slim%20Verde.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('listrado/Listras%20Verticais%20Aquarela%20Slim%20Verde.jpg', this)">🤍</button>
-              <img src="listrado/Listras%20Verticais%20Aquarela%20Slim%20Verde.jpg" alt="Listras Verticais Aquarela Slim Verde" onclick="abrirModal('listrado/Listras%20Verticais%20Aquarela%20Slim%20Verde.jpg')">
-              <span>Listras Verticais Aquarela Slim Verde</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="listrado/Listras%20Verticais%20Aquarela%20Verde%20%28STILL%29.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('listrado/Listras%20Verticais%20Aquarela%20Verde%20%28STILL%29.jpg', this)">🤍</button>
-              <img src="listrado/Listras%20Verticais%20Aquarela%20Verde%20%28STILL%29.jpg" alt="Listras Verticais Aquarela Verde (STILL)" onclick="abrirModal('listrado/Listras%20Verticais%20Aquarela%20Verde%20%28STILL%29.jpg')">
-              <span>Listras Verticais Aquarela Verde (STILL)</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="listrado/Listras%20Verticais%20Aquarela%20Verde.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('listrado/Listras%20Verticais%20Aquarela%20Verde.jpg', this)">🤍</button>
-              <img src="listrado/Listras%20Verticais%20Aquarela%20Verde.jpg" alt="Listras Verticais Aquarela Verde" onclick="abrirModal('listrado/Listras%20Verticais%20Aquarela%20Verde.jpg')">
-              <span>Listras Verticais Aquarela Verde</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="listrado/N%C3%A1utico%20Listrado%20%28STILL%29.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('listrado/N%C3%A1utico%20Listrado%20%28STILL%29.jpg', this)">🤍</button>
-              <img src="listrado/N%C3%A1utico%20Listrado%20%28STILL%29.jpg" alt="Náutico Listrado (STILL)" onclick="abrirModal('listrado/N%C3%A1utico%20Listrado%20%28STILL%29.jpg')">
-              <span>Náutico Listrado (STILL)</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="listrado/Pinceladas%20Listrado%20Azul%20Marinho%20%28STILL%29.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('listrado/Pinceladas%20Listrado%20Azul%20Marinho%20%28STILL%29.jpg', this)">🤍</button>
-              <img src="listrado/Pinceladas%20Listrado%20Azul%20Marinho%20%28STILL%29.jpg" alt="Pinceladas Listrado Azul Marinho (STILL)" onclick="abrirModal('listrado/Pinceladas%20Listrado%20Azul%20Marinho%20%28STILL%29.jpg')">
-              <span>Pinceladas Listrado Azul Marinho (STILL)</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="listrado/Pinceladas%20Listrado%20Azul%20Marinho.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('listrado/Pinceladas%20Listrado%20Azul%20Marinho.jpg', this)">🤍</button>
-              <img src="listrado/Pinceladas%20Listrado%20Azul%20Marinho.jpg" alt="Pinceladas Listrado Azul Marinho" onclick="abrirModal('listrado/Pinceladas%20Listrado%20Azul%20Marinho.jpg')">
-              <span>Pinceladas Listrado Azul Marinho</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="listrado/Pinceladas%20Listrado%20Grafite%20%28STILL%29.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('listrado/Pinceladas%20Listrado%20Grafite%20%28STILL%29.jpg', this)">🤍</button>
-              <img src="listrado/Pinceladas%20Listrado%20Grafite%20%28STILL%29.jpg" alt="Pinceladas Listrado Grafite (STILL)" onclick="abrirModal('listrado/Pinceladas%20Listrado%20Grafite%20%28STILL%29.jpg')">
-              <span>Pinceladas Listrado Grafite (STILL)</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="listrado/Pinceladas%20Listrado%20Verde%20%28STILL%29.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('listrado/Pinceladas%20Listrado%20Verde%20%28STILL%29.jpg', this)">🤍</button>
-              <img src="listrado/Pinceladas%20Listrado%20Verde%20%28STILL%29.jpg" alt="Pinceladas Listrado Verde (STILL)" onclick="abrirModal('listrado/Pinceladas%20Listrado%20Verde%20%28STILL%29.jpg')">
-              <span>Pinceladas Listrado Verde (STILL)</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="listrado/Riscado%20Areia%20%28STILL%29.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('listrado/Riscado%20Areia%20%28STILL%29.jpg', this)">🤍</button>
-              <img src="listrado/Riscado%20Areia%20%28STILL%29.jpg" alt="Riscado Areia (STILL)" onclick="abrirModal('listrado/Riscado%20Areia%20%28STILL%29.jpg')">
-              <span>Riscado Areia (STILL)</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="listrado/Riscado%20Azul%20%28STILL%29.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('listrado/Riscado%20Azul%20%28STILL%29.jpg', this)">🤍</button>
-              <img src="listrado/Riscado%20Azul%20%28STILL%29.jpg" alt="Riscado Azul (STILL)" onclick="abrirModal('listrado/Riscado%20Azul%20%28STILL%29.jpg')">
-              <span>Riscado Azul (STILL)</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="listrado/Riscado%20Azul.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('listrado/Riscado%20Azul.jpg', this)">🤍</button>
-              <img src="listrado/Riscado%20Azul.jpg" alt="Riscado Azul" onclick="abrirModal('listrado/Riscado%20Azul.jpg')">
-              <span>Riscado Azul</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="listrado/Riscado%20Cinza%20%28STILL%29.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('listrado/Riscado%20Cinza%20%28STILL%29.jpg', this)">🤍</button>
-              <img src="listrado/Riscado%20Cinza%20%28STILL%29.jpg" alt="Riscado Cinza (STILL)" onclick="abrirModal('listrado/Riscado%20Cinza%20%28STILL%29.jpg')">
-              <span>Riscado Cinza (STILL)</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="listrado/Riscado%20Grafite%20%28STILL%29.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('listrado/Riscado%20Grafite%20%28STILL%29.jpg', this)">🤍</button>
-              <img src="listrado/Riscado%20Grafite%20%28STILL%29.jpg" alt="Riscado Grafite (STILL)" onclick="abrirModal('listrado/Riscado%20Grafite%20%28STILL%29.jpg')">
-              <span>Riscado Grafite (STILL)</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="listrado/Riscado%20Rosa%20%28STILL%29.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('listrado/Riscado%20Rosa%20%28STILL%29.jpg', this)">🤍</button>
-              <img src="listrado/Riscado%20Rosa%20%28STILL%29.jpg" alt="Riscado Rosa (STILL)" onclick="abrirModal('listrado/Riscado%20Rosa%20%28STILL%29.jpg')">
-              <span>Riscado Rosa (STILL)</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="listrado/Riscado%20Verde%20%28STILL%29.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('listrado/Riscado%20Verde%20%28STILL%29.jpg', this)">🤍</button>
-              <img src="listrado/Riscado%20Verde%20%28STILL%29.jpg" alt="Riscado Verde (STILL)" onclick="abrirModal('listrado/Riscado%20Verde%20%28STILL%29.jpg')">
-              <span>Riscado Verde (STILL)</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="listrado/Setas%20Infantil%20Areia%20%28STILL%29.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('listrado/Setas%20Infantil%20Areia%20%28STILL%29.jpg', this)">🤍</button>
-              <img src="listrado/Setas%20Infantil%20Areia%20%28STILL%29.jpg" alt="Setas Infantil Areia (STILL)" onclick="abrirModal('listrado/Setas%20Infantil%20Areia%20%28STILL%29.jpg')">
-              <span>Setas Infantil Areia (STILL)</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="listrado/Setas%20Infantil%20Azul%20%28STILL%29.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('listrado/Setas%20Infantil%20Azul%20%28STILL%29.jpg', this)">🤍</button>
-              <img src="listrado/Setas%20Infantil%20Azul%20%28STILL%29.jpg" alt="Setas Infantil Azul (STILL)" onclick="abrirModal('listrado/Setas%20Infantil%20Azul%20%28STILL%29.jpg')">
-              <span>Setas Infantil Azul (STILL)</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="listrado/Setas%20Infantil%20Azul%20Marinho%20%28STILL%29.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('listrado/Setas%20Infantil%20Azul%20Marinho%20%28STILL%29.jpg', this)">🤍</button>
-              <img src="listrado/Setas%20Infantil%20Azul%20Marinho%20%28STILL%29.jpg" alt="Setas Infantil Azul Marinho (STILL)" onclick="abrirModal('listrado/Setas%20Infantil%20Azul%20Marinho%20%28STILL%29.jpg')">
-              <span>Setas Infantil Azul Marinho (STILL)</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="listrado/Setas%20Infantil%20Cinza%20%28STILL%29.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('listrado/Setas%20Infantil%20Cinza%20%28STILL%29.jpg', this)">🤍</button>
-              <img src="listrado/Setas%20Infantil%20Cinza%20%28STILL%29.jpg" alt="Setas Infantil Cinza (STILL)" onclick="abrirModal('listrado/Setas%20Infantil%20Cinza%20%28STILL%29.jpg')">
-              <span>Setas Infantil Cinza (STILL)</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="listrado/Setas%20Infantil%20Preto%20%28STILL%29.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('listrado/Setas%20Infantil%20Preto%20%28STILL%29.jpg', this)">🤍</button>
-              <img src="listrado/Setas%20Infantil%20Preto%20%28STILL%29.jpg" alt="Setas Infantil Preto (STILL)" onclick="abrirModal('listrado/Setas%20Infantil%20Preto%20%28STILL%29.jpg')">
-              <span>Setas Infantil Preto (STILL)</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="listrado/Setas%20Infantil%20Rosa%20%28STILL%29.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('listrado/Setas%20Infantil%20Rosa%20%28STILL%29.jpg', this)">🤍</button>
-              <img src="listrado/Setas%20Infantil%20Rosa%20%28STILL%29.jpg" alt="Setas Infantil Rosa (STILL)" onclick="abrirModal('listrado/Setas%20Infantil%20Rosa%20%28STILL%29.jpg')">
-              <span>Setas Infantil Rosa (STILL)</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="listrado/Setas%20Infantil%20Verde%20%28STILL%29.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('listrado/Setas%20Infantil%20Verde%20%28STILL%29.jpg', this)">🤍</button>
-              <img src="listrado/Setas%20Infantil%20Verde%20%28STILL%29.jpg" alt="Setas Infantil Verde (STILL)" onclick="abrirModal('listrado/Setas%20Infantil%20Verde%20%28STILL%29.jpg')">
-              <span>Setas Infantil Verde (STILL)</span>
-            </div>
+      <input type="checkbox" class="checkbox-select" value="infantil/listrado/Linho%20Listrado%20Rosa%20%28STILL%29.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/listrado/Linho%20Listrado%20Rosa%20%28STILL%29.jpg', this)">🤍</button>
+      <img src="listrado/Linho%20Listrado%20Rosa%20%28STILL%29.jpg" alt="Linho Listrado Rosa (STILL)" onclick="abrirModal('listrado/Linho%20Listrado%20Rosa%20%28STILL%29.jpg')">
+      <span>Linho Listrado Rosa (STILL)</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/listrado/Linho%20Listras%2060x60.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/listrado/Linho%20Listras%2060x60.jpg', this)">🤍</button>
+      <img src="listrado/Linho%20Listras%2060x60.jpg" alt="Linho Listras 60x" onclick="abrirModal('listrado/Linho%20Listras%2060x60.jpg')">
+      <span>Linho Listras 60x</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/listrado/Linho%20Listras%20Stout%20Azul%20%28STILL%29.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/listrado/Linho%20Listras%20Stout%20Azul%20%28STILL%29.jpg', this)">🤍</button>
+      <img src="listrado/Linho%20Listras%20Stout%20Azul%20%28STILL%29.jpg" alt="Linho Listras Stout Azul (STILL)" onclick="abrirModal('listrado/Linho%20Listras%20Stout%20Azul%20%28STILL%29.jpg')">
+      <span>Linho Listras Stout Azul (STILL)</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/listrado/Linho%20Listras%20Stout%20Azul%20Claro%20%28STILL%29.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/listrado/Linho%20Listras%20Stout%20Azul%20Claro%20%28STILL%29.jpg', this)">🤍</button>
+      <img src="listrado/Linho%20Listras%20Stout%20Azul%20Claro%20%28STILL%29.jpg" alt="Linho Listras Stout Azul Claro (STILL)" onclick="abrirModal('listrado/Linho%20Listras%20Stout%20Azul%20Claro%20%28STILL%29.jpg')">
+      <span>Linho Listras Stout Azul Claro (STILL)</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/listrado/Linho%20Listras%20Stout%20Camur%C3%A7a%20%28STILL%29.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/listrado/Linho%20Listras%20Stout%20Camur%C3%A7a%20%28STILL%29.jpg', this)">🤍</button>
+      <img src="listrado/Linho%20Listras%20Stout%20Camur%C3%A7a%20%28STILL%29.jpg" alt="Linho Listras Stout Camurça (STILL)" onclick="abrirModal('listrado/Linho%20Listras%20Stout%20Camur%C3%A7a%20%28STILL%29.jpg')">
+      <span>Linho Listras Stout Camurça (STILL)</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/listrado/Linho%20Listras%20Stout%20Camur%C3%A7a.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/listrado/Linho%20Listras%20Stout%20Camur%C3%A7a.jpg', this)">🤍</button>
+      <img src="listrado/Linho%20Listras%20Stout%20Camur%C3%A7a.jpg" alt="Linho Listras Stout Camurça" onclick="abrirModal('listrado/Linho%20Listras%20Stout%20Camur%C3%A7a.jpg')">
+      <span>Linho Listras Stout Camurça</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/listrado/Linho%20Listras%20Stout%20Rosa%20Claro%20%28STILL%29.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/listrado/Linho%20Listras%20Stout%20Rosa%20Claro%20%28STILL%29.jpg', this)">🤍</button>
+      <img src="listrado/Linho%20Listras%20Stout%20Rosa%20Claro%20%28STILL%29.jpg" alt="Linho Listras Stout Rosa Claro (STILL)" onclick="abrirModal('listrado/Linho%20Listras%20Stout%20Rosa%20Claro%20%28STILL%29.jpg')">
+      <span>Linho Listras Stout Rosa Claro (STILL)</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/listrado/Linho%20Listras%20Stout%20Verde%20%28STILL%29.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/listrado/Linho%20Listras%20Stout%20Verde%20%28STILL%29.jpg', this)">🤍</button>
+      <img src="listrado/Linho%20Listras%20Stout%20Verde%20%28STILL%29.jpg" alt="Linho Listras Stout Verde (STILL)" onclick="abrirModal('listrado/Linho%20Listras%20Stout%20Verde%20%28STILL%29.jpg')">
+      <span>Linho Listras Stout Verde (STILL)</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/listrado/Linho%20Listras%20Stout%20Verde%20Claro%2060x60.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/listrado/Linho%20Listras%20Stout%20Verde%20Claro%2060x60.jpg', this)">🤍</button>
+      <img src="listrado/Linho%20Listras%20Stout%20Verde%20Claro%2060x60.jpg" alt="Linho Listras Stout Verde Claro 60x" onclick="abrirModal('listrado/Linho%20Listras%20Stout%20Verde%20Claro%2060x60.jpg')">
+      <span>Linho Listras Stout Verde Claro 60x</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/listrado/Listrado%20Aquarela%20Bege%20com%20Cinza%20%28STILL%29.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/listrado/Listrado%20Aquarela%20Bege%20com%20Cinza%20%28STILL%29.jpg', this)">🤍</button>
+      <img src="listrado/Listrado%20Aquarela%20Bege%20com%20Cinza%20%28STILL%29.jpg" alt="Listrado Aquarela Bege com Cinza (STILL)" onclick="abrirModal('listrado/Listrado%20Aquarela%20Bege%20com%20Cinza%20%28STILL%29.jpg')">
+      <span>Listrado Aquarela Bege com Cinza (STILL)</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/listrado/Listrado%20Aquarela%20Bege%20com%20Rosa%20%28STILL%29.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/listrado/Listrado%20Aquarela%20Bege%20com%20Rosa%20%28STILL%29.jpg', this)">🤍</button>
+      <img src="listrado/Listrado%20Aquarela%20Bege%20com%20Rosa%20%28STILL%29.jpg" alt="Listrado Aquarela Bege com Rosa (STILL)" onclick="abrirModal('listrado/Listrado%20Aquarela%20Bege%20com%20Rosa%20%28STILL%29.jpg')">
+      <span>Listrado Aquarela Bege com Rosa (STILL)</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/listrado/Listrado%20Aquarela%20Bege%20com%20Verde%20%28STILL%29.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/listrado/Listrado%20Aquarela%20Bege%20com%20Verde%20%28STILL%29.jpg', this)">🤍</button>
+      <img src="listrado/Listrado%20Aquarela%20Bege%20com%20Verde%20%28STILL%29.jpg" alt="Listrado Aquarela Bege com Verde (STILL)" onclick="abrirModal('listrado/Listrado%20Aquarela%20Bege%20com%20Verde%20%28STILL%29.jpg')">
+      <span>Listrado Aquarela Bege com Verde (STILL)</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/listrado/Listrado%20Aquarela%20Verde%20com%20Azul%20%28STILL%29.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/listrado/Listrado%20Aquarela%20Verde%20com%20Azul%20%28STILL%29.jpg', this)">🤍</button>
+      <img src="listrado/Listrado%20Aquarela%20Verde%20com%20Azul%20%28STILL%29.jpg" alt="Listrado Aquarela Verde com Azul (STILL)" onclick="abrirModal('listrado/Listrado%20Aquarela%20Verde%20com%20Azul%20%28STILL%29.jpg')">
+      <span>Listrado Aquarela Verde com Azul (STILL)</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/listrado/Listrado%20Horizontal%20Aquarela%20Amarelo%20%28STILL%29.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/listrado/Listrado%20Horizontal%20Aquarela%20Amarelo%20%28STILL%29.jpg', this)">🤍</button>
+      <img src="listrado/Listrado%20Horizontal%20Aquarela%20Amarelo%20%28STILL%29.jpg" alt="Listrado Horizontal Aquarela Amarelo (STILL)" onclick="abrirModal('listrado/Listrado%20Horizontal%20Aquarela%20Amarelo%20%28STILL%29.jpg')">
+      <span>Listrado Horizontal Aquarela Amarelo (STILL)</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/listrado/Listrado%20Horizontal%20Aquarela%20Azul%20%28STILL%29.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/listrado/Listrado%20Horizontal%20Aquarela%20Azul%20%28STILL%29.jpg', this)">🤍</button>
+      <img src="listrado/Listrado%20Horizontal%20Aquarela%20Azul%20%28STILL%29.jpg" alt="Listrado Horizontal Aquarela Azul (STILL)" onclick="abrirModal('listrado/Listrado%20Horizontal%20Aquarela%20Azul%20%28STILL%29.jpg')">
+      <span>Listrado Horizontal Aquarela Azul (STILL)</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/listrado/Listrado%20Horizontal%20Aquarela%20Rosa%20%28STILL%29.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/listrado/Listrado%20Horizontal%20Aquarela%20Rosa%20%28STILL%29.jpg', this)">🤍</button>
+      <img src="listrado/Listrado%20Horizontal%20Aquarela%20Rosa%20%28STILL%29.jpg" alt="Listrado Horizontal Aquarela Rosa (STILL)" onclick="abrirModal('listrado/Listrado%20Horizontal%20Aquarela%20Rosa%20%28STILL%29.jpg')">
+      <span>Listrado Horizontal Aquarela Rosa (STILL)</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/listrado/Listrado%20Horizontal%20Aquarela%20Rosa.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/listrado/Listrado%20Horizontal%20Aquarela%20Rosa.jpg', this)">🤍</button>
+      <img src="listrado/Listrado%20Horizontal%20Aquarela%20Rosa.jpg" alt="Listrado Horizontal Aquarela Rosa" onclick="abrirModal('listrado/Listrado%20Horizontal%20Aquarela%20Rosa.jpg')">
+      <span>Listrado Horizontal Aquarela Rosa</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/listrado/Listrado%20Horizontal%20Aquarela%20Verde%20%28STILL%29.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/listrado/Listrado%20Horizontal%20Aquarela%20Verde%20%28STILL%29.jpg', this)">🤍</button>
+      <img src="listrado/Listrado%20Horizontal%20Aquarela%20Verde%20%28STILL%29.jpg" alt="Listrado Horizontal Aquarela Verde (STILL)" onclick="abrirModal('listrado/Listrado%20Horizontal%20Aquarela%20Verde%20%28STILL%29.jpg')">
+      <span>Listrado Horizontal Aquarela Verde (STILL)</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/listrado/Listrado%20Horizontal%20Aquarela%20Verde%20%C3%81gua%20%28STILL%29.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/listrado/Listrado%20Horizontal%20Aquarela%20Verde%20%C3%81gua%20%28STILL%29.jpg', this)">🤍</button>
+      <img src="listrado/Listrado%20Horizontal%20Aquarela%20Verde%20%C3%81gua%20%28STILL%29.jpg" alt="Listrado Horizontal Aquarela Verde Água (STILL)" onclick="abrirModal('listrado/Listrado%20Horizontal%20Aquarela%20Verde%20%C3%81gua%20%28STILL%29.jpg')">
+      <span>Listrado Horizontal Aquarela Verde Água (STILL)</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/listrado/Listrado%20Horizontal%20Risk%20Areia%20%28STILL%29.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/listrado/Listrado%20Horizontal%20Risk%20Areia%20%28STILL%29.jpg', this)">🤍</button>
+      <img src="listrado/Listrado%20Horizontal%20Risk%20Areia%20%28STILL%29.jpg" alt="Listrado Horizontal Risk Areia (STILL)" onclick="abrirModal('listrado/Listrado%20Horizontal%20Risk%20Areia%20%28STILL%29.jpg')">
+      <span>Listrado Horizontal Risk Areia (STILL)</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/listrado/Listrado%20Horizontal%20Risk%20Areia.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/listrado/Listrado%20Horizontal%20Risk%20Areia.jpg', this)">🤍</button>
+      <img src="listrado/Listrado%20Horizontal%20Risk%20Areia.jpg" alt="Listrado Horizontal Risk Areia" onclick="abrirModal('listrado/Listrado%20Horizontal%20Risk%20Areia.jpg')">
+      <span>Listrado Horizontal Risk Areia</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/listrado/Listrado%20Horizontal%20Risk%20Azul%20%28STILL%29.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/listrado/Listrado%20Horizontal%20Risk%20Azul%20%28STILL%29.jpg', this)">🤍</button>
+      <img src="listrado/Listrado%20Horizontal%20Risk%20Azul%20%28STILL%29.jpg" alt="Listrado Horizontal Risk Azul (STILL)" onclick="abrirModal('listrado/Listrado%20Horizontal%20Risk%20Azul%20%28STILL%29.jpg')">
+      <span>Listrado Horizontal Risk Azul (STILL)</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/listrado/Listrado%20Horizontal%20Risk%20Azul%20e%20Branco%20%28STILL%29.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/listrado/Listrado%20Horizontal%20Risk%20Azul%20e%20Branco%20%28STILL%29.jpg', this)">🤍</button>
+      <img src="listrado/Listrado%20Horizontal%20Risk%20Azul%20e%20Branco%20%28STILL%29.jpg" alt="Listrado Horizontal Risk Azul e Branco (STILL)" onclick="abrirModal('listrado/Listrado%20Horizontal%20Risk%20Azul%20e%20Branco%20%28STILL%29.jpg')">
+      <span>Listrado Horizontal Risk Azul e Branco (STILL)</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/listrado/Listrado%20Horizontal%20Risk%20Azul%20e%20Branco.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/listrado/Listrado%20Horizontal%20Risk%20Azul%20e%20Branco.jpg', this)">🤍</button>
+      <img src="listrado/Listrado%20Horizontal%20Risk%20Azul%20e%20Branco.jpg" alt="Listrado Horizontal Risk Azul e Branco" onclick="abrirModal('listrado/Listrado%20Horizontal%20Risk%20Azul%20e%20Branco.jpg')">
+      <span>Listrado Horizontal Risk Azul e Branco</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/listrado/Listrado%20Horizontal%20Risk%20Azul.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/listrado/Listrado%20Horizontal%20Risk%20Azul.jpg', this)">🤍</button>
+      <img src="listrado/Listrado%20Horizontal%20Risk%20Azul.jpg" alt="Listrado Horizontal Risk Azul" onclick="abrirModal('listrado/Listrado%20Horizontal%20Risk%20Azul.jpg')">
+      <span>Listrado Horizontal Risk Azul</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/listrado/Listrado%20Horizontal%20Risk%20Camur%C3%A7a%20%28STILL%29.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/listrado/Listrado%20Horizontal%20Risk%20Camur%C3%A7a%20%28STILL%29.jpg', this)">🤍</button>
+      <img src="listrado/Listrado%20Horizontal%20Risk%20Camur%C3%A7a%20%28STILL%29.jpg" alt="Listrado Horizontal Risk Camurça (STILL)" onclick="abrirModal('listrado/Listrado%20Horizontal%20Risk%20Camur%C3%A7a%20%28STILL%29.jpg')">
+      <span>Listrado Horizontal Risk Camurça (STILL)</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/listrado/Listrado%20Horizontal%20Risk%20Camur%C3%A7a.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/listrado/Listrado%20Horizontal%20Risk%20Camur%C3%A7a.jpg', this)">🤍</button>
+      <img src="listrado/Listrado%20Horizontal%20Risk%20Camur%C3%A7a.jpg" alt="Listrado Horizontal Risk Camurça" onclick="abrirModal('listrado/Listrado%20Horizontal%20Risk%20Camur%C3%A7a.jpg')">
+      <span>Listrado Horizontal Risk Camurça</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/listrado/Listrado%20Horizontal%20Risk%20Rosa%20%28STILL%29.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/listrado/Listrado%20Horizontal%20Risk%20Rosa%20%28STILL%29.jpg', this)">🤍</button>
+      <img src="listrado/Listrado%20Horizontal%20Risk%20Rosa%20%28STILL%29.jpg" alt="Listrado Horizontal Risk Rosa (STILL)" onclick="abrirModal('listrado/Listrado%20Horizontal%20Risk%20Rosa%20%28STILL%29.jpg')">
+      <span>Listrado Horizontal Risk Rosa (STILL)</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/listrado/Listrado%20Intercalado%20Azul%20e%20Bege%20%28STILL%29.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/listrado/Listrado%20Intercalado%20Azul%20e%20Bege%20%28STILL%29.jpg', this)">🤍</button>
+      <img src="listrado/Listrado%20Intercalado%20Azul%20e%20Bege%20%28STILL%29.jpg" alt="Listrado Intercalado Azul e Bege (STILL)" onclick="abrirModal('listrado/Listrado%20Intercalado%20Azul%20e%20Bege%20%28STILL%29.jpg')">
+      <span>Listrado Intercalado Azul e Bege (STILL)</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/listrado/Listrado%20Intercalado%20Azul%20e%20Bege.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/listrado/Listrado%20Intercalado%20Azul%20e%20Bege.jpg', this)">🤍</button>
+      <img src="listrado/Listrado%20Intercalado%20Azul%20e%20Bege.jpg" alt="Listrado Intercalado Azul e Bege" onclick="abrirModal('listrado/Listrado%20Intercalado%20Azul%20e%20Bege.jpg')">
+      <span>Listrado Intercalado Azul e Bege</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/listrado/Listrado%20Intercalado%20Camur%C3%A7a%20e%20Bege%20%28STILL%29.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/listrado/Listrado%20Intercalado%20Camur%C3%A7a%20e%20Bege%20%28STILL%29.jpg', this)">🤍</button>
+      <img src="listrado/Listrado%20Intercalado%20Camur%C3%A7a%20e%20Bege%20%28STILL%29.jpg" alt="Listrado Intercalado Camurça e Bege (STILL)" onclick="abrirModal('listrado/Listrado%20Intercalado%20Camur%C3%A7a%20e%20Bege%20%28STILL%29.jpg')">
+      <span>Listrado Intercalado Camurça e Bege (STILL)</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/listrado/Listrado%20Intercalado%20Rosa%20e%20Bege%20%28STILL%29.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/listrado/Listrado%20Intercalado%20Rosa%20e%20Bege%20%28STILL%29.jpg', this)">🤍</button>
+      <img src="listrado/Listrado%20Intercalado%20Rosa%20e%20Bege%20%28STILL%29.jpg" alt="Listrado Intercalado Rosa e Bege (STILL)" onclick="abrirModal('listrado/Listrado%20Intercalado%20Rosa%20e%20Bege%20%28STILL%29.jpg')">
+      <span>Listrado Intercalado Rosa e Bege (STILL)</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/listrado/Listrado%20Intercalado%20Textura%20Linho%20Azul%20%28STILL%29.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/listrado/Listrado%20Intercalado%20Textura%20Linho%20Azul%20%28STILL%29.jpg', this)">🤍</button>
+      <img src="listrado/Listrado%20Intercalado%20Textura%20Linho%20Azul%20%28STILL%29.jpg" alt="Listrado Intercalado Textura Linho Azul (STILL)" onclick="abrirModal('listrado/Listrado%20Intercalado%20Textura%20Linho%20Azul%20%28STILL%29.jpg')">
+      <span>Listrado Intercalado Textura Linho Azul (STILL)</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/listrado/Listrado%20Intercalado%20Textura%20Linho%20Camur%C3%A7a%20%28STILL%29.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/listrado/Listrado%20Intercalado%20Textura%20Linho%20Camur%C3%A7a%20%28STILL%29.jpg', this)">🤍</button>
+      <img src="listrado/Listrado%20Intercalado%20Textura%20Linho%20Camur%C3%A7a%20%28STILL%29.jpg" alt="Listrado Intercalado Textura Linho Camurça (STILL)" onclick="abrirModal('listrado/Listrado%20Intercalado%20Textura%20Linho%20Camur%C3%A7a%20%28STILL%29.jpg')">
+      <span>Listrado Intercalado Textura Linho Camurça (STILL)</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/listrado/Listrado%20Intercalado%20Textura%20Linho%20Rosa%20%28STILL%29.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/listrado/Listrado%20Intercalado%20Textura%20Linho%20Rosa%20%28STILL%29.jpg', this)">🤍</button>
+      <img src="listrado/Listrado%20Intercalado%20Textura%20Linho%20Rosa%20%28STILL%29.jpg" alt="Listrado Intercalado Textura Linho Rosa (STILL)" onclick="abrirModal('listrado/Listrado%20Intercalado%20Textura%20Linho%20Rosa%20%28STILL%29.jpg')">
+      <span>Listrado Intercalado Textura Linho Rosa (STILL)</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/listrado/Listrado%20Intercalado%20Textura%20Linho%20Verde%20%28STILL%29.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/listrado/Listrado%20Intercalado%20Textura%20Linho%20Verde%20%28STILL%29.jpg', this)">🤍</button>
+      <img src="listrado/Listrado%20Intercalado%20Textura%20Linho%20Verde%20%28STILL%29.jpg" alt="Listrado Intercalado Textura Linho Verde (STILL)" onclick="abrirModal('listrado/Listrado%20Intercalado%20Textura%20Linho%20Verde%20%28STILL%29.jpg')">
+      <span>Listrado Intercalado Textura Linho Verde (STILL)</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/listrado/Listrado%20Intercalado%20Verde%20e%20Bege%20%28STILL%29.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/listrado/Listrado%20Intercalado%20Verde%20e%20Bege%20%28STILL%29.jpg', this)">🤍</button>
+      <img src="listrado/Listrado%20Intercalado%20Verde%20e%20Bege%20%28STILL%29.jpg" alt="Listrado Intercalado Verde e Bege (STILL)" onclick="abrirModal('listrado/Listrado%20Intercalado%20Verde%20e%20Bege%20%28STILL%29.jpg')">
+      <span>Listrado Intercalado Verde e Bege (STILL)</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/listrado/Listrado%20Intercalado%20Verde%20e%20Bege.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/listrado/Listrado%20Intercalado%20Verde%20e%20Bege.jpg', this)">🤍</button>
+      <img src="listrado/Listrado%20Intercalado%20Verde%20e%20Bege.jpg" alt="Listrado Intercalado Verde e Bege" onclick="abrirModal('listrado/Listrado%20Intercalado%20Verde%20e%20Bege.jpg')">
+      <span>Listrado Intercalado Verde e Bege</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/listrado/Listrado%20Texturizado%20Areia%20%28STILL%29.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/listrado/Listrado%20Texturizado%20Areia%20%28STILL%29.jpg', this)">🤍</button>
+      <img src="listrado/Listrado%20Texturizado%20Areia%20%28STILL%29.jpg" alt="Listrado Texturizado Areia (STILL)" onclick="abrirModal('listrado/Listrado%20Texturizado%20Areia%20%28STILL%29.jpg')">
+      <span>Listrado Texturizado Areia (STILL)</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/listrado/Listrado%20Texturizado%20Areia%202%20%282%29.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/listrado/Listrado%20Texturizado%20Areia%202%20%282%29.jpg', this)">🤍</button>
+      <img src="listrado/Listrado%20Texturizado%20Areia%202%20%282%29.jpg" alt="Listrado Texturizado Areia 2" onclick="abrirModal('listrado/Listrado%20Texturizado%20Areia%202%20%282%29.jpg')">
+      <span>Listrado Texturizado Areia 2</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/listrado/Listrado%20Texturizado%20Areia%202.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/listrado/Listrado%20Texturizado%20Areia%202.jpg', this)">🤍</button>
+      <img src="listrado/Listrado%20Texturizado%20Areia%202.jpg" alt="Listrado Texturizado Areia" onclick="abrirModal('listrado/Listrado%20Texturizado%20Areia%202.jpg')">
+      <span>Listrado Texturizado Areia</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/listrado/Listrado%20Texturizado%20Areia.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/listrado/Listrado%20Texturizado%20Areia.jpg', this)">🤍</button>
+      <img src="listrado/Listrado%20Texturizado%20Areia.jpg" alt="Listrado Texturizado Areia" onclick="abrirModal('listrado/Listrado%20Texturizado%20Areia.jpg')">
+      <span>Listrado Texturizado Areia</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/listrado/Listrado%20Texturizado%20Azul%20Claro%20%28STILL%29.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/listrado/Listrado%20Texturizado%20Azul%20Claro%20%28STILL%29.jpg', this)">🤍</button>
+      <img src="listrado/Listrado%20Texturizado%20Azul%20Claro%20%28STILL%29.jpg" alt="Listrado Texturizado Azul Claro (STILL)" onclick="abrirModal('listrado/Listrado%20Texturizado%20Azul%20Claro%20%28STILL%29.jpg')">
+      <span>Listrado Texturizado Azul Claro (STILL)</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/listrado/Listrado%20Texturizado%20Azul%20Claro%202.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/listrado/Listrado%20Texturizado%20Azul%20Claro%202.jpg', this)">🤍</button>
+      <img src="listrado/Listrado%20Texturizado%20Azul%20Claro%202.jpg" alt="Listrado Texturizado Azul Claro" onclick="abrirModal('listrado/Listrado%20Texturizado%20Azul%20Claro%202.jpg')">
+      <span>Listrado Texturizado Azul Claro</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/listrado/Listrado%20Texturizado%20Azul%20Claro.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/listrado/Listrado%20Texturizado%20Azul%20Claro.jpg', this)">🤍</button>
+      <img src="listrado/Listrado%20Texturizado%20Azul%20Claro.jpg" alt="Listrado Texturizado Azul Claro" onclick="abrirModal('listrado/Listrado%20Texturizado%20Azul%20Claro.jpg')">
+      <span>Listrado Texturizado Azul Claro</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/listrado/Listrado%20Texturizado%20Azul%20Escuro%20%28STILL%29.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/listrado/Listrado%20Texturizado%20Azul%20Escuro%20%28STILL%29.jpg', this)">🤍</button>
+      <img src="listrado/Listrado%20Texturizado%20Azul%20Escuro%20%28STILL%29.jpg" alt="Listrado Texturizado Azul Escuro (STILL)" onclick="abrirModal('listrado/Listrado%20Texturizado%20Azul%20Escuro%20%28STILL%29.jpg')">
+      <span>Listrado Texturizado Azul Escuro (STILL)</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/listrado/Listrado%20Texturizado%20Azul%20Escuro%202.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/listrado/Listrado%20Texturizado%20Azul%20Escuro%202.jpg', this)">🤍</button>
+      <img src="listrado/Listrado%20Texturizado%20Azul%20Escuro%202.jpg" alt="Listrado Texturizado Azul Escuro" onclick="abrirModal('listrado/Listrado%20Texturizado%20Azul%20Escuro%202.jpg')">
+      <span>Listrado Texturizado Azul Escuro</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/listrado/Listrado%20Texturizado%20Azul%20Escuro.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/listrado/Listrado%20Texturizado%20Azul%20Escuro.jpg', this)">🤍</button>
+      <img src="listrado/Listrado%20Texturizado%20Azul%20Escuro.jpg" alt="Listrado Texturizado Azul Escuro" onclick="abrirModal('listrado/Listrado%20Texturizado%20Azul%20Escuro.jpg')">
+      <span>Listrado Texturizado Azul Escuro</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/listrado/Listrado%20Texturizado%20Cinza%20%28STILL%29.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/listrado/Listrado%20Texturizado%20Cinza%20%28STILL%29.jpg', this)">🤍</button>
+      <img src="listrado/Listrado%20Texturizado%20Cinza%20%28STILL%29.jpg" alt="Listrado Texturizado Cinza (STILL)" onclick="abrirModal('listrado/Listrado%20Texturizado%20Cinza%20%28STILL%29.jpg')">
+      <span>Listrado Texturizado Cinza (STILL)</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/listrado/Listrado%20Texturizado%20Cinza%202.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/listrado/Listrado%20Texturizado%20Cinza%202.jpg', this)">🤍</button>
+      <img src="listrado/Listrado%20Texturizado%20Cinza%202.jpg" alt="Listrado Texturizado Cinza" onclick="abrirModal('listrado/Listrado%20Texturizado%20Cinza%202.jpg')">
+      <span>Listrado Texturizado Cinza</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/listrado/Listrado%20Texturizado%20Cinza.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/listrado/Listrado%20Texturizado%20Cinza.jpg', this)">🤍</button>
+      <img src="listrado/Listrado%20Texturizado%20Cinza.jpg" alt="Listrado Texturizado Cinza" onclick="abrirModal('listrado/Listrado%20Texturizado%20Cinza.jpg')">
+      <span>Listrado Texturizado Cinza</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/listrado/Listrado%20Texturizado%20Rosa%20%28STILL%29.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/listrado/Listrado%20Texturizado%20Rosa%20%28STILL%29.jpg', this)">🤍</button>
+      <img src="listrado/Listrado%20Texturizado%20Rosa%20%28STILL%29.jpg" alt="Listrado Texturizado Rosa (STILL)" onclick="abrirModal('listrado/Listrado%20Texturizado%20Rosa%20%28STILL%29.jpg')">
+      <span>Listrado Texturizado Rosa (STILL)</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/listrado/Listrado%20Texturizado%20Rosa%202.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/listrado/Listrado%20Texturizado%20Rosa%202.jpg', this)">🤍</button>
+      <img src="listrado/Listrado%20Texturizado%20Rosa%202.jpg" alt="Listrado Texturizado Rosa" onclick="abrirModal('listrado/Listrado%20Texturizado%20Rosa%202.jpg')">
+      <span>Listrado Texturizado Rosa</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/listrado/Listrado%20Texturizado%20Rosa.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/listrado/Listrado%20Texturizado%20Rosa.jpg', this)">🤍</button>
+      <img src="listrado/Listrado%20Texturizado%20Rosa.jpg" alt="Listrado Texturizado Rosa" onclick="abrirModal('listrado/Listrado%20Texturizado%20Rosa.jpg')">
+      <span>Listrado Texturizado Rosa</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/listrado/Listrado%20Texturizado%20Rose%20%28STILL%29.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/listrado/Listrado%20Texturizado%20Rose%20%28STILL%29.jpg', this)">🤍</button>
+      <img src="listrado/Listrado%20Texturizado%20Rose%20%28STILL%29.jpg" alt="Listrado Texturizado Rose (STILL)" onclick="abrirModal('listrado/Listrado%20Texturizado%20Rose%20%28STILL%29.jpg')">
+      <span>Listrado Texturizado Rose (STILL)</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/listrado/Listrado%20Texturizado%20Rose%202.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/listrado/Listrado%20Texturizado%20Rose%202.jpg', this)">🤍</button>
+      <img src="listrado/Listrado%20Texturizado%20Rose%202.jpg" alt="Listrado Texturizado Rose" onclick="abrirModal('listrado/Listrado%20Texturizado%20Rose%202.jpg')">
+      <span>Listrado Texturizado Rose</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/listrado/Listrado%20Texturizado%20Rose.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/listrado/Listrado%20Texturizado%20Rose.jpg', this)">🤍</button>
+      <img src="listrado/Listrado%20Texturizado%20Rose.jpg" alt="Listrado Texturizado Rose" onclick="abrirModal('listrado/Listrado%20Texturizado%20Rose.jpg')">
+      <span>Listrado Texturizado Rose</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/listrado/Listrado%20Texturizado%20Verde%20%28STILL%29.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/listrado/Listrado%20Texturizado%20Verde%20%28STILL%29.jpg', this)">🤍</button>
+      <img src="listrado/Listrado%20Texturizado%20Verde%20%28STILL%29.jpg" alt="Listrado Texturizado Verde (STILL)" onclick="abrirModal('listrado/Listrado%20Texturizado%20Verde%20%28STILL%29.jpg')">
+      <span>Listrado Texturizado Verde (STILL)</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/listrado/Listrado%20Texturizado%20Verde%202.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/listrado/Listrado%20Texturizado%20Verde%202.jpg', this)">🤍</button>
+      <img src="listrado/Listrado%20Texturizado%20Verde%202.jpg" alt="Listrado Texturizado Verde" onclick="abrirModal('listrado/Listrado%20Texturizado%20Verde%202.jpg')">
+      <span>Listrado Texturizado Verde</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/listrado/Listrado%20Texturizado%20Verde%20%C3%81gua%20%28STILL%29.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/listrado/Listrado%20Texturizado%20Verde%20%C3%81gua%20%28STILL%29.jpg', this)">🤍</button>
+      <img src="listrado/Listrado%20Texturizado%20Verde%20%C3%81gua%20%28STILL%29.jpg" alt="Listrado Texturizado Verde Água (STILL)" onclick="abrirModal('listrado/Listrado%20Texturizado%20Verde%20%C3%81gua%20%28STILL%29.jpg')">
+      <span>Listrado Texturizado Verde Água (STILL)</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/listrado/Listrado%20Texturizado%20Verde%20%C3%81gua%202.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/listrado/Listrado%20Texturizado%20Verde%20%C3%81gua%202.jpg', this)">🤍</button>
+      <img src="listrado/Listrado%20Texturizado%20Verde%20%C3%81gua%202.jpg" alt="Listrado Texturizado Verde Água" onclick="abrirModal('listrado/Listrado%20Texturizado%20Verde%20%C3%81gua%202.jpg')">
+      <span>Listrado Texturizado Verde Água</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/listrado/Listrado%20Texturizado%20Verde%20%C3%81gua.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/listrado/Listrado%20Texturizado%20Verde%20%C3%81gua.jpg', this)">🤍</button>
+      <img src="listrado/Listrado%20Texturizado%20Verde%20%C3%81gua.jpg" alt="Listrado Texturizado Verde Água" onclick="abrirModal('listrado/Listrado%20Texturizado%20Verde%20%C3%81gua.jpg')">
+      <span>Listrado Texturizado Verde Água</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/listrado/Listrado%20Texturizado%20Verde.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/listrado/Listrado%20Texturizado%20Verde.jpg', this)">🤍</button>
+      <img src="listrado/Listrado%20Texturizado%20Verde.jpg" alt="Listrado Texturizado Verde" onclick="abrirModal('listrado/Listrado%20Texturizado%20Verde.jpg')">
+      <span>Listrado Texturizado Verde</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/listrado/Listras%20Alternadas%20Azul%20%28STILL%29.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/listrado/Listras%20Alternadas%20Azul%20%28STILL%29.jpg', this)">🤍</button>
+      <img src="listrado/Listras%20Alternadas%20Azul%20%28STILL%29.jpg" alt="Listras Alternadas Azul (STILL)" onclick="abrirModal('listrado/Listras%20Alternadas%20Azul%20%28STILL%29.jpg')">
+      <span>Listras Alternadas Azul (STILL)</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/listrado/Listras%20Alternadas%20Azul%202.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/listrado/Listras%20Alternadas%20Azul%202.jpg', this)">🤍</button>
+      <img src="listrado/Listras%20Alternadas%20Azul%202.jpg" alt="Listras Alternadas Azul" onclick="abrirModal('listrado/Listras%20Alternadas%20Azul%202.jpg')">
+      <span>Listras Alternadas Azul</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/listrado/Listras%20Alternadas%20Azul.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/listrado/Listras%20Alternadas%20Azul.jpg', this)">🤍</button>
+      <img src="listrado/Listras%20Alternadas%20Azul.jpg" alt="Listras Alternadas Azul" onclick="abrirModal('listrado/Listras%20Alternadas%20Azul.jpg')">
+      <span>Listras Alternadas Azul</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/listrado/Listras%20Alternadas%20Rosa%20%28STILL%29.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/listrado/Listras%20Alternadas%20Rosa%20%28STILL%29.jpg', this)">🤍</button>
+      <img src="listrado/Listras%20Alternadas%20Rosa%20%28STILL%29.jpg" alt="Listras Alternadas Rosa (STILL)" onclick="abrirModal('listrado/Listras%20Alternadas%20Rosa%20%28STILL%29.jpg')">
+      <span>Listras Alternadas Rosa (STILL)</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/listrado/Listras%20Alternadas%20Rosa%202.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/listrado/Listras%20Alternadas%20Rosa%202.jpg', this)">🤍</button>
+      <img src="listrado/Listras%20Alternadas%20Rosa%202.jpg" alt="Listras Alternadas Rosa" onclick="abrirModal('listrado/Listras%20Alternadas%20Rosa%202.jpg')">
+      <span>Listras Alternadas Rosa</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/listrado/Listras%20Alternadas%20Rosa.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/listrado/Listras%20Alternadas%20Rosa.jpg', this)">🤍</button>
+      <img src="listrado/Listras%20Alternadas%20Rosa.jpg" alt="Listras Alternadas Rosa" onclick="abrirModal('listrado/Listras%20Alternadas%20Rosa.jpg')">
+      <span>Listras Alternadas Rosa</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/listrado/Listras%20Alternadas%20Verde%20%28STILL%29.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/listrado/Listras%20Alternadas%20Verde%20%28STILL%29.jpg', this)">🤍</button>
+      <img src="listrado/Listras%20Alternadas%20Verde%20%28STILL%29.jpg" alt="Listras Alternadas Verde (STILL)" onclick="abrirModal('listrado/Listras%20Alternadas%20Verde%20%28STILL%29.jpg')">
+      <span>Listras Alternadas Verde (STILL)</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/listrado/Listras%20Alternadas%20Verde%202.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/listrado/Listras%20Alternadas%20Verde%202.jpg', this)">🤍</button>
+      <img src="listrado/Listras%20Alternadas%20Verde%202.jpg" alt="Listras Alternadas Verde" onclick="abrirModal('listrado/Listras%20Alternadas%20Verde%202.jpg')">
+      <span>Listras Alternadas Verde</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/listrado/Listras%20Alternadas%20Verde%20Acqua%20e%20Cinza%20%28STILL%29.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/listrado/Listras%20Alternadas%20Verde%20Acqua%20e%20Cinza%20%28STILL%29.jpg', this)">🤍</button>
+      <img src="listrado/Listras%20Alternadas%20Verde%20Acqua%20e%20Cinza%20%28STILL%29.jpg" alt="Listras Alternadas Verde Acqua e Cinza (STILL)" onclick="abrirModal('listrado/Listras%20Alternadas%20Verde%20Acqua%20e%20Cinza%20%28STILL%29.jpg')">
+      <span>Listras Alternadas Verde Acqua e Cinza (STILL)</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/listrado/Listras%20Alternadas%20Verde%20%C3%81gua%20%28STILL%29.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/listrado/Listras%20Alternadas%20Verde%20%C3%81gua%20%28STILL%29.jpg', this)">🤍</button>
+      <img src="listrado/Listras%20Alternadas%20Verde%20%C3%81gua%20%28STILL%29.jpg" alt="Listras Alternadas Verde Água (STILL)" onclick="abrirModal('listrado/Listras%20Alternadas%20Verde%20%C3%81gua%20%28STILL%29.jpg')">
+      <span>Listras Alternadas Verde Água (STILL)</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/listrado/Listras%20Alternadas%20Verde%20%C3%81gua%202.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/listrado/Listras%20Alternadas%20Verde%20%C3%81gua%202.jpg', this)">🤍</button>
+      <img src="listrado/Listras%20Alternadas%20Verde%20%C3%81gua%202.jpg" alt="Listras Alternadas Verde Água" onclick="abrirModal('listrado/Listras%20Alternadas%20Verde%20%C3%81gua%202.jpg')">
+      <span>Listras Alternadas Verde Água</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/listrado/Listras%20Alternadas%20Verde.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/listrado/Listras%20Alternadas%20Verde.jpg', this)">🤍</button>
+      <img src="listrado/Listras%20Alternadas%20Verde.jpg" alt="Listras Alternadas Verde" onclick="abrirModal('listrado/Listras%20Alternadas%20Verde.jpg')">
+      <span>Listras Alternadas Verde</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/listrado/Listras%20Alternadas%20Verde%C3%81gua.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/listrado/Listras%20Alternadas%20Verde%C3%81gua.jpg', this)">🤍</button>
+      <img src="listrado/Listras%20Alternadas%20Verde%C3%81gua.jpg" alt="Listras Alternadas VerdeÁgua" onclick="abrirModal('listrado/Listras%20Alternadas%20Verde%C3%81gua.jpg')">
+      <span>Listras Alternadas VerdeÁgua</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/listrado/Listras%20Amarelo%20e%20Branco%20%282%29.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/listrado/Listras%20Amarelo%20e%20Branco%20%282%29.jpg', this)">🤍</button>
+      <img src="listrado/Listras%20Amarelo%20e%20Branco%20%282%29.jpg" alt="Listras Amarelo e Branco" onclick="abrirModal('listrado/Listras%20Amarelo%20e%20Branco%20%282%29.jpg')">
+      <span>Listras Amarelo e Branco</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/listrado/Listras%20Amarelo%20e%20Branco%20%28STILL%29.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/listrado/Listras%20Amarelo%20e%20Branco%20%28STILL%29.jpg', this)">🤍</button>
+      <img src="listrado/Listras%20Amarelo%20e%20Branco%20%28STILL%29.jpg" alt="Listras Amarelo e Branco (STILL)" onclick="abrirModal('listrado/Listras%20Amarelo%20e%20Branco%20%28STILL%29.jpg')">
+      <span>Listras Amarelo e Branco (STILL)</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/listrado/Listras%20Amarelo%20e%20Branco%202.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/listrado/Listras%20Amarelo%20e%20Branco%202.jpg', this)">🤍</button>
+      <img src="listrado/Listras%20Amarelo%20e%20Branco%202.jpg" alt="Listras Amarelo e Branco" onclick="abrirModal('listrado/Listras%20Amarelo%20e%20Branco%202.jpg')">
+      <span>Listras Amarelo e Branco</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/listrado/Listras%20Amarelo%20e%20Branco.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/listrado/Listras%20Amarelo%20e%20Branco.jpg', this)">🤍</button>
+      <img src="listrado/Listras%20Amarelo%20e%20Branco.jpg" alt="Listras Amarelo e Branco" onclick="abrirModal('listrado/Listras%20Amarelo%20e%20Branco.jpg')">
+      <span>Listras Amarelo e Branco</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/listrado/Listras%20Azul%20Claro%20e%20Branco%20%282%29.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/listrado/Listras%20Azul%20Claro%20e%20Branco%20%282%29.jpg', this)">🤍</button>
+      <img src="listrado/Listras%20Azul%20Claro%20e%20Branco%20%282%29.jpg" alt="Listras Azul Claro e Branco" onclick="abrirModal('listrado/Listras%20Azul%20Claro%20e%20Branco%20%282%29.jpg')">
+      <span>Listras Azul Claro e Branco</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/listrado/Listras%20Azul%20Claro%20e%20Branco%20%28STILL%29.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/listrado/Listras%20Azul%20Claro%20e%20Branco%20%28STILL%29.jpg', this)">🤍</button>
+      <img src="listrado/Listras%20Azul%20Claro%20e%20Branco%20%28STILL%29.jpg" alt="Listras Azul Claro e Branco (STILL)" onclick="abrirModal('listrado/Listras%20Azul%20Claro%20e%20Branco%20%28STILL%29.jpg')">
+      <span>Listras Azul Claro e Branco (STILL)</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/listrado/Listras%20Azul%20Claro%20e%20Branco%202.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/listrado/Listras%20Azul%20Claro%20e%20Branco%202.jpg', this)">🤍</button>
+      <img src="listrado/Listras%20Azul%20Claro%20e%20Branco%202.jpg" alt="Listras Azul Claro e Branco" onclick="abrirModal('listrado/Listras%20Azul%20Claro%20e%20Branco%202.jpg')">
+      <span>Listras Azul Claro e Branco</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/listrado/Listras%20Azul%20Claro%20e%20Branco.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/listrado/Listras%20Azul%20Claro%20e%20Branco.jpg', this)">🤍</button>
+      <img src="listrado/Listras%20Azul%20Claro%20e%20Branco.jpg" alt="Listras Azul Claro e Branco" onclick="abrirModal('listrado/Listras%20Azul%20Claro%20e%20Branco.jpg')">
+      <span>Listras Azul Claro e Branco</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/listrado/Listras%20Azul%20e%20Branco%20%282%29.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/listrado/Listras%20Azul%20e%20Branco%20%282%29.jpg', this)">🤍</button>
+      <img src="listrado/Listras%20Azul%20e%20Branco%20%282%29.jpg" alt="Listras Azul e Branco" onclick="abrirModal('listrado/Listras%20Azul%20e%20Branco%20%282%29.jpg')">
+      <span>Listras Azul e Branco</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/listrado/Listras%20Azul%20e%20Branco%20%28STILL%29.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/listrado/Listras%20Azul%20e%20Branco%20%28STILL%29.jpg', this)">🤍</button>
+      <img src="listrado/Listras%20Azul%20e%20Branco%20%28STILL%29.jpg" alt="Listras Azul e Branco (STILL)" onclick="abrirModal('listrado/Listras%20Azul%20e%20Branco%20%28STILL%29.jpg')">
+      <span>Listras Azul e Branco (STILL)</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/listrado/Listras%20Azul%20e%20Branco%202%20%282%29.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/listrado/Listras%20Azul%20e%20Branco%202%20%282%29.jpg', this)">🤍</button>
+      <img src="listrado/Listras%20Azul%20e%20Branco%202%20%282%29.jpg" alt="Listras Azul e Branco 2" onclick="abrirModal('listrado/Listras%20Azul%20e%20Branco%202%20%282%29.jpg')">
+      <span>Listras Azul e Branco 2</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/listrado/Listras%20Azul%20e%20Branco%202.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/listrado/Listras%20Azul%20e%20Branco%202.jpg', this)">🤍</button>
+      <img src="listrado/Listras%20Azul%20e%20Branco%202.jpg" alt="Listras Azul e Branco" onclick="abrirModal('listrado/Listras%20Azul%20e%20Branco%202.jpg')">
+      <span>Listras Azul e Branco</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/listrado/Listras%20Azul%20e%20Branco.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/listrado/Listras%20Azul%20e%20Branco.jpg', this)">🤍</button>
+      <img src="listrado/Listras%20Azul%20e%20Branco.jpg" alt="Listras Azul e Branco" onclick="abrirModal('listrado/Listras%20Azul%20e%20Branco.jpg')">
+      <span>Listras Azul e Branco</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/listrado/Listras%20Delicadas%20Areia%20%28STILL%29.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/listrado/Listras%20Delicadas%20Areia%20%28STILL%29.jpg', this)">🤍</button>
+      <img src="listrado/Listras%20Delicadas%20Areia%20%28STILL%29.jpg" alt="Listras Delicadas Areia (STILL)" onclick="abrirModal('listrado/Listras%20Delicadas%20Areia%20%28STILL%29.jpg')">
+      <span>Listras Delicadas Areia (STILL)</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/listrado/Listras%20Delicadas%20Azul%20%28STILL%29.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/listrado/Listras%20Delicadas%20Azul%20%28STILL%29.jpg', this)">🤍</button>
+      <img src="listrado/Listras%20Delicadas%20Azul%20%28STILL%29.jpg" alt="Listras Delicadas Azul (STILL)" onclick="abrirModal('listrado/Listras%20Delicadas%20Azul%20%28STILL%29.jpg')">
+      <span>Listras Delicadas Azul (STILL)</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/listrado/Listras%20Delicadas%20Bege%20%28STILL%29.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/listrado/Listras%20Delicadas%20Bege%20%28STILL%29.jpg', this)">🤍</button>
+      <img src="listrado/Listras%20Delicadas%20Bege%20%28STILL%29.jpg" alt="Listras Delicadas Bege (STILL)" onclick="abrirModal('listrado/Listras%20Delicadas%20Bege%20%28STILL%29.jpg')">
+      <span>Listras Delicadas Bege (STILL)</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/listrado/Listras%20Delicadas%20Rosa%20%28STILL%29.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/listrado/Listras%20Delicadas%20Rosa%20%28STILL%29.jpg', this)">🤍</button>
+      <img src="listrado/Listras%20Delicadas%20Rosa%20%28STILL%29.jpg" alt="Listras Delicadas Rosa (STILL)" onclick="abrirModal('listrado/Listras%20Delicadas%20Rosa%20%28STILL%29.jpg')">
+      <span>Listras Delicadas Rosa (STILL)</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/listrado/Listras%20Horizontais%20Aquarela%20Slim%20Areia%20%28STILL%29.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/listrado/Listras%20Horizontais%20Aquarela%20Slim%20Areia%20%28STILL%29.jpg', this)">🤍</button>
+      <img src="listrado/Listras%20Horizontais%20Aquarela%20Slim%20Areia%20%28STILL%29.jpg" alt="Listras Horizontais Aquarela Slim Areia (STILL)" onclick="abrirModal('listrado/Listras%20Horizontais%20Aquarela%20Slim%20Areia%20%28STILL%29.jpg')">
+      <span>Listras Horizontais Aquarela Slim Areia (STILL)</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/listrado/Listras%20Horizontais%20Aquarela%20Slim%20Areia.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/listrado/Listras%20Horizontais%20Aquarela%20Slim%20Areia.jpg', this)">🤍</button>
+      <img src="listrado/Listras%20Horizontais%20Aquarela%20Slim%20Areia.jpg" alt="Listras Horizontais Aquarela Slim Areia" onclick="abrirModal('listrado/Listras%20Horizontais%20Aquarela%20Slim%20Areia.jpg')">
+      <span>Listras Horizontais Aquarela Slim Areia</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/listrado/Listras%20Horizontais%20Aquarela%20Slim%20Azul%20%28STILL%29.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/listrado/Listras%20Horizontais%20Aquarela%20Slim%20Azul%20%28STILL%29.jpg', this)">🤍</button>
+      <img src="listrado/Listras%20Horizontais%20Aquarela%20Slim%20Azul%20%28STILL%29.jpg" alt="Listras Horizontais Aquarela Slim Azul (STILL)" onclick="abrirModal('listrado/Listras%20Horizontais%20Aquarela%20Slim%20Azul%20%28STILL%29.jpg')">
+      <span>Listras Horizontais Aquarela Slim Azul (STILL)</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/listrado/Listras%20Horizontais%20Aquarela%20Slim%20Azul.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/listrado/Listras%20Horizontais%20Aquarela%20Slim%20Azul.jpg', this)">🤍</button>
+      <img src="listrado/Listras%20Horizontais%20Aquarela%20Slim%20Azul.jpg" alt="Listras Horizontais Aquarela Slim Azul" onclick="abrirModal('listrado/Listras%20Horizontais%20Aquarela%20Slim%20Azul.jpg')">
+      <span>Listras Horizontais Aquarela Slim Azul</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/listrado/Listras%20Horizontais%20Aquarela%20Slim%20Cinza%20%28STILL%29.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/listrado/Listras%20Horizontais%20Aquarela%20Slim%20Cinza%20%28STILL%29.jpg', this)">🤍</button>
+      <img src="listrado/Listras%20Horizontais%20Aquarela%20Slim%20Cinza%20%28STILL%29.jpg" alt="Listras Horizontais Aquarela Slim Cinza (STILL)" onclick="abrirModal('listrado/Listras%20Horizontais%20Aquarela%20Slim%20Cinza%20%28STILL%29.jpg')">
+      <span>Listras Horizontais Aquarela Slim Cinza (STILL)</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/listrado/Listras%20Horizontais%20Aquarela%20Slim%20Cinza.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/listrado/Listras%20Horizontais%20Aquarela%20Slim%20Cinza.jpg', this)">🤍</button>
+      <img src="listrado/Listras%20Horizontais%20Aquarela%20Slim%20Cinza.jpg" alt="Listras Horizontais Aquarela Slim Cinza" onclick="abrirModal('listrado/Listras%20Horizontais%20Aquarela%20Slim%20Cinza.jpg')">
+      <span>Listras Horizontais Aquarela Slim Cinza</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/listrado/Listras%20Horizontais%20Aquarela%20Slim%20Rosa%20%28STILL%29.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/listrado/Listras%20Horizontais%20Aquarela%20Slim%20Rosa%20%28STILL%29.jpg', this)">🤍</button>
+      <img src="listrado/Listras%20Horizontais%20Aquarela%20Slim%20Rosa%20%28STILL%29.jpg" alt="Listras Horizontais Aquarela Slim Rosa (STILL)" onclick="abrirModal('listrado/Listras%20Horizontais%20Aquarela%20Slim%20Rosa%20%28STILL%29.jpg')">
+      <span>Listras Horizontais Aquarela Slim Rosa (STILL)</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/listrado/Listras%20Horizontais%20Aquarela%20Slim%20Rosa.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/listrado/Listras%20Horizontais%20Aquarela%20Slim%20Rosa.jpg', this)">🤍</button>
+      <img src="listrado/Listras%20Horizontais%20Aquarela%20Slim%20Rosa.jpg" alt="Listras Horizontais Aquarela Slim Rosa" onclick="abrirModal('listrado/Listras%20Horizontais%20Aquarela%20Slim%20Rosa.jpg')">
+      <span>Listras Horizontais Aquarela Slim Rosa</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/listrado/Listras%20Horizontais%20Aquarela%20Slim%20Verde%20%28STILL%29.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/listrado/Listras%20Horizontais%20Aquarela%20Slim%20Verde%20%28STILL%29.jpg', this)">🤍</button>
+      <img src="listrado/Listras%20Horizontais%20Aquarela%20Slim%20Verde%20%28STILL%29.jpg" alt="Listras Horizontais Aquarela Slim Verde (STILL)" onclick="abrirModal('listrado/Listras%20Horizontais%20Aquarela%20Slim%20Verde%20%28STILL%29.jpg')">
+      <span>Listras Horizontais Aquarela Slim Verde (STILL)</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/listrado/Listras%20Horizontais%20Aquarela%20Slim%20Verde.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/listrado/Listras%20Horizontais%20Aquarela%20Slim%20Verde.jpg', this)">🤍</button>
+      <img src="listrado/Listras%20Horizontais%20Aquarela%20Slim%20Verde.jpg" alt="Listras Horizontais Aquarela Slim Verde" onclick="abrirModal('listrado/Listras%20Horizontais%20Aquarela%20Slim%20Verde.jpg')">
+      <span>Listras Horizontais Aquarela Slim Verde</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/listrado/Listras%20Rosa%20e%20Branco%20%282%29.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/listrado/Listras%20Rosa%20e%20Branco%20%282%29.jpg', this)">🤍</button>
+      <img src="listrado/Listras%20Rosa%20e%20Branco%20%282%29.jpg" alt="Listras Rosa e Branco" onclick="abrirModal('listrado/Listras%20Rosa%20e%20Branco%20%282%29.jpg')">
+      <span>Listras Rosa e Branco</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/listrado/Listras%20Rosa%20e%20Branco%20%28STILL%29.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/listrado/Listras%20Rosa%20e%20Branco%20%28STILL%29.jpg', this)">🤍</button>
+      <img src="listrado/Listras%20Rosa%20e%20Branco%20%28STILL%29.jpg" alt="Listras Rosa e Branco (STILL)" onclick="abrirModal('listrado/Listras%20Rosa%20e%20Branco%20%28STILL%29.jpg')">
+      <span>Listras Rosa e Branco (STILL)</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/listrado/Listras%20Rosa%20e%20Branco%202.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/listrado/Listras%20Rosa%20e%20Branco%202.jpg', this)">🤍</button>
+      <img src="listrado/Listras%20Rosa%20e%20Branco%202.jpg" alt="Listras Rosa e Branco" onclick="abrirModal('listrado/Listras%20Rosa%20e%20Branco%202.jpg')">
+      <span>Listras Rosa e Branco</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/listrado/Listras%20Rosa%20e%20Branco.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/listrado/Listras%20Rosa%20e%20Branco.jpg', this)">🤍</button>
+      <img src="listrado/Listras%20Rosa%20e%20Branco.jpg" alt="Listras Rosa e Branco" onclick="abrirModal('listrado/Listras%20Rosa%20e%20Branco.jpg')">
+      <span>Listras Rosa e Branco</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/listrado/Listras%20Verde%20e%20Branco%20%282%29.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/listrado/Listras%20Verde%20e%20Branco%20%282%29.jpg', this)">🤍</button>
+      <img src="listrado/Listras%20Verde%20e%20Branco%20%282%29.jpg" alt="Listras Verde e Branco" onclick="abrirModal('listrado/Listras%20Verde%20e%20Branco%20%282%29.jpg')">
+      <span>Listras Verde e Branco</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/listrado/Listras%20Verde%20e%20Branco%20%28STILL%29.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/listrado/Listras%20Verde%20e%20Branco%20%28STILL%29.jpg', this)">🤍</button>
+      <img src="listrado/Listras%20Verde%20e%20Branco%20%28STILL%29.jpg" alt="Listras Verde e Branco (STILL)" onclick="abrirModal('listrado/Listras%20Verde%20e%20Branco%20%28STILL%29.jpg')">
+      <span>Listras Verde e Branco (STILL)</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/listrado/Listras%20Verde%20e%20Branco%202.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/listrado/Listras%20Verde%20e%20Branco%202.jpg', this)">🤍</button>
+      <img src="listrado/Listras%20Verde%20e%20Branco%202.jpg" alt="Listras Verde e Branco" onclick="abrirModal('listrado/Listras%20Verde%20e%20Branco%202.jpg')">
+      <span>Listras Verde e Branco</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/listrado/Listras%20Verde%20e%20Branco.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/listrado/Listras%20Verde%20e%20Branco.jpg', this)">🤍</button>
+      <img src="listrado/Listras%20Verde%20e%20Branco.jpg" alt="Listras Verde e Branco" onclick="abrirModal('listrado/Listras%20Verde%20e%20Branco.jpg')">
+      <span>Listras Verde e Branco</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/listrado/Listras%20Verticais%20Aquarela%20Areia%20%28STILL%29.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/listrado/Listras%20Verticais%20Aquarela%20Areia%20%28STILL%29.jpg', this)">🤍</button>
+      <img src="listrado/Listras%20Verticais%20Aquarela%20Areia%20%28STILL%29.jpg" alt="Listras Verticais Aquarela Areia (STILL)" onclick="abrirModal('listrado/Listras%20Verticais%20Aquarela%20Areia%20%28STILL%29.jpg')">
+      <span>Listras Verticais Aquarela Areia (STILL)</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/listrado/Listras%20Verticais%20Aquarela%20Areia%202.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/listrado/Listras%20Verticais%20Aquarela%20Areia%202.jpg', this)">🤍</button>
+      <img src="listrado/Listras%20Verticais%20Aquarela%20Areia%202.jpg" alt="Listras Verticais Aquarela Areia" onclick="abrirModal('listrado/Listras%20Verticais%20Aquarela%20Areia%202.jpg')">
+      <span>Listras Verticais Aquarela Areia</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/listrado/Listras%20Verticais%20Aquarela%20Areia.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/listrado/Listras%20Verticais%20Aquarela%20Areia.jpg', this)">🤍</button>
+      <img src="listrado/Listras%20Verticais%20Aquarela%20Areia.jpg" alt="Listras Verticais Aquarela Areia" onclick="abrirModal('listrado/Listras%20Verticais%20Aquarela%20Areia.jpg')">
+      <span>Listras Verticais Aquarela Areia</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/listrado/Listras%20Verticais%20Aquarela%20Azul%20%28STILL%29.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/listrado/Listras%20Verticais%20Aquarela%20Azul%20%28STILL%29.jpg', this)">🤍</button>
+      <img src="listrado/Listras%20Verticais%20Aquarela%20Azul%20%28STILL%29.jpg" alt="Listras Verticais Aquarela Azul (STILL)" onclick="abrirModal('listrado/Listras%20Verticais%20Aquarela%20Azul%20%28STILL%29.jpg')">
+      <span>Listras Verticais Aquarela Azul (STILL)</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/listrado/Listras%20Verticais%20Aquarela%20Azul.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/listrado/Listras%20Verticais%20Aquarela%20Azul.jpg', this)">🤍</button>
+      <img src="listrado/Listras%20Verticais%20Aquarela%20Azul.jpg" alt="Listras Verticais Aquarela Azul" onclick="abrirModal('listrado/Listras%20Verticais%20Aquarela%20Azul.jpg')">
+      <span>Listras Verticais Aquarela Azul</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/listrado/Listras%20Verticais%20Aquarela%20Cinza%20%28STILL%29.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/listrado/Listras%20Verticais%20Aquarela%20Cinza%20%28STILL%29.jpg', this)">🤍</button>
+      <img src="listrado/Listras%20Verticais%20Aquarela%20Cinza%20%28STILL%29.jpg" alt="Listras Verticais Aquarela Cinza (STILL)" onclick="abrirModal('listrado/Listras%20Verticais%20Aquarela%20Cinza%20%28STILL%29.jpg')">
+      <span>Listras Verticais Aquarela Cinza (STILL)</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/listrado/Listras%20Verticais%20Aquarela%20Cinza.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/listrado/Listras%20Verticais%20Aquarela%20Cinza.jpg', this)">🤍</button>
+      <img src="listrado/Listras%20Verticais%20Aquarela%20Cinza.jpg" alt="Listras Verticais Aquarela Cinza" onclick="abrirModal('listrado/Listras%20Verticais%20Aquarela%20Cinza.jpg')">
+      <span>Listras Verticais Aquarela Cinza</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/listrado/Listras%20Verticais%20Aquarela%20Laranja%20%28STILL%29.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/listrado/Listras%20Verticais%20Aquarela%20Laranja%20%28STILL%29.jpg', this)">🤍</button>
+      <img src="listrado/Listras%20Verticais%20Aquarela%20Laranja%20%28STILL%29.jpg" alt="Listras Verticais Aquarela Laranja (STILL)" onclick="abrirModal('listrado/Listras%20Verticais%20Aquarela%20Laranja%20%28STILL%29.jpg')">
+      <span>Listras Verticais Aquarela Laranja (STILL)</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/listrado/Listras%20Verticais%20Aquarela%20Laranja.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/listrado/Listras%20Verticais%20Aquarela%20Laranja.jpg', this)">🤍</button>
+      <img src="listrado/Listras%20Verticais%20Aquarela%20Laranja.jpg" alt="Listras Verticais Aquarela Laranja" onclick="abrirModal('listrado/Listras%20Verticais%20Aquarela%20Laranja.jpg')">
+      <span>Listras Verticais Aquarela Laranja</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/listrado/Listras%20Verticais%20Aquarela%20Rosa%20%28STILL%29.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/listrado/Listras%20Verticais%20Aquarela%20Rosa%20%28STILL%29.jpg', this)">🤍</button>
+      <img src="listrado/Listras%20Verticais%20Aquarela%20Rosa%20%28STILL%29.jpg" alt="Listras Verticais Aquarela Rosa (STILL)" onclick="abrirModal('listrado/Listras%20Verticais%20Aquarela%20Rosa%20%28STILL%29.jpg')">
+      <span>Listras Verticais Aquarela Rosa (STILL)</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/listrado/Listras%20Verticais%20Aquarela%20Rosa.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/listrado/Listras%20Verticais%20Aquarela%20Rosa.jpg', this)">🤍</button>
+      <img src="listrado/Listras%20Verticais%20Aquarela%20Rosa.jpg" alt="Listras Verticais Aquarela Rosa" onclick="abrirModal('listrado/Listras%20Verticais%20Aquarela%20Rosa.jpg')">
+      <span>Listras Verticais Aquarela Rosa</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/listrado/Listras%20Verticais%20Aquarela%20Rose%20%28STILL%29.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/listrado/Listras%20Verticais%20Aquarela%20Rose%20%28STILL%29.jpg', this)">🤍</button>
+      <img src="listrado/Listras%20Verticais%20Aquarela%20Rose%20%28STILL%29.jpg" alt="Listras Verticais Aquarela Rose (STILL)" onclick="abrirModal('listrado/Listras%20Verticais%20Aquarela%20Rose%20%28STILL%29.jpg')">
+      <span>Listras Verticais Aquarela Rose (STILL)</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/listrado/Listras%20Verticais%20Aquarela%20Rose.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/listrado/Listras%20Verticais%20Aquarela%20Rose.jpg', this)">🤍</button>
+      <img src="listrado/Listras%20Verticais%20Aquarela%20Rose.jpg" alt="Listras Verticais Aquarela Rose" onclick="abrirModal('listrado/Listras%20Verticais%20Aquarela%20Rose.jpg')">
+      <span>Listras Verticais Aquarela Rose</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/listrado/Listras%20Verticais%20Aquarela%20Slim%20Areia%20%28STILL%29.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/listrado/Listras%20Verticais%20Aquarela%20Slim%20Areia%20%28STILL%29.jpg', this)">🤍</button>
+      <img src="listrado/Listras%20Verticais%20Aquarela%20Slim%20Areia%20%28STILL%29.jpg" alt="Listras Verticais Aquarela Slim Areia (STILL)" onclick="abrirModal('listrado/Listras%20Verticais%20Aquarela%20Slim%20Areia%20%28STILL%29.jpg')">
+      <span>Listras Verticais Aquarela Slim Areia (STILL)</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/listrado/Listras%20Verticais%20Aquarela%20Slim%20Areia%202.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/listrado/Listras%20Verticais%20Aquarela%20Slim%20Areia%202.jpg', this)">🤍</button>
+      <img src="listrado/Listras%20Verticais%20Aquarela%20Slim%20Areia%202.jpg" alt="Listras Verticais Aquarela Slim Areia" onclick="abrirModal('listrado/Listras%20Verticais%20Aquarela%20Slim%20Areia%202.jpg')">
+      <span>Listras Verticais Aquarela Slim Areia</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/listrado/Listras%20Verticais%20Aquarela%20Slim%20Areia.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/listrado/Listras%20Verticais%20Aquarela%20Slim%20Areia.jpg', this)">🤍</button>
+      <img src="listrado/Listras%20Verticais%20Aquarela%20Slim%20Areia.jpg" alt="Listras Verticais Aquarela Slim Areia" onclick="abrirModal('listrado/Listras%20Verticais%20Aquarela%20Slim%20Areia.jpg')">
+      <span>Listras Verticais Aquarela Slim Areia</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/listrado/Listras%20Verticais%20Aquarela%20Slim%20Azul%20%28STILL%29.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/listrado/Listras%20Verticais%20Aquarela%20Slim%20Azul%20%28STILL%29.jpg', this)">🤍</button>
+      <img src="listrado/Listras%20Verticais%20Aquarela%20Slim%20Azul%20%28STILL%29.jpg" alt="Listras Verticais Aquarela Slim Azul (STILL)" onclick="abrirModal('listrado/Listras%20Verticais%20Aquarela%20Slim%20Azul%20%28STILL%29.jpg')">
+      <span>Listras Verticais Aquarela Slim Azul (STILL)</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/listrado/Listras%20Verticais%20Aquarela%20Slim%20Azul%202.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/listrado/Listras%20Verticais%20Aquarela%20Slim%20Azul%202.jpg', this)">🤍</button>
+      <img src="listrado/Listras%20Verticais%20Aquarela%20Slim%20Azul%202.jpg" alt="Listras Verticais Aquarela Slim Azul" onclick="abrirModal('listrado/Listras%20Verticais%20Aquarela%20Slim%20Azul%202.jpg')">
+      <span>Listras Verticais Aquarela Slim Azul</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/listrado/Listras%20Verticais%20Aquarela%20Slim%20Azul%203.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/listrado/Listras%20Verticais%20Aquarela%20Slim%20Azul%203.jpg', this)">🤍</button>
+      <img src="listrado/Listras%20Verticais%20Aquarela%20Slim%20Azul%203.jpg" alt="Listras Verticais Aquarela Slim Azul" onclick="abrirModal('listrado/Listras%20Verticais%20Aquarela%20Slim%20Azul%203.jpg')">
+      <span>Listras Verticais Aquarela Slim Azul</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/listrado/Listras%20Verticais%20Aquarela%20Slim%20Azul.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/listrado/Listras%20Verticais%20Aquarela%20Slim%20Azul.jpg', this)">🤍</button>
+      <img src="listrado/Listras%20Verticais%20Aquarela%20Slim%20Azul.jpg" alt="Listras Verticais Aquarela Slim Azul" onclick="abrirModal('listrado/Listras%20Verticais%20Aquarela%20Slim%20Azul.jpg')">
+      <span>Listras Verticais Aquarela Slim Azul</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/listrado/Listras%20Verticais%20Aquarela%20Slim%20Cinza%20%28STILL%29.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/listrado/Listras%20Verticais%20Aquarela%20Slim%20Cinza%20%28STILL%29.jpg', this)">🤍</button>
+      <img src="listrado/Listras%20Verticais%20Aquarela%20Slim%20Cinza%20%28STILL%29.jpg" alt="Listras Verticais Aquarela Slim Cinza (STILL)" onclick="abrirModal('listrado/Listras%20Verticais%20Aquarela%20Slim%20Cinza%20%28STILL%29.jpg')">
+      <span>Listras Verticais Aquarela Slim Cinza (STILL)</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/listrado/Listras%20Verticais%20Aquarela%20Slim%20Cinza.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/listrado/Listras%20Verticais%20Aquarela%20Slim%20Cinza.jpg', this)">🤍</button>
+      <img src="listrado/Listras%20Verticais%20Aquarela%20Slim%20Cinza.jpg" alt="Listras Verticais Aquarela Slim Cinza" onclick="abrirModal('listrado/Listras%20Verticais%20Aquarela%20Slim%20Cinza.jpg')">
+      <span>Listras Verticais Aquarela Slim Cinza</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/listrado/Listras%20Verticais%20Aquarela%20Slim%20Laranja%20%28STILL%29.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/listrado/Listras%20Verticais%20Aquarela%20Slim%20Laranja%20%28STILL%29.jpg', this)">🤍</button>
+      <img src="listrado/Listras%20Verticais%20Aquarela%20Slim%20Laranja%20%28STILL%29.jpg" alt="Listras Verticais Aquarela Slim Laranja (STILL)" onclick="abrirModal('listrado/Listras%20Verticais%20Aquarela%20Slim%20Laranja%20%28STILL%29.jpg')">
+      <span>Listras Verticais Aquarela Slim Laranja (STILL)</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/listrado/Listras%20Verticais%20Aquarela%20Slim%20Laranja%202.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/listrado/Listras%20Verticais%20Aquarela%20Slim%20Laranja%202.jpg', this)">🤍</button>
+      <img src="listrado/Listras%20Verticais%20Aquarela%20Slim%20Laranja%202.jpg" alt="Listras Verticais Aquarela Slim Laranja" onclick="abrirModal('listrado/Listras%20Verticais%20Aquarela%20Slim%20Laranja%202.jpg')">
+      <span>Listras Verticais Aquarela Slim Laranja</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/listrado/Listras%20Verticais%20Aquarela%20Slim%20Laranja.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/listrado/Listras%20Verticais%20Aquarela%20Slim%20Laranja.jpg', this)">🤍</button>
+      <img src="listrado/Listras%20Verticais%20Aquarela%20Slim%20Laranja.jpg" alt="Listras Verticais Aquarela Slim Laranja" onclick="abrirModal('listrado/Listras%20Verticais%20Aquarela%20Slim%20Laranja.jpg')">
+      <span>Listras Verticais Aquarela Slim Laranja</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/listrado/Listras%20Verticais%20Aquarela%20Slim%20Rosa%20%28STILL%29.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/listrado/Listras%20Verticais%20Aquarela%20Slim%20Rosa%20%28STILL%29.jpg', this)">🤍</button>
+      <img src="listrado/Listras%20Verticais%20Aquarela%20Slim%20Rosa%20%28STILL%29.jpg" alt="Listras Verticais Aquarela Slim Rosa (STILL)" onclick="abrirModal('listrado/Listras%20Verticais%20Aquarela%20Slim%20Rosa%20%28STILL%29.jpg')">
+      <span>Listras Verticais Aquarela Slim Rosa (STILL)</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/listrado/Listras%20Verticais%20Aquarela%20Slim%20Rosa.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/listrado/Listras%20Verticais%20Aquarela%20Slim%20Rosa.jpg', this)">🤍</button>
+      <img src="listrado/Listras%20Verticais%20Aquarela%20Slim%20Rosa.jpg" alt="Listras Verticais Aquarela Slim Rosa" onclick="abrirModal('listrado/Listras%20Verticais%20Aquarela%20Slim%20Rosa.jpg')">
+      <span>Listras Verticais Aquarela Slim Rosa</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/listrado/Listras%20Verticais%20Aquarela%20Slim%20Rose%20%28STILL%29.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/listrado/Listras%20Verticais%20Aquarela%20Slim%20Rose%20%28STILL%29.jpg', this)">🤍</button>
+      <img src="listrado/Listras%20Verticais%20Aquarela%20Slim%20Rose%20%28STILL%29.jpg" alt="Listras Verticais Aquarela Slim Rose (STILL)" onclick="abrirModal('listrado/Listras%20Verticais%20Aquarela%20Slim%20Rose%20%28STILL%29.jpg')">
+      <span>Listras Verticais Aquarela Slim Rose (STILL)</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/listrado/Listras%20Verticais%20Aquarela%20Slim%20Rose.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/listrado/Listras%20Verticais%20Aquarela%20Slim%20Rose.jpg', this)">🤍</button>
+      <img src="listrado/Listras%20Verticais%20Aquarela%20Slim%20Rose.jpg" alt="Listras Verticais Aquarela Slim Rose" onclick="abrirModal('listrado/Listras%20Verticais%20Aquarela%20Slim%20Rose.jpg')">
+      <span>Listras Verticais Aquarela Slim Rose</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/listrado/Listras%20Verticais%20Aquarela%20Slim%20Verde%20%28STILL%29.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/listrado/Listras%20Verticais%20Aquarela%20Slim%20Verde%20%28STILL%29.jpg', this)">🤍</button>
+      <img src="listrado/Listras%20Verticais%20Aquarela%20Slim%20Verde%20%28STILL%29.jpg" alt="Listras Verticais Aquarela Slim Verde (STILL)" onclick="abrirModal('listrado/Listras%20Verticais%20Aquarela%20Slim%20Verde%20%28STILL%29.jpg')">
+      <span>Listras Verticais Aquarela Slim Verde (STILL)</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/listrado/Listras%20Verticais%20Aquarela%20Slim%20Verde.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/listrado/Listras%20Verticais%20Aquarela%20Slim%20Verde.jpg', this)">🤍</button>
+      <img src="listrado/Listras%20Verticais%20Aquarela%20Slim%20Verde.jpg" alt="Listras Verticais Aquarela Slim Verde" onclick="abrirModal('listrado/Listras%20Verticais%20Aquarela%20Slim%20Verde.jpg')">
+      <span>Listras Verticais Aquarela Slim Verde</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/listrado/Listras%20Verticais%20Aquarela%20Verde%20%28STILL%29.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/listrado/Listras%20Verticais%20Aquarela%20Verde%20%28STILL%29.jpg', this)">🤍</button>
+      <img src="listrado/Listras%20Verticais%20Aquarela%20Verde%20%28STILL%29.jpg" alt="Listras Verticais Aquarela Verde (STILL)" onclick="abrirModal('listrado/Listras%20Verticais%20Aquarela%20Verde%20%28STILL%29.jpg')">
+      <span>Listras Verticais Aquarela Verde (STILL)</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/listrado/Listras%20Verticais%20Aquarela%20Verde.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/listrado/Listras%20Verticais%20Aquarela%20Verde.jpg', this)">🤍</button>
+      <img src="listrado/Listras%20Verticais%20Aquarela%20Verde.jpg" alt="Listras Verticais Aquarela Verde" onclick="abrirModal('listrado/Listras%20Verticais%20Aquarela%20Verde.jpg')">
+      <span>Listras Verticais Aquarela Verde</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/listrado/N%C3%A1utico%20Listrado%20%28STILL%29.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/listrado/N%C3%A1utico%20Listrado%20%28STILL%29.jpg', this)">🤍</button>
+      <img src="listrado/N%C3%A1utico%20Listrado%20%28STILL%29.jpg" alt="Náutico Listrado (STILL)" onclick="abrirModal('listrado/N%C3%A1utico%20Listrado%20%28STILL%29.jpg')">
+      <span>Náutico Listrado (STILL)</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/listrado/Pinceladas%20Listrado%20Azul%20Marinho%20%28STILL%29.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/listrado/Pinceladas%20Listrado%20Azul%20Marinho%20%28STILL%29.jpg', this)">🤍</button>
+      <img src="listrado/Pinceladas%20Listrado%20Azul%20Marinho%20%28STILL%29.jpg" alt="Pinceladas Listrado Azul Marinho (STILL)" onclick="abrirModal('listrado/Pinceladas%20Listrado%20Azul%20Marinho%20%28STILL%29.jpg')">
+      <span>Pinceladas Listrado Azul Marinho (STILL)</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/listrado/Pinceladas%20Listrado%20Azul%20Marinho.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/listrado/Pinceladas%20Listrado%20Azul%20Marinho.jpg', this)">🤍</button>
+      <img src="listrado/Pinceladas%20Listrado%20Azul%20Marinho.jpg" alt="Pinceladas Listrado Azul Marinho" onclick="abrirModal('listrado/Pinceladas%20Listrado%20Azul%20Marinho.jpg')">
+      <span>Pinceladas Listrado Azul Marinho</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/listrado/Pinceladas%20Listrado%20Grafite%20%28STILL%29.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/listrado/Pinceladas%20Listrado%20Grafite%20%28STILL%29.jpg', this)">🤍</button>
+      <img src="listrado/Pinceladas%20Listrado%20Grafite%20%28STILL%29.jpg" alt="Pinceladas Listrado Grafite (STILL)" onclick="abrirModal('listrado/Pinceladas%20Listrado%20Grafite%20%28STILL%29.jpg')">
+      <span>Pinceladas Listrado Grafite (STILL)</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/listrado/Pinceladas%20Listrado%20Verde%20%28STILL%29.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/listrado/Pinceladas%20Listrado%20Verde%20%28STILL%29.jpg', this)">🤍</button>
+      <img src="listrado/Pinceladas%20Listrado%20Verde%20%28STILL%29.jpg" alt="Pinceladas Listrado Verde (STILL)" onclick="abrirModal('listrado/Pinceladas%20Listrado%20Verde%20%28STILL%29.jpg')">
+      <span>Pinceladas Listrado Verde (STILL)</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/listrado/Riscado%20Areia%20%28STILL%29.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/listrado/Riscado%20Areia%20%28STILL%29.jpg', this)">🤍</button>
+      <img src="listrado/Riscado%20Areia%20%28STILL%29.jpg" alt="Riscado Areia (STILL)" onclick="abrirModal('listrado/Riscado%20Areia%20%28STILL%29.jpg')">
+      <span>Riscado Areia (STILL)</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/listrado/Riscado%20Azul%20%28STILL%29.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/listrado/Riscado%20Azul%20%28STILL%29.jpg', this)">🤍</button>
+      <img src="listrado/Riscado%20Azul%20%28STILL%29.jpg" alt="Riscado Azul (STILL)" onclick="abrirModal('listrado/Riscado%20Azul%20%28STILL%29.jpg')">
+      <span>Riscado Azul (STILL)</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/listrado/Riscado%20Azul.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/listrado/Riscado%20Azul.jpg', this)">🤍</button>
+      <img src="listrado/Riscado%20Azul.jpg" alt="Riscado Azul" onclick="abrirModal('listrado/Riscado%20Azul.jpg')">
+      <span>Riscado Azul</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/listrado/Riscado%20Cinza%20%28STILL%29.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/listrado/Riscado%20Cinza%20%28STILL%29.jpg', this)">🤍</button>
+      <img src="listrado/Riscado%20Cinza%20%28STILL%29.jpg" alt="Riscado Cinza (STILL)" onclick="abrirModal('listrado/Riscado%20Cinza%20%28STILL%29.jpg')">
+      <span>Riscado Cinza (STILL)</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/listrado/Riscado%20Grafite%20%28STILL%29.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/listrado/Riscado%20Grafite%20%28STILL%29.jpg', this)">🤍</button>
+      <img src="listrado/Riscado%20Grafite%20%28STILL%29.jpg" alt="Riscado Grafite (STILL)" onclick="abrirModal('listrado/Riscado%20Grafite%20%28STILL%29.jpg')">
+      <span>Riscado Grafite (STILL)</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/listrado/Riscado%20Rosa%20%28STILL%29.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/listrado/Riscado%20Rosa%20%28STILL%29.jpg', this)">🤍</button>
+      <img src="listrado/Riscado%20Rosa%20%28STILL%29.jpg" alt="Riscado Rosa (STILL)" onclick="abrirModal('listrado/Riscado%20Rosa%20%28STILL%29.jpg')">
+      <span>Riscado Rosa (STILL)</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/listrado/Riscado%20Verde%20%28STILL%29.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/listrado/Riscado%20Verde%20%28STILL%29.jpg', this)">🤍</button>
+      <img src="listrado/Riscado%20Verde%20%28STILL%29.jpg" alt="Riscado Verde (STILL)" onclick="abrirModal('listrado/Riscado%20Verde%20%28STILL%29.jpg')">
+      <span>Riscado Verde (STILL)</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/listrado/Setas%20Infantil%20Areia%20%28STILL%29.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/listrado/Setas%20Infantil%20Areia%20%28STILL%29.jpg', this)">🤍</button>
+      <img src="listrado/Setas%20Infantil%20Areia%20%28STILL%29.jpg" alt="Setas Infantil Areia (STILL)" onclick="abrirModal('listrado/Setas%20Infantil%20Areia%20%28STILL%29.jpg')">
+      <span>Setas Infantil Areia (STILL)</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/listrado/Setas%20Infantil%20Azul%20%28STILL%29.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/listrado/Setas%20Infantil%20Azul%20%28STILL%29.jpg', this)">🤍</button>
+      <img src="listrado/Setas%20Infantil%20Azul%20%28STILL%29.jpg" alt="Setas Infantil Azul (STILL)" onclick="abrirModal('listrado/Setas%20Infantil%20Azul%20%28STILL%29.jpg')">
+      <span>Setas Infantil Azul (STILL)</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/listrado/Setas%20Infantil%20Azul%20Marinho%20%28STILL%29.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/listrado/Setas%20Infantil%20Azul%20Marinho%20%28STILL%29.jpg', this)">🤍</button>
+      <img src="listrado/Setas%20Infantil%20Azul%20Marinho%20%28STILL%29.jpg" alt="Setas Infantil Azul Marinho (STILL)" onclick="abrirModal('listrado/Setas%20Infantil%20Azul%20Marinho%20%28STILL%29.jpg')">
+      <span>Setas Infantil Azul Marinho (STILL)</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/listrado/Setas%20Infantil%20Cinza%20%28STILL%29.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/listrado/Setas%20Infantil%20Cinza%20%28STILL%29.jpg', this)">🤍</button>
+      <img src="listrado/Setas%20Infantil%20Cinza%20%28STILL%29.jpg" alt="Setas Infantil Cinza (STILL)" onclick="abrirModal('listrado/Setas%20Infantil%20Cinza%20%28STILL%29.jpg')">
+      <span>Setas Infantil Cinza (STILL)</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/listrado/Setas%20Infantil%20Preto%20%28STILL%29.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/listrado/Setas%20Infantil%20Preto%20%28STILL%29.jpg', this)">🤍</button>
+      <img src="listrado/Setas%20Infantil%20Preto%20%28STILL%29.jpg" alt="Setas Infantil Preto (STILL)" onclick="abrirModal('listrado/Setas%20Infantil%20Preto%20%28STILL%29.jpg')">
+      <span>Setas Infantil Preto (STILL)</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/listrado/Setas%20Infantil%20Rosa%20%28STILL%29.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/listrado/Setas%20Infantil%20Rosa%20%28STILL%29.jpg', this)">🤍</button>
+      <img src="listrado/Setas%20Infantil%20Rosa%20%28STILL%29.jpg" alt="Setas Infantil Rosa (STILL)" onclick="abrirModal('listrado/Setas%20Infantil%20Rosa%20%28STILL%29.jpg')">
+      <span>Setas Infantil Rosa (STILL)</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/listrado/Setas%20Infantil%20Verde%20%28STILL%29.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/listrado/Setas%20Infantil%20Verde%20%28STILL%29.jpg', this)">🤍</button>
+      <img src="listrado/Setas%20Infantil%20Verde%20%28STILL%29.jpg" alt="Setas Infantil Verde (STILL)" onclick="abrirModal('listrado/Setas%20Infantil%20Verde%20%28STILL%29.jpg')">
+      <span>Setas Infantil Verde (STILL)</span>
+    </div>
 </div>
 <div class="modal" id="modal">
   <img id="modal-img" src="">
@@ -918,64 +851,12 @@
 </div>
 <script src="https://unpkg.com/@panzoom/panzoom@9.4.0/dist/panzoom.min.js"></script>
 <script>
-document.addEventListener('DOMContentLoaded', function () {
   const modal = document.getElementById('modal');
   const modalImg = document.getElementById('modal-img');
   let panzoomInstance;
-
-  window.abrirModal = function (src) {
-    modal.style.display = 'flex';
-    modalImg.src = src;
-    if (panzoomInstance) panzoomInstance.destroy();
-    panzoomInstance = Panzoom(modalImg, { maxScale: 5 });
-  }
-
-  window.fecharModal = function () {
-    modal.style.display = 'none';
-    if (panzoomInstance) panzoomInstance.destroy();
-  }
-
-  window.toggleFavorito = function (src, el) {
-    let favoritos = JSON.parse(localStorage.getItem('favoritos')) || [];
-    const index = favoritos.indexOf(src);
-    const agora = new Date().toISOString();
-    if (index >= 0) {
-      favoritos.splice(index, 1);
-      el.classList.remove('favorito');
-      el.textContent = '🤍';
-    } else {
-      favoritos.push(src);
-      el.classList.add('favorito');
-      el.textContent = '❤️';
-      const log = JSON.parse(localStorage.getItem('favoritos_log')) || [];
-      log.push({ img: src, data: agora });
-      localStorage.setItem('favoritos_log', JSON.stringify(log));
-    }
-    localStorage.setItem('favoritos', JSON.stringify(favoritos));
-  }
-
-  const favoritos = JSON.parse(localStorage.getItem('favoritos')) || [];
-  document.querySelectorAll('.favorito-btn').forEach(btn => {
-    const src = btn.getAttribute('onclick').match(/'(.*?)'/)[1];
-    if (favoritos.includes(src)) {
-      btn.textContent = '❤️';
-      btn.classList.add('favorito');
-    }
-  });
-
-  window.baixarSelecionadas = function () {
-    const selecionadas = Array.from(document.querySelectorAll('.checkbox-select:checked')).map(cb => cb.value);
-    if (selecionadas.length === 0) return alert("Nenhuma imagem selecionada.");
-    selecionadas.forEach(src => {
-      const link = document.createElement('a');
-      link.href = src;
-      link.download = src.split('/').pop();
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-    });
-  }
-});
+  function abrirModal(src) { modal.style.display = 'flex'; modalImg.src = src; panzoomInstance = Panzoom(modalImg); }
+  function fecharModal() { modal.style.display = 'none'; if (panzoomInstance) panzoomInstance.destroy(); }
+  function toggleFavorito(src, el) { let f = JSON.parse(localStorage.getItem('favoritos'))||[]; const i = f.indexOf(src); if (i>=0) { f.splice(i,1); el.textContent='🤍'; } else { f.push(src); el.textContent='❤️'; } localStorage.setItem('favoritos', JSON.stringify(f)); }
 </script>
 </body>
 </html>

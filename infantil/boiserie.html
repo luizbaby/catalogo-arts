@@ -5,157 +5,90 @@
   <title>Boiserie</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-    * { box-sizing: border-box; }
     body { font-family: sans-serif; margin: 0; background: #f4f4f4; }
-    .top-bar {
-      position: sticky;
-      top: 0;
-      background: white;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      align-items: center;
-      padding: 10px 20px;
-      gap: 10px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      z-index: 1000;
-    }
-    .btn {
-      background: #01b9b5;
-      color: white;
-      text-decoration: none;
-      padding: 8px 14px;
-      border-radius: 6px;
-      font-size: 14px;
-      cursor: pointer;
-    }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(1, 1fr);
-      gap: 20px;
-      padding: 20px;
-    }
-    @media (min-width: 768px) {
-      .grid { grid-template-columns: repeat(3, 1fr); }
-    }
-    .card {
-      background: white;
-      padding: 10px;
-      border-radius: 10px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      text-align: center;
-      position: relative;
-    }
+    .top-bar { position: sticky; top: 0; background: white; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; padding: 10px 20px; gap: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); z-index: 1000; }
+    .btn { background: #01b9b5; color: white; text-decoration: none; padding: 8px 14px; border-radius: 6px; font-size: 14px; cursor: pointer; }
+    .grid { display: grid; grid-template-columns: repeat(1, 1fr); gap: 20px; padding: 20px; }
+    @media (min-width: 768px) { .grid { grid-template-columns: repeat(3, 1fr); } }
+    .card { background: white; padding: 10px; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); text-align: center; position: relative; }
     .card img { width: 100%; border-radius: 8px; cursor: pointer; }
     .card span { display: block; margin-top: 8px; font-weight: bold; }
-    .checkbox-select {
-      position: absolute;
-      top: 10px;
-      left: 10px;
-      transform: scale(1.5);
-    }
-    .favorito-btn {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      background: none;
-      border: none;
-      font-size: 20px;
-      cursor: pointer;
-    }
+    .checkbox-select { position: absolute; top: 10px; left: 10px; transform: scale(1.5); }
+    .favorito-btn { position: absolute; top: 10px; right: 10px; background: none; border: none; font-size: 20px; cursor: pointer; }
     .favorito-btn.favorito { color: red; }
-    .modal {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0,0,0,0.85);
-      z-index: 9999;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-    }
+    .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); z-index: 9999; align-items: center; justify-content: center; flex-direction: column; }
     .modal img { max-width: 90vw; max-height: 80vh; }
-    .modal button {
-      margin-top: 10px;
-      padding: 8px 20px;
-      font-size: 14px;
-    }
   </style>
 </head>
 <body>
 <div class="top-bar">
-  <div>
-    <a href="https://catalogo.artspapeisdeparede.com.br/index.html" class="btn">&larr; Voltar</a>
-    <button class="btn" onclick="baixarSelecionadas()">📥 Baixar selecionadas</button>
-  </div>
+  <a href="https://catalogo.artspapeisdeparede.com.br/index.html" class="btn">&larr; Voltar</a>
+  <button class="btn" onclick="baixarSelecionadas()">📥 Baixar selecionadas</button>
   <h1>Boiserie</h1>
   <a href="https://catalogo.artspapeisdeparede.com.br/favoritos.html" class="btn">⭐ Ver favoritos</a>
 </div>
 <div class="grid">
 <div class="card">
-              <input type="checkbox" class="checkbox-select" value="boiserie/Boiserie%20Off%20White%20%28STILL%29.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('boiserie/Boiserie%20Off%20White%20%28STILL%29.jpg', this)">🤍</button>
-              <img src="boiserie/Boiserie%20Off%20White%20%28STILL%29.jpg" alt="Boiserie Off White (STILL)" onclick="abrirModal('boiserie/Boiserie%20Off%20White%20%28STILL%29.jpg')">
-              <span>Boiserie Off White (STILL)</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="boiserie/Boiserie%20Off%20White.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('boiserie/Boiserie%20Off%20White.jpg', this)">🤍</button>
-              <img src="boiserie/Boiserie%20Off%20White.jpg" alt="Boiserie Off White" onclick="abrirModal('boiserie/Boiserie%20Off%20White.jpg')">
-              <span>Boiserie Off White</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="boiserie/Boiserie%20Rosa%20%28STILL%29.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('boiserie/Boiserie%20Rosa%20%28STILL%29.jpg', this)">🤍</button>
-              <img src="boiserie/Boiserie%20Rosa%20%28STILL%29.jpg" alt="Boiserie Rosa (STILL)" onclick="abrirModal('boiserie/Boiserie%20Rosa%20%28STILL%29.jpg')">
-              <span>Boiserie Rosa (STILL)</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="boiserie/Boiserie%20Rosa.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('boiserie/Boiserie%20Rosa.jpg', this)">🤍</button>
-              <img src="boiserie/Boiserie%20Rosa.jpg" alt="Boiserie Rosa" onclick="abrirModal('boiserie/Boiserie%20Rosa.jpg')">
-              <span>Boiserie Rosa</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="boiserie/Boiserie%20Verde%20%C3%81gua%20%28STILL%29.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('boiserie/Boiserie%20Verde%20%C3%81gua%20%28STILL%29.jpg', this)">🤍</button>
-              <img src="boiserie/Boiserie%20Verde%20%C3%81gua%20%28STILL%29.jpg" alt="Boiserie Verde Água (STILL)" onclick="abrirModal('boiserie/Boiserie%20Verde%20%C3%81gua%20%28STILL%29.jpg')">
-              <span>Boiserie Verde Água (STILL)</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="boiserie/Boiserie%20Verde%20%C3%81gua.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('boiserie/Boiserie%20Verde%20%C3%81gua.jpg', this)">🤍</button>
-              <img src="boiserie/Boiserie%20Verde%20%C3%81gua.jpg" alt="Boiserie Verde Água" onclick="abrirModal('boiserie/Boiserie%20Verde%20%C3%81gua.jpg')">
-              <span>Boiserie Verde Água</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="boiserie/Cerca%20de%20Madeira%20%28STILL%29.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('boiserie/Cerca%20de%20Madeira%20%28STILL%29.jpg', this)">🤍</button>
-              <img src="boiserie/Cerca%20de%20Madeira%20%28STILL%29.jpg" alt="Cerca de Madeira (STILL)" onclick="abrirModal('boiserie/Cerca%20de%20Madeira%20%28STILL%29.jpg')">
-              <span>Cerca de Madeira (STILL)</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="boiserie/Lambri%20Azul%20%28STILL%29.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('boiserie/Lambri%20Azul%20%28STILL%29.jpg', this)">🤍</button>
-              <img src="boiserie/Lambri%20Azul%20%28STILL%29.jpg" alt="Lambri Azul (STILL)" onclick="abrirModal('boiserie/Lambri%20Azul%20%28STILL%29.jpg')">
-              <span>Lambri Azul (STILL)</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="boiserie/Lambri%20Branco%20%28STILL%29.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('boiserie/Lambri%20Branco%20%28STILL%29.jpg', this)">🤍</button>
-              <img src="boiserie/Lambri%20Branco%20%28STILL%29.jpg" alt="Lambri Branco (STILL)" onclick="abrirModal('boiserie/Lambri%20Branco%20%28STILL%29.jpg')">
-              <span>Lambri Branco (STILL)</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="boiserie/Lambri%20Camur%C3%A7a%20%28STILL%29.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('boiserie/Lambri%20Camur%C3%A7a%20%28STILL%29.jpg', this)">🤍</button>
-              <img src="boiserie/Lambri%20Camur%C3%A7a%20%28STILL%29.jpg" alt="Lambri Camurça (STILL)" onclick="abrirModal('boiserie/Lambri%20Camur%C3%A7a%20%28STILL%29.jpg')">
-              <span>Lambri Camurça (STILL)</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="boiserie/Lambri%20Rosa%20%28STILL%29.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('boiserie/Lambri%20Rosa%20%28STILL%29.jpg', this)">🤍</button>
-              <img src="boiserie/Lambri%20Rosa%20%28STILL%29.jpg" alt="Lambri Rosa (STILL)" onclick="abrirModal('boiserie/Lambri%20Rosa%20%28STILL%29.jpg')">
-              <span>Lambri Rosa (STILL)</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="boiserie/Lambri%20Verde%20%28STILL%29.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('boiserie/Lambri%20Verde%20%28STILL%29.jpg', this)">🤍</button>
-              <img src="boiserie/Lambri%20Verde%20%28STILL%29.jpg" alt="Lambri Verde (STILL)" onclick="abrirModal('boiserie/Lambri%20Verde%20%28STILL%29.jpg')">
-              <span>Lambri Verde (STILL)</span>
-            </div>
+      <input type="checkbox" class="checkbox-select" value="infantil/boiserie/Boiserie%20Off%20White%20%28STILL%29.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/boiserie/Boiserie%20Off%20White%20%28STILL%29.jpg', this)">🤍</button>
+      <img src="boiserie/Boiserie%20Off%20White%20%28STILL%29.jpg" alt="Boiserie Off White (STILL)" onclick="abrirModal('boiserie/Boiserie%20Off%20White%20%28STILL%29.jpg')">
+      <span>Boiserie Off White (STILL)</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/boiserie/Boiserie%20Off%20White.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/boiserie/Boiserie%20Off%20White.jpg', this)">🤍</button>
+      <img src="boiserie/Boiserie%20Off%20White.jpg" alt="Boiserie Off White" onclick="abrirModal('boiserie/Boiserie%20Off%20White.jpg')">
+      <span>Boiserie Off White</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/boiserie/Boiserie%20Rosa%20%28STILL%29.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/boiserie/Boiserie%20Rosa%20%28STILL%29.jpg', this)">🤍</button>
+      <img src="boiserie/Boiserie%20Rosa%20%28STILL%29.jpg" alt="Boiserie Rosa (STILL)" onclick="abrirModal('boiserie/Boiserie%20Rosa%20%28STILL%29.jpg')">
+      <span>Boiserie Rosa (STILL)</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/boiserie/Boiserie%20Rosa.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/boiserie/Boiserie%20Rosa.jpg', this)">🤍</button>
+      <img src="boiserie/Boiserie%20Rosa.jpg" alt="Boiserie Rosa" onclick="abrirModal('boiserie/Boiserie%20Rosa.jpg')">
+      <span>Boiserie Rosa</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/boiserie/Boiserie%20Verde%20%C3%81gua%20%28STILL%29.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/boiserie/Boiserie%20Verde%20%C3%81gua%20%28STILL%29.jpg', this)">🤍</button>
+      <img src="boiserie/Boiserie%20Verde%20%C3%81gua%20%28STILL%29.jpg" alt="Boiserie Verde Água (STILL)" onclick="abrirModal('boiserie/Boiserie%20Verde%20%C3%81gua%20%28STILL%29.jpg')">
+      <span>Boiserie Verde Água (STILL)</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/boiserie/Boiserie%20Verde%20%C3%81gua.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/boiserie/Boiserie%20Verde%20%C3%81gua.jpg', this)">🤍</button>
+      <img src="boiserie/Boiserie%20Verde%20%C3%81gua.jpg" alt="Boiserie Verde Água" onclick="abrirModal('boiserie/Boiserie%20Verde%20%C3%81gua.jpg')">
+      <span>Boiserie Verde Água</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/boiserie/Cerca%20de%20Madeira%20%28STILL%29.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/boiserie/Cerca%20de%20Madeira%20%28STILL%29.jpg', this)">🤍</button>
+      <img src="boiserie/Cerca%20de%20Madeira%20%28STILL%29.jpg" alt="Cerca de Madeira (STILL)" onclick="abrirModal('boiserie/Cerca%20de%20Madeira%20%28STILL%29.jpg')">
+      <span>Cerca de Madeira (STILL)</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/boiserie/Lambri%20Azul%20%28STILL%29.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/boiserie/Lambri%20Azul%20%28STILL%29.jpg', this)">🤍</button>
+      <img src="boiserie/Lambri%20Azul%20%28STILL%29.jpg" alt="Lambri Azul (STILL)" onclick="abrirModal('boiserie/Lambri%20Azul%20%28STILL%29.jpg')">
+      <span>Lambri Azul (STILL)</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/boiserie/Lambri%20Branco%20%28STILL%29.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/boiserie/Lambri%20Branco%20%28STILL%29.jpg', this)">🤍</button>
+      <img src="boiserie/Lambri%20Branco%20%28STILL%29.jpg" alt="Lambri Branco (STILL)" onclick="abrirModal('boiserie/Lambri%20Branco%20%28STILL%29.jpg')">
+      <span>Lambri Branco (STILL)</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/boiserie/Lambri%20Camur%C3%A7a%20%28STILL%29.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/boiserie/Lambri%20Camur%C3%A7a%20%28STILL%29.jpg', this)">🤍</button>
+      <img src="boiserie/Lambri%20Camur%C3%A7a%20%28STILL%29.jpg" alt="Lambri Camurça (STILL)" onclick="abrirModal('boiserie/Lambri%20Camur%C3%A7a%20%28STILL%29.jpg')">
+      <span>Lambri Camurça (STILL)</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/boiserie/Lambri%20Rosa%20%28STILL%29.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/boiserie/Lambri%20Rosa%20%28STILL%29.jpg', this)">🤍</button>
+      <img src="boiserie/Lambri%20Rosa%20%28STILL%29.jpg" alt="Lambri Rosa (STILL)" onclick="abrirModal('boiserie/Lambri%20Rosa%20%28STILL%29.jpg')">
+      <span>Lambri Rosa (STILL)</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="infantil/boiserie/Lambri%20Verde%20%28STILL%29.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('infantil/boiserie/Lambri%20Verde%20%28STILL%29.jpg', this)">🤍</button>
+      <img src="boiserie/Lambri%20Verde%20%28STILL%29.jpg" alt="Lambri Verde (STILL)" onclick="abrirModal('boiserie/Lambri%20Verde%20%28STILL%29.jpg')">
+      <span>Lambri Verde (STILL)</span>
+    </div>
 </div>
 <div class="modal" id="modal">
   <img id="modal-img" src="">
@@ -163,64 +96,12 @@
 </div>
 <script src="https://unpkg.com/@panzoom/panzoom@9.4.0/dist/panzoom.min.js"></script>
 <script>
-document.addEventListener('DOMContentLoaded', function () {
   const modal = document.getElementById('modal');
   const modalImg = document.getElementById('modal-img');
   let panzoomInstance;
-
-  window.abrirModal = function (src) {
-    modal.style.display = 'flex';
-    modalImg.src = src;
-    if (panzoomInstance) panzoomInstance.destroy();
-    panzoomInstance = Panzoom(modalImg, { maxScale: 5 });
-  }
-
-  window.fecharModal = function () {
-    modal.style.display = 'none';
-    if (panzoomInstance) panzoomInstance.destroy();
-  }
-
-  window.toggleFavorito = function (src, el) {
-    let favoritos = JSON.parse(localStorage.getItem('favoritos')) || [];
-    const index = favoritos.indexOf(src);
-    const agora = new Date().toISOString();
-    if (index >= 0) {
-      favoritos.splice(index, 1);
-      el.classList.remove('favorito');
-      el.textContent = '🤍';
-    } else {
-      favoritos.push(src);
-      el.classList.add('favorito');
-      el.textContent = '❤️';
-      const log = JSON.parse(localStorage.getItem('favoritos_log')) || [];
-      log.push({ img: src, data: agora });
-      localStorage.setItem('favoritos_log', JSON.stringify(log));
-    }
-    localStorage.setItem('favoritos', JSON.stringify(favoritos));
-  }
-
-  const favoritos = JSON.parse(localStorage.getItem('favoritos')) || [];
-  document.querySelectorAll('.favorito-btn').forEach(btn => {
-    const src = btn.getAttribute('onclick').match(/'(.*?)'/)[1];
-    if (favoritos.includes(src)) {
-      btn.textContent = '❤️';
-      btn.classList.add('favorito');
-    }
-  });
-
-  window.baixarSelecionadas = function () {
-    const selecionadas = Array.from(document.querySelectorAll('.checkbox-select:checked')).map(cb => cb.value);
-    if (selecionadas.length === 0) return alert("Nenhuma imagem selecionada.");
-    selecionadas.forEach(src => {
-      const link = document.createElement('a');
-      link.href = src;
-      link.download = src.split('/').pop();
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-    });
-  }
-});
+  function abrirModal(src) { modal.style.display = 'flex'; modalImg.src = src; panzoomInstance = Panzoom(modalImg); }
+  function fecharModal() { modal.style.display = 'none'; if (panzoomInstance) panzoomInstance.destroy(); }
+  function toggleFavorito(src, el) { let f = JSON.parse(localStorage.getItem('favoritos'))||[]; const i = f.indexOf(src); if (i>=0) { f.splice(i,1); el.textContent='🤍'; } else { f.push(src); el.textContent='❤️'; } localStorage.setItem('favoritos', JSON.stringify(f)); }
 </script>
 </body>
 </html>

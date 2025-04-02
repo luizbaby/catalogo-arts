@@ -5,457 +5,390 @@
   <title>Madeira</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-    * { box-sizing: border-box; }
     body { font-family: sans-serif; margin: 0; background: #f4f4f4; }
-    .top-bar {
-      position: sticky;
-      top: 0;
-      background: white;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      align-items: center;
-      padding: 10px 20px;
-      gap: 10px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      z-index: 1000;
-    }
-    .btn {
-      background: #01b9b5;
-      color: white;
-      text-decoration: none;
-      padding: 8px 14px;
-      border-radius: 6px;
-      font-size: 14px;
-      cursor: pointer;
-    }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(1, 1fr);
-      gap: 20px;
-      padding: 20px;
-    }
-    @media (min-width: 768px) {
-      .grid { grid-template-columns: repeat(3, 1fr); }
-    }
-    .card {
-      background: white;
-      padding: 10px;
-      border-radius: 10px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      text-align: center;
-      position: relative;
-    }
+    .top-bar { position: sticky; top: 0; background: white; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; padding: 10px 20px; gap: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); z-index: 1000; }
+    .btn { background: #01b9b5; color: white; text-decoration: none; padding: 8px 14px; border-radius: 6px; font-size: 14px; cursor: pointer; }
+    .grid { display: grid; grid-template-columns: repeat(1, 1fr); gap: 20px; padding: 20px; }
+    @media (min-width: 768px) { .grid { grid-template-columns: repeat(3, 1fr); } }
+    .card { background: white; padding: 10px; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); text-align: center; position: relative; }
     .card img { width: 100%; border-radius: 8px; cursor: pointer; }
     .card span { display: block; margin-top: 8px; font-weight: bold; }
-    .checkbox-select {
-      position: absolute;
-      top: 10px;
-      left: 10px;
-      transform: scale(1.5);
-    }
-    .favorito-btn {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      background: none;
-      border: none;
-      font-size: 20px;
-      cursor: pointer;
-    }
+    .checkbox-select { position: absolute; top: 10px; left: 10px; transform: scale(1.5); }
+    .favorito-btn { position: absolute; top: 10px; right: 10px; background: none; border: none; font-size: 20px; cursor: pointer; }
     .favorito-btn.favorito { color: red; }
-    .modal {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0,0,0,0.85);
-      z-index: 9999;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-    }
+    .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); z-index: 9999; align-items: center; justify-content: center; flex-direction: column; }
     .modal img { max-width: 90vw; max-height: 80vh; }
-    .modal button {
-      margin-top: 10px;
-      padding: 8px 20px;
-      font-size: 14px;
-    }
   </style>
 </head>
 <body>
 <div class="top-bar">
-  <div>
-    <a href="https://catalogo.artspapeisdeparede.com.br/index.html" class="btn">&larr; Voltar</a>
-    <button class="btn" onclick="baixarSelecionadas()">📥 Baixar selecionadas</button>
-  </div>
+  <a href="https://catalogo.artspapeisdeparede.com.br/index.html" class="btn">&larr; Voltar</a>
+  <button class="btn" onclick="baixarSelecionadas()">📥 Baixar selecionadas</button>
   <h1>Madeira</h1>
   <a href="https://catalogo.artspapeisdeparede.com.br/favoritos.html" class="btn">⭐ Ver favoritos</a>
 </div>
 <div class="grid">
 <div class="card">
-              <input type="checkbox" class="checkbox-select" value="madeira/Boiserie%20Off%20White%20%28STILL%29.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('madeira/Boiserie%20Off%20White%20%28STILL%29.jpg', this)">🤍</button>
-              <img src="madeira/Boiserie%20Off%20White%20%28STILL%29.jpg" alt="Boiserie Off White (STILL)" onclick="abrirModal('madeira/Boiserie%20Off%20White%20%28STILL%29.jpg')">
-              <span>Boiserie Off White (STILL)</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="madeira/Boiserie%20Off%20White.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('madeira/Boiserie%20Off%20White.jpg', this)">🤍</button>
-              <img src="madeira/Boiserie%20Off%20White.jpg" alt="Boiserie Off White" onclick="abrirModal('madeira/Boiserie%20Off%20White.jpg')">
-              <span>Boiserie Off White</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="madeira/Boiserie%20Rosa%20%28STILL%29.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('madeira/Boiserie%20Rosa%20%28STILL%29.jpg', this)">🤍</button>
-              <img src="madeira/Boiserie%20Rosa%20%28STILL%29.jpg" alt="Boiserie Rosa (STILL)" onclick="abrirModal('madeira/Boiserie%20Rosa%20%28STILL%29.jpg')">
-              <span>Boiserie Rosa (STILL)</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="madeira/Boiserie%20Rosa.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('madeira/Boiserie%20Rosa.jpg', this)">🤍</button>
-              <img src="madeira/Boiserie%20Rosa.jpg" alt="Boiserie Rosa" onclick="abrirModal('madeira/Boiserie%20Rosa.jpg')">
-              <span>Boiserie Rosa</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="madeira/Boiserie%20Verde%20%C3%81gua%20%28STILL%29.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('madeira/Boiserie%20Verde%20%C3%81gua%20%28STILL%29.jpg', this)">🤍</button>
-              <img src="madeira/Boiserie%20Verde%20%C3%81gua%20%28STILL%29.jpg" alt="Boiserie Verde Água (STILL)" onclick="abrirModal('madeira/Boiserie%20Verde%20%C3%81gua%20%28STILL%29.jpg')">
-              <span>Boiserie Verde Água (STILL)</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="madeira/Boiserie%20Verde%20%C3%81gua.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('madeira/Boiserie%20Verde%20%C3%81gua.jpg', this)">🤍</button>
-              <img src="madeira/Boiserie%20Verde%20%C3%81gua.jpg" alt="Boiserie Verde Água" onclick="abrirModal('madeira/Boiserie%20Verde%20%C3%81gua.jpg')">
-              <span>Boiserie Verde Água</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="madeira/Chevron%20Concreto%20Wood%20%282%29.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('madeira/Chevron%20Concreto%20Wood%20%282%29.jpg', this)">🤍</button>
-              <img src="madeira/Chevron%20Concreto%20Wood%20%282%29.jpg" alt="Chevron Concreto Wood" onclick="abrirModal('madeira/Chevron%20Concreto%20Wood%20%282%29.jpg')">
-              <span>Chevron Concreto Wood</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="madeira/Chevron%20Concreto%20Wood%20%28STILL%29.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('madeira/Chevron%20Concreto%20Wood%20%28STILL%29.jpg', this)">🤍</button>
-              <img src="madeira/Chevron%20Concreto%20Wood%20%28STILL%29.jpg" alt="Chevron Concreto Wood (STILL)" onclick="abrirModal('madeira/Chevron%20Concreto%20Wood%20%28STILL%29.jpg')">
-              <span>Chevron Concreto Wood (STILL)</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="madeira/Chevron%20Concreto%20Wood%20%28WIDE%29%20%282%29.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('madeira/Chevron%20Concreto%20Wood%20%28WIDE%29%20%282%29.jpg', this)">🤍</button>
-              <img src="madeira/Chevron%20Concreto%20Wood%20%28WIDE%29%20%282%29.jpg" alt="Chevron Concreto Wood (WIDE)" onclick="abrirModal('madeira/Chevron%20Concreto%20Wood%20%28WIDE%29%20%282%29.jpg')">
-              <span>Chevron Concreto Wood (WIDE)</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="madeira/Chevron%20Concreto%20Wood%20%28WIDE%29%20%283%29.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('madeira/Chevron%20Concreto%20Wood%20%28WIDE%29%20%283%29.jpg', this)">🤍</button>
-              <img src="madeira/Chevron%20Concreto%20Wood%20%28WIDE%29%20%283%29.jpg" alt="Chevron Concreto Wood (WIDE)" onclick="abrirModal('madeira/Chevron%20Concreto%20Wood%20%28WIDE%29%20%283%29.jpg')">
-              <span>Chevron Concreto Wood (WIDE)</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="madeira/Chevron%20Concreto%20Wood%20%28WIDE%29%20%284%29.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('madeira/Chevron%20Concreto%20Wood%20%28WIDE%29%20%284%29.jpg', this)">🤍</button>
-              <img src="madeira/Chevron%20Concreto%20Wood%20%28WIDE%29%20%284%29.jpg" alt="Chevron Concreto Wood (WIDE)" onclick="abrirModal('madeira/Chevron%20Concreto%20Wood%20%28WIDE%29%20%284%29.jpg')">
-              <span>Chevron Concreto Wood (WIDE)</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="madeira/Chevron%20Concreto%20Wood%20%28WIDE%29.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('madeira/Chevron%20Concreto%20Wood%20%28WIDE%29.jpg', this)">🤍</button>
-              <img src="madeira/Chevron%20Concreto%20Wood%20%28WIDE%29.jpg" alt="Chevron Concreto Wood (WIDE)" onclick="abrirModal('madeira/Chevron%20Concreto%20Wood%20%28WIDE%29.jpg')">
-              <span>Chevron Concreto Wood (WIDE)</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="madeira/Chevron%20Concreto%20Wood%202%20%282%29.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('madeira/Chevron%20Concreto%20Wood%202%20%282%29.jpg', this)">🤍</button>
-              <img src="madeira/Chevron%20Concreto%20Wood%202%20%282%29.jpg" alt="Chevron Concreto Wood 2" onclick="abrirModal('madeira/Chevron%20Concreto%20Wood%202%20%282%29.jpg')">
-              <span>Chevron Concreto Wood 2</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="madeira/Chevron%20Concreto%20Wood%202.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('madeira/Chevron%20Concreto%20Wood%202.jpg', this)">🤍</button>
-              <img src="madeira/Chevron%20Concreto%20Wood%202.jpg" alt="Chevron Concreto Wood" onclick="abrirModal('madeira/Chevron%20Concreto%20Wood%202.jpg')">
-              <span>Chevron Concreto Wood</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="madeira/Chevron%20Concreto%20Wood%203.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('madeira/Chevron%20Concreto%20Wood%203.jpg', this)">🤍</button>
-              <img src="madeira/Chevron%20Concreto%20Wood%203.jpg" alt="Chevron Concreto Wood" onclick="abrirModal('madeira/Chevron%20Concreto%20Wood%203.jpg')">
-              <span>Chevron Concreto Wood</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="madeira/Chevron%20Concreto%20Wood.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('madeira/Chevron%20Concreto%20Wood.jpg', this)">🤍</button>
-              <img src="madeira/Chevron%20Concreto%20Wood.jpg" alt="Chevron Concreto Wood" onclick="abrirModal('madeira/Chevron%20Concreto%20Wood.jpg')">
-              <span>Chevron Concreto Wood</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="madeira/Chevron%20Wood%20%282%29.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('madeira/Chevron%20Wood%20%282%29.jpg', this)">🤍</button>
-              <img src="madeira/Chevron%20Wood%20%282%29.jpg" alt="Chevron Wood" onclick="abrirModal('madeira/Chevron%20Wood%20%282%29.jpg')">
-              <span>Chevron Wood</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="madeira/Chevron%20Wood%20%28STILL%29.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('madeira/Chevron%20Wood%20%28STILL%29.jpg', this)">🤍</button>
-              <img src="madeira/Chevron%20Wood%20%28STILL%29.jpg" alt="Chevron Wood (STILL)" onclick="abrirModal('madeira/Chevron%20Wood%20%28STILL%29.jpg')">
-              <span>Chevron Wood (STILL)</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="madeira/Chevron%20Wood%20%28WIDE%29%20%282%29.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('madeira/Chevron%20Wood%20%28WIDE%29%20%282%29.jpg', this)">🤍</button>
-              <img src="madeira/Chevron%20Wood%20%28WIDE%29%20%282%29.jpg" alt="Chevron Wood (WIDE)" onclick="abrirModal('madeira/Chevron%20Wood%20%28WIDE%29%20%282%29.jpg')">
-              <span>Chevron Wood (WIDE)</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="madeira/Chevron%20Wood%20%28WIDE%29%20%283%29.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('madeira/Chevron%20Wood%20%28WIDE%29%20%283%29.jpg', this)">🤍</button>
-              <img src="madeira/Chevron%20Wood%20%28WIDE%29%20%283%29.jpg" alt="Chevron Wood (WIDE)" onclick="abrirModal('madeira/Chevron%20Wood%20%28WIDE%29%20%283%29.jpg')">
-              <span>Chevron Wood (WIDE)</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="madeira/Chevron%20Wood%20%28WIDE%29%284%29.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('madeira/Chevron%20Wood%20%28WIDE%29%284%29.jpg', this)">🤍</button>
-              <img src="madeira/Chevron%20Wood%20%28WIDE%29%284%29.jpg" alt="Chevron Wood (WIDE)" onclick="abrirModal('madeira/Chevron%20Wood%20%28WIDE%29%284%29.jpg')">
-              <span>Chevron Wood (WIDE)</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="madeira/Chevron%20Wood%20%28WIDE%29.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('madeira/Chevron%20Wood%20%28WIDE%29.jpg', this)">🤍</button>
-              <img src="madeira/Chevron%20Wood%20%28WIDE%29.jpg" alt="Chevron Wood (WIDE)" onclick="abrirModal('madeira/Chevron%20Wood%20%28WIDE%29.jpg')">
-              <span>Chevron Wood (WIDE)</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="madeira/Chevron%20Wood%202.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('madeira/Chevron%20Wood%202.jpg', this)">🤍</button>
-              <img src="madeira/Chevron%20Wood%202.jpg" alt="Chevron Wood" onclick="abrirModal('madeira/Chevron%20Wood%202.jpg')">
-              <span>Chevron Wood</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="madeira/Chevron%20Wood%203.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('madeira/Chevron%20Wood%203.jpg', this)">🤍</button>
-              <img src="madeira/Chevron%20Wood%203.jpg" alt="Chevron Wood" onclick="abrirModal('madeira/Chevron%20Wood%203.jpg')">
-              <span>Chevron Wood</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="madeira/Chevron%20Wood%204.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('madeira/Chevron%20Wood%204.jpg', this)">🤍</button>
-              <img src="madeira/Chevron%20Wood%204.jpg" alt="Chevron Wood" onclick="abrirModal('madeira/Chevron%20Wood%204.jpg')">
-              <span>Chevron Wood</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="madeira/Chevron%20Wood%205.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('madeira/Chevron%20Wood%205.jpg', this)">🤍</button>
-              <img src="madeira/Chevron%20Wood%205.jpg" alt="Chevron Wood" onclick="abrirModal('madeira/Chevron%20Wood%205.jpg')">
-              <span>Chevron Wood</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="madeira/Chevron%20Wood.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('madeira/Chevron%20Wood.jpg', this)">🤍</button>
-              <img src="madeira/Chevron%20Wood.jpg" alt="Chevron Wood" onclick="abrirModal('madeira/Chevron%20Wood.jpg')">
-              <span>Chevron Wood</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="madeira/Concreto%20Wood%20%281%29.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('madeira/Concreto%20Wood%20%281%29.jpg', this)">🤍</button>
-              <img src="madeira/Concreto%20Wood%20%281%29.jpg" alt="Concreto Wood" onclick="abrirModal('madeira/Concreto%20Wood%20%281%29.jpg')">
-              <span>Concreto Wood</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="madeira/Concreto%20Wood%20%282%29.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('madeira/Concreto%20Wood%20%282%29.jpg', this)">🤍</button>
-              <img src="madeira/Concreto%20Wood%20%282%29.jpg" alt="Concreto Wood" onclick="abrirModal('madeira/Concreto%20Wood%20%282%29.jpg')">
-              <span>Concreto Wood</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="madeira/Concreto%20Wood%20%28STILL%29.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('madeira/Concreto%20Wood%20%28STILL%29.jpg', this)">🤍</button>
-              <img src="madeira/Concreto%20Wood%20%28STILL%29.jpg" alt="Concreto Wood (STILL)" onclick="abrirModal('madeira/Concreto%20Wood%20%28STILL%29.jpg')">
-              <span>Concreto Wood (STILL)</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="madeira/Concreto%20Wood%202.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('madeira/Concreto%20Wood%202.jpg', this)">🤍</button>
-              <img src="madeira/Concreto%20Wood%202.jpg" alt="Concreto Wood" onclick="abrirModal('madeira/Concreto%20Wood%202.jpg')">
-              <span>Concreto Wood</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="madeira/Concreto%20Wood.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('madeira/Concreto%20Wood.jpg', this)">🤍</button>
-              <img src="madeira/Concreto%20Wood.jpg" alt="Concreto Wood" onclick="abrirModal('madeira/Concreto%20Wood.jpg')">
-              <span>Concreto Wood</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="madeira/Laminado%20de%20Madeira%20Carvalho%20%282%29.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('madeira/Laminado%20de%20Madeira%20Carvalho%20%282%29.jpg', this)">🤍</button>
-              <img src="madeira/Laminado%20de%20Madeira%20Carvalho%20%282%29.jpg" alt="Laminado de Madeira Carvalho" onclick="abrirModal('madeira/Laminado%20de%20Madeira%20Carvalho%20%282%29.jpg')">
-              <span>Laminado de Madeira Carvalho</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="madeira/Laminado%20de%20Madeira%20Carvalho%20%28STILL%29.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('madeira/Laminado%20de%20Madeira%20Carvalho%20%28STILL%29.jpg', this)">🤍</button>
-              <img src="madeira/Laminado%20de%20Madeira%20Carvalho%20%28STILL%29.jpg" alt="Laminado de Madeira Carvalho (STILL)" onclick="abrirModal('madeira/Laminado%20de%20Madeira%20Carvalho%20%28STILL%29.jpg')">
-              <span>Laminado de Madeira Carvalho (STILL)</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="madeira/Laminado%20de%20Madeira%20Carvalho.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('madeira/Laminado%20de%20Madeira%20Carvalho.jpg', this)">🤍</button>
-              <img src="madeira/Laminado%20de%20Madeira%20Carvalho.jpg" alt="Laminado de Madeira Carvalho" onclick="abrirModal('madeira/Laminado%20de%20Madeira%20Carvalho.jpg')">
-              <span>Laminado de Madeira Carvalho</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="madeira/Laminado%20de%20Madeira%20Cedro%20%282%29.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('madeira/Laminado%20de%20Madeira%20Cedro%20%282%29.jpg', this)">🤍</button>
-              <img src="madeira/Laminado%20de%20Madeira%20Cedro%20%282%29.jpg" alt="Laminado de Madeira Cedro" onclick="abrirModal('madeira/Laminado%20de%20Madeira%20Cedro%20%282%29.jpg')">
-              <span>Laminado de Madeira Cedro</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="madeira/Laminado%20de%20Madeira%20Cedro%20%28STILL%29.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('madeira/Laminado%20de%20Madeira%20Cedro%20%28STILL%29.jpg', this)">🤍</button>
-              <img src="madeira/Laminado%20de%20Madeira%20Cedro%20%28STILL%29.jpg" alt="Laminado de Madeira Cedro (STILL)" onclick="abrirModal('madeira/Laminado%20de%20Madeira%20Cedro%20%28STILL%29.jpg')">
-              <span>Laminado de Madeira Cedro (STILL)</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="madeira/Laminado%20de%20Madeira%20Cedro.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('madeira/Laminado%20de%20Madeira%20Cedro.jpg', this)">🤍</button>
-              <img src="madeira/Laminado%20de%20Madeira%20Cedro.jpg" alt="Laminado de Madeira Cedro" onclick="abrirModal('madeira/Laminado%20de%20Madeira%20Cedro.jpg')">
-              <span>Laminado de Madeira Cedro</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="madeira/Laminado%20de%20Madeira%20Cerejeira%20%28STILL%29.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('madeira/Laminado%20de%20Madeira%20Cerejeira%20%28STILL%29.jpg', this)">🤍</button>
-              <img src="madeira/Laminado%20de%20Madeira%20Cerejeira%20%28STILL%29.jpg" alt="Laminado de Madeira Cerejeira (STILL)" onclick="abrirModal('madeira/Laminado%20de%20Madeira%20Cerejeira%20%28STILL%29.jpg')">
-              <span>Laminado de Madeira Cerejeira (STILL)</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="madeira/Laminado%20de%20Madeira%20Cerejeira%202.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('madeira/Laminado%20de%20Madeira%20Cerejeira%202.jpg', this)">🤍</button>
-              <img src="madeira/Laminado%20de%20Madeira%20Cerejeira%202.jpg" alt="Laminado de Madeira Cerejeira" onclick="abrirModal('madeira/Laminado%20de%20Madeira%20Cerejeira%202.jpg')">
-              <span>Laminado de Madeira Cerejeira</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="madeira/Laminado%20de%20Madeira%20Cerejeira.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('madeira/Laminado%20de%20Madeira%20Cerejeira.jpg', this)">🤍</button>
-              <img src="madeira/Laminado%20de%20Madeira%20Cerejeira.jpg" alt="Laminado de Madeira Cerejeira" onclick="abrirModal('madeira/Laminado%20de%20Madeira%20Cerejeira.jpg')">
-              <span>Laminado de Madeira Cerejeira</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="madeira/Madeira%20Antiga%20%282%29.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('madeira/Madeira%20Antiga%20%282%29.jpg', this)">🤍</button>
-              <img src="madeira/Madeira%20Antiga%20%282%29.jpg" alt="Madeira Antiga" onclick="abrirModal('madeira/Madeira%20Antiga%20%282%29.jpg')">
-              <span>Madeira Antiga</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="madeira/Madeira%20Antiga%20%28STILL%29.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('madeira/Madeira%20Antiga%20%28STILL%29.jpg', this)">🤍</button>
-              <img src="madeira/Madeira%20Antiga%20%28STILL%29.jpg" alt="Madeira Antiga (STILL)" onclick="abrirModal('madeira/Madeira%20Antiga%20%28STILL%29.jpg')">
-              <span>Madeira Antiga (STILL)</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="madeira/Madeira%20Antiga%202.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('madeira/Madeira%20Antiga%202.jpg', this)">🤍</button>
-              <img src="madeira/Madeira%20Antiga%202.jpg" alt="Madeira Antiga" onclick="abrirModal('madeira/Madeira%20Antiga%202.jpg')">
-              <span>Madeira Antiga</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="madeira/Madeira%20Antiga.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('madeira/Madeira%20Antiga.jpg', this)">🤍</button>
-              <img src="madeira/Madeira%20Antiga.jpg" alt="Madeira Antiga" onclick="abrirModal('madeira/Madeira%20Antiga.jpg')">
-              <span>Madeira Antiga</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="madeira/Madeira%20Branca%20%281%29.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('madeira/Madeira%20Branca%20%281%29.jpg', this)">🤍</button>
-              <img src="madeira/Madeira%20Branca%20%281%29.jpg" alt="Madeira Branca" onclick="abrirModal('madeira/Madeira%20Branca%20%281%29.jpg')">
-              <span>Madeira Branca</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="madeira/Madeira%20Branca%20%282%29.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('madeira/Madeira%20Branca%20%282%29.jpg', this)">🤍</button>
-              <img src="madeira/Madeira%20Branca%20%282%29.jpg" alt="Madeira Branca" onclick="abrirModal('madeira/Madeira%20Branca%20%282%29.jpg')">
-              <span>Madeira Branca</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="madeira/Madeira%20Branca%20%28STILL%29.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('madeira/Madeira%20Branca%20%28STILL%29.jpg', this)">🤍</button>
-              <img src="madeira/Madeira%20Branca%20%28STILL%29.jpg" alt="Madeira Branca (STILL)" onclick="abrirModal('madeira/Madeira%20Branca%20%28STILL%29.jpg')">
-              <span>Madeira Branca (STILL)</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="madeira/Madeira%20Branca%202.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('madeira/Madeira%20Branca%202.jpg', this)">🤍</button>
-              <img src="madeira/Madeira%20Branca%202.jpg" alt="Madeira Branca" onclick="abrirModal('madeira/Madeira%20Branca%202.jpg')">
-              <span>Madeira Branca</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="madeira/Madeira%20Branca.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('madeira/Madeira%20Branca.jpg', this)">🤍</button>
-              <img src="madeira/Madeira%20Branca.jpg" alt="Madeira Branca" onclick="abrirModal('madeira/Madeira%20Branca.jpg')">
-              <span>Madeira Branca</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="madeira/Madeira%20de%20Demolicao%20%28STILL%29.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('madeira/Madeira%20de%20Demolicao%20%28STILL%29.jpg', this)">🤍</button>
-              <img src="madeira/Madeira%20de%20Demolicao%20%28STILL%29.jpg" alt="Madeira de Demolicao (STILL)" onclick="abrirModal('madeira/Madeira%20de%20Demolicao%20%28STILL%29.jpg')">
-              <span>Madeira de Demolicao (STILL)</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="madeira/Madeira%20de%20Demolicao.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('madeira/Madeira%20de%20Demolicao.jpg', this)">🤍</button>
-              <img src="madeira/Madeira%20de%20Demolicao.jpg" alt="Madeira de Demolicao" onclick="abrirModal('madeira/Madeira%20de%20Demolicao.jpg')">
-              <span>Madeira de Demolicao</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="madeira/Madeira%20de%20Demoli%C3%A7%C3%A3o%20%282%29.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('madeira/Madeira%20de%20Demoli%C3%A7%C3%A3o%20%282%29.jpg', this)">🤍</button>
-              <img src="madeira/Madeira%20de%20Demoli%C3%A7%C3%A3o%20%282%29.jpg" alt="Madeira de Demolição" onclick="abrirModal('madeira/Madeira%20de%20Demoli%C3%A7%C3%A3o%20%282%29.jpg')">
-              <span>Madeira de Demolição</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="madeira/Madeira%20de%20Demoli%C3%A7%C3%A3o.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('madeira/Madeira%20de%20Demoli%C3%A7%C3%A3o.jpg', this)">🤍</button>
-              <img src="madeira/Madeira%20de%20Demoli%C3%A7%C3%A3o.jpg" alt="Madeira de Demolição" onclick="abrirModal('madeira/Madeira%20de%20Demoli%C3%A7%C3%A3o.jpg')">
-              <span>Madeira de Demolição</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="madeira/Madeira%20de%20Pinus%20%282%29.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('madeira/Madeira%20de%20Pinus%20%282%29.jpg', this)">🤍</button>
-              <img src="madeira/Madeira%20de%20Pinus%20%282%29.jpg" alt="Madeira de Pinus" onclick="abrirModal('madeira/Madeira%20de%20Pinus%20%282%29.jpg')">
-              <span>Madeira de Pinus</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="madeira/Madeira%20de%20Pinus%20%28STILL%29.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('madeira/Madeira%20de%20Pinus%20%28STILL%29.jpg', this)">🤍</button>
-              <img src="madeira/Madeira%20de%20Pinus%20%28STILL%29.jpg" alt="Madeira de Pinus (STILL)" onclick="abrirModal('madeira/Madeira%20de%20Pinus%20%28STILL%29.jpg')">
-              <span>Madeira de Pinus (STILL)</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="madeira/Madeira%20de%20Pinus.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('madeira/Madeira%20de%20Pinus.jpg', this)">🤍</button>
-              <img src="madeira/Madeira%20de%20Pinus.jpg" alt="Madeira de Pinus" onclick="abrirModal('madeira/Madeira%20de%20Pinus.jpg')">
-              <span>Madeira de Pinus</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="madeira/Madeira%20Mogno%20%282%29.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('madeira/Madeira%20Mogno%20%282%29.jpg', this)">🤍</button>
-              <img src="madeira/Madeira%20Mogno%20%282%29.jpg" alt="Madeira Mogno" onclick="abrirModal('madeira/Madeira%20Mogno%20%282%29.jpg')">
-              <span>Madeira Mogno</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="madeira/Madeira%20Mogno%20%28STILL%29.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('madeira/Madeira%20Mogno%20%28STILL%29.jpg', this)">🤍</button>
-              <img src="madeira/Madeira%20Mogno%20%28STILL%29.jpg" alt="Madeira Mogno (STILL)" onclick="abrirModal('madeira/Madeira%20Mogno%20%28STILL%29.jpg')">
-              <span>Madeira Mogno (STILL)</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="madeira/Madeira%20Mogno.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('madeira/Madeira%20Mogno.jpg', this)">🤍</button>
-              <img src="madeira/Madeira%20Mogno.jpg" alt="Madeira Mogno" onclick="abrirModal('madeira/Madeira%20Mogno.jpg')">
-              <span>Madeira Mogno</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="madeira/Tacos%20Madeira%20Azul%20%282%29.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('madeira/Tacos%20Madeira%20Azul%20%282%29.jpg', this)">🤍</button>
-              <img src="madeira/Tacos%20Madeira%20Azul%20%282%29.jpg" alt="Tacos Madeira Azul" onclick="abrirModal('madeira/Tacos%20Madeira%20Azul%20%282%29.jpg')">
-              <span>Tacos Madeira Azul</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="madeira/Tacos%20Madeira%20Azul%20%28STILL%29.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('madeira/Tacos%20Madeira%20Azul%20%28STILL%29.jpg', this)">🤍</button>
-              <img src="madeira/Tacos%20Madeira%20Azul%20%28STILL%29.jpg" alt="Tacos Madeira Azul (STILL)" onclick="abrirModal('madeira/Tacos%20Madeira%20Azul%20%28STILL%29.jpg')">
-              <span>Tacos Madeira Azul (STILL)</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="madeira/Tacos%20Madeira%20Azul.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('madeira/Tacos%20Madeira%20Azul.jpg', this)">🤍</button>
-              <img src="madeira/Tacos%20Madeira%20Azul.jpg" alt="Tacos Madeira Azul" onclick="abrirModal('madeira/Tacos%20Madeira%20Azul.jpg')">
-              <span>Tacos Madeira Azul</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="madeira/Tacos%20Madeira%20Carvalho%20%282%29.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('madeira/Tacos%20Madeira%20Carvalho%20%282%29.jpg', this)">🤍</button>
-              <img src="madeira/Tacos%20Madeira%20Carvalho%20%282%29.jpg" alt="Tacos Madeira Carvalho" onclick="abrirModal('madeira/Tacos%20Madeira%20Carvalho%20%282%29.jpg')">
-              <span>Tacos Madeira Carvalho</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="madeira/Tacos%20Madeira%20Carvalho%20%28STILL%29.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('madeira/Tacos%20Madeira%20Carvalho%20%28STILL%29.jpg', this)">🤍</button>
-              <img src="madeira/Tacos%20Madeira%20Carvalho%20%28STILL%29.jpg" alt="Tacos Madeira Carvalho (STILL)" onclick="abrirModal('madeira/Tacos%20Madeira%20Carvalho%20%28STILL%29.jpg')">
-              <span>Tacos Madeira Carvalho (STILL)</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="madeira/Tacos%20Madeira%20Carvalho.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('madeira/Tacos%20Madeira%20Carvalho.jpg', this)">🤍</button>
-              <img src="madeira/Tacos%20Madeira%20Carvalho.jpg" alt="Tacos Madeira Carvalho" onclick="abrirModal('madeira/Tacos%20Madeira%20Carvalho.jpg')">
-              <span>Tacos Madeira Carvalho</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="madeira/Tacos%20Madeira%20Cedro%20%282%29.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('madeira/Tacos%20Madeira%20Cedro%20%282%29.jpg', this)">🤍</button>
-              <img src="madeira/Tacos%20Madeira%20Cedro%20%282%29.jpg" alt="Tacos Madeira Cedro" onclick="abrirModal('madeira/Tacos%20Madeira%20Cedro%20%282%29.jpg')">
-              <span>Tacos Madeira Cedro</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="madeira/Tacos%20Madeira%20Cedro%20%28STILL%29.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('madeira/Tacos%20Madeira%20Cedro%20%28STILL%29.jpg', this)">🤍</button>
-              <img src="madeira/Tacos%20Madeira%20Cedro%20%28STILL%29.jpg" alt="Tacos Madeira Cedro (STILL)" onclick="abrirModal('madeira/Tacos%20Madeira%20Cedro%20%28STILL%29.jpg')">
-              <span>Tacos Madeira Cedro (STILL)</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="madeira/Tacos%20Madeira%20Cedro.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('madeira/Tacos%20Madeira%20Cedro.jpg', this)">🤍</button>
-              <img src="madeira/Tacos%20Madeira%20Cedro.jpg" alt="Tacos Madeira Cedro" onclick="abrirModal('madeira/Tacos%20Madeira%20Cedro.jpg')">
-              <span>Tacos Madeira Cedro</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="madeira/Tacos%20Madeira%20Cinza%20%282%29.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('madeira/Tacos%20Madeira%20Cinza%20%282%29.jpg', this)">🤍</button>
-              <img src="madeira/Tacos%20Madeira%20Cinza%20%282%29.jpg" alt="Tacos Madeira Cinza" onclick="abrirModal('madeira/Tacos%20Madeira%20Cinza%20%282%29.jpg')">
-              <span>Tacos Madeira Cinza</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="madeira/Tacos%20Madeira%20Cinza%20%28STILL%29.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('madeira/Tacos%20Madeira%20Cinza%20%28STILL%29.jpg', this)">🤍</button>
-              <img src="madeira/Tacos%20Madeira%20Cinza%20%28STILL%29.jpg" alt="Tacos Madeira Cinza (STILL)" onclick="abrirModal('madeira/Tacos%20Madeira%20Cinza%20%28STILL%29.jpg')">
-              <span>Tacos Madeira Cinza (STILL)</span>
-            </div><div class="card">
-              <input type="checkbox" class="checkbox-select" value="madeira/Tacos%20Madeira%20Cinza.jpg">
-              <button class="favorito-btn" onclick="toggleFavorito('madeira/Tacos%20Madeira%20Cinza.jpg', this)">🤍</button>
-              <img src="madeira/Tacos%20Madeira%20Cinza.jpg" alt="Tacos Madeira Cinza" onclick="abrirModal('madeira/Tacos%20Madeira%20Cinza.jpg')">
-              <span>Tacos Madeira Cinza</span>
-            </div>
+      <input type="checkbox" class="checkbox-select" value="adulto/madeira/Boiserie%20Off%20White%20%28STILL%29.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('adulto/madeira/Boiserie%20Off%20White%20%28STILL%29.jpg', this)">🤍</button>
+      <img src="madeira/Boiserie%20Off%20White%20%28STILL%29.jpg" alt="Boiserie Off White (STILL)" onclick="abrirModal('madeira/Boiserie%20Off%20White%20%28STILL%29.jpg')">
+      <span>Boiserie Off White (STILL)</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="adulto/madeira/Boiserie%20Off%20White.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('adulto/madeira/Boiserie%20Off%20White.jpg', this)">🤍</button>
+      <img src="madeira/Boiserie%20Off%20White.jpg" alt="Boiserie Off White" onclick="abrirModal('madeira/Boiserie%20Off%20White.jpg')">
+      <span>Boiserie Off White</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="adulto/madeira/Boiserie%20Rosa%20%28STILL%29.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('adulto/madeira/Boiserie%20Rosa%20%28STILL%29.jpg', this)">🤍</button>
+      <img src="madeira/Boiserie%20Rosa%20%28STILL%29.jpg" alt="Boiserie Rosa (STILL)" onclick="abrirModal('madeira/Boiserie%20Rosa%20%28STILL%29.jpg')">
+      <span>Boiserie Rosa (STILL)</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="adulto/madeira/Boiserie%20Rosa.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('adulto/madeira/Boiserie%20Rosa.jpg', this)">🤍</button>
+      <img src="madeira/Boiserie%20Rosa.jpg" alt="Boiserie Rosa" onclick="abrirModal('madeira/Boiserie%20Rosa.jpg')">
+      <span>Boiserie Rosa</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="adulto/madeira/Boiserie%20Verde%20%C3%81gua%20%28STILL%29.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('adulto/madeira/Boiserie%20Verde%20%C3%81gua%20%28STILL%29.jpg', this)">🤍</button>
+      <img src="madeira/Boiserie%20Verde%20%C3%81gua%20%28STILL%29.jpg" alt="Boiserie Verde Água (STILL)" onclick="abrirModal('madeira/Boiserie%20Verde%20%C3%81gua%20%28STILL%29.jpg')">
+      <span>Boiserie Verde Água (STILL)</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="adulto/madeira/Boiserie%20Verde%20%C3%81gua.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('adulto/madeira/Boiserie%20Verde%20%C3%81gua.jpg', this)">🤍</button>
+      <img src="madeira/Boiserie%20Verde%20%C3%81gua.jpg" alt="Boiserie Verde Água" onclick="abrirModal('madeira/Boiserie%20Verde%20%C3%81gua.jpg')">
+      <span>Boiserie Verde Água</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="adulto/madeira/Chevron%20Concreto%20Wood%20%282%29.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('adulto/madeira/Chevron%20Concreto%20Wood%20%282%29.jpg', this)">🤍</button>
+      <img src="madeira/Chevron%20Concreto%20Wood%20%282%29.jpg" alt="Chevron Concreto Wood" onclick="abrirModal('madeira/Chevron%20Concreto%20Wood%20%282%29.jpg')">
+      <span>Chevron Concreto Wood</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="adulto/madeira/Chevron%20Concreto%20Wood%20%28STILL%29.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('adulto/madeira/Chevron%20Concreto%20Wood%20%28STILL%29.jpg', this)">🤍</button>
+      <img src="madeira/Chevron%20Concreto%20Wood%20%28STILL%29.jpg" alt="Chevron Concreto Wood (STILL)" onclick="abrirModal('madeira/Chevron%20Concreto%20Wood%20%28STILL%29.jpg')">
+      <span>Chevron Concreto Wood (STILL)</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="adulto/madeira/Chevron%20Concreto%20Wood%20%28WIDE%29%20%282%29.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('adulto/madeira/Chevron%20Concreto%20Wood%20%28WIDE%29%20%282%29.jpg', this)">🤍</button>
+      <img src="madeira/Chevron%20Concreto%20Wood%20%28WIDE%29%20%282%29.jpg" alt="Chevron Concreto Wood (WIDE)" onclick="abrirModal('madeira/Chevron%20Concreto%20Wood%20%28WIDE%29%20%282%29.jpg')">
+      <span>Chevron Concreto Wood (WIDE)</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="adulto/madeira/Chevron%20Concreto%20Wood%20%28WIDE%29%20%283%29.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('adulto/madeira/Chevron%20Concreto%20Wood%20%28WIDE%29%20%283%29.jpg', this)">🤍</button>
+      <img src="madeira/Chevron%20Concreto%20Wood%20%28WIDE%29%20%283%29.jpg" alt="Chevron Concreto Wood (WIDE)" onclick="abrirModal('madeira/Chevron%20Concreto%20Wood%20%28WIDE%29%20%283%29.jpg')">
+      <span>Chevron Concreto Wood (WIDE)</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="adulto/madeira/Chevron%20Concreto%20Wood%20%28WIDE%29%20%284%29.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('adulto/madeira/Chevron%20Concreto%20Wood%20%28WIDE%29%20%284%29.jpg', this)">🤍</button>
+      <img src="madeira/Chevron%20Concreto%20Wood%20%28WIDE%29%20%284%29.jpg" alt="Chevron Concreto Wood (WIDE)" onclick="abrirModal('madeira/Chevron%20Concreto%20Wood%20%28WIDE%29%20%284%29.jpg')">
+      <span>Chevron Concreto Wood (WIDE)</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="adulto/madeira/Chevron%20Concreto%20Wood%20%28WIDE%29.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('adulto/madeira/Chevron%20Concreto%20Wood%20%28WIDE%29.jpg', this)">🤍</button>
+      <img src="madeira/Chevron%20Concreto%20Wood%20%28WIDE%29.jpg" alt="Chevron Concreto Wood (WIDE)" onclick="abrirModal('madeira/Chevron%20Concreto%20Wood%20%28WIDE%29.jpg')">
+      <span>Chevron Concreto Wood (WIDE)</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="adulto/madeira/Chevron%20Concreto%20Wood%202%20%282%29.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('adulto/madeira/Chevron%20Concreto%20Wood%202%20%282%29.jpg', this)">🤍</button>
+      <img src="madeira/Chevron%20Concreto%20Wood%202%20%282%29.jpg" alt="Chevron Concreto Wood 2" onclick="abrirModal('madeira/Chevron%20Concreto%20Wood%202%20%282%29.jpg')">
+      <span>Chevron Concreto Wood 2</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="adulto/madeira/Chevron%20Concreto%20Wood%202.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('adulto/madeira/Chevron%20Concreto%20Wood%202.jpg', this)">🤍</button>
+      <img src="madeira/Chevron%20Concreto%20Wood%202.jpg" alt="Chevron Concreto Wood" onclick="abrirModal('madeira/Chevron%20Concreto%20Wood%202.jpg')">
+      <span>Chevron Concreto Wood</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="adulto/madeira/Chevron%20Concreto%20Wood%203.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('adulto/madeira/Chevron%20Concreto%20Wood%203.jpg', this)">🤍</button>
+      <img src="madeira/Chevron%20Concreto%20Wood%203.jpg" alt="Chevron Concreto Wood" onclick="abrirModal('madeira/Chevron%20Concreto%20Wood%203.jpg')">
+      <span>Chevron Concreto Wood</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="adulto/madeira/Chevron%20Concreto%20Wood.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('adulto/madeira/Chevron%20Concreto%20Wood.jpg', this)">🤍</button>
+      <img src="madeira/Chevron%20Concreto%20Wood.jpg" alt="Chevron Concreto Wood" onclick="abrirModal('madeira/Chevron%20Concreto%20Wood.jpg')">
+      <span>Chevron Concreto Wood</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="adulto/madeira/Chevron%20Wood%20%282%29.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('adulto/madeira/Chevron%20Wood%20%282%29.jpg', this)">🤍</button>
+      <img src="madeira/Chevron%20Wood%20%282%29.jpg" alt="Chevron Wood" onclick="abrirModal('madeira/Chevron%20Wood%20%282%29.jpg')">
+      <span>Chevron Wood</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="adulto/madeira/Chevron%20Wood%20%28STILL%29.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('adulto/madeira/Chevron%20Wood%20%28STILL%29.jpg', this)">🤍</button>
+      <img src="madeira/Chevron%20Wood%20%28STILL%29.jpg" alt="Chevron Wood (STILL)" onclick="abrirModal('madeira/Chevron%20Wood%20%28STILL%29.jpg')">
+      <span>Chevron Wood (STILL)</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="adulto/madeira/Chevron%20Wood%20%28WIDE%29%20%282%29.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('adulto/madeira/Chevron%20Wood%20%28WIDE%29%20%282%29.jpg', this)">🤍</button>
+      <img src="madeira/Chevron%20Wood%20%28WIDE%29%20%282%29.jpg" alt="Chevron Wood (WIDE)" onclick="abrirModal('madeira/Chevron%20Wood%20%28WIDE%29%20%282%29.jpg')">
+      <span>Chevron Wood (WIDE)</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="adulto/madeira/Chevron%20Wood%20%28WIDE%29%20%283%29.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('adulto/madeira/Chevron%20Wood%20%28WIDE%29%20%283%29.jpg', this)">🤍</button>
+      <img src="madeira/Chevron%20Wood%20%28WIDE%29%20%283%29.jpg" alt="Chevron Wood (WIDE)" onclick="abrirModal('madeira/Chevron%20Wood%20%28WIDE%29%20%283%29.jpg')">
+      <span>Chevron Wood (WIDE)</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="adulto/madeira/Chevron%20Wood%20%28WIDE%29%284%29.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('adulto/madeira/Chevron%20Wood%20%28WIDE%29%284%29.jpg', this)">🤍</button>
+      <img src="madeira/Chevron%20Wood%20%28WIDE%29%284%29.jpg" alt="Chevron Wood (WIDE)" onclick="abrirModal('madeira/Chevron%20Wood%20%28WIDE%29%284%29.jpg')">
+      <span>Chevron Wood (WIDE)</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="adulto/madeira/Chevron%20Wood%20%28WIDE%29.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('adulto/madeira/Chevron%20Wood%20%28WIDE%29.jpg', this)">🤍</button>
+      <img src="madeira/Chevron%20Wood%20%28WIDE%29.jpg" alt="Chevron Wood (WIDE)" onclick="abrirModal('madeira/Chevron%20Wood%20%28WIDE%29.jpg')">
+      <span>Chevron Wood (WIDE)</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="adulto/madeira/Chevron%20Wood%202.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('adulto/madeira/Chevron%20Wood%202.jpg', this)">🤍</button>
+      <img src="madeira/Chevron%20Wood%202.jpg" alt="Chevron Wood" onclick="abrirModal('madeira/Chevron%20Wood%202.jpg')">
+      <span>Chevron Wood</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="adulto/madeira/Chevron%20Wood%203.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('adulto/madeira/Chevron%20Wood%203.jpg', this)">🤍</button>
+      <img src="madeira/Chevron%20Wood%203.jpg" alt="Chevron Wood" onclick="abrirModal('madeira/Chevron%20Wood%203.jpg')">
+      <span>Chevron Wood</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="adulto/madeira/Chevron%20Wood%204.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('adulto/madeira/Chevron%20Wood%204.jpg', this)">🤍</button>
+      <img src="madeira/Chevron%20Wood%204.jpg" alt="Chevron Wood" onclick="abrirModal('madeira/Chevron%20Wood%204.jpg')">
+      <span>Chevron Wood</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="adulto/madeira/Chevron%20Wood%205.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('adulto/madeira/Chevron%20Wood%205.jpg', this)">🤍</button>
+      <img src="madeira/Chevron%20Wood%205.jpg" alt="Chevron Wood" onclick="abrirModal('madeira/Chevron%20Wood%205.jpg')">
+      <span>Chevron Wood</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="adulto/madeira/Chevron%20Wood.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('adulto/madeira/Chevron%20Wood.jpg', this)">🤍</button>
+      <img src="madeira/Chevron%20Wood.jpg" alt="Chevron Wood" onclick="abrirModal('madeira/Chevron%20Wood.jpg')">
+      <span>Chevron Wood</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="adulto/madeira/Concreto%20Wood%20%281%29.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('adulto/madeira/Concreto%20Wood%20%281%29.jpg', this)">🤍</button>
+      <img src="madeira/Concreto%20Wood%20%281%29.jpg" alt="Concreto Wood" onclick="abrirModal('madeira/Concreto%20Wood%20%281%29.jpg')">
+      <span>Concreto Wood</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="adulto/madeira/Concreto%20Wood%20%282%29.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('adulto/madeira/Concreto%20Wood%20%282%29.jpg', this)">🤍</button>
+      <img src="madeira/Concreto%20Wood%20%282%29.jpg" alt="Concreto Wood" onclick="abrirModal('madeira/Concreto%20Wood%20%282%29.jpg')">
+      <span>Concreto Wood</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="adulto/madeira/Concreto%20Wood%20%28STILL%29.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('adulto/madeira/Concreto%20Wood%20%28STILL%29.jpg', this)">🤍</button>
+      <img src="madeira/Concreto%20Wood%20%28STILL%29.jpg" alt="Concreto Wood (STILL)" onclick="abrirModal('madeira/Concreto%20Wood%20%28STILL%29.jpg')">
+      <span>Concreto Wood (STILL)</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="adulto/madeira/Concreto%20Wood%202.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('adulto/madeira/Concreto%20Wood%202.jpg', this)">🤍</button>
+      <img src="madeira/Concreto%20Wood%202.jpg" alt="Concreto Wood" onclick="abrirModal('madeira/Concreto%20Wood%202.jpg')">
+      <span>Concreto Wood</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="adulto/madeira/Concreto%20Wood.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('adulto/madeira/Concreto%20Wood.jpg', this)">🤍</button>
+      <img src="madeira/Concreto%20Wood.jpg" alt="Concreto Wood" onclick="abrirModal('madeira/Concreto%20Wood.jpg')">
+      <span>Concreto Wood</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="adulto/madeira/Laminado%20de%20Madeira%20Carvalho%20%282%29.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('adulto/madeira/Laminado%20de%20Madeira%20Carvalho%20%282%29.jpg', this)">🤍</button>
+      <img src="madeira/Laminado%20de%20Madeira%20Carvalho%20%282%29.jpg" alt="Laminado de Madeira Carvalho" onclick="abrirModal('madeira/Laminado%20de%20Madeira%20Carvalho%20%282%29.jpg')">
+      <span>Laminado de Madeira Carvalho</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="adulto/madeira/Laminado%20de%20Madeira%20Carvalho%20%28STILL%29.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('adulto/madeira/Laminado%20de%20Madeira%20Carvalho%20%28STILL%29.jpg', this)">🤍</button>
+      <img src="madeira/Laminado%20de%20Madeira%20Carvalho%20%28STILL%29.jpg" alt="Laminado de Madeira Carvalho (STILL)" onclick="abrirModal('madeira/Laminado%20de%20Madeira%20Carvalho%20%28STILL%29.jpg')">
+      <span>Laminado de Madeira Carvalho (STILL)</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="adulto/madeira/Laminado%20de%20Madeira%20Carvalho.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('adulto/madeira/Laminado%20de%20Madeira%20Carvalho.jpg', this)">🤍</button>
+      <img src="madeira/Laminado%20de%20Madeira%20Carvalho.jpg" alt="Laminado de Madeira Carvalho" onclick="abrirModal('madeira/Laminado%20de%20Madeira%20Carvalho.jpg')">
+      <span>Laminado de Madeira Carvalho</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="adulto/madeira/Laminado%20de%20Madeira%20Cedro%20%282%29.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('adulto/madeira/Laminado%20de%20Madeira%20Cedro%20%282%29.jpg', this)">🤍</button>
+      <img src="madeira/Laminado%20de%20Madeira%20Cedro%20%282%29.jpg" alt="Laminado de Madeira Cedro" onclick="abrirModal('madeira/Laminado%20de%20Madeira%20Cedro%20%282%29.jpg')">
+      <span>Laminado de Madeira Cedro</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="adulto/madeira/Laminado%20de%20Madeira%20Cedro%20%28STILL%29.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('adulto/madeira/Laminado%20de%20Madeira%20Cedro%20%28STILL%29.jpg', this)">🤍</button>
+      <img src="madeira/Laminado%20de%20Madeira%20Cedro%20%28STILL%29.jpg" alt="Laminado de Madeira Cedro (STILL)" onclick="abrirModal('madeira/Laminado%20de%20Madeira%20Cedro%20%28STILL%29.jpg')">
+      <span>Laminado de Madeira Cedro (STILL)</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="adulto/madeira/Laminado%20de%20Madeira%20Cedro.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('adulto/madeira/Laminado%20de%20Madeira%20Cedro.jpg', this)">🤍</button>
+      <img src="madeira/Laminado%20de%20Madeira%20Cedro.jpg" alt="Laminado de Madeira Cedro" onclick="abrirModal('madeira/Laminado%20de%20Madeira%20Cedro.jpg')">
+      <span>Laminado de Madeira Cedro</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="adulto/madeira/Laminado%20de%20Madeira%20Cerejeira%20%28STILL%29.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('adulto/madeira/Laminado%20de%20Madeira%20Cerejeira%20%28STILL%29.jpg', this)">🤍</button>
+      <img src="madeira/Laminado%20de%20Madeira%20Cerejeira%20%28STILL%29.jpg" alt="Laminado de Madeira Cerejeira (STILL)" onclick="abrirModal('madeira/Laminado%20de%20Madeira%20Cerejeira%20%28STILL%29.jpg')">
+      <span>Laminado de Madeira Cerejeira (STILL)</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="adulto/madeira/Laminado%20de%20Madeira%20Cerejeira%202.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('adulto/madeira/Laminado%20de%20Madeira%20Cerejeira%202.jpg', this)">🤍</button>
+      <img src="madeira/Laminado%20de%20Madeira%20Cerejeira%202.jpg" alt="Laminado de Madeira Cerejeira" onclick="abrirModal('madeira/Laminado%20de%20Madeira%20Cerejeira%202.jpg')">
+      <span>Laminado de Madeira Cerejeira</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="adulto/madeira/Laminado%20de%20Madeira%20Cerejeira.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('adulto/madeira/Laminado%20de%20Madeira%20Cerejeira.jpg', this)">🤍</button>
+      <img src="madeira/Laminado%20de%20Madeira%20Cerejeira.jpg" alt="Laminado de Madeira Cerejeira" onclick="abrirModal('madeira/Laminado%20de%20Madeira%20Cerejeira.jpg')">
+      <span>Laminado de Madeira Cerejeira</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="adulto/madeira/Madeira%20Antiga%20%282%29.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('adulto/madeira/Madeira%20Antiga%20%282%29.jpg', this)">🤍</button>
+      <img src="madeira/Madeira%20Antiga%20%282%29.jpg" alt="Madeira Antiga" onclick="abrirModal('madeira/Madeira%20Antiga%20%282%29.jpg')">
+      <span>Madeira Antiga</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="adulto/madeira/Madeira%20Antiga%20%28STILL%29.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('adulto/madeira/Madeira%20Antiga%20%28STILL%29.jpg', this)">🤍</button>
+      <img src="madeira/Madeira%20Antiga%20%28STILL%29.jpg" alt="Madeira Antiga (STILL)" onclick="abrirModal('madeira/Madeira%20Antiga%20%28STILL%29.jpg')">
+      <span>Madeira Antiga (STILL)</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="adulto/madeira/Madeira%20Antiga%202.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('adulto/madeira/Madeira%20Antiga%202.jpg', this)">🤍</button>
+      <img src="madeira/Madeira%20Antiga%202.jpg" alt="Madeira Antiga" onclick="abrirModal('madeira/Madeira%20Antiga%202.jpg')">
+      <span>Madeira Antiga</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="adulto/madeira/Madeira%20Antiga.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('adulto/madeira/Madeira%20Antiga.jpg', this)">🤍</button>
+      <img src="madeira/Madeira%20Antiga.jpg" alt="Madeira Antiga" onclick="abrirModal('madeira/Madeira%20Antiga.jpg')">
+      <span>Madeira Antiga</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="adulto/madeira/Madeira%20Branca%20%281%29.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('adulto/madeira/Madeira%20Branca%20%281%29.jpg', this)">🤍</button>
+      <img src="madeira/Madeira%20Branca%20%281%29.jpg" alt="Madeira Branca" onclick="abrirModal('madeira/Madeira%20Branca%20%281%29.jpg')">
+      <span>Madeira Branca</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="adulto/madeira/Madeira%20Branca%20%282%29.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('adulto/madeira/Madeira%20Branca%20%282%29.jpg', this)">🤍</button>
+      <img src="madeira/Madeira%20Branca%20%282%29.jpg" alt="Madeira Branca" onclick="abrirModal('madeira/Madeira%20Branca%20%282%29.jpg')">
+      <span>Madeira Branca</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="adulto/madeira/Madeira%20Branca%20%28STILL%29.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('adulto/madeira/Madeira%20Branca%20%28STILL%29.jpg', this)">🤍</button>
+      <img src="madeira/Madeira%20Branca%20%28STILL%29.jpg" alt="Madeira Branca (STILL)" onclick="abrirModal('madeira/Madeira%20Branca%20%28STILL%29.jpg')">
+      <span>Madeira Branca (STILL)</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="adulto/madeira/Madeira%20Branca%202.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('adulto/madeira/Madeira%20Branca%202.jpg', this)">🤍</button>
+      <img src="madeira/Madeira%20Branca%202.jpg" alt="Madeira Branca" onclick="abrirModal('madeira/Madeira%20Branca%202.jpg')">
+      <span>Madeira Branca</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="adulto/madeira/Madeira%20Branca.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('adulto/madeira/Madeira%20Branca.jpg', this)">🤍</button>
+      <img src="madeira/Madeira%20Branca.jpg" alt="Madeira Branca" onclick="abrirModal('madeira/Madeira%20Branca.jpg')">
+      <span>Madeira Branca</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="adulto/madeira/Madeira%20de%20Demolicao%20%28STILL%29.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('adulto/madeira/Madeira%20de%20Demolicao%20%28STILL%29.jpg', this)">🤍</button>
+      <img src="madeira/Madeira%20de%20Demolicao%20%28STILL%29.jpg" alt="Madeira de Demolicao (STILL)" onclick="abrirModal('madeira/Madeira%20de%20Demolicao%20%28STILL%29.jpg')">
+      <span>Madeira de Demolicao (STILL)</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="adulto/madeira/Madeira%20de%20Demolicao.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('adulto/madeira/Madeira%20de%20Demolicao.jpg', this)">🤍</button>
+      <img src="madeira/Madeira%20de%20Demolicao.jpg" alt="Madeira de Demolicao" onclick="abrirModal('madeira/Madeira%20de%20Demolicao.jpg')">
+      <span>Madeira de Demolicao</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="adulto/madeira/Madeira%20de%20Demoli%C3%A7%C3%A3o%20%282%29.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('adulto/madeira/Madeira%20de%20Demoli%C3%A7%C3%A3o%20%282%29.jpg', this)">🤍</button>
+      <img src="madeira/Madeira%20de%20Demoli%C3%A7%C3%A3o%20%282%29.jpg" alt="Madeira de Demolição" onclick="abrirModal('madeira/Madeira%20de%20Demoli%C3%A7%C3%A3o%20%282%29.jpg')">
+      <span>Madeira de Demolição</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="adulto/madeira/Madeira%20de%20Demoli%C3%A7%C3%A3o.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('adulto/madeira/Madeira%20de%20Demoli%C3%A7%C3%A3o.jpg', this)">🤍</button>
+      <img src="madeira/Madeira%20de%20Demoli%C3%A7%C3%A3o.jpg" alt="Madeira de Demolição" onclick="abrirModal('madeira/Madeira%20de%20Demoli%C3%A7%C3%A3o.jpg')">
+      <span>Madeira de Demolição</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="adulto/madeira/Madeira%20de%20Pinus%20%282%29.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('adulto/madeira/Madeira%20de%20Pinus%20%282%29.jpg', this)">🤍</button>
+      <img src="madeira/Madeira%20de%20Pinus%20%282%29.jpg" alt="Madeira de Pinus" onclick="abrirModal('madeira/Madeira%20de%20Pinus%20%282%29.jpg')">
+      <span>Madeira de Pinus</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="adulto/madeira/Madeira%20de%20Pinus%20%28STILL%29.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('adulto/madeira/Madeira%20de%20Pinus%20%28STILL%29.jpg', this)">🤍</button>
+      <img src="madeira/Madeira%20de%20Pinus%20%28STILL%29.jpg" alt="Madeira de Pinus (STILL)" onclick="abrirModal('madeira/Madeira%20de%20Pinus%20%28STILL%29.jpg')">
+      <span>Madeira de Pinus (STILL)</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="adulto/madeira/Madeira%20de%20Pinus.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('adulto/madeira/Madeira%20de%20Pinus.jpg', this)">🤍</button>
+      <img src="madeira/Madeira%20de%20Pinus.jpg" alt="Madeira de Pinus" onclick="abrirModal('madeira/Madeira%20de%20Pinus.jpg')">
+      <span>Madeira de Pinus</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="adulto/madeira/Madeira%20Mogno%20%282%29.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('adulto/madeira/Madeira%20Mogno%20%282%29.jpg', this)">🤍</button>
+      <img src="madeira/Madeira%20Mogno%20%282%29.jpg" alt="Madeira Mogno" onclick="abrirModal('madeira/Madeira%20Mogno%20%282%29.jpg')">
+      <span>Madeira Mogno</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="adulto/madeira/Madeira%20Mogno%20%28STILL%29.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('adulto/madeira/Madeira%20Mogno%20%28STILL%29.jpg', this)">🤍</button>
+      <img src="madeira/Madeira%20Mogno%20%28STILL%29.jpg" alt="Madeira Mogno (STILL)" onclick="abrirModal('madeira/Madeira%20Mogno%20%28STILL%29.jpg')">
+      <span>Madeira Mogno (STILL)</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="adulto/madeira/Madeira%20Mogno.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('adulto/madeira/Madeira%20Mogno.jpg', this)">🤍</button>
+      <img src="madeira/Madeira%20Mogno.jpg" alt="Madeira Mogno" onclick="abrirModal('madeira/Madeira%20Mogno.jpg')">
+      <span>Madeira Mogno</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="adulto/madeira/Tacos%20Madeira%20Azul%20%282%29.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('adulto/madeira/Tacos%20Madeira%20Azul%20%282%29.jpg', this)">🤍</button>
+      <img src="madeira/Tacos%20Madeira%20Azul%20%282%29.jpg" alt="Tacos Madeira Azul" onclick="abrirModal('madeira/Tacos%20Madeira%20Azul%20%282%29.jpg')">
+      <span>Tacos Madeira Azul</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="adulto/madeira/Tacos%20Madeira%20Azul%20%28STILL%29.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('adulto/madeira/Tacos%20Madeira%20Azul%20%28STILL%29.jpg', this)">🤍</button>
+      <img src="madeira/Tacos%20Madeira%20Azul%20%28STILL%29.jpg" alt="Tacos Madeira Azul (STILL)" onclick="abrirModal('madeira/Tacos%20Madeira%20Azul%20%28STILL%29.jpg')">
+      <span>Tacos Madeira Azul (STILL)</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="adulto/madeira/Tacos%20Madeira%20Azul.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('adulto/madeira/Tacos%20Madeira%20Azul.jpg', this)">🤍</button>
+      <img src="madeira/Tacos%20Madeira%20Azul.jpg" alt="Tacos Madeira Azul" onclick="abrirModal('madeira/Tacos%20Madeira%20Azul.jpg')">
+      <span>Tacos Madeira Azul</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="adulto/madeira/Tacos%20Madeira%20Carvalho%20%282%29.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('adulto/madeira/Tacos%20Madeira%20Carvalho%20%282%29.jpg', this)">🤍</button>
+      <img src="madeira/Tacos%20Madeira%20Carvalho%20%282%29.jpg" alt="Tacos Madeira Carvalho" onclick="abrirModal('madeira/Tacos%20Madeira%20Carvalho%20%282%29.jpg')">
+      <span>Tacos Madeira Carvalho</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="adulto/madeira/Tacos%20Madeira%20Carvalho%20%28STILL%29.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('adulto/madeira/Tacos%20Madeira%20Carvalho%20%28STILL%29.jpg', this)">🤍</button>
+      <img src="madeira/Tacos%20Madeira%20Carvalho%20%28STILL%29.jpg" alt="Tacos Madeira Carvalho (STILL)" onclick="abrirModal('madeira/Tacos%20Madeira%20Carvalho%20%28STILL%29.jpg')">
+      <span>Tacos Madeira Carvalho (STILL)</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="adulto/madeira/Tacos%20Madeira%20Carvalho.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('adulto/madeira/Tacos%20Madeira%20Carvalho.jpg', this)">🤍</button>
+      <img src="madeira/Tacos%20Madeira%20Carvalho.jpg" alt="Tacos Madeira Carvalho" onclick="abrirModal('madeira/Tacos%20Madeira%20Carvalho.jpg')">
+      <span>Tacos Madeira Carvalho</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="adulto/madeira/Tacos%20Madeira%20Cedro%20%282%29.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('adulto/madeira/Tacos%20Madeira%20Cedro%20%282%29.jpg', this)">🤍</button>
+      <img src="madeira/Tacos%20Madeira%20Cedro%20%282%29.jpg" alt="Tacos Madeira Cedro" onclick="abrirModal('madeira/Tacos%20Madeira%20Cedro%20%282%29.jpg')">
+      <span>Tacos Madeira Cedro</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="adulto/madeira/Tacos%20Madeira%20Cedro%20%28STILL%29.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('adulto/madeira/Tacos%20Madeira%20Cedro%20%28STILL%29.jpg', this)">🤍</button>
+      <img src="madeira/Tacos%20Madeira%20Cedro%20%28STILL%29.jpg" alt="Tacos Madeira Cedro (STILL)" onclick="abrirModal('madeira/Tacos%20Madeira%20Cedro%20%28STILL%29.jpg')">
+      <span>Tacos Madeira Cedro (STILL)</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="adulto/madeira/Tacos%20Madeira%20Cedro.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('adulto/madeira/Tacos%20Madeira%20Cedro.jpg', this)">🤍</button>
+      <img src="madeira/Tacos%20Madeira%20Cedro.jpg" alt="Tacos Madeira Cedro" onclick="abrirModal('madeira/Tacos%20Madeira%20Cedro.jpg')">
+      <span>Tacos Madeira Cedro</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="adulto/madeira/Tacos%20Madeira%20Cinza%20%282%29.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('adulto/madeira/Tacos%20Madeira%20Cinza%20%282%29.jpg', this)">🤍</button>
+      <img src="madeira/Tacos%20Madeira%20Cinza%20%282%29.jpg" alt="Tacos Madeira Cinza" onclick="abrirModal('madeira/Tacos%20Madeira%20Cinza%20%282%29.jpg')">
+      <span>Tacos Madeira Cinza</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="adulto/madeira/Tacos%20Madeira%20Cinza%20%28STILL%29.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('adulto/madeira/Tacos%20Madeira%20Cinza%20%28STILL%29.jpg', this)">🤍</button>
+      <img src="madeira/Tacos%20Madeira%20Cinza%20%28STILL%29.jpg" alt="Tacos Madeira Cinza (STILL)" onclick="abrirModal('madeira/Tacos%20Madeira%20Cinza%20%28STILL%29.jpg')">
+      <span>Tacos Madeira Cinza (STILL)</span>
+    </div><div class="card">
+      <input type="checkbox" class="checkbox-select" value="adulto/madeira/Tacos%20Madeira%20Cinza.jpg">
+      <button class="favorito-btn" onclick="toggleFavorito('adulto/madeira/Tacos%20Madeira%20Cinza.jpg', this)">🤍</button>
+      <img src="madeira/Tacos%20Madeira%20Cinza.jpg" alt="Tacos Madeira Cinza" onclick="abrirModal('madeira/Tacos%20Madeira%20Cinza.jpg')">
+      <span>Tacos Madeira Cinza</span>
+    </div>
 </div>
 <div class="modal" id="modal">
   <img id="modal-img" src="">
@@ -463,64 +396,12 @@
 </div>
 <script src="https://unpkg.com/@panzoom/panzoom@9.4.0/dist/panzoom.min.js"></script>
 <script>
-document.addEventListener('DOMContentLoaded', function () {
   const modal = document.getElementById('modal');
   const modalImg = document.getElementById('modal-img');
   let panzoomInstance;
-
-  window.abrirModal = function (src) {
-    modal.style.display = 'flex';
-    modalImg.src = src;
-    if (panzoomInstance) panzoomInstance.destroy();
-    panzoomInstance = Panzoom(modalImg, { maxScale: 5 });
-  }
-
-  window.fecharModal = function () {
-    modal.style.display = 'none';
-    if (panzoomInstance) panzoomInstance.destroy();
-  }
-
-  window.toggleFavorito = function (src, el) {
-    let favoritos = JSON.parse(localStorage.getItem('favoritos')) || [];
-    const index = favoritos.indexOf(src);
-    const agora = new Date().toISOString();
-    if (index >= 0) {
-      favoritos.splice(index, 1);
-      el.classList.remove('favorito');
-      el.textContent = '🤍';
-    } else {
-      favoritos.push(src);
-      el.classList.add('favorito');
-      el.textContent = '❤️';
-      const log = JSON.parse(localStorage.getItem('favoritos_log')) || [];
-      log.push({ img: src, data: agora });
-      localStorage.setItem('favoritos_log', JSON.stringify(log));
-    }
-    localStorage.setItem('favoritos', JSON.stringify(favoritos));
-  }
-
-  const favoritos = JSON.parse(localStorage.getItem('favoritos')) || [];
-  document.querySelectorAll('.favorito-btn').forEach(btn => {
-    const src = btn.getAttribute('onclick').match(/'(.*?)'/)[1];
-    if (favoritos.includes(src)) {
-      btn.textContent = '❤️';
-      btn.classList.add('favorito');
-    }
-  });
-
-  window.baixarSelecionadas = function () {
-    const selecionadas = Array.from(document.querySelectorAll('.checkbox-select:checked')).map(cb => cb.value);
-    if (selecionadas.length === 0) return alert("Nenhuma imagem selecionada.");
-    selecionadas.forEach(src => {
-      const link = document.createElement('a');
-      link.href = src;
-      link.download = src.split('/').pop();
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-    });
-  }
-});
+  function abrirModal(src) { modal.style.display = 'flex'; modalImg.src = src; panzoomInstance = Panzoom(modalImg); }
+  function fecharModal() { modal.style.display = 'none'; if (panzoomInstance) panzoomInstance.destroy(); }
+  function toggleFavorito(src, el) { let f = JSON.parse(localStorage.getItem('favoritos'))||[]; const i = f.indexOf(src); if (i>=0) { f.splice(i,1); el.textContent='🤍'; } else { f.push(src); el.textContent='❤️'; } localStorage.setItem('favoritos', JSON.stringify(f)); }
 </script>
 </body>
 </html>
