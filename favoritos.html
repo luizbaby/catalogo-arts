@@ -3,15 +3,41 @@
 <head>
   <meta charset="UTF-8">
   <title>Favoritos</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-    body { font-family: sans-serif; margin: 0; padding: 20px; background: #f4f4f4; }
-    h1 { text-align: center; }
+    * { box-sizing: border-box; }
+    body { font-family: sans-serif; margin: 0; background: #f4f4f4; }
+    .top-bar {
+      position: sticky;
+      top: 0;
+      background: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      z-index: 1000;
+    }
+    .btn {
+      background: #01b9b5;
+      color: white;
+      text-decoration: none;
+      padding: 8px 14px;
+      border-radius: 6px;
+      margin-left: 10px;
+      font-size: 14px;
+      cursor: pointer;
+    }
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-template-columns: repeat(1, 1fr);
       gap: 20px;
-      margin-top: 20px;
+      padding: 20px;
+    }
+    @media (min-width: 768px) {
+      .grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
     }
     .card {
       background: white;
@@ -30,144 +56,102 @@
       margin-top: 8px;
       font-weight: bold;
     }
-    .card button {
-      margin-top: 8px;
-      background: none;
-      border: none;
-      font-size: 20px;
-      cursor: pointer;
+    .empty-msg {
+      text-align: center;
+      margin: 40px;
+      font-size: 18px;
+      color: #888;
     }
-    .card input[type="checkbox"] {
+    .bottom-warning {
+      text-align: center;
+      margin: 30px;
+      font-weight: bold;
+      color: red;
+    }
+    .checkbox-select {
       position: absolute;
       top: 10px;
       left: 10px;
       transform: scale(1.5);
     }
-    .actions {
-      text-align: center;
-      margin: 20px 0;
-    }
-    .actions button {
-      margin: 0 10px;
-      padding: 10px 20px;
-      font-size: 14px;
-      cursor: pointer;
-    }
-    .mensagem-final {
-      margin-top: 40px;
-      text-align: center;
-      font-weight: bold;
-      color: red;
-    }
   </style>
 </head>
 <body>
-<h1>Meus Favoritos ❤️</h1>
-<div class="actions">
-  <button onclick="selecionarTudo()">✔️ Selecionar tudo</button>
-  <button onclick="limparSelecao()">❌ Limpar seleção</button>
-  <button onclick="compartilharSelecionadas()">🔗 Compartilhar selecionadas</button>
-  <button onclick="gerarPDFSelecionadas()">📄 Gerar PDF</button>
-  <button onclick="removerSelecionadas()">💔 Remover selecionadas</button>
-</div>
-<div class="grid" id="favoritos"></div>
-<p class="mensagem-final">
-  ATENÇÃO! Encaminhe suas imagens favoritas antes de fechar o navegador.<br>
-  Ao fechar o navegador você perderá seus favoritos.
-</p>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-<script>
-  const container = document.getElementById('favoritos');
-  let favoritos = JSON.parse(localStorage.getItem('favoritos')) || [];
-  favoritos.sort((a, b) => {
-    const nomeA = a.split('/').pop().replace(/\.(jpg|jpeg|png)$/i, '').replace(/[-_\s]*\d+$/, '').toLowerCase();
-    const nomeB = b.split('/').pop().replace(/\.(jpg|jpeg|png)$/i, '').replace(/[-_\s]*\d+$/, '').toLowerCase();
-    return nomeA.localeCompare(nomeB);
-  });
+  <div class="top-bar">
+    <div>
+      <a href="/index.html" class="btn">← Voltar</a>
+      <button class="btn" onclick="removerSelecionadas()">💔 Remover selecionadas</button>
+    </div>
+    <h1 style="margin: 0;">Favoritos</h1>
+    <button class="btn" onclick="baixarSelecionadas()">📥 Baixar selecionadas</button>
+  </div>
 
-  function carregarFavoritos() {
-    container.innerHTML = '';
-    if (favoritos.length === 0) {
-      container.innerHTML = "<p style='text-align:center;'>Adicione modelos aos favoritos e veja todos os seus modelos aqui.</p>";
-      return;
-    }
-    favoritos.forEach((src, i) => {
-      const nome = src.split('/').pop().replace(/\.(jpg|jpeg|png)$/i, '').replace(/[-_\s]*\d+$/, '');
-      const div = document.createElement('div');
-      div.className = 'card';
-      div.innerHTML = `
-        <input type="checkbox" class="selecao" value="${src}">
-        <img src="${src}" alt="${nome}">
-        <span>${nome}</span>
-        <button onclick="removerFavorito('${src}')">💔</button>
-      `;
-      container.appendChild(div);
+  <div class="grid" id="galeria"></div>
+
+  <p class="empty-msg" id="mensagem-vazio" style="display: none;">
+    Adicione modelos aos favoritos e veja todos os seus modelos aqui.
+  </p>
+
+  <p class="bottom-warning">
+    ATENÇÃO! Encaminhe suas imagens favoritas antes de fechar o navegador. Ao fechar o navegador você perderá seus favoritos.
+  </p>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const galeria = document.getElementById('galeria');
+      const msgVazio = document.getElementById('mensagem-vazio');
+      let favoritos = JSON.parse(localStorage.getItem('favoritos')) || [];
+
+      favoritos = favoritos.sort((a, b) => a.localeCompare(b));
+
+      if (favoritos.length === 0) {
+        msgVazio.style.display = 'block';
+        return;
+      }
+
+      favoritos.forEach(src => {
+        const nome = src.split('/').pop().replace(/\.[^.]+$/, '').replace(/[-_\s]*(\d+)$/, '');
+        const card = document.createElement('div');
+        card.className = 'card';
+
+        const checkbox = document.createElement('input');
+        checkbox.type = 'checkbox';
+        checkbox.className = 'checkbox-select';
+        checkbox.value = src;
+
+        const img = document.createElement('img');
+        img.src = src;
+        const span = document.createElement('span');
+        span.textContent = nome;
+
+        card.appendChild(checkbox);
+        card.appendChild(img);
+        card.appendChild(span);
+        galeria.appendChild(card);
+      });
     });
-  }
 
-  function removerFavorito(src) {
-    favoritos = favoritos.filter(f => f !== src);
-    localStorage.setItem('favoritos', JSON.stringify(favoritos));
-    carregarFavoritos();
-  }
-
-  function selecionadas() {
-    return Array.from(document.querySelectorAll('.selecao:checked')).map(cb => cb.value);
-  }
-
-  function selecionarTudo() {
-    document.querySelectorAll('.selecao').forEach(cb => cb.checked = true);
-  }
-
-  function limparSelecao() {
-    document.querySelectorAll('.selecao').forEach(cb => cb.checked = false);
-  }
-
-  function removerSelecionadas() {
-    const selecionadasList = selecionadas();
-    if (selecionadasList.length === 0) return alert("Nenhuma imagem selecionada.");
-    favoritos = favoritos.filter(f => !selecionadasList.includes(f));
-    localStorage.setItem('favoritos', JSON.stringify(favoritos));
-    carregarFavoritos();
-  }
-
-  function compartilharSelecionadas() {
-    const selecionadasList = selecionadas();
-    if (selecionadasList.length === 0) return alert("Nenhuma imagem selecionada.");
-    alert("O compartilhamento direto de várias imagens ainda será ativado. Por enquanto, copie ou baixe as imagens manualmente.");
-  }
-
-  async function gerarPDFSelecionadas() {
-    const {{ jsPDF }} = window.jspdf;
-    const selecionadasList = selecionadas();
-    if (selecionadasList.length === 0) return alert("Nenhuma imagem selecionada.");
-    const pdf = new jsPDF({ orientation: 'portrait', unit: 'cm', format: [21, 21] });
-    for (let i = 0; i < selecionadasList.length; i++) {
-      const src = selecionadasList[i];
-      const nome = src.split('/').pop().replace(/\.(jpg|jpeg|png)$/i, '').replace(/[-_\s]*\d+$/, '');
-      const img = new Image();
-      img.crossOrigin = 'anonymous';
-      img.src = src;
-      await img.decode();
-      const canvas = await html2canvas(img, { backgroundColor: null, useCORS: true });
-      const imgData = canvas.toDataURL("image/jpeg", 1.0);
-      if (i > 0) pdf.addPage();
-      pdf.addImage(imgData, 'JPEG', 1.75, 1.75, 17.5, 17.5);
-      pdf.setFontSize(14);
-      pdf.setTextColor(0, 0, 0);
-      pdf.setFillColor(255, 255, 255);
-      pdf.rect(5.5, 19, 10, 1, 'F');
-      pdf.text(nome, 6, 19.7);
-      pdf.setDrawColor(1, 185, 181);
-      pdf.setLineWidth(0.15);
-      pdf.line(11, 20.5, 21 - 1.5, 20.5);
-      pdf.text(`${i + 1}`, 21 - 1.8, 21 - 2.2);
+    function removerSelecionadas() {
+      const selecionadas = Array.from(document.querySelectorAll('.checkbox-select:checked')).map(cb => cb.value);
+      if (selecionadas.length === 0) return alert('Nenhuma imagem selecionada.');
+      let favoritos = JSON.parse(localStorage.getItem('favoritos')) || [];
+      favoritos = favoritos.filter(item => !selecionadas.includes(item));
+      localStorage.setItem('favoritos', JSON.stringify(favoritos));
+      location.reload();
     }
-    pdf.save("favoritos-catalogo.pdf");
-  }
 
-  carregarFavoritos();
-</script>
+    function baixarSelecionadas() {
+      const selecionadas = Array.from(document.querySelectorAll('.checkbox-select:checked')).map(cb => cb.value);
+      if (selecionadas.length === 0) return alert("Nenhuma imagem selecionada.");
+      selecionadas.forEach(src => {
+        const link = document.createElement('a');
+        link.href = src;
+        link.download = src.split('/').pop();
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      });
+    }
+  </script>
 </body>
 </html>
