@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Favoritos</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
     * { box-sizing: border-box; }
     body { font-family: sans-serif; margin: 0; background: #f4f4f4; }
@@ -12,9 +12,11 @@
       top: 0;
       background: white;
       display: flex;
+      flex-wrap: wrap;
       justify-content: space-between;
       align-items: center;
       padding: 10px 20px;
+      gap: 10px;
       box-shadow: 0 2px 5px rgba(0,0,0,0.1);
       z-index: 1000;
     }
@@ -24,7 +26,6 @@
       text-decoration: none;
       padding: 8px 14px;
       border-radius: 6px;
-      margin-left: 10px;
       font-size: 14px;
       cursor: pointer;
     }
@@ -56,6 +57,12 @@
       margin-top: 8px;
       font-weight: bold;
     }
+    .checkbox-select {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      transform: scale(1.5);
+    }
     .empty-msg {
       text-align: center;
       margin: 40px;
@@ -68,21 +75,14 @@
       font-weight: bold;
       color: red;
     }
-    .checkbox-select {
-      position: absolute;
-      top: 10px;
-      left: 10px;
-      transform: scale(1.5);
-    }
   </style>
 </head>
 <body>
   <div class="top-bar">
-    <div>
-      <a href="/index.html" class="btn">← Voltar</a>
-      <button class="btn" onclick="removerSelecionadas()">💔 Remover selecionadas</button>
-    </div>
-    <h1 style="margin: 0;">Favoritos</h1>
+    <a href="https://catalogo.artspapeisdeparede.com.br/index.html" class="btn">← Voltar</a>
+    <button class="btn" onclick="selecionarTodos()">Selecionar todos</button>
+    <button class="btn" onclick="desmarcarTodos()">Desmarcar todos</button>
+    <button class="btn" onclick="removerSelecionadas()">💔 Remover selecionadas</button>
     <button class="btn" onclick="baixarSelecionadas()">📥 Baixar selecionadas</button>
   </div>
 
@@ -110,7 +110,7 @@
       }
 
       favoritos.forEach(src => {
-        const nome = src.split('/').pop().replace(/\.[^.]+$/, '').replace(/[-_\s]*(\d+)$/, '');
+        const nome = src.split('/').pop().replace(/\.[^.]+$/, '').replace(/[-_\s]*(\d+)$/, '').replace(/\(\d+\)$/, '');
         const card = document.createElement('div');
         card.className = 'card';
 
@@ -130,6 +130,14 @@
         galeria.appendChild(card);
       });
     });
+
+    function selecionarTodos() {
+      document.querySelectorAll('.checkbox-select').forEach(cb => cb.checked = true);
+    }
+
+    function desmarcarTodos() {
+      document.querySelectorAll('.checkbox-select').forEach(cb => cb.checked = false);
+    }
 
     function removerSelecionadas() {
       const selecionadas = Array.from(document.querySelectorAll('.checkbox-select:checked')).map(cb => cb.value);
