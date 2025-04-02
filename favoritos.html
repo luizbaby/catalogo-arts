@@ -22,6 +22,8 @@
 <body>
 <div class="top-bar">
   <a href="https://catalogo.artspapeisdeparede.com.br/index.html" class="btn">&larr; Voltar</a>
+  <button class="btn" onclick="selecionarTodos()">☑️ Marcar todos</button>
+  <button class="btn" onclick="desmarcarTodos()">❌ Desmarcar todos</button>
   <button class="btn" onclick="baixarSelecionadas()">📥 Baixar selecionadas</button>
   <button class="btn" onclick="removerSelecionadas()">💔 Remover selecionadas</button>
 </div>
@@ -82,6 +84,14 @@
     localStorage.setItem('favoritos', JSON.stringify(f));
     location.reload();
   }
+
+  function selecionarTodos() {
+  document.querySelectorAll('.checkbox-select').forEach(cb => cb.checked = true);
+  }
+  
+  function desmarcarTodos() {
+  document.querySelectorAll('.checkbox-select').forEach(cb => cb.checked = false);
+}
 </script>
 </body>
 </html>
