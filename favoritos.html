@@ -1,24 +1,23 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <title>Favoritos</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-    * { box-sizing: border-box; }
     body { font-family: sans-serif; margin: 0; background: #f4f4f4; }
     .top-bar {
       position: sticky;
       top: 0;
       background: white;
       display: flex;
-      flex-wrap: wrap;
       justify-content: space-between;
       align-items: center;
       padding: 10px 20px;
-      gap: 10px;
       box-shadow: 0 2px 5px rgba(0,0,0,0.1);
       z-index: 1000;
+      flex-wrap: wrap;
+      gap: 10px;
     }
     .btn {
       background: #01b9b5;
@@ -36,9 +35,7 @@
       padding: 20px;
     }
     @media (min-width: 768px) {
-      .grid {
-        grid-template-columns: repeat(3, 1fr);
-      }
+      .grid { grid-template-columns: repeat(3, 1fr); }
     }
     .card {
       background: white;
@@ -48,118 +45,146 @@
       text-align: center;
       position: relative;
     }
-    .card img {
-      width: 100%;
-      border-radius: 8px;
-    }
-    .card span {
-      display: block;
-      margin-top: 8px;
-      font-weight: bold;
-    }
+    .card img { width: 100%; border-radius: 8px; }
+    .card span { display: block; margin-top: 8px; font-weight: bold; }
     .checkbox-select {
       position: absolute;
       top: 10px;
       left: 10px;
       transform: scale(1.5);
     }
-    .empty-msg {
-      text-align: center;
-      margin: 40px;
-      font-size: 18px;
-      color: #888;
+    .heart-remove {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: none;
+      border: none;
+      font-size: 20px;
+      cursor: pointer;
+      color: red;
     }
-    .bottom-warning {
+    .mensagem-vazia {
       text-align: center;
-      margin: 30px;
-      font-weight: bold;
+      font-size: 18px;
+      margin-top: 40px;
+    }
+    .aviso {
+      margin-top: 40px;
+      font-size: 14px;
+      text-align: center;
       color: red;
     }
   </style>
 </head>
 <body>
   <div class="top-bar">
-    <a href="https://catalogo.artspapeisdeparede.com.br/index.html" class="btn">← Voltar</a>
+    <a href="index.html" class="btn">&larr; Voltar</a>
+    <button class="btn" onclick="baixarSelecionadas()">📥 Baixar selecionadas</button>
+    <button class="btn" onclick="removerSelecionadas()">💔 Remover selecionadas</button>
     <button class="btn" onclick="selecionarTodos()">Selecionar todos</button>
     <button class="btn" onclick="desmarcarTodos()">Desmarcar todos</button>
-    <button class="btn" onclick="removerSelecionadas()">💔 Remover selecionadas</button>
-    <button class="btn" onclick="baixarSelecionadas()">📥 Baixar selecionadas</button>
   </div>
-
   <div class="grid" id="galeria"></div>
+  <p class="mensagem-vazia" id="mensagem"></p>
+  <p class="aviso">ATENÇÃO! Encaminhe suas imagens favoritas antes de fechar o navegador. Ao fechar o navegador você perderá seus favoritos.</p>
 
-  <p class="empty-msg" id="mensagem-vazio" style="display: none;">
-    Adicione modelos aos favoritos e veja todos os seus modelos aqui.
-  </p>
+<script>
+function limparNome(nome) {
+  return nome
+    .replace(/\.[^/.]+$/, '')            // remove extensão
+    .replace(/\s*[(（]?\d+[)）]?$/, '')   // remove números e (1), (2), etc
+    .trim();
+}
 
-  <p class="bottom-warning">
-    ATENÇÃO! Encaminhe suas imagens favoritas antes de fechar o navegador. Ao fechar o navegador você perderá seus favoritos.
-  </p>
+function carregarFavoritos() {
+  const container = document.getElementById('galeria');
+  const favoritos = JSON.parse(localStorage.getItem('favoritos')) || [];
+  const mensagem = document.getElementById('mensagem');
+  container.innerHTML = '';
 
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const galeria = document.getElementById('galeria');
-      const msgVazio = document.getElementById('mensagem-vazio');
-      let favoritos = JSON.parse(localStorage.getItem('favoritos')) || [];
+  if (favoritos.length === 0) {
+    mensagem.textContent = "Adicione modelos aos favoritos e veja todos os seus modelos aqui.";
+    return;
+  }
 
-      favoritos = favoritos.sort((a, b) => a.localeCompare(b));
+  mensagem.textContent = "";
 
-      if (favoritos.length === 0) {
-        msgVazio.style.display = 'block';
-        return;
-      }
+  const favoritosOrdenados = favoritos.slice().sort((a, b) => {
+    const nomeA = decodeURIComponent(a.split('/').pop()).toLowerCase();
+    const nomeB = decodeURIComponent(b.split('/').pop()).toLowerCase();
+    return nomeA.localeCompare(nomeB);
+  });
 
-      favoritos.forEach(src => {
-        const nome = src.split('/').pop().replace(/\.[^.]+$/, '').replace(/[-_\s]*(\d+)$/, '').replace(/\(\d+\)$/, '');
-        const card = document.createElement('div');
-        card.className = 'card';
+  favoritosOrdenados.forEach(src => {
+    const card = document.createElement('div');
+    card.className = 'card';
 
-        const checkbox = document.createElement('input');
-        checkbox.type = 'checkbox';
-        checkbox.className = 'checkbox-select';
-        checkbox.value = src;
+    const checkbox = document.createElement('input');
+    checkbox.type = 'checkbox';
+    checkbox.className = 'checkbox-select';
+    checkbox.value = src;
 
-        const img = document.createElement('img');
-        img.src = src;
-        const span = document.createElement('span');
-        span.textContent = nome;
+    const btn = document.createElement('button');
+    btn.className = 'heart-remove';
+    btn.innerText = '💔';
+    btn.onclick = () => removerFavorito(src);
 
-        card.appendChild(checkbox);
-        card.appendChild(img);
-        card.appendChild(span);
-        galeria.appendChild(card);
-      });
-    });
+    const img = document.createElement('img');
+    img.src = src;
 
-    function selecionarTodos() {
-      document.querySelectorAll('.checkbox-select').forEach(cb => cb.checked = true);
-    }
+    const nomeOriginal = decodeURIComponent(src.split('/').pop());
+    const nomeLimpo = limparNome(nomeOriginal);
+    const nome = document.createElement('span');
+    nome.innerText = nomeLimpo;
 
-    function desmarcarTodos() {
-      document.querySelectorAll('.checkbox-select').forEach(cb => cb.checked = false);
-    }
+    card.appendChild(checkbox);
+    card.appendChild(btn);
+    card.appendChild(img);
+    card.appendChild(nome);
+    container.appendChild(card);
+  });
+}
 
-    function removerSelecionadas() {
-      const selecionadas = Array.from(document.querySelectorAll('.checkbox-select:checked')).map(cb => cb.value);
-      if (selecionadas.length === 0) return alert('Nenhuma imagem selecionada.');
-      let favoritos = JSON.parse(localStorage.getItem('favoritos')) || [];
-      favoritos = favoritos.filter(item => !selecionadas.includes(item));
-      localStorage.setItem('favoritos', JSON.stringify(favoritos));
-      location.reload();
-    }
+function removerFavorito(src) {
+  let favoritos = JSON.parse(localStorage.getItem('favoritos')) || [];
+  favoritos = favoritos.filter(f => f !== src);
+  localStorage.setItem('favoritos', JSON.stringify(favoritos));
+  carregarFavoritos();
+}
 
-    function baixarSelecionadas() {
-      const selecionadas = Array.from(document.querySelectorAll('.checkbox-select:checked')).map(cb => cb.value);
-      if (selecionadas.length === 0) return alert("Nenhuma imagem selecionada.");
-      selecionadas.forEach(src => {
-        const link = document.createElement('a');
-        link.href = src;
-        link.download = src.split('/').pop();
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-      });
-    }
-  </script>
+function baixarSelecionadas() {
+  const selecionadas = Array.from(document.querySelectorAll('.checkbox-select:checked')).map(cb => cb.value);
+  if (selecionadas.length === 0) return alert("Nenhuma imagem selecionada.");
+  selecionadas.forEach(src => {
+    const link = document.createElement('a');
+    link.href = src;
+    link.download = src.split('/').pop();
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  });
+}
+
+function removerSelecionadas() {
+  const selecionadas = Array.from(document.querySelectorAll('.checkbox-select:checked')).map(cb => cb.value);
+  if (selecionadas.length === 0) return alert("Nenhuma imagem selecionada.");
+  let favoritos = JSON.parse(localStorage.getItem('favoritos')) || [];
+  selecionadas.forEach(src => {
+    favoritos = favoritos.filter(f => f !== src);
+  });
+  localStorage.setItem('favoritos', JSON.stringify(favoritos));
+  carregarFavoritos();
+}
+
+function selecionarTodos() {
+  document.querySelectorAll('.checkbox-select').forEach(cb => cb.checked = true);
+}
+
+function desmarcarTodos() {
+  document.querySelectorAll('.checkbox-select').forEach(cb => cb.checked = false);
+}
+
+carregarFavoritos();
+</script>
 </body>
 </html>
